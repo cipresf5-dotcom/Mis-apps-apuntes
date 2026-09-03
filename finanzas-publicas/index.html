@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finanzas Públicas · Estudio por Unidades</title>
+  <meta name="theme-color" content="#1c6e48" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Barra lateral -->
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">FP</div>
+        <div class="brand-text">
+          <strong>Finanzas Públicas</strong>
+          <span>UNNE · 3er año</span>
+        </div>
+      </div>
+
+      <div class="progress-global">
+        <div class="progress-global-head">
+          <span>Progreso general</span>
+          <span id="progress-global-pct">0%</span>
+        </div>
+        <div class="bar"><div id="progress-global-bar" class="bar-fill"></div></div>
+      </div>
+
+      <nav id="unit-list" aria-label="Unidades"></nav>
+
+      <button id="reset-progress" class="ghost-btn" title="Reiniciar todo el progreso">↺ Reiniciar progreso</button>
+      <button id="theme-toggle" class="ghost-btn" title="Cambiar tema claro/oscuro">◐ Tema</button>
+    </aside>
+
+    <!-- Contenido -->
+    <main id="content">
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <!-- Datos del curso -->
+  <script src="data/curso.js"></script>
+  <script src="data/u01.js"></script>
+  <script src="data/u02.js"></script>
+  <script src="data/u03.js"></script>
+  <script src="data/u04.js"></script>
+  <script src="data/u05.js"></script>
+  <script src="data/u06.js"></script>
+  <script src="data/u07.js"></script>
+  <script src="data/u08.js"></script>
+  <script src="data/u09.js"></script>
+  <script src="data/u10.js"></script>
+  <script src="data/u11.js"></script>
+  <script src="data/parciales.js"></script>
+  <!-- Lógica -->
+  <script src="assets/app.js"></script>
+  <script>
+    // Registro del service worker (solo cuando se sirve por http/https; en file:// se omite sin error)
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>

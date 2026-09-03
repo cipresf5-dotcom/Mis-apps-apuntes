@@ -1,0 +1,11 @@
+# Blueprint de Render para el monorepo "mis-apps".
+# Cada app vive en su propia carpeta y tiene aquí su propio bloque de servicio.
+# Para agregar una app nueva más adelante: crear su carpeta y sumar otro
+# bloque "type: web / runtime: static" con su rootDir correspondiente.
+services:
+  - type: web
+    name: finanzas-publicas-estudio
+    runtime: static
+    rootDir: finanzas-publicas
+    buildCommand: ""
+    staticPublishPath: .

@@ -1,0 +1,14 @@
+# Archivos de uso exclusivo de escritorio (no se publican en la web),
+# válido para cualquier app que se agregue a este repo.
+*.vbs
+*.bat
+instalar.ps1
+build-mobile.ps1
+LEEME.txt
+*(celular).html
+*.ico
+
+# Basura del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

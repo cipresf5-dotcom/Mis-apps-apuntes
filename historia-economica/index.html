@@ -1,0 +1,1463 @@
+<title>Cuaderno de Historia Económica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E7E3D4; --surface:#F4F1E6; --surface-2:#DDD8C5; --raised:#FBF9F1;
+  --ink:#22241F; --ink-soft:#54564B; --ink-faint:#83816F;
+  --border:#C8C2AA; --border-soft:#D9D4C0;
+  --accent:#AD4A26; --accent-ink:#7C3419; --accent-soft:#EEDCCB;
+  --teal:#2B6B5E; --teal-soft:#DCE7DF; --teal-ink:#194138;
+  --gold:#A87A24; --gold-soft:#EFE3C3;
+  --danger:#9A3E3E;
+  --font-display:'Fraunces',ui-serif,Georgia,serif;
+  --font-body:'Archivo',ui-sans-serif,system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  --shadow-card:0 1px 2px rgba(30,25,10,.06), 0 6px 20px -8px rgba(30,25,10,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171A; --surface:#1C1F23; --surface-2:#262A2F; --raised:#20242A;
+    --ink:#EDE9DC; --ink-soft:#B9B4A2; --ink-faint:#7D7A6E;
+    --border:#33373D; --border-soft:#2A2E34;
+    --accent:#E08A5B; --accent-ink:#F3B893; --accent-soft:#33251C;
+    --teal:#5FAE9C; --teal-soft:#1B2B27; --teal-ink:#9BD4C4;
+    --gold:#D8AC5C; --gold-soft:#2E2716;
+    --danger:#E3908F;
+    --shadow-card:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -10px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171A; --surface:#1C1F23; --surface-2:#262A2F; --raised:#20242A;
+  --ink:#EDE9DC; --ink-soft:#B9B4A2; --ink-faint:#7D7A6E;
+  --border:#33373D; --border-soft:#2A2E34;
+  --accent:#E08A5B; --accent-ink:#F3B893; --accent-soft:#33251C;
+  --teal:#5FAE9C; --teal-soft:#1B2B27; --teal-ink:#9BD4C4;
+  --gold:#D8AC5C; --gold-soft:#2E2716;
+  --danger:#E3908F;
+  --shadow-card:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -10px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
+  font-size:15.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent-soft); color:var(--accent-ink);}
+a{color:var(--teal);}
+h1,h2,h3,h4{font-family:var(--font-display); text-wrap:balance; margin:0; color:var(--ink); font-weight:700;}
+p{margin:0 0 1em; max-width:66ch;}
+button{font-family:inherit; cursor:pointer;}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px;}
+.mono{font-family:var(--font-mono); font-variant-numeric:tabular-nums;}
+
+/* ---------- shell ---------- */
+.app-shell{
+  display:grid; grid-template-columns:322px 1fr; min-height:100vh;
+}
+@media (max-width:880px){
+  .app-shell{grid-template-columns:1fr;}
+  .sidebar{position:fixed; inset:0 20% 0 0; z-index:40; transform:translateX(-101%); transition:transform .25s ease;}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-scrim{display:none; position:fixed; inset:0; background:rgba(10,10,8,.4); z-index:39;}
+  .sidebar-scrim.open{display:block;}
+  .menu-btn{display:inline-flex !important;}
+}
+
+/* ---------- sidebar ---------- */
+.sidebar{
+  background:var(--surface); border-right:1px solid var(--border);
+  display:flex; flex-direction:column; height:100vh; position:sticky; top:0;
+}
+.sidebar-head{padding:22px 20px 14px; border-bottom:1px solid var(--border-soft);}
+.brand{display:flex; align-items:baseline; gap:8px; margin-bottom:3px;}
+.brand-mark{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:2px 5px;}
+.brand-title{font-family:var(--font-display); font-weight:700; font-size:18px; letter-spacing:-.01em;}
+.brand-sub{font-size:12.5px; color:var(--ink-faint); margin-top:2px;}
+.search-wrap{padding:14px 16px 8px;}
+.search-input{
+  width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border);
+  background:var(--raised); color:var(--ink); font-size:13.5px; font-family:var(--font-body);
+}
+.search-input::placeholder{color:var(--ink-faint);}
+.overall-progress{padding:2px 16px 12px;}
+.op-row{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-faint); font-family:var(--font-mono); margin-bottom:5px; letter-spacing:.03em;}
+.op-track{height:5px; border-radius:3px; background:var(--surface-2); overflow:hidden;}
+.op-fill{height:100%; background:linear-gradient(90deg,var(--teal),var(--accent)); border-radius:3px; transition:width .3s ease;}
+
+.nav-scroll{flex:1; overflow-y:auto; padding:6px 10px 10px;}
+.nav-static{padding:3px 6px 8px;}
+.nav-link{
+  display:flex; align-items:center; gap:9px; padding:9px 10px; border-radius:8px; font-size:13.5px;
+  color:var(--ink-soft); text-decoration:none; font-weight:600;
+}
+.nav-link svg{flex:none; opacity:.75;}
+.nav-link:hover{background:var(--surface-2); color:var(--ink);}
+.nav-link.active{background:var(--accent-soft); color:var(--accent-ink);}
+
+.unit-block{border-radius:10px; margin-bottom:3px;}
+.unit-head{
+  display:flex; align-items:center; gap:10px; width:100%; padding:9px 8px; border:none; background:none;
+  border-radius:9px; text-align:left; color:var(--ink);
+}
+.unit-head:hover{background:var(--surface-2);}
+.unit-tab{
+  font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink-soft); border-radius:5px; width:24px; height:20px; display:flex; align-items:center; justify-content:center; flex:none;
+}
+.unit-block.u1 .unit-tab,.unit-block.u1 .up-fill{background:var(--accent);}
+.unit-block.u2 .unit-tab,.unit-block.u2 .up-fill{background:var(--teal);}
+.unit-block.u3 .unit-tab,.unit-block.u3 .up-fill{background:var(--gold);}
+.unit-block.u4 .unit-tab,.unit-block.u4 .up-fill{background:var(--accent);}
+.unit-block.u5 .unit-tab,.unit-block.u5 .up-fill{background:var(--teal);}
+.unit-block.u6 .unit-tab,.unit-block.u6 .up-fill{background:var(--gold);}
+.unit-titlewrap{flex:1; min-width:0;}
+.unit-name{font-size:13px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.unit-range{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint);}
+.unit-chevron{flex:none; transition:transform .18s ease; opacity:.6;}
+.unit-block.open .unit-chevron{transform:rotate(90deg);}
+.unit-progress-track{height:3px; background:var(--surface-2); border-radius:2px; margin:2px 8px 6px; overflow:hidden;}
+.up-fill{height:100%; border-radius:2px;}
+.section-list{list-style:none; margin:0; padding:0 0 6px 34px; display:none;}
+.unit-block.open .section-list{display:block;}
+.section-link{
+  display:flex; align-items:center; gap:7px; padding:6px 8px; margin:1px 0; border-radius:7px;
+  font-size:12.5px; color:var(--ink-soft); text-decoration:none; border-left:2px solid transparent;
+}
+.section-link:hover{background:var(--surface-2); color:var(--ink);}
+.section-link.active{color:var(--accent-ink); border-left-color:var(--accent); background:var(--accent-soft);}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--border); flex:none;}
+.dot.done{background:var(--teal);}
+
+/* ---------- topbar / main ---------- */
+.main{min-width:0; display:flex; flex-direction:column;}
+.topbar{
+  position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--border-soft);
+  display:flex; align-items:center; gap:12px; padding:12px 28px;
+}
+.menu-btn{display:none; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--ink);}
+.breadcrumb{font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); letter-spacing:.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.breadcrumb b{color:var(--ink-soft); font-weight:600;}
+.topbar-spacer{flex:1;}
+.pill-btn{
+  display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); color:var(--ink-soft); font-size:12.5px; font-weight:600; white-space:nowrap;
+}
+.pill-btn:hover{border-color:var(--accent); color:var(--accent-ink);}
+.pill-btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+.pill-btn.primary:hover{opacity:.92;}
+
+.view{padding:34px 30px 90px; max-width:900px; margin:0 auto; width:100%;}
+
+/* ---------- home ---------- */
+.hero{margin-bottom:34px;}
+.eyebrow{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;}
+.hero h1{font-size:clamp(28px,4vw,40px); line-height:1.08; margin-bottom:14px;}
+.hero p.lead{font-size:16px; color:var(--ink-soft); max-width:62ch;}
+
+.timeline-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 22px 12px; box-shadow:var(--shadow-card); margin:26px 0 34px;}
+.timeline-card h3{font-size:14px; font-family:var(--font-body); font-weight:700; color:var(--ink-soft); margin-bottom:10px;}
+.timeline-svg{width:100%; height:auto; display:block;}
+.tl-band.u1{fill:var(--accent);} .tl-band.u2{fill:var(--teal);} .tl-band.u3{fill:var(--gold);}
+.tl-band.u4{fill:var(--accent);} .tl-band.u5{fill:var(--teal);} .tl-band.u6{fill:var(--gold);}
+.tl-band{opacity:.88;}
+.tl-num{font-family:var(--font-mono); font-size:10px; fill:var(--ink-faint); letter-spacing:.04em;}
+.tl-axis,.tl-tick{stroke:var(--border);}
+.tl-label{fill:var(--ink-faint); font-family:var(--font-mono); font-size:10.5px;}
+.milestone-row{display:flex; flex-wrap:wrap; gap:7px; margin-top:16px; padding-top:16px; border-top:1px solid var(--border-soft);}
+.milestone-chip{font-size:11.5px; color:var(--ink-soft); background:var(--surface-2); border-radius:999px; padding:5px 11px 5px 9px; display:inline-flex; gap:6px; align-items:center;}
+.milestone-chip b{font-family:var(--font-mono); color:var(--accent); font-weight:600;}
+
+.howto{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:38px;}
+@media (max-width:700px){.howto{grid-template-columns:1fr;}}
+.howto-item{background:var(--surface); border:1px solid var(--border-soft); border-radius:12px; padding:16px 17px;}
+.howto-num{font-family:var(--font-mono); font-size:11px; color:var(--accent); font-weight:600; margin-bottom:6px;}
+.howto-item h4{font-size:14px; margin-bottom:5px;}
+.howto-item p{font-size:13px; color:var(--ink-soft); margin:0;}
+
+.section-heading{font-size:13px; font-weight:700; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.08em; margin:0 0 14px;}
+.unit-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+@media (max-width:700px){.unit-grid{grid-template-columns:1fr;}}
+.unit-card{
+  text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 19px;
+  display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow-card);
+  text-decoration:none; color:inherit;
+}
+.unit-card:hover{border-color:var(--accent);}
+.unit-card-top{display:flex; align-items:center; justify-content:space-between;}
+.unit-card-tab{font-family:var(--font-mono); font-size:12px; font-weight:700; padding:3px 8px; border-radius:5px; color:#fff;}
+.unit-card.u1 .unit-card-tab{background:var(--accent);}
+.unit-card.u2 .unit-card-tab{background:var(--teal);}
+.unit-card.u3 .unit-card-tab{background:var(--gold);}
+.unit-card.u4 .unit-card-tab{background:var(--accent);}
+.unit-card.u5 .unit-card-tab{background:var(--teal);}
+.unit-card.u6 .unit-card-tab{background:var(--gold);}
+.unit-card-range{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint);}
+.unit-card h4{font-size:16.5px; line-height:1.25;}
+.unit-card p{font-size:13px; color:var(--ink-soft); margin:0;}
+.unit-card-progress{margin-top:auto; padding-top:6px;}
+.ucp-track{height:4px; border-radius:2px; background:var(--surface-2); overflow:hidden;}
+.ucp-fill{height:100%; border-radius:2px;}
+.unit-card.u1 .ucp-fill{background:var(--accent);}
+.unit-card.u2 .ucp-fill{background:var(--teal);}
+.unit-card.u3 .ucp-fill{background:var(--gold);}
+.unit-card.u4 .ucp-fill{background:var(--accent);}
+.unit-card.u5 .ucp-fill{background:var(--teal);}
+.unit-card.u6 .ucp-fill{background:var(--gold);}
+.ucp-label{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint); margin-top:4px;}
+
+/* ---------- section content ---------- */
+.crumb-eyebrow{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;}
+.article-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border-soft);}
+.article-head h1{font-size:clamp(24px,3vw,32px); line-height:1.15;}
+.study-toggle{
+  display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid var(--border);
+  background:var(--surface); font-size:12px; font-weight:600; color:var(--ink-soft); white-space:nowrap; flex:none;
+}
+.study-toggle input{width:15px; height:15px; accent-color:var(--teal);}
+.study-toggle.done{border-color:var(--teal); color:var(--teal-ink); background:var(--teal-soft);}
+
+.prose h2{font-size:19px; margin:30px 0 12px;}
+.prose h2:first-child{margin-top:0;}
+.prose h3{font-size:15.5px; margin:22px 0 8px; color:var(--ink);}
+.prose p{color:var(--ink); font-size:15px;}
+.prose ul,.prose ol{margin:0 0 1em; padding-left:22px; max-width:64ch;}
+.prose li{margin-bottom:5px; font-size:15px;}
+.prose strong{color:var(--ink); font-weight:700;}
+.prose em.tag{
+  font-style:normal; font-family:var(--font-mono); font-size:12.5px; background:var(--surface-2); color:var(--ink-soft);
+  padding:1px 6px; border-radius:4px;
+}
+
+.callout{border-radius:12px; padding:16px 18px; margin:20px 0; border:1px solid var(--border-soft);}
+.callout-terms{background:var(--gold-soft); border-color:color-mix(in srgb, var(--gold) 40%, transparent);}
+.callout-recap{background:var(--teal-soft); border-color:color-mix(in srgb, var(--teal) 35%, transparent);}
+.callout-link{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 35%, transparent);}
+.callout h4{font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:7px;}
+.callout-terms h4{color:var(--gold);}
+.callout-recap h4{color:var(--teal-ink);}
+.callout-link h4{color:var(--accent-ink);}
+.term-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px 18px;}
+@media (max-width:640px){.term-grid{grid-template-columns:1fr;}}
+.term-item dt{font-weight:700; font-size:13px; color:var(--ink);}
+.term-item dd{margin:1px 0 8px; font-size:12.5px; color:var(--ink-soft);}
+.callout-recap ul{margin:0; padding-left:18px;}
+.callout-recap li{font-size:13.5px; color:var(--teal-ink); margin-bottom:5px;}
+.callout p{font-size:13.5px; margin:0;}
+
+.section-nav{display:flex; justify-content:space-between; gap:12px; margin-top:38px; padding-top:22px; border-top:1px solid var(--border-soft);}
+.section-nav a{
+  flex:1; display:flex; flex-direction:column; gap:3px; text-decoration:none; padding:12px 15px; border-radius:10px;
+  border:1px solid var(--border); background:var(--surface); max-width:48%;
+}
+.section-nav a:hover{border-color:var(--accent);}
+.section-nav a.next{text-align:right; margin-left:auto; align-items:flex-end;}
+.section-nav small{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em;}
+.section-nav span{font-size:13.5px; font-weight:600; color:var(--ink);}
+
+/* ---------- glossary ---------- */
+.glossary-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+@media (max-width:700px){.glossary-grid{grid-template-columns:1fr;}}
+.gloss-item{background:var(--surface); border:1px solid var(--border-soft); border-radius:11px; padding:14px 16px;}
+.gloss-item dt{font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:4px;}
+.gloss-item .gloss-unit{font-family:var(--font-mono); font-size:10px; color:var(--accent); margin-left:6px;}
+.gloss-item dd{margin:0; font-size:13px; color:var(--ink-soft);}
+
+/* ---------- quiz ---------- */
+.quiz-wrap{display:flex; flex-direction:column; align-items:center; gap:20px;}
+.quiz-filters{display:flex; flex-wrap:wrap; gap:7px; justify-content:center;}
+.chip{
+  font-family:var(--font-mono); font-size:11.5px; padding:6px 11px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); color:var(--ink-soft);
+}
+.chip.active{background:var(--ink); color:var(--surface); border-color:var(--ink);}
+:root:not([data-theme="light"]) .chip.active{background:var(--accent); border-color:var(--accent); color:#1a1006;}
+:root[data-theme="dark"] .chip.active{background:var(--accent); border-color:var(--accent); color:#1a1006;}
+.quiz-stats{font-family:var(--font-mono); font-size:12.5px; color:var(--ink-faint); display:flex; gap:16px;}
+.quiz-stats b{color:var(--ink);}
+.card-stage{width:100%; max-width:560px; perspective:1400px; height:300px;}
+.flashcard{
+  width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform .45s cubic-bezier(.4,.2,.2,1); cursor:pointer;
+}
+.flashcard.flipped{transform:rotateY(180deg);}
+.card-face{
+  position:absolute; inset:0; backface-visibility:hidden; border-radius:16px; border:1px solid var(--border);
+  background:var(--surface); box-shadow:var(--shadow-card); padding:30px 32px; display:flex; flex-direction:column;
+}
+.card-face.back{transform:rotateY(180deg); background:var(--teal-soft); border-color:color-mix(in srgb, var(--teal) 40%, transparent);}
+.card-kicker{font-family:var(--font-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;}
+.card-face.back .card-kicker{color:var(--teal-ink);}
+.card-text{font-family:var(--font-display); font-size:21px; line-height:1.35; font-weight:600; flex:1; display:flex; align-items:center;}
+.card-hint{font-family:var(--font-mono); font-size:11px; color:var(--ink-faint); text-align:center;}
+.quiz-actions{display:flex; gap:12px;}
+.quiz-btn{padding:12px 22px; border-radius:11px; border:1px solid var(--border); background:var(--surface); font-weight:700; font-size:13.5px; display:flex; align-items:center; gap:8px;}
+.quiz-btn.no{color:var(--danger); border-color:color-mix(in srgb, var(--danger) 40%, transparent);}
+.quiz-btn.yes{color:var(--teal-ink); border-color:color-mix(in srgb, var(--teal) 45%, transparent); background:var(--teal-soft);}
+.quiz-empty{text-align:center; padding:50px 20px; color:var(--ink-soft);}
+.quiz-round-end{text-align:center; padding:40px 20px;}
+.quiz-round-end h3{font-size:22px; margin-bottom:8px;}
+.quiz-round-end p{color:var(--ink-soft); margin:0 auto 20px;}
+
+/* ---------- search results ---------- */
+.search-results-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+.sr-item{display:block; padding:13px 16px; border:1px solid var(--border-soft); border-radius:10px; background:var(--surface); text-decoration:none;}
+.sr-item:hover{border-color:var(--accent);}
+.sr-item small{font-family:var(--font-mono); font-size:10.5px; color:var(--accent); text-transform:uppercase; letter-spacing:.05em;}
+.sr-item div{font-size:14px; color:var(--ink); font-weight:600; margin-top:3px;}
+
+.scroll-top-space{height:1px;}
+</style>
+
+<div class="sidebar-scrim" id="scrim"></div>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <div class="brand"><span class="brand-mark">HE</span><span class="brand-title">Cuaderno</span></div>
+      <div class="brand-sub">Historia Económica &middot; 6 unidades</div>
+    </div>
+    <div class="search-wrap">
+      <input class="search-input" id="searchInput" type="text" placeholder="Buscar tema, término, año…" />
+    </div>
+    <div class="overall-progress">
+      <div class="op-row"><span>PROGRESO GENERAL</span><span id="opPct">0%</span></div>
+      <div class="op-track"><div class="op-fill" id="opFill" style="width:0%"></div></div>
+    </div>
+    <nav class="nav-scroll" id="navScroll">
+      <div class="nav-static">
+        <a href="#/home" class="nav-link" data-nav="home">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          Inicio
+        </a>
+        <a href="#/glosario" class="nav-link" data-nav="glosario">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h13a3 3 0 013 3v13H7a3 3 0 01-3-3V4z"/><path d="M4 17.5V4"/></svg>
+          Glosario
+        </a>
+        <a href="#/repaso" class="nav-link" data-nav="repaso">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="14" height="18" rx="2" transform="rotate(-8 10 13)"/><path d="M9 9h6M9 13h6"/></svg>
+          Modo repaso
+        </a>
+      </div>
+      <div id="unitsNav"></div>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <div class="breadcrumb" id="breadcrumb">Inicio</div>
+      <div class="topbar-spacer"></div>
+    </div>
+    <div class="view" id="view"></div>
+  </div>
+</div>
+
+<script>
+window.UNITS = [
+{
+  id:"u1", num:"01", title:"El modelo agroexportador: expansión y crisis", range:"1880 – 1930",
+  blurb:"De la Revolución Industrial global al granero del mundo: cómo la Argentina se insertó en la economía internacional y por qué ese modelo llegó a su límite.",
+  sections:[
+    {
+      id:"1-1", title:"1.1 La Revolución Industrial y el sistema capitalista",
+      html:`
+      <h2>Un cambio de más de 150 años</h2>
+      <p>Antes de estudiar la Argentina hay que entender el sistema en el que se insertó. El <strong>capitalismo</strong> es el sistema económico en el que individuos y empresas privadas organizan la producción e intercambian bienes y servicios a través del mercado, donde los precios —no una autoridad central— coordinan qué se produce, cómo y para quién. La <strong>Revolución Industrial</strong> es el proceso que llevó ese sistema a su forma moderna: comenzó en Inglaterra hacia 1770 por una combinación de causas agrarias (cercamientos y mejoras en el rendimiento de la tierra, que liberaron mano de obra rural), demográficas (crecimiento poblacional sostenido) e institucionales (un Estado que garantizaba propiedad privada y contratos, un sistema financiero temprano y acceso a mercados coloniales). No fue un invento puntual sino un <em class="tag">cambio estructural</em>: se transformó el modo mismo de producir, permitiendo aumentar la cantidad de bienes disponibles y acortar los tiempos de fabricación, rompiendo con el techo que imponía la producción artesanal.</p>
+
+      <h3>Etapa 1 (1770–1850): del taller artesanal a la fábrica</h3>
+      <p>El proceso avanzó por fases. Primero hubo una transformación artesanal anclada en las ciudades. Luego surgió la <strong>protoindustrialización</strong> o "sistema a domicilio": la producción ya no ocurre solo en talleres urbanos sino que se reparte también en el campo, incorporando a familias rurales como mano de obra dispersa antes de que existiera la fábrica moderna. A partir de ahí aparecen las <strong>manufacturas centralizadas</strong>, grandes establecimientos urbanos que concentran la producción, y finalmente el <strong>sistema fabril</strong>: la división de tareas dentro del proceso productivo, la idea que Adam Smith llevaría a la teoría clásica liberal como base de la ganancia de productividad (su ejemplo de la fábrica de alfileres es el caso de manual). Esta innovación organizativa —fábricas que reemplazan al taller disperso— tuvo consecuencias concretas: nuevas fuentes de energía (agua, luego carbón y vapor), el despegue de las ramas textil y metalúrgica, un aumento notable en la cantidad y variedad de bienes disponibles, migraciones internas del campo a la ciudad, y la aparición de dos clases sociales nuevas y antagónicas: el <strong>proletariado</strong> (el trabajador asalariado, sin más propiedad que su fuerza de trabajo) y el <strong>empresario industrial</strong>.</p>
+
+      <h3>Etapa 2 (1850–1914): la Segunda Revolución Industrial</h3>
+      <p>La segunda fase profundiza el proceso a escala mundial. Se consolida la <strong>alianza entre industriales e inversores</strong> del sector financiero, que permite llevar la industria a nuevas regiones del planeta; aparecen nuevas fuentes de energía (electricidad, petróleo, motor de combustión interna); y se produce una fuerte <strong>concentración económica</strong> de sectores y ramas —los primeros grandes trusts y carteles—. Es en esta etapa cuando el capitalismo industrial deja de ser un fenómeno británico para convertirse en un sistema-mundo, y es también el momento en que la Argentina se conecta con él.</p>
+
+      <h3>Los tres pilares que arman el mercado mundial</h3>
+      <p>Tres elementos integraron la economía internacional entre 1870 y 1914:</p>
+      <ol>
+        <li><strong>El patrón oro</strong>, como mecanismo monetario internacional.</li>
+        <li><strong>Las inversiones internacionales</strong>, que financiaron la infraestructura de los países periféricos.</li>
+        <li><strong>Los movimientos migratorios</strong>, que trasladaron mano de obra desde Europa hacia las "tierras nuevas".</li>
+      </ol>
+      <p>El <strong>patrón oro</strong> es un mecanismo que fija el valor de cada moneda nacional a una cantidad determinada de oro, garantizando así un tipo de cambio fijo entre países. Su funcionamiento exigía tres reglas: libre convertibilidad de la moneda nacional en oro al valor oficial (para lo cual el país necesitaba contar con reservas metálicas), plena libertad de entrada y salida de oro —cuyo flujo dependía del comercio exterior y de la balanza de pagos— y una oferta monetaria respaldada directamente por esas reservas. La ventaja era la estabilidad cambiaria y la seguridad en las transacciones internacionales; la desventaja, una fuerte dependencia externa: como la cantidad de dinero en circulación dependía del oro disponible, una economía con pocas reservas quedaba muy vulnerable a shocks externos que no podía controlar. Entre 1870 y 1880 la mayoría de los países centrales lo adoptaron, generando por primera vez un sistema monetario internacional común.</p>
+      <p>Las <strong>inversiones internacionales</strong> circularon principalmente desde los tres grandes gigantes industriales —Gran Bretaña, Francia y Alemania— hacia territorios recientemente ocupados o conquistados, financiando la infraestructura básica que esos países periféricos no podían costear por sí mismos: industrias extractivas, comunicaciones, suministro de energía y préstamos directos a los gobiernos. Cada potencia siguió un patrón geográfico propio: Gran Bretaña privilegió los países de "población reciente" (Argentina, Australia, Canadá, donde financió sobre todo ferrocarriles y servicios públicos); Francia se concentró en el Mediterráneo y Europa oriental, y más tarde en Sudamérica, África y Asia; Alemania orientó sus capitales hacia América Latina y el Próximo Oriente.</p>
+      <p>Las <strong>migraciones</strong> tuvieron dos sentidos: del campo a las ciudades dentro de cada país, y —lo más novedoso del siglo XIX— movimientos masivos de un continente a otro. Millones de europeos, empujados por la crisis agrícola y demográfica en su continente, cruzaron el Atlántico hacia las "tierras nuevas" de ultramar, entre ellas la Argentina.</p>
+
+      <h3>1870–1914: la "paz armada" y el fin de una era</h3>
+      <p>Este período de expansión convivió con una creciente carrera imperialista y armamentista entre las potencias europeas —el reparto colonial de África y Asia, el nacionalismo exacerbado— que se conoce como la "paz armada". Esa tensión estalla en la <strong>Primera Guerra Mundial</strong> (1914-1918), que cierra la etapa de expansión clásica del capitalismo industrial: rompe la división internacional del trabajo tal como se la conocía hasta entonces (centros industriales / periferias productoras de materias primas) y obliga a repensar las bases del crecimiento económico, abriendo paso a nuevas teorías económicas.</p>
+
+      <h3>Una alternativa al capitalismo: la Revolución Rusa</h3>
+      <p>En ese mismo contexto de crisis del orden liberal surge, en 1917, la <strong>Revolución Rusa</strong>, que inicia la formación del primer Estado socialista: un sistema en el que la propiedad de los medios de producción pasa a manos del Estado. Conviene conocer sus tres etapas, porque el contraste con el capitalismo occidental reaparecerá como telón de fondo a lo largo de todo el curso.</p>
+      <p><strong>Etapa 1 — Comunismo de guerra:</strong> nacionalización de industrias, control centralizado de la producción, expropiación de grandes propietarios y creación de monopolios estatales. Las consecuencias fueron duras: caída de la producción agrícola e industrial, desabastecimiento, alta inflación y expansión del mercado negro, resistencia campesina reprimida y movimientos contrarrevolucionarios.</p>
+      <p><strong>Etapa 2 — NEP (Nueva Política Económica):</strong> ante el fracaso del comunismo de guerra, la dirigencia soviética retrocede dos pasos para poder avanzar. Se abandona la transformación radical para resistir el aislamiento internacional tras la guerra, restablecer la colaboración entre el Estado y los campesinos, y concretar la recuperación económica apoyándose primero en la producción agrícola y luego en la industrial. Se permite nuevamente el capital privado a pequeña escala. Fue pensada como una medida transitoria, y resultó profundamente impopular entre los sectores marxistas más ortodoxos, que la vivían como una claudicación.</p>
+      <p><strong>Etapa 3 — Planificación central (Stalin):</strong> se introduce la planificación económica centralizada, se renacionaliza toda la economía y se impulsa una industrialización acelerada. Se fijan planes industriales con objetivos y medios definidos desde el Estado, y se elimina la agricultura individual a favor de cooperativas campesinas (koljós). Los resultados: fuerte aumento de la tasa de inversión, crecimiento de la industria pesada (con un PBI que llegó a crecer en torno al 6% anual), expansión educativa y desarrollo de regiones antes marginales. Un dato que conviene recordar para más adelante: <strong>la URSS, con una economía cerrada al comercio mundial, quedó inmune a la crisis de 1930</strong> que sí devastó al capitalismo occidental —el tema con el que arranca la Unidad 2.</p>
+      `,
+      terms:[
+        {t:"Capitalismo", d:"Sistema donde privados producen e intercambian bienes vía transacciones de mercado a precios variables."},
+        {t:"Sistema fabril", d:"Organización de la producción con división de tareas dentro de una fábrica; base de la ganancia de productividad industrial."},
+        {t:"Patrón oro", d:"Mecanismo monetario que fija el valor de cada moneda a una cantidad de oro, generando tipos de cambio fijos entre países."},
+        {t:"Comunismo de guerra", d:"Primera etapa económica soviética (1918-21): nacionalización total y control centralizado, con fuerte caída productiva."},
+        {t:"NEP", d:"Nueva Política Económica soviética (1921): retorno parcial al mercado y al capital privado para salir del colapso del comunismo de guerra."},
+        {t:"Planificación central", d:"Modelo estalinista de economía dirigida por el Estado mediante planes quinquenales, base de la industrialización soviética."},
+      ],
+      recap:[
+        "El capitalismo industrial nace en Inglaterra (1770) y se expande en dos etapas: transformación artesanal/fabril (1770-1850) y Segunda Revolución Industrial (1850-1914).",
+        "El mercado mundial de 1870-1914 se sostiene sobre tres pilares: patrón oro, inversiones internacionales y migraciones masivas.",
+        "La Primera Guerra Mundial cierra la etapa clásica de expansión y rompe la división internacional del trabajo.",
+        "La Revolución Rusa (1917) ofrece una alternativa al capitalismo: comunismo de guerra → NEP → planificación central estalinista.",
+      ]
+    },
+    {
+      id:"1-2", title:"1.2 Formación y expansión clásica del modelo (1880-1914)",
+      html:`
+      <h2>Un territorio que se puebla y se organiza</h2>
+      <p>El modelo agroexportador argentino se divide en dos etapas: la <strong>clásica (1880-1914)</strong>, que se desarrolla en esta sección, y la <strong>de transición (1914-1930)</strong>, marcada por la Primera Guerra Mundial, que se aborda en el punto 1.3. Su formación, sin embargo, arranca antes: hacia 1850 las tierras del Río de la Plata estaban, en su mayor parte, despobladas, sin asentamientos permanentes salvo comunidades indígenas trashumantes que no practicaban agricultura. Con la llegada española se instalan las primeras colonias, relativamente equilibradas entre sí en recursos —ganado de corral, principalmente— hasta que Buenos Aires, gracias a su puerto, se transforma en el centro político del territorio. Toda la actividad económica comienza a orientarse hacia allí, concentrando población asalariada en comparación con el Litoral, Córdoba y el Noroeste: es lo que suele describirse como la <strong>"atlantización" de la economía</strong> rioplatense. El proceso de formación del Estado argentino se extiende desde la Revolución de Mayo de 1810 hasta la sanción de la Constitución Nacional en 1853.</p>
+
+      <h3>Los factores que hicieron posible el modelo</h3>
+      <p>La expansión agroexportadora combinó condiciones externas e internas. Del lado externo: el desarrollo tecnológico (barcos a vapor, frigoríficos, ferrocarril), la creciente demanda de alimentos de la Europa industrializada, la disponibilidad de capitales europeos buscando colocación, y precios internacionales favorables para la producción agropecuaria. Del lado interno: las ventajas naturales de la región pampeana (clima templado, suelos fértiles), la organización institucional lograda con la Constitución de 1853, la seguridad jurídica que permitió formar un mercado interno e integrar económicamente las regiones, la pacificación del interior tras décadas de guerras civiles, y una decidida expansión territorial —la Campaña del Desierto (1878-1885) y la Guerra del Chaco contra el Paraguay (Guerra de la Triple Alianza, 1865-1870)— que fijó los límites del país e incorporó nuevas tierras productivas. A esto se sumaron políticas activas de ocupación del territorio a través de la inmigración. Políticamente, el período se sostiene sobre una alianza conservadora entre familias terratenientes que se reparten el poder provincial —la llamada "Liga de los Gobernadores"— y que domina la escena hasta 1916.</p>
+
+      <h3>De la vaquería al frigorífico: 200 años de ganadería</h3>
+      <p>La ganadería recorrió etapas bien definidas. La primera fue la <strong>vaquería</strong>: caza de ganado cimarrón (salvaje) para aprovechar solo el cuero, el primer producto de exportación de la región, sin que existiera aún propiedad organizada sobre los animales. Le sigue la etapa de la <strong>estancia</strong>, con el tasajo (carne salada, secada al sol, destinada sobre todo a alimentar esclavos en Brasil y Cuba) como producto central, elaborado en los saladeros hasta cerca de 1850. Aquí aparece la figura del gaucho y, aunque los límites de la propiedad todavía eran difusos, ya se reconoce la propiedad privada del ganado. Dentro de esta etapa se distinguen dos momentos: la <strong>estancia lanar</strong>, que a partir de inversiones extranjeras refina la oveja criolla mediante razas especiales y cuidados productivos (el tasajo convive con la lana hasta 1890, mientras la vaca queda relegada a tierras marginales); y la <strong>estancia vacuna</strong>, que nace con la aparición del frigorífico y la tecnología del congelado/enfriado, lo que permite exportar carne vacuna de calidad a Gran Bretaña. Esta innovación tiene un efecto territorial decisivo: las mejores tierras pampeanas, antes ocupadas por ovejas, pasan a manos del ganado vacuno, que se convierte en el negocio más rentable. Todo este recorrido —de la vaquería colonial al frigorífico de exportación— cubre cerca de dos siglos de historia ganadera rioplatense. Sostenerlo exigió una inversión extranjera constante: genética de razas europeas, alambrados (que además de mejorar el manejo del rodeo terminaron de consolidar la propiedad privada de la tierra) y molinos de viento para asegurar agua en zonas más secas.</p>
+
+      <h3>La inmigración: promesa y frustración</h3>
+      <p>El primer censo nacional (1869) revela una densidad de población muy baja. A partir de 1870 la política oficial busca atraer inmigración —originalmente se soñaba con colonos anglosajones o nórdicos— para fomentar la colonización agrícola. La <strong>Ley 817 de Inmigración y Colonización</strong> (1876, bajo la presidencia de Avellaneda) organiza un sistema mixto: el Estado se encarga de instalar a los recién llegados en algunas zonas, mientras que en otras actúan concesionarios privados. En la práctica, sin embargo, la inmigración llegó de manera espontánea, no planificada, empujada por una combinación de factores internos —estabilidad política y económica, fin de las guerras civiles, la eliminación del indígena que liberó tierras— y externos: la depresión económica que golpeó a Europa entre 1880 y 1890, la salida masiva de italianos y españoles, la creciente competencia de Estados Unidos en la producción agrícola mundial (que restaba oportunidades a los campesinos europeos) y la disponibilidad de capitales para financiar el pasaje transatlántico. Hacia 1914 el país alcanza unos 8.000.000 de habitantes, cuatro veces la población de 1869, con los extranjeros representando cerca del 30% del total, concentrados en la pampa húmeda y Buenos Aires.</p>
+      <p>Pero muy pocos inmigrantes lograron radicarse en el campo como propietarios: la imposibilidad de acceder a la tierra —por la negativa de los grandes ganaderos a subdividir sus estancias— hizo fracasar buena parte de los proyectos de colonización agrícola. La mayoría terminó como mano de obra urbana, arrendatario o trabajador rural golondrina. Esta frustración explica, en buena medida, por qué la Argentina no reprodujo el modelo de "granja familiar" propietaria que sí se dio en Estados Unidos o Canadá, y sembró tensiones sociales que estallarían más adelante en conflictos como el Grito de Alcorta (1912).</p>
+
+      <h3>Los tres ejes del desarrollo agrario</h3>
+      <p>Tres procesos hicieron posible poner en producción la pampa húmeda. Primero, la <strong>Conquista del Desierto</strong>: eliminó la amenaza indígena, incorporó nuevas tierras al circuito productivo y, como consecuencia directa, disparó su precio —un proceso que terminó concentrando la propiedad en pocas manos, ya que fueron sobre todo inversores y familias con capital quienes pudieron comprar los lotes rematados. Segundo, el <strong>ferrocarril</strong>: incorporó tierras antes marginales, redujo drásticamente el costo del transporte y generó nuevos núcleos urbanos a lo largo de sus vías, aunque su trazado en forma de abanico, centrado en el puerto de Buenos Aires, terminó de reforzar la lógica exportadora del modelo antes que una integración territorial equilibrada. Tercero, la <strong>modificación de la actividad ganadera</strong>: la mejora genética de los planteles exigía pasturas más blandas, lo que llevó a introducir la rotación de alfalfa y cereales en los campos —y de allí nació la figura del <strong>arrendamiento</strong>: el propietario cedía la tierra a un agricultor por unos años para que la trabajara y mejorara la pastura, tras lo cual el campo volvía a la ganadería.</p>
+      <p>Sobre esa base se desarrolla la agricultura: en 1880 la producción de cereales apenas alcanza a cubrir la demanda interna; hacia 1890 ya aparecen excedentes exportables de trigo, maíz y lino, y la Argentina empieza a ganarse el mote de "granero del mundo".</p>
+
+      <h3>Moneda, bancos y la crisis de 1890</h3>
+      <p>Desde 1860 la Argentina se incorpora plenamente al mercado mundial y comienza a recibir flujos de capital externo, tanto inversión privada como préstamos a los gobiernos provinciales y nacional. Puertas adentro, el sistema monetario y bancario era, antes de 1880, prácticamente anárquico: convivían distintas monedas y bancos emisores (el Banco de Buenos Aires, el Banco Hipotecario, el Banco Nacional) sin una legislación unificada sobre el papel moneda. En 1883 el presidente Roca intenta adoptar el patrón oro, pero la paridad no logra sostenerse por falta de reservas suficientes. Su sucesor, <strong>Juárez Celman</strong>, estimula fuertemente la actividad económica y atrae una ola de inversiones dejando en segundo plano la estabilidad monetaria y cambiaria. En 1887 se sanciona la <strong>Ley de Bancos Garantidos</strong>: cualquier banco podía emitir billetes siempre que depositara oro en el Tesoro nacional a cambio de bonos de respaldo. En la práctica, esto disparó la especulación: muchos bancos, sin reservas propias, pedían préstamos externos solo para poder constituir el depósito que les permitía emitir más billetes —una verdadera burbuja de crédito construida sobre crédito. El desenlace es la conocida <strong>crisis de 1890</strong> (crisis de Baring), que hunde al sistema financiero. <strong>Carlos Pellegrini</strong> asume entonces la tarea de reconstrucción: negocia con los acreedores extranjeros, crea la <strong>Caja de Conversión</strong> (1890) —un fondo destinado a respaldar la emisión de billetes— y funda el <strong>Banco de la Nación Argentina</strong> (1891). Finalmente, la <strong>Ley de Conversión de 1899</strong> adopta de manera definitiva y estable el patrón oro, cerrando dos décadas de inestabilidad monetaria y abriendo un período de solidez cambiaria que se sostendrá hasta la Primera Guerra Mundial.</p>
+
+      <h3>El ferrocarril y la industria naciente</h3>
+      <p>El ferrocarril fue, sin dudas, el cambio más drástico en el transporte del siglo XIX: permitió mover volúmenes y alcanzar velocidades impensadas hasta entonces, unificando espacios económicos del interior —como Mendoza y Tucumán— con el litoral. Su desarrollo tuvo tres etapas: inicio y consolidación (1857-1886); una etapa de "manía" especulativa (1886-1889), en la que se otorgaron concesiones de tierras de manera casi indiscriminada —65 concesiones, 24 de ellas con una garantía estatal de interés del 5%, lo que alimentó la burbuja que estalla en 1890—; y una etapa final de maduración (1890-1915). En paralelo crece un incipiente sector industrial, ligado tanto al propio modelo exportador (frigoríficos, molinos harineros) como al consumo de un mercado interno en expansión (alimentos, bebidas, construcción). Existieron además aranceles —pensados originalmente con fines fiscales, no industrialistas— que tuvieron el efecto colateral de proteger industrias regionales como la azucarera en Tucumán y la vitivinícola en Mendoza, que abastecían al mercado del litoral: un primer antecedente, aunque menor, de lo que más adelante será la industrialización por sustitución de importaciones.</p>
+      `,
+      terms:[
+        {t:"Atlantización", d:"Reorientación de la economía rioplatense hacia el Atlántico y el puerto de Buenos Aires como eje del comercio exterior."},
+        {t:"Vaquería / saladero", d:"Primeras formas de explotación ganadera: caza de cueros y luego elaboración de tasajo (carne salada) para exportar."},
+        {t:"Frigorífico", d:"Establecimiento que permite congelar o enfriar carne para exportarla; motor de la 'estancia vacuna' desde fines del siglo XIX."},
+        {t:"Arrendamiento", d:"Sistema de cesión temporal de tierra a un agricultor para rotar cultivos y mejorar la pastura antes de volver a la ganadería."},
+        {t:"Ley de Conversión (1899)", d:"Adopta de forma estable el patrón oro en la Argentina tras la crisis de 1890, dando dos décadas de estabilidad cambiaria."},
+        {t:"Caja de Conversión", d:"Fondo creado en 1890 para respaldar en oro la emisión de billetes y dar previsibilidad al sistema monetario."},
+      ],
+      recap:[
+        "El modelo agroexportador se apoya en factores externos (tecnología, demanda, capitales) e internos (pampa húmeda, Constitución de 1853, expansión territorial).",
+        "La ganadería recorre 200 años: vaquería → estancia (tasajo) → estancia lanar → estancia vacuna con frigorífico.",
+        "La inmigración masiva (8 millones en 1914) no logró convertirse en pequeña propiedad rural: la tierra siguió concentrada.",
+        "Conquista del Desierto, ferrocarril y rotación agrícola-ganadera son los tres ejes que ponen en producción la pampa húmeda.",
+        "La especulación bancaria de la Ley de Bancos Garantidos (1887) provoca la crisis de 1890; la Ley de Conversión (1899) estabiliza definitivamente la moneda.",
+      ]
+    },
+    {
+      id:"1-3", title:"1.3 Madurez y estancamiento del modelo (1914-1930)",
+      html:`
+      <h2>La Primera Guerra Mundial cierra una era</h2>
+      <p>La guerra europea de 1914-1918 clausura la etapa de gran expansión y libre flujo de capitales que había caracterizado al modelo clásico. Sus efectos inmediatos sobre la Argentina fueron duros: la salida de oro y la interrupción del crédito externo provocan una recesión entre 1913 y 1917, con caída de importaciones esenciales —carbón, maquinaria— y escasez de insumos. Paradójicamente, esa misma escasez de productos extranjeros estimula, aunque de forma limitada, a la industria local (textil, metalúrgica): es una <strong>sustitución de importaciones "de emergencia"</strong>, no planificada, que además impulsa el comercio con países neutrales como Estados Unidos. A partir de 1915 la caída abrupta de las importaciones genera saldos comerciales favorables, aunque sobre un volumen total de comercio mucho menor que antes de la guerra.</p>
+
+      <h3>El triángulo comercial imposible de cerrar</h3>
+      <p>En la posguerra se consolida una estructura de comercio desequilibrada conocida como el <strong>triángulo comercial</strong>: la Argentina vende sus carnes y cereales a Gran Bretaña, pero compra manufacturas y tecnología —automóviles, maquinaria— a Estados Unidos. El problema es que Estados Unidos, proteccionista y además competidor agrícola directo de la Argentina, no le compra lo suficiente como para equilibrar esa relación: se genera así un <strong>déficit comercial con Estados Unidos</strong> que resulta muy difícil de financiar, porque la libra esterlina —la moneda en la que la Argentina cobra sus exportaciones a Gran Bretaña— pierde convertibilidad plena en la posguerra y no puede usarse libremente para pagarle a Washington. Este desajuste estructural —vender a un socio y comprar a otro que no compra de vuelta— es una tensión que reaparecerá, bajo distintas formas, a lo largo de todo el curso.</p>
+
+      <h3>La industria empieza a diversificarse</h3>
+      <p>A diferencia de los británicos, que históricamente habían invertido en ferrocarriles y servicios públicos, el capital norteamericano que llega en estos años se dirige directamente a la industria manufacturera radicada en el país, como forma de saltar las barreras arancelarias. Así se instalan nuevas ramas: frigoríficos como Swift y Armour, terminales automotrices como Ford y General Motors, laboratorios farmacéuticos, empresas eléctricas, fábricas de cemento y neumáticos. Durante los años veinte la industria crece de manera significativa —textiles, alimentos, petróleo— aunque sigue siendo una industria subordinada, complementaria del modelo agroexportador y no un proyecto de desarrollo autónomo.</p>
+
+      <h3>La pampa llega a su límite geográfico</h3>
+      <p>Hacia 1914 se agotan las tierras vírgenes de la pampa húmeda: ya no hay más frontera hacia donde expandirse horizontalmente, de modo que cualquier aumento futuro de la producción deberá venir de la productividad y la tecnología, no de sumar hectáreas nuevas. En los años veinte, tras la crisis ganadera de 1921 —una fuerte caída de los precios de la carne por el desplome de la demanda europea de posguerra—, se produce un vuelco masivo de tierras antes ganaderas hacia la agricultura (lino, maíz, trigo): es el proceso de <strong>agriculturización</strong>. Al mismo tiempo se incorporan maquinarias —tractores, cosechadoras, mayormente importadas de Estados Unidos— para reducir costos y compensar la falta de nuevas tierras.</p>
+
+      <h3>Economías regionales bajo presión</h3>
+      <p>Las economías regionales sufren en estos años la volatilidad de sus mercados: tanto la caña de azúcar de Tucumán como el vino de Mendoza enfrentan crisis de sobreproducción durante los años veinte, ya que sus mercados protegidos resultan demasiado chicos frente a una capacidad productiva que había crecido rápido. Frente a esto, el Estado fomenta nuevos <strong>cultivos industriales</strong> orientados al mercado interno —el algodón en el Chaco y la yerba mate en Misiones— tanto para sustituir importaciones como para poblar y consolidar territorios nacionales todavía poco integrados: el puente directo hacia la historia del NEA que se desarrolla en el próximo punto.</p>
+      `,
+      terms:[
+        {t:"ISI de emergencia", d:"Industrialización liviana surgida por la escasez de importaciones durante la Primera Guerra, sin ser una política deliberada."},
+        {t:"Triángulo comercial", d:"Esquema Argentina-Gran Bretaña-Estados Unidos: se vende a Londres pero se compra a Washington, generando un déficit difícil de saldar."},
+        {t:"Agriculturización", d:"Desplazamiento de tierras ganaderas hacia cultivos agrícolas en los años 20, tras la crisis de precios de la carne de 1921."},
+      ],
+      recap:[
+        "La Primera Guerra Mundial cierra la expansión clásica: cae el crédito externo y las importaciones, y surge una ISI 'de emergencia'.",
+        "El triángulo comercial (venta a GB, compra a EEUU) genera un déficit estructural difícil de financiar en la posguerra.",
+        "El capital norteamericano de los años 20 se dirige a la industria manufacturera local, diversificando el tejido productivo.",
+        "1914 marca el fin de la frontera agrícola pampeana: de ahí en más, crecer exige productividad, no más tierra.",
+        "Tucumán y Mendoza sufren crisis de sobreproducción; el Estado promueve algodón (Chaco) y yerba mate (Misiones) como cultivos sustitutivos.",
+      ]
+    },
+    {
+      id:"1-4", title:"1.4 La región NEA durante el período (1880-1930)",
+      html:`
+      <h2>Territorios ocupados, no provincias</h2>
+      <p>Mientras la pampa húmeda se consolidaba como el corazón del modelo agroexportador, el Nordeste argentino seguía otro camino. Chaco, Formosa y Misiones eran <strong>territorios nacionales</strong>: espacios dependientes directamente del gobierno central, sin la autonomía política de una provincia, ocupados militarmente después de la Guerra de la Triple Alianza (1865-1870) para someter a las poblaciones indígenas de la región —un proceso de conquista tan violento como la Campaña del Desierto en la Patagonia, aunque bastante menos presente en la memoria histórica escolar. Corrientes, en cambio, era una provincia antigua, de estructura productiva tradicional, que quedó relativamente rezagada frente al dinamismo de los nuevos territorios vecinos. En todos los casos, el Estado nacional entregó tierras fiscales para atraer inmigrantes y empresas, buscando a la vez consolidar la soberanía sobre la frontera y poner en producción la región.</p>
+
+      <h3>Los "ciclos del oro": el NEA como enclave</h3>
+      <p>La vinculación del NEA con el modelo agroexportador nacional se dio a través de lo que suele llamarse los <strong>"ciclos del oro"</strong>: la región se integró como proveedora de insumos y productos específicos, funcionando muchas veces como un verdadero <strong>enclave</strong> —un espacio productivo conectado con el mercado mundial pero desconectado del resto de la economía nacional, donde la riqueza generada se iba hacia afuera sin dejar demasiado desarrollo local—.</p>
+      <p><strong>1. Ciclo forestal — "oro rojo" (tanino):</strong> la explotación masiva del quebracho colorado en Chaco y Santa Fe, en manos de empresas extranjeras como <strong>La Forestal</strong>, permitió exportar extracto de tanino —usado en la curtiembre de cueros en Europa— y durmientes de madera dura para las vías del ferrocarril. Fue el enclave más puro de los cuatro: generó infraestructura propia (ferrocarriles, puertos privados) pero las ganancias se remitían casi íntegramente al exterior, dejando a su paso tierras devastadas por la tala y, con el tiempo, pueblos que quedaron prácticamente abandonados cuando la empresa se retiró.</p>
+      <p><strong>2. Ciclo del algodón — "oro blanco":</strong> tuvo su gran expansión en los años 20, impulsado por el Estado en Chaco y Formosa ante los altos precios internacionales y una plaga (el picudo del algodonero) que golpeó a la producción de Estados Unidos, abriendo una ventana de oportunidad. A diferencia del tanino, este ciclo se organizó sobre la base de colonos y minifundios —pequeñas parcelas familiares—, lo que atrajo tanto inmigrantes europeos como mano de obra de provincias vecinas: un modelo más distributivo que el enclave forestal, aunque igualmente expuesto a los vaivenes del precio internacional.</p>
+      <p><strong>3. Ciclo de la yerba mate — "oro verde":</strong> en Misiones, la colonización oficial buscó autoabastecer al país de un producto que hasta entonces se importaba de Brasil. Creció de manera vertiginosa hasta desembocar en una crisis de sobreproducción en la década de 1930, que llevaría a la creación de un organismo regulador —la CRYM— que se estudia en la Unidad 2.</p>
+      <p><strong>4. Ganadería correntina:</strong> se mantuvo como una actividad marginal, extensiva, con vacunos criollos de baja calidad genética destinados al tasajo y al consumo regional, sin poder ingresar al lucrativo circuito de exportación de carnes enfriadas hacia Gran Bretaña —reservado casi exclusivamente a las razas y a la infraestructura de la pampa húmeda—. Es un desequilibrio regional que aparece ya en el origen del modelo y que, como se verá, se repite con distintas variantes en cada una de las unidades siguientes.</p>
+      `,
+      terms:[
+        {t:"Territorio nacional", d:"Espacio bajo administración directa del gobierno central, sin la autonomía política de una provincia (caso de Chaco, Formosa, Misiones)."},
+        {t:"Enclave", d:"Actividad productiva conectada al mercado mundial pero desarticulada del resto de la economía local; la renta generada se va hacia afuera."},
+        {t:"La Forestal", d:"Empresa extranjera que explotó el quebracho colorado del Chaco y Santa Fe para producir tanino; caso paradigmático de enclave."},
+        {t:"Minifundio", d:"Parcela pequeña de tierra trabajada por una familia colona; base del ciclo algodonero, más distributivo que el forestal."},
+      ],
+      recap:[
+        "Chaco, Formosa y Misiones eran territorios nacionales, ocupados militarmente tras la Guerra de la Triple Alianza (1870).",
+        "El NEA se integra al modelo agroexportador mediante cuatro 'ciclos del oro': tanino (rojo), algodón (blanco), yerba mate (verde) y ganadería correntina.",
+        "El ciclo forestal (La Forestal) es un enclave puro; el algodonero se apoya en minifundios y atrae colonos.",
+        "La región queda excluida del negocio más rentable del modelo —la carne enfriada exportable— desde su origen.",
+      ]
+    },
+  ]
+},
+{
+  id:"u2", num:"02", title:"Primera etapa del modelo sustitutivo de importaciones", range:"1930 – 1955",
+  blurb:"La Gran Depresión cierra la puerta del granero del mundo y obliga a una industrialización que nadie había planificado del todo.",
+  sections:[
+    {
+      id:"2-1", title:"2.1 Contexto internacional: la Gran Depresión y el Estado de Bienestar",
+      html:`
+      <h2>El fin del liberalismo clásico</h2>
+      <p>El período de entreguerras marca el ocaso del liberalismo económico decimonónico y el nacimiento de la intervención estatal sistemática como norma, no como excepción. La <strong>Gran Depresión</strong> arranca con el derrumbe de la bolsa de Nueva York en octubre de 1929: fue, en el fondo, una crisis de sobreproducción y deflación —se había producido más de lo que el mercado podía absorber a los precios vigentes— que se globalizó con una velocidad inédita gracias a la propia integración financiera que el patrón oro había construido. Sus efectos fueron devastadores: caída drástica del comercio mundial, freno casi total a los flujos internacionales de capital y un desempleo masivo en las economías industrializadas.</p>
+      <p>Frente a esto, los países abandonan uno tras otro el patrón oro y adoptan políticas defensivas —altos aranceles, controles de cambio— orientadas a proteger sus reservas y su empleo interno, aun a costa del comercio de los demás: es la lógica que se conoce como "empobrecer al vecino" (<em>beggar-thy-neighbor</em>), porque cada país intenta salvarse trasladando el costo del ajuste a los otros.</p>
+      <p>Ante el fracaso evidente de las recetas ortodoxas para sacar al mundo de la depresión, ganan terreno las ideas de <strong>John Maynard Keynes</strong>: el Estado debe intervenir activamente para sostener la demanda agregada, en lugar de esperar pasivamente a que el mercado se autoequilibre. El caso paradigmático es el <strong>New Deal</strong> de Franklin D. Roosevelt en Estados Unidos, que sienta las bases del moderno Estado de Bienestar: seguridad social, seguro de desempleo, obra pública financiada por el Estado y regulación financiera (la Ley Glass-Steagall, que separó la banca comercial de la banca de inversión para evitar que se repitiera la especulación de los años 20). Este giro hacia el intervencionismo estatal es el marco internacional en el que, casi al mismo tiempo, la Argentina empieza —de manera bastante menos planificada— su propio camino hacia la industrialización.</p>
+      `,
+      terms:[
+        {t:"Gran Depresión (1929)", d:"Crisis de sobreproducción y deflación iniciada en Wall Street que colapsa el comercio y el crédito mundiales."},
+        {t:"New Deal", d:"Programa de intervención estatal de Roosevelt en EEUU: obra pública, seguridad social y regulación financiera."},
+        {t:"Keynesianismo", d:"Corriente que propone la intervención estatal para sostener la demanda agregada, frente al liberalismo ortodoxo."},
+      ],
+      recap:[
+        "La crisis de 1929 globaliza una recesión de sobreproducción y deflación, y hunde el comercio y el crédito mundiales.",
+        "Los países abandonan el patrón oro y adoptan proteccionismo ('empobrecer al vecino').",
+        "El New Deal de Roosevelt inaugura el Estado de Bienestar y el intervencionismo keynesiano como nueva norma.",
+      ]
+    },
+    {
+      id:"2-2", title:"2.2 La Gran Depresión y su impacto en la Argentina (1930-1946)",
+      html:`
+      <h2>El modelo agroexportador toca su límite</h2>
+      <p>La crisis golpea a la Argentina por dos vías simultáneas: el derrumbe de los precios de sus exportaciones y el cierre del crédito externo del que había dependido desde 1860. Ese doble shock pone fin, en la práctica, al modelo agroexportador tal como había funcionado hasta entonces, y fuerza —más por necesidad que por proyecto— un proceso de industrialización.</p>
+      <p>Los gobiernos de la llamada <strong>"Década Infame"</strong> (José Félix Uriburu, que llega al poder por un golpe militar en 1930, y luego Agustín P. Justo, dentro de la coalición conservadora conocida como la Concordancia, sostenida además con fraude electoral) responden con un conjunto de herramientas nuevas para la Argentina:</p>
+      <ul>
+        <li><strong>Política cambiaria:</strong> se instaura el <strong>Control de Cambios</strong> en 1931, para administrar las escasas divisas disponibles y priorizar las importaciones esenciales frente a las prescindibles.</li>
+        <li><strong>Política fiscal:</strong> se crea el <strong>Impuesto a los Réditos</strong> (antecedente del actual impuesto a las ganancias) para financiar al Estado ante el derrumbe de la recaudación aduanera, que hasta entonces había sido la principal fuente de ingresos fiscales.</li>
+        <li><strong>Regulaciones sectoriales:</strong> nacen las <strong>Juntas Reguladoras</strong> (de Granos, de Carnes, de la Yerba Mate, entre otras), organismos estatales pensados para sostener los precios internos que pagaban los productores agrarios y evitar una ola de quiebras en el campo.</li>
+        <li><strong>Entidades financieras:</strong> en 1935 se crea el <strong>Banco Central de la República Argentina (BCRA)</strong>, un organismo mixto encargado de regular la moneda y el crédito, y de socorrer al sistema bancario cuando fuera necesario —una función que hasta entonces no existía de manera institucionalizada—.</li>
+      </ul>
+      <p>Sobre esta base se desarrolla el proceso de <strong>Industrialización por Sustitución de Importaciones (ISI)</strong>: la combinación de falta de divisas para importar y aranceles altos —que hasta entonces habían sido sobre todo fiscales— actúa como una barrera proteccionista casi "natural", no diseñada de antemano. Bajo su amparo crece una industria liviana —textil, alimenticia, metalúrgica liviana— orientada a abastecer el mercado interno que ya no podía surtirse con importaciones. Participan tanto capitales nacionales como extranjeros, estos últimos radicándose en el país precisamente para saltar las barreras arancelarias. Se la conoce como la etapa de <strong>"sustitución fácil"</strong>: bienes de consumo simples, que exigen poco capital y poca tecnología, muy distintos de los bienes de capital y la industria pesada que la Argentina seguirá sin poder producir por décadas —una brecha que reaparecerá como "restricción externa" en la Unidad 3.</p>
+      `,
+      terms:[
+        {t:"Control de Cambios (1931)", d:"Sistema de administración estatal de las divisas disponibles para priorizar importaciones esenciales."},
+        {t:"Juntas Reguladoras", d:"Organismos estatales (Granos, Carnes, Yerba Mate) que sostienen precios agrarios internos ante el derrumbe de la demanda externa."},
+        {t:"BCRA (1935)", d:"Banco Central de la República Argentina, creado como organismo mixto para regular moneda, crédito y asistir al sistema bancario."},
+        {t:"ISI 'fácil'", d:"Primera etapa de sustitución de importaciones: bienes de consumo simples, con poco capital y tecnología requeridos."},
+      ],
+      recap:[
+        "La caída de precios de exportación y el cierre del crédito externo ponen fin al modelo agroexportador clásico.",
+        "La 'Década Infame' crea Control de Cambios (1931), Impuesto a los Réditos, Juntas Reguladoras y el BCRA (1935).",
+        "La ISI de estos años es 'fácil': industria liviana de consumo, protegida de forma casi accidental por la escasez de divisas.",
+      ]
+    },
+    {
+      id:"2-3", title:"2.3 Etapas de la economía peronista (1946-1955)",
+      html:`
+      <h2>Redistribución, industria y los límites de la restricción externa</h2>
+      <p>El peronismo, que llega al gobierno en 1946 con una fuerte base en el movimiento obrero organizado, profundiza la ISI redistribuyendo ingresos hacia los trabajadores y la industria. Pero, como se verá, termina chocando con los mismos límites externos que habían empezado a insinuarse en la etapa anterior.</p>
+
+      <h3>Primer Plan Quinquenal (1947-1952): expansión y redistribución</h3>
+      <p>Se nacionalizan servicios públicos —los ferrocarriles (comprados, en rigor, a las compañías británicas usando las libras esterlinas que la Argentina había acumulado durante la guerra sin poder gastarlas), los teléfonos— y también el BCRA, con lo cual el Estado pasa a controlar de manera plena la política de crédito. Se aumentan fuertemente los salarios reales y el consumo interno, en el marco de un incipiente Estado de Bienestar "a la criolla": derechos laborales, aguinaldo, vacaciones pagas, tribunales de trabajo.</p>
+      <p>La pieza clave del período es el <strong>IAPI (Instituto Argentino para la Promoción del Intercambio)</strong>: el Estado se convierte en comprador monopólico de las cosechas, pagándoles a los productores agrarios un precio fijo —muchas veces por debajo del internacional— y revendiéndolas afuera a los altos precios de posguerra. La diferencia entre ambos precios, la <strong>renta agraria</strong>, se transfiere así hacia la industria y los salarios urbanos. Es un mecanismo deliberado de transferencia de ingresos entre sectores, tan efectivo como controvertido: el campo, al ver reducido su incentivo a invertir y producir más, empieza a estancarse, sembrando un problema que se hará evidente muy pronto.</p>
+
+      <h3>La crisis de 1949</h3>
+      <p>El modelo se frena por una combinación de factores: el Plan Marshall reactiva la agricultura europea y reduce la demanda de granos argentinos justo cuando Estados Unidos, además, coloca sus propios excedentes agrícolas como ayuda alimentaria; los precios internacionales de los granos caen; sequías locales golpean la cosecha; y las reservas acumuladas durante la guerra —cuando la Argentina no podía importar y por eso ahorraba divisas— se agotan frente a una industrialización que sigue necesitando maquinaria e insumos importados. Aparece la inflación, y con ella el fenómeno del <strong>"cuello de botella"</strong>: la industria, que ya sustituyó los bienes de consumo más simples, sigue dependiendo de máquinas y materias primas importadas, y sin dólares suficientes para comprarlas el crecimiento se frena en seco. Es la primera manifestación clara de un problema —la <strong>restricción externa</strong>— que va a organizar buena parte de la Unidad 3.</p>
+
+      <h3>Segundo Plan Quinquenal (1953-1955): ajuste y "vuelta al campo"</h3>
+      <p>Perón aplica un giro hacia el ajuste: el <strong>Plan de Emergencia de 1952</strong> congela precios y salarios durante dos años para frenar la inflación. Se busca aumentar la productividad agraria —importando tractores, ya que no había más tierra disponible para expandir horizontalmente, tal como se había señalado en 1.3— y, en un giro ideológico notable respecto de los primeros años nacionalistas, atraer capital extranjero mediante la <strong>Ley 14.222</strong> (1953), firmando contratos petroleros con la California Argentina (filial de la Standard Oil) para reducir el déficit energético. En el plano productivo se impulsa también la industria de base —siderurgia, la industria automotriz estatal con el IAME— y la mecanización agrícola. Esta apertura hacia el capital extranjero resultó muy resistida por sectores nacionalistas, incluso dentro del propio movimiento peronista, y contribuyó al desgaste político que desembocaría en el golpe de 1955.</p>
+      `,
+      terms:[
+        {t:"IAPI", d:"Instituto Argentino para la Promoción del Intercambio: monopolio estatal del comercio exterior que transfiere renta agraria a la industria y los salarios."},
+        {t:"Cuello de botella", d:"Freno al crecimiento cuando la industria, dependiente de insumos importados, se queda sin las divisas necesarias para comprarlos."},
+        {t:"Restricción externa", d:"Límite estructural al crecimiento impuesto por la escasez de divisas frente a una industria que necesita importar bienes de capital."},
+        {t:"Plan de Emergencia (1952)", d:"Congelamiento de precios y salarios por dos años para frenar la inflación desatada tras la crisis de 1949."},
+      ],
+      recap:[
+        "El Primer Plan Quinquenal nacionaliza servicios públicos y usa el IAPI para transferir renta agraria hacia la industria y los salarios.",
+        "La crisis de 1949 (caída de precios agrícolas + agotamiento de reservas) inaugura el problema del 'cuello de botella' importador.",
+        "El Segundo Plan Quinquenal ajusta salarios, busca productividad agraria y abre la puerta al capital extranjero (Ley 14.222).",
+        "La apertura petrolera de 1953-55 genera fuerte resistencia nacionalista y erosiona políticamente al gobierno antes de 1955.",
+      ]
+    },
+    {
+      id:"2-4", title:"2.4 La región NEA durante el período (1930-1955)",
+      html:`
+      <h2>Proveedor protegido del mercado interno</h2>
+      <p>Durante estas décadas el Nordeste se reorienta hacia el mercado interno, ahora protegido por aranceles y controles de cambio, funcionando como proveedor de insumos industriales y alimentos para los centros urbanos —sobre todo Buenos Aires—, aunque siempre dentro de una estructura de dependencia respecto del litoral.</p>
+      <p>El <strong>algodón</strong> ("oro blanco") en Chaco y Formosa se expande de manera masiva para abastecer a la naciente industria textil sustitutiva: el Estado protege el mercado interno y sigue fomentando la colonización con pequeños productores, profundizando el patrón minifundista que ya se había insinuado en los años 20. La <strong>yerba mate</strong> atraviesa, tras la crisis de sobreproducción de 1935 en Misiones —anticipada al final de la Unidad 1—, la creación de la <strong>CRYM (Comisión Reguladora de la Yerba Mate)</strong>, que limita las nuevas plantaciones y fija precios mínimos, estabilizando así a los pequeños colonos: es, en cierto modo, el mismo tipo de intervención estatal que las Juntas Reguladoras nacionales aplican al campo pampeano, ahora a escala regional.</p>
+      <p>Aparecen además nuevos cultivos promovidos por el Estado en Misiones y Corrientes: el <strong>tung</strong> (una semilla oleaginosa usada para aceites industriales), el <strong>té</strong> (cuya importación se prohíbe en 1952 para forzar el desarrollo de una industria nacional) y el arroz y el tabaco, sostenidos con fuerte protección arancelaria. El resultado es una economía de pequeños productores fuertemente dependientes de la regulación estatal para sobrevivir.</p>
+      <p>Sin embargo, la vinculación con la ISI tiene un límite claro: el NEA crece al ritmo que le marca la demanda industrial de Buenos Aires, pero la industrialización propiamente local sigue siendo escasa —apenas desmotadoras de algodón y secaderos de yerba—, de modo que la materia prima sale de la región con muy poco valor agregado. Esa combinación perpetúa la pobreza estructural y una dependencia creciente de los subsidios estatales cada vez que llega una nueva crisis: un patrón que, lejos de resolverse, se repetirá en cada unidad siguiente.</p>
+      `,
+      terms:[
+        {t:"CRYM", d:"Comisión Reguladora de la Yerba Mate (1935), limita plantaciones y fija precios tras la crisis de sobreproducción en Misiones."},
+        {t:"Desmotadora", d:"Planta que separa la fibra de algodón de la semilla; casi el único procesamiento industrial local del algodón chaqueño."},
+      ],
+      recap:[
+        "El NEA se reorienta hacia el mercado interno protegido, como proveedor de insumos industriales para el litoral.",
+        "El algodón se expande sobre minifundios; la CRYM (1935) estabiliza a los colonos yerbateros de Misiones.",
+        "Nuevos cultivos protegidos (tung, té, arroz, tabaco) profundizan una economía regional dependiente de la regulación estatal.",
+        "La industrialización local sigue siendo mínima: la materia prima sale con poco valor agregado, perpetuando la pobreza estructural.",
+      ]
+    },
+  ]
+},
+{
+  id:"u3", num:"03", title:"Segunda etapa del modelo de sustitución de importaciones", range:"1955 – 1973",
+  blurb:"Stop and go, desarrollismo y una industria que crece pero no exporta: el problema de la restricción externa se vuelve crónico.",
+  sections:[
+    {
+      id:"3-1", title:"3.1 Ciclos económicos, problemas sectoriales y puja distributiva",
+      html:`
+      <h2>Una economía que avanza en zigzag</h2>
+      <p>Este período se caracteriza por una marcada inestabilidad macroeconómica y política: gobiernos civiles y militares se alternan sin que ninguno logre consolidarse, en un escenario condicionado por la <strong>proscripción del peronismo</strong> —el partido más votado del país no podía presentarse a elecciones—. El politólogo Juan Carlos Portantiero acuñó para esto la idea del <strong>"empate hegemónico"</strong>: ni la coalición vinculada al campo, la industria liviana y el capital extranjero, ni la coalición sindical-peronista lograban imponer de forma duradera su propio proyecto económico, y el resultado era una inestabilidad crónica que ninguna receta lograba cerrar del todo.</p>
+
+      <h3>El ciclo "stop and go" (pare y siga)</h3>
+      <p>La economía argentina de estos años funciona bajo una dinámica cíclica muy reconocible, que conviene tener clara paso a paso:</p>
+      <ol>
+        <li>En la fase expansiva crece la industria y el consumo interno.</li>
+        <li>Eso aumenta la demanda de insumos y bienes de capital <strong>importados</strong>, que la industria local no produce.</li>
+        <li>Como las exportaciones agropecuarias crecen lento —el agro sigue relativamente estancado— y las importaciones industriales crecen rápido, se genera un <strong>déficit de balanza de pagos</strong>: faltan dólares.</li>
+        <li>Eso obliga a una <strong>devaluación brusca</strong> para frenar las importaciones y abaratar las exportaciones.</li>
+        <li>La devaluación encarece los alimentos (muchos de ellos exportables, cuyo precio interno sube al ritmo del dólar) y reduce el salario real.</li>
+        <li>Cae el consumo, entra en recesión la economía —la fase de "pare"— hasta que el equilibrio externo se restablece y el ciclo puede volver a empezar.</li>
+      </ol>
+      <p>Este esquema no es un accidente pasajero sino la expresión de un <strong>desequilibrio estructural</strong>: el sector agropecuario, proveedor de las divisas, crece lento y de forma casi estancada, mientras que el sector industrial, que necesita esas divisas para importar, lidera el crecimiento pero no exporta. La industria, además, avanza hacia ramas cada vez más complejas —automotriz, metalmecánica— que dependen todavía más de insumos importados, agravando el problema en cada ciclo. El economista Marcelo Diamand bautizó a este fenómeno <strong>"estructura productiva desequilibrada"</strong>, y a la falta crónica de dólares, <strong>restricción externa</strong>: es la clave analítica de toda esta unidad.</p>
+
+      <h3>La puja distributiva</h3>
+      <p>En este contexto, la inflación se instala como un mecanismo casi permanente: resulta del conflicto entre los trabajadores, que buscan recuperar el poder adquisitivo perdido con cada devaluación, y los empresarios, que trasladan sus costos a los precios para proteger su margen de ganancia. Como ningún sector logra imponerse de manera definitiva sobre el otro —el "empate" del que hablaba Portantiero—, la puja se resuelve una y otra vez a través de la suba de precios, sin resolverse nunca del todo.</p>
+      `,
+      terms:[
+        {t:"Stop and go", d:"Ciclo de expansión-crisis: crecimiento industrial → déficit de dólares → devaluación → caída del salario real → recesión."},
+        {t:"Restricción externa", d:"Escasez crónica de divisas que frena el crecimiento cuando la industria necesita importar más de lo que el agro exporta."},
+        {t:"Empate hegemónico", d:"Concepto de Portantiero: ningún bloque social (agro-liberal vs. sindical-peronista) logra imponer un proyecto duradero."},
+        {t:"Estructura productiva desequilibrada", d:"Concepto de Marcelo Diamand: un sector exportador de baja productividad relativa convive con una industria que no exporta."},
+      ],
+      recap:[
+        "1955-1973: inestabilidad política crónica bajo la proscripción del peronismo ('empate hegemónico').",
+        "El ciclo stop and go resume el período: expansión → déficit de dólares → devaluación → recesión → vuelta a empezar.",
+        "El desequilibrio de fondo es sectorial: agro estancado y proveedor de divisas vs. industria en expansión que las consume.",
+        "La puja distributiva entre salarios y precios vuelve a la inflación un fenómeno estructural, no coyuntural.",
+      ]
+    },
+    {
+      id:"3-2", title:"3.2 El desarrollismo y el gradualismo económico (1958-1966)",
+      html:`
+      <h2>Frondizi: integrar la industria hacia atrás</h2>
+      <p><strong>Arturo Frondizi</strong> (1958-1962) llega a la presidencia con el respaldo tácito del voto peronista proscripto, y con un diagnóstico propio —elaborado junto a su principal asesor, Rogelio Frigerio— sobre el subdesarrollo argentino: la industria liviana ya estaba instalada, pero faltaban las industrias de base (acero, petroquímica, energía) que le dieran sustento, y la fuerte dependencia energética era uno de los cuellos de botella más urgentes.</p>
+      <p>Su estrategia fue la <strong>integración vertical</strong> de la industria: construir dentro del país las cadenas productivas completas, financiadas con <strong>inversión extranjera directa</strong>, que la Ley 14.780 garantizaba mediante el libre giro de utilidades al exterior y un trato igualitario con el capital nacional. La llamada <strong>"batalla del petróleo"</strong> firmó contratos con empresas extranjeras para la exploración y explotación —sin tocar el monopolio formal de YPF, pero sí complementándolo—, lo que permitió triplicar la producción petrolera y reducir drásticamente las importaciones de combustible en pocos años: un éxito técnico real, aunque políticamente muy resistido por sectores nacionalistas (incluidos dentro del propio peronismo y de las Fuerzas Armadas) que lo vivían como una entrega del recurso estratégico. En la industria se instalan las primeras terminales automotrices (Fiat, Renault, Kaiser, entre otras, dando origen a la industria automotriz argentina tal como se la conoce hoy) y se impulsan la siderurgia (SOMISA, la acería estatal) y la petroquímica.</p>
+      <p>El límite del modelo llegó por el lado de siempre: la fuerte importación de maquinaria y repuestos para instalar toda esa nueva industria generó un déficit de balanza de pagos que obligó, en 1959, a un plan de estabilización ortodoxo (con Álvaro Alsogaray como ministro de Economía) que provocó una recesión y una caída del salario real —un ejemplo de manual del ciclo stop and go descripto en 3.1—. Frondizi terminó derrocado en 1962 por un golpe militar, harto de tolerar los avances electorales del peronismo que él mismo había habilitado.</p>
+
+      <h3>Illia: gradualismo keynesiano-cepalino</h3>
+      <p>Tras el interinato de José María Guido, asume en 1963 <strong>Arturo Illia</strong>, con escasa legitimidad de origen (el peronismo seguía proscripto y hubo un alto voto en blanco de protesta). Su gobierno aplica una política de corte keynesiano y cepalino —influida por las ideas estructuralistas de la CEPAL—: busca reactivar la economía mediante el aumento del salario real, el control de precios y el crédito barato, rechazando de forma explícita las recetas de ajuste del FMI.</p>
+      <p>Entre sus medidas más recordadas: anula los contratos petroleros de Frondizi por considerarlos lesivos a la soberanía nacional —un giro ideológico completo respecto de la etapa anterior—; sanciona la <strong>Ley de Medicamentos (Ley Oñativia)</strong>, que congela precios y obliga a los laboratorios extranjeros a declarar sus costos de producción, generando un conflicto empresarial durísimo y una intensa campaña de prensa en su contra; y establece el <strong>Salario Mínimo, Vital y Móvil</strong>. Los resultados económicos fueron, en rigor, buenos: fuerte crecimiento del PBI y cosechas exportables favorables. Pero la inflación persistente y, sobre todo, un aislamiento político casi total —sin apoyo sindical peronista ni empresarial ni militar— terminaron debilitando al gobierno, que fue derrocado en 1966. Es un caso que vale la pena recordar: muestra que, en este período, la inestabilidad no dependía solo de los resultados económicos.</p>
+      `,
+      terms:[
+        {t:"Integración vertical", d:"Estrategia desarrollista de construir dentro del país las cadenas productivas completas de una industria."},
+        {t:"Batalla del petróleo", d:"Contratos de Frondizi con empresas extranjeras que triplicaron la producción petrolera y redujeron importaciones."},
+        {t:"Ley Oñativia (1964)", d:"Ley de Medicamentos de Illia: congela precios y exige a laboratorios extranjeros declarar sus costos de producción."},
+      ],
+      recap:[
+        "Frondizi apuesta a la integración vertical con inversión extranjera directa (Ley 14.780) y logra la 'batalla del petróleo'.",
+        "El límite es el clásico stop and go: importar bienes de capital detona un ajuste ortodoxo en 1959.",
+        "Illia aplica gradualismo keynesiano-cepalino: sube salarios, anula los contratos petroleros y enfrenta a los laboratorios (Ley Oñativia).",
+        "Pese a buenos resultados económicos, el aislamiento político de Illia termina en el golpe de 1966.",
+      ]
+    },
+    {
+      id:"3-3", title:"3.3 Los tiempos de la “Revolución Argentina” (1966-1973)",
+      html:`
+      <h2>Onganía y el Estado Burocrático Autoritario</h2>
+      <p>La dictadura de <strong>Juan Carlos Onganía</strong> instaura lo que el politólogo Guillermo O'Donnell definiría luego como un <strong>Estado Burocrático Autoritario</strong>: un régimen tecnocrático que busca disciplinar a la sociedad y modernizar la economía con criterios de eficiencia técnica, suspendiendo directamente la actividad partidaria en lugar de negociar con ella.</p>
+
+      <h3>El Plan Krieger Vasena (1967-1969): ortodoxia con herramientas heterodoxas</h3>
+      <p>Combina piezas que normalmente no van juntas. Primero, una <strong>devaluación compensada</strong>: una gran devaluación (del orden del 40%), pero acompañada de <strong>retenciones</strong> (impuestos) a las exportaciones agropecuarias, que evitan que el nuevo valor del dólar se traslade por completo a los precios de los alimentos. El mecanismo es ingenioso: en lugar de que la ganancia de la devaluación quede íntegra en manos de los exportadores, el Estado se queda con una parte vía retenciones y la usa para financiar el déficit fiscal y obra pública —rompiendo, al menos temporalmente, el círculo vicioso descripto en 3.1—. Segundo, se suspenden las paritarias (la negociación colectiva de salarios) por dos años, para frenar la inflación de costos. Tercero, se lanza un vasto plan de <strong>inversión pública</strong> —represas como El Chocón, puentes, caminos— que además de estimular la demanda deja una infraestructura que perdura hasta hoy.</p>
+      <p>Los resultados macroeconómicos fueron buenos —bajó la inflación, creció el PBI—, pero el plan generó un fuerte descontento social por la caída del salario real y por la asfixia que sufrieron las economías regionales y las pymes del interior, menos competitivas frente a la liberalización financiera que favorecía a los grandes conglomerados. Ese malestar estalló en el <strong>Cordobazo</strong> (mayo de 1969): una rebelión popular en Córdoba que combinó a trabajadores metalúrgicos y automotrices —indignados, entre otras cosas, por la pérdida del "sábado inglés"— con estudiantes universitarios, y que se transformó en una verdadera insurrección urbana contra la dictadura. Krieger Vasena renuncia pocos días después; la autoridad de Onganía queda herida de muerte, y el país entra en una década mucho más radicalizada y violenta, con la aparición poco después de organizaciones armadas como Montoneros y el ERP.</p>
+
+      <h3>El retorno del nacionalismo económico con Ferrer (1970-1971)</h3>
+      <p>Tras la caída de Onganía y bajo la breve presidencia de Roberto Levingston, el ministro <strong>Aldo Ferrer</strong> impulsa la <strong>"argentinización"</strong> de la economía: promueve el "Compre Nacional" —obligando al Estado a priorizar la compra a empresas locales— y busca fortalecer al capital nacional, debilitado por la extranjerización que había avanzado desde la etapa de Frondizi y Krieger Vasena, apoyándolo con líneas de crédito específicas. Es un episodio breve, parte de la desintegración política general de la "Revolución Argentina", que termina con Alejandro Lanusse convocando al Gran Acuerdo Nacional y abriendo el camino de regreso a elecciones —y, con ellas, al retorno del peronismo que ocupa la Unidad 4.</p>
+      `,
+      terms:[
+        {t:"Estado Burocrático Autoritario", d:"Concepto de O'Donnell: régimen tecnocrático-militar que suspende la política partidaria para 'modernizar' la economía."},
+        {t:"Devaluación compensada", d:"Mecanismo de Krieger Vasena: devalúa pero aplica retenciones agrarias para que el Estado capture parte de la renta cambiaria."},
+        {t:"Cordobazo (1969)", d:"Insurrección popular en Córdoba que combina obreros y estudiantes; marca el fin político de Onganía."},
+        {t:"Argentinización", d:"Política de Aldo Ferrer para favorecer al capital nacional frente a la extranjerización (Compre Nacional, crédito)."},
+      ],
+      recap:[
+        "Onganía instaura un Estado Burocrático Autoritario que suspende la política partidaria.",
+        "Krieger Vasena combina devaluación con retenciones ('devaluación compensada'), congela salarios e invierte en obra pública.",
+        "El Cordobazo (1969) hiere de muerte al gobierno pese a los buenos indicadores macro del plan.",
+        "Aldo Ferrer impulsa la 'argentinización' (1970-71) antes de la salida electoral que trae de vuelta al peronismo.",
+      ]
+    },
+    {
+      id:"3-4", title:"3.4 El NEA y la segunda fase de la ISI (1958-1973)",
+      html:`
+      <h2>Crisis en el NEA, tecnificación en la pampa</h2>
+      <p>Mientras la pampa húmeda y el litoral industrial se transformaban con la integración vertical desarrollista, el Nordeste enfrentaba crisis y reestructuraciones profundas.</p>
+      <p>La <strong>crisis del algodón</strong> golpea de lleno al "oro blanco" de Chaco y Formosa: la aparición de las fibras sintéticas —nailon, poliéster, producto de la petroquímica de posguerra— desplaza al algodón natural dentro de la industria textil, provocando una caída sostenida de precios y de superficie sembrada. El resultado es la expulsión de mano de obra rural y un éxodo hacia las ciudades o directamente hacia Buenos Aires, que se suma al proceso más amplio de migración interna que en estos años alimenta el crecimiento del conurbano bonaerense. A esto se añade una <strong>promoción industrial que termina perjudicando a la región</strong>: regímenes de fomento como el "Operativo Tucumán" o la promoción industrial en provincias como La Rioja y San Luis desincentivan que se radiquen industrias textiles en el propio NEA, impidiendo así que la región agregue valor a su propia producción primaria de algodón.</p>
+      <p>En Misiones, en cambio, el Estado impulsa una industria de celulosa y papel mediante subsidios y créditos blandos (el Fondo Forestal), consolidando un sector industrial capital-intensivo dominado por grandes empresas —un modelo con poco empleo por unidad de inversión que anticipa el debate sobre el "agronegocio" de las últimas unidades del curso—.</p>
+      <p>En paralelo, y en contraste con la crisis de los cultivos industriales del NEA, la <strong>región pampeana</strong> inicia en los años 60 un nuevo ciclo de "agriculturización": se incorporan masivamente tractores, cosechadoras, semillas híbridas de maíz y sorgo, y agroquímicos, lo que dispara la productividad y supera el estancamiento de la década del 50. Es en este momento cuando comienza la expansión de las oleaginosas —girasol y las primeras plantaciones de <strong>soja</strong>— que empiezan a desplazar a la ganadería en algunas zonas. Vale la pena marcarlo: es el punto de partida de una transformación productiva que, décadas más tarde, se volverá central para entender la macroeconomía argentina completa.</p>
+      `,
+      terms:[
+        {t:"Fibras sintéticas", d:"Nailon y poliéster derivados de la petroquímica que desplazan al algodón natural, detonando su crisis desde los años 60."},
+        {t:"Fondo Forestal", d:"Mecanismo de subsidios y crédito blando que impulsa en Misiones una industria de celulosa y papel capital-intensiva."},
+      ],
+      recap:[
+        "Las fibras sintéticas hunden al algodón chaqueño y formoseño, expulsando mano de obra rural.",
+        "La promoción industrial en otras provincias (La Rioja, San Luis) le impide al NEA agregar valor a su propio algodón.",
+        "Misiones desarrolla una industria de celulosa capital-intensiva, con poco empleo relativo.",
+        "La pampa húmeda se tecnifica (tractores, híbridos, agroquímicos) y arranca la expansión de oleaginosas, incluida la soja.",
+      ]
+    },
+  ]
+},
+{
+  id:"u4", num:"04", title:"Transición del nacionalismo económico al modelo neoliberal", range:"1973 – 1983",
+  blurb:"El fin de la 'edad de oro' mundial, el último Pacto Social, el Rodrigazo y un plan económico que desmonta la industrialización desde el Estado.",
+  sections:[
+    {
+      id:"4-1", title:"4.1 Contexto internacional: nuevo orden económico y crisis del endeudamiento",
+      html:`
+      <h2>El fin de la edad de oro del capitalismo</h2>
+      <p>El período 1973-1983 marca el cierre de la "edad de oro" del capitalismo de posguerra y el comienzo de un escenario de inestabilidad y reconfiguración global. En 1971 colapsa el sistema de <strong>Bretton Woods</strong> cuando Estados Unidos suspende unilateralmente la convertibilidad del dólar en oro, generando inestabilidad cambiaria a escala mundial. A eso se suma la <strong>crisis del petróleo</strong> —primero en 1973, con el embargo de la OPEP tras la Guerra de Yom Kipur, y luego en 1979, con la Revolución Iraní— que dispara los precios del crudo. El resultado, en los países centrales, es un fenómeno hasta entonces inédito: la <strong>estanflación</strong> (estancamiento económico combinado con inflación alta), que las políticas keynesianas no lograban explicar ni resolver, porque su supuesto básico —que inflación y desempleo se mueven en sentidos opuestos— dejó de cumplirse. Esa crisis teórica abre la puerta, en la década siguiente, a las ideas económicas que van a dominar la Unidad 5.</p>
+      <p>La suba del petróleo genera además excedentes financieros gigantescos —los <strong>"petrodólares"</strong>— que los bancos internacionales reciclan otorgando préstamos a tasas de interés bajas a los países en desarrollo, muy especialmente en América Latina, fomentando un fuerte endeudamiento durante toda la década del 70. El escenario cambia de manera drástica en 1979, cuando <strong>Paul Volcker</strong>, al frente de la Reserva Federal de Estados Unidos, aplica un "shock" monetarista que eleva bruscamente las tasas de interés para frenar la inflación estadounidense. Como buena parte de la deuda de los países periféricos se había contraído a tasa variable, este movimiento —conocido como el <strong>"efecto Volcker"</strong>— encarece de golpe y de forma casi impagable esa deuda externa, justo cuando los precios de las materias primas que esos países exportaban también se derrumbaban. En 1982 México declara la cesación de pagos, lo que detona la <strong>crisis de la deuda latinoamericana</strong> y cierra el financiamiento externo voluntario para toda la región durante el resto de la década: la conocida <strong>"década perdida"</strong>.</p>
+      `,
+      terms:[
+        {t:"Bretton Woods", d:"Sistema monetario de posguerra basado en el dólar convertible a oro; colapsa en 1971."},
+        {t:"Estanflación", d:"Estancamiento económico con inflación alta y simultánea, fenómeno que desafía a la teoría keynesiana en los años 70."},
+        {t:"Efecto Volcker", d:"Suba brusca de tasas de la Fed en 1979 que encarece la deuda externa de los países periféricos, contraída a tasa variable."},
+        {t:"Década perdida", d:"Nombre dado a los años 80 en América Latina tras el default mexicano de 1982, con el crédito externo cerrado para la región."},
+      ],
+      recap:[
+        "El colapso de Bretton Woods (1971) y los shocks petroleros (1973, 1979) generan estanflación en los países centrales.",
+        "Los 'petrodólares' financian un fuerte endeudamiento latinoamericano durante los años 70.",
+        "El 'efecto Volcker' (1979) encarece la deuda externa; el default de México (1982) abre la 'década perdida' regional.",
+      ]
+    },
+    {
+      id:"4-2", title:"4.2 El retorno del peronismo (1973-1976)",
+      html:`
+      <h2>El último Pacto Social y su derrumbe</h2>
+      <p>Tras dieciocho años de proscripción, el peronismo vuelve al poder en un clima de altísima conflictividad política, intentando reeditar la vieja alianza de clases de 1945. Bajo el ministerio de <strong>José Ber Gelbard</strong>, la política económica se organiza en torno al <strong>Pacto Social</strong>: un acuerdo tripartito entre la CGT (los trabajadores), la CGE (los empresarios nacionales) y el Estado. Su objetivo era frenar la inflación mediante el congelamiento de precios y salarios —tras un aumento inicial del 20%— y redistribuir el ingreso por consenso, no por conflicto. Al principio funcionó, y bastante bien: la inflación cae de manera drástica y la actividad económica crece en 1973 y comienzos de 1974, algo que vale la pena remarcar porque suele quedar eclipsado por lo que vino después.</p>
+      <p>En paralelo se lanza el <strong>Plan Trienal para la Reconstrucción y Liberación Nacional</strong>, que busca la expansión industrial, el apoyo al capital nacional y una fuerte intervención estatal, incluyendo leyes de "argentinización" del crédito (nacionalización de los depósitos bancarios, para que el Estado decidiera a quién se prestaba) y del comercio exterior.</p>
+      <p>El Pacto Social empieza a resquebrajarse tras la muerte de Perón en julio de 1974 —que quita del tablero a la única figura capaz de disciplinar simultáneamente a sindicatos y empresarios— y se agrava con el shock petrolero internacional: la puja distributiva reaparece, aparecen el desabastecimiento y un creciente déficit fiscal. En junio de 1975, el nuevo ministro <strong>Celestino Rodrigo</strong> —próximo a José López Rega, figura de enorme influencia bajo la presidencia de Isabel Perón— aplica un ajuste ortodoxo brutal y sin ningún mecanismo compensatorio: devalúa el peso más del 100% de una sola vez y aumenta de golpe tarifas y combustibles. El contraste con la "devaluación compensada" de Krieger Vasena en 1967 (Unidad 3) es elocuente: aquí no hay retenciones que amortigüen el traslado a precios, y el resultado es una espiral hiperinflacionaria conocida como el <strong>"Rodrigazo"</strong>, que licúa los salarios de un plumazo y provoca una huelga general de la CGT —un hecho sin precedentes: un sindicalismo peronista haciendo huelga contra un gobierno peronista—. Es el punto de quiebre definitivo de la gobernabilidad, y el preludio directo del golpe de marzo de 1976.</p>
+      `,
+      terms:[
+        {t:"Pacto Social", d:"Acuerdo tripartito CGT-CGE-Estado (1973) para frenar la inflación por consenso y redistribuir el ingreso."},
+        {t:"Rodrigazo (1975)", d:"Ajuste ortodoxo sin compensación: devaluación superior al 100% y suba de tarifas, que dispara una espiral hiperinflacionaria."},
+      ],
+      recap:[
+        "El Pacto Social de Gelbard logra, al principio, bajar la inflación y reactivar la economía (1973-74).",
+        "La muerte de Perón (1974) y el shock petrolero reabren la puja distributiva y el déficit fiscal.",
+        "El Rodrigazo (junio 1975) es un ajuste sin compensación que dispara la hiperinflación y una huelga general de la CGT.",
+        "El colapso de la gobernabilidad económica y política desemboca en el golpe de marzo de 1976.",
+      ]
+    },
+    {
+      id:"4-3", title:"4.3 El Proceso de Reorganización Nacional (1976-1983)",
+      html:`
+      <h2>Martínez de Hoz: de la industria a la valorización financiera</h2>
+      <p>La dictadura cívico-militar que toma el poder en 1976 no aplica simplemente "otro" plan de estabilización: impone un cambio estructural radical, que abandona el proyecto de industrialización sostenido desde 1930 para instaurar una economía de <strong>"valorización financiera"</strong> —un modelo en el que la ganancia deja de buscarse principalmente en la producción y pasa a buscarse en la especulación y el arbitraje financiero—. El ministro <strong>José Alfredo Martínez de Hoz</strong> organiza su plan (desde el 2 de abril de 1976) en tres ejes:</p>
+      <h3>1. Apertura económica</h3>
+      <p>Se reducen los aranceles a la importación, exponiendo de golpe a la industria local —que se había desarrollado bajo décadas de protección— a una competencia externa desigual. El resultado es el cierre de miles de pymes y una fuerte desindustrialización, sobre todo en las ramas de mano de obra intensiva (textil, calzado).</p>
+      <h3>2. Reforma financiera (1977)</h3>
+      <p>Se liberalizan las tasas de interés, buscando fomentar el ahorro y el crédito. Pero combinada con el tercer eje —la "tablita" cambiaria— esta liberalización crea las condiciones ideales para la llamada <strong>"bicicleta financiera"</strong>: tomar deuda barata en dólares en el exterior, cambiarla a pesos, invertir a las altas tasas de interés locales, y cuando llega el momento de pagar, volver a convertir a dólares a un tipo de cambio casi fijo y predecible gracias a la tablita. Es un negocio de pura especulación financiera, sin ninguna inversión productiva de por medio: un caso de manual de cómo la liberalización financiera sin control de capitales puede desviar a toda una economía de la producción hacia la especulación.</p>
+      <h3>3. La "tablita" cambiaria (1978)</h3>
+      <p>Un cronograma de devaluaciones programadas y decrecientes, anunciado de antemano, pensado para anclar las expectativas de inflación —si todos saben cuánto va a devaluar el peso, ajustarán precios y salarios en consecuencia—. El problema es que la inflación interna real corrió, sistemáticamente, por encima del ritmo de devaluación anunciado, lo que fue apreciando el tipo de cambio real: es el fenómeno conocido como <strong>atraso cambiario</strong> o "plata dulce" —la época en que viajar al exterior se volvió, para quien podía, sorprendentemente barato—. Eso alimentó un boom de importaciones y una creciente fuga de capitales, financiada mientras duró por los ingresos de la bicicleta financiera, hasta que la confianza se quebró: en 1981 se desata una crisis cambiaria masiva, se abandona la tablita, sobrevienen fuertes devaluaciones escalonadas y estalla una crisis bancaria de magnitud (varias entidades financieras quiebran).</p>
+      <h3>El endeudamiento externo, la clave del modelo</h3>
+      <p>La deuda externa argentina crece de manera exponencial —de 7.800 a 45.000 millones de dólares— y financia tanto la fuga de capitales como la compra de armamento, en un contexto que incluye la crisis del Canal de Beagle con Chile (1978) y, hacia el final del régimen, la Guerra de Malvinas (1982), cuyo desenlace precipita también la caída política de la dictadura. En 1982, con <strong>Domingo Cavallo</strong> al frente del BCRA —el mismo economista que una década después será el arquitecto de la Convertibilidad, en la Unidad 5— el Estado <strong>nacionaliza la deuda privada</strong> de las grandes empresas: asume como deuda pública los compromisos externos que esas empresas habían contraído durante los años de la bicicleta financiera, socializando así pérdidas que, mientras hubo ganancias, habían sido privadas. Esa decisión infla de manera decisiva la deuda pública que la democracia recibirá en 1983.</p>
+      <p>El costo social del modelo fue enorme: la participación de los asalariados en el ingreso nacional cae del 45% al 25%, se suprimen derechos laborales y crece la pobreza estructural, todo ello en el marco de la violencia estatal y la represión que caracterizaron a la dictadura —la disciplina social necesaria para imponer un ajuste de esta magnitud sin la resistencia política que en otros momentos había frenado reformas parecidas.</p>
+      `,
+      terms:[
+        {t:"Valorización financiera", d:"Lógica de acumulación donde la ganancia se busca en la especulación financiera en vez de en la producción."},
+        {t:"Bicicleta financiera", d:"Arbitraje entre tasa de interés local y tipo de cambio casi fijo: tomar deuda en dólares, invertir en pesos, y volver a dólares con ganancia."},
+        {t:"Tablita cambiaria (1978)", d:"Cronograma de devaluaciones decrecientes preanunciadas; genera atraso cambiario ('plata dulce') al no seguir el ritmo real de la inflación."},
+        {t:"Estatización de la deuda privada (1982)", d:"El Estado asume como pública la deuda externa que habían contraído empresas privadas durante la bicicleta financiera."},
+      ],
+      recap:[
+        "El Plan Martínez de Hoz combina apertura comercial, liberalización financiera y tablita cambiaria: desindustrializa y alimenta la 'bicicleta financiera'.",
+        "El atraso cambiario ('plata dulce') termina en crisis cambiaria y bancaria en 1981.",
+        "La deuda externa se multiplica casi seis veces; en 1982 el Estado estatiza la deuda privada de las grandes empresas.",
+        "La participación de los asalariados en el ingreso cae del 45% al 25%: la desindustrialización tuvo un costo social profundo.",
+      ]
+    },
+    {
+      id:"4-4", title:"4.4 La región NEA en la encrucijada",
+      html:`
+      <h2>Crisis y reorientación forzada</h2>
+      <p>El Nordeste argentino sufre de lleno el impacto de la inestabilidad macroeconómica y de los cambios en la demanda global de estos años. La crisis del algodón en Chaco y Formosa, que ya venía golpeada por las fibras sintéticas desde los años 60, se agrava: la apertura económica y el atraso cambiario de la dictadura erosionan aún más su competitividad frente a la fibra importada, mientras que la promoción industrial en otras provincias —el mismo mecanismo señalado en 3.4— sigue desincentivando que la industria textil se radique en la propia región.</p>
+      <p>El <strong>tabaco</strong> de Corrientes y Misiones enfrenta su propio problema: la demanda mundial gira hacia el tabaco rubio tipo Virginia y se aleja del tabaco negro tradicional correntino, provocando una caída estrepitosa de la producción local y la migración de productores.</p>
+      <p>Frente a la crisis, aparecen intentos de diversificación hacia la soja, el sorgo y la forestación —esta última impulsada con subsidios estatales—, pero estos cultivos favorecen sobre todo a los productores ya más capitalizados, consolidando una estructura de <strong>"cuasi-enclaves"</strong>: espacios productivos donde la riqueza que se genera no se reinvierte localmente sino que se realiza fuera del territorio. El impacto social es directo: se profundiza el "círculo de la pobreza" —la expulsión de mano de obra rural y la falta de industrias locales generan una dependencia creciente del empleo público provincial y de las transferencias del gobierno federal—, ampliando la brecha entre la pobreza del NEA y el promedio nacional, una brecha que la Unidad 5 va a poder medir con precisión.</p>
+      `,
+      terms:[
+        {t:"Cuasi-enclave", d:"Estructura productiva donde la renta generada localmente se realiza y reinvierte fuera del territorio de origen."},
+      ],
+      recap:[
+        "El algodón del NEA se agrava por la apertura comercial y el atraso cambiario, sumado a la promoción industrial de otras provincias.",
+        "El tabaco correntino colapsa por el giro mundial de la demanda hacia el tabaco rubio.",
+        "La diversificación hacia soja y forestación favorece solo a productores capitalizados, consolidando 'cuasi-enclaves'.",
+        "Se profundiza el 'círculo de la pobreza': dependencia creciente del empleo público y las transferencias federales.",
+      ]
+    },
+  ]
+},
+{
+  id:"u5", num:"05", title:"El modelo neoliberal argentino", range:"1983 – 1999",
+  blurb:"La deuda heredada, la hiperinflación y un giro hacia las privatizaciones y la convertibilidad que promete —y no logra sostener— crecimiento con empleo.",
+  sections:[
+    {
+      id:"5-1", title:"5.1 Contexto internacional: la globalización de la economía",
+      html:`
+      <h2>Del Estado de Bienestar al Consenso de Washington</h2>
+      <p>Este período se enmarca en una transformación profunda del capitalismo global, tras el agotamiento del modelo de posguerra y las crisis del petróleo de los años 70. La estanflación desacredita a las políticas keynesianas y al propio Estado de Bienestar; en su lugar gana terreno una nueva ortodoxia, el <strong>neoliberalismo</strong> —asociado a economistas como Milton Friedman y a los gobiernos de Reagan y Thatcher—, resumida en la idea de que "el Estado es el problema, y no la solución".</p>
+      <p>Hacia fines de los años 80, organismos como el FMI y el Banco Mundial cristalizan estas ideas en un paquete de reformas para los países en desarrollo —sobre todo América Latina— conocido como el <strong>Consenso de Washington</strong>: disciplina fiscal, reorientación del gasto público, reforma impositiva, liberalización financiera y comercial, tipo de cambio competitivo, apertura a la inversión extranjera directa, privatizaciones, desregulación y protección de los derechos de propiedad. Es, en buena medida, el programa que Menem va a aplicar en la Argentina de los años 90.</p>
+      <p>Este giro de política no ocurre en el vacío: se apoya en una <strong>tercera revolución industrial</strong> basada en la microelectrónica y las telecomunicaciones, que hace posible en la práctica la globalización financiera (movimiento de capitales en tiempo real, las 24 horas) y la internacionalización de la producción (cadenas globales de valor, empresas multinacionales que fragmentan su producción en distintos países). La tecnología no solo acompaña el cambio de paradigma: lo hace materialmente posible.</p>
+      `,
+      terms:[
+        {t:"Neoliberalismo", d:"Doctrina que promueve reducir el rol del Estado en la economía en favor del libre mercado."},
+        {t:"Consenso de Washington", d:"Paquete de reformas de mercado (fiscal, comercial, financiero, privatizaciones) impulsado por el FMI y el Banco Mundial desde fines de los 80."},
+      ],
+      recap:[
+        "La estanflación de los 70 desacredita al keynesianismo y da paso al neoliberalismo.",
+        "El Consenso de Washington resume el programa de reformas de mercado para América Latina.",
+        "La revolución de la microelectrónica y las telecomunicaciones habilita la globalización financiera y productiva.",
+      ]
+    },
+    {
+      id:"5-2", title:"5.2 El gobierno de Raúl Alfonsín (1983-1989)",
+      html:`
+      <h2>La deuda como condicionante central</h2>
+      <p>El gobierno radical asume en 1983 en medio de una euforia democrática genuina, pero con una herencia económica devastadora: estancamiento, inflación y un fortísimo endeudamiento externo heredado de la dictadura. Esa deuda —45.000 millones de dólares, buena parte de ella producto de la estatización de 1982 vista en la Unidad 4— se convierte en el principal condicionante de toda la gestión: pagar sus intereses exige un esfuerzo fiscal y de balanza de pagos enorme, lo que arrastra a la Argentina a su propia "década perdida" doméstica, por la transferencia constante de recursos hacia el exterior y la falta de financiamiento voluntario nuevo.</p>
+      <p>La gestión de <strong>Bernardo Grinspun</strong> (1983-1985) intenta al principio una política de confrontación con el FMI y de reactivación del mercado interno vía aumentos salariales, pero fracasa por la inflación y la falta de divisas, obligando a un cambio de rumbo.</p>
+      <h3>El Plan Austral (1985): un experimento heterodoxo</h3>
+      <p>Bajo el ministro <strong>Juan Vital Sourrouille</strong> se lanza un plan de estabilización heterodoxo, cuyo diagnóstico merece explicarse con cuidado: parte de la idea de que buena parte de la inflación argentina ya no era puramente monetaria sino <strong>inercial</strong> —estaba incorporada en los contratos y en las expectativas de la gente, que indexaba precios y salarios "por las dudas"—. Por eso el plan no se limita a ajustar cuentas fiscales: congela de golpe precios, salarios y tarifas, crea una nueva moneda —el <strong>Austral</strong>— y aplica un mecanismo de <strong>"desagio"</strong> para desindexar la economía (ajustar hacia abajo el valor de los contratos que habían sido pactados asumiendo que la alta inflación iba a continuar). El gobierno se compromete, además, a no financiar el déficit fiscal con emisión monetaria. El resultado inicial es contundente: la inflación cae de forma drástica en cuestión de semanas. Pero el deterioro de los términos de intercambio (caída de precios de exportación) y la reaparición de la puja distributiva —el conflicto de fondo nunca se había resuelto, solo se había puesto en pausa— lo van desgastando hacia 1987.</p>
+      <h3>La hiperinflación (1989)</h3>
+      <p>Tras el fracaso del "Plan Primavera" (1988) y el retiro del respaldo del Banco Mundial, se desata en febrero de 1989 una corrida cambiaria: la inflación se espiraliza —la inflación minorista llega a 4.923% anual—, destruyendo el sistema de precios y licuando los salarios de la población. La crisis social —con saqueos a supermercados en Rosario y el conurbano— y la crisis política resultante fuerzan a Alfonsín a entregarle el poder a Carlos Menem cinco meses antes de lo previsto: un episodio histórico en sí mismo, la primera transferencia anticipada de mando entre presidentes civiles de distinto signo político elegidos democráticamente.</p>
+      `,
+      terms:[
+        {t:"Inflación inercial", d:"Inflación sostenida por expectativas y contratos indexados, no solo por la emisión monetaria; base del diagnóstico del Plan Austral."},
+        {t:"Plan Austral (1985)", d:"Plan heterodoxo de Sourrouille: congelamiento de precios/salarios/tipo de cambio, nueva moneda (el Austral) y desagio de contratos."},
+        {t:"Desagio", d:"Mecanismo para quitar de los contratos la inflación futura ya esperada, ajustando su valor nominal hacia abajo."},
+      ],
+      recap:[
+        "La deuda heredada de la dictadura (45.000 millones de dólares) condiciona toda la gestión de Alfonsín.",
+        "El Plan Austral (1985) ataca la inflación inercial con congelamiento, nueva moneda y desagio; funciona al principio pero se agota hacia 1987.",
+        "La hiperinflación de 1989 (4.923% anual) fuerza la entrega anticipada del poder a Menem.",
+      ]
+    },
+    {
+      id:"5-3", title:"5.3 La etapa del ajuste estructural (1989-1999)",
+      html:`
+      <h2>Un giro que desafía el mapa político tradicional</h2>
+      <p>Bajo el gobierno de <strong>Carlos Menem</strong> —un presidente peronista, del partido históricamente asociado al estatismo y al movimiento obrero— la Argentina da un giro drástico hacia las reformas neoliberales, transformando de manera radical la estructura económica y el rol del Estado: un realineamiento político que vale la pena tener presente porque desafía cualquier mapa simple de izquierda-derecha en la historia argentina.</p>
+      <p>El marco legal se aprueba casi de inmediato: la <strong>Ley de Reforma del Estado</strong> habilita las privatizaciones y la <strong>Ley de Emergencia Económica</strong> suspende subsidios y regímenes de promoción industrial —muchos de los mismos regímenes que en unidades anteriores perjudicaban al NEA, ahora simplemente eliminados—.</p>
+      <h3>Privatizaciones</h3>
+      <p>Se venden con rapidez empresas públicas emblemáticas: ENTEL (telefónica estatal, dividida y vendida a Telefónica y Telecom), Aerolíneas Argentinas (a Iberia), la red ferroviaria (concesionada, con un fuerte desmantelamiento del servicio de pasajeros) y, ya en 1999, YPF (a la española Repsol). El objetivo declarado era doble: hacer caja para pagar la deuda externa —muchas veces aceptando como pago títulos de deuda depreciados, en una operación conocida como <strong>capitalización de deuda</strong>, que a la vez reducía el stock de deuda pública— y reducir el déficit fiscal eliminando empresas deficitarias. Las críticas apuntan a valuaciones poco transparentes y apuradas, y a la transferencia de poder monopólico a manos privadas sin marcos regulatorios adecuados en varios casos.</p>
+      <p>En paralelo, la apertura comercial reduce los aranceles a la importación y se desregulan los mercados de bienes y servicios, exponiendo otra vez a la industria local a la competencia externa.</p>
+      <h3>El Plan de Convertibilidad (1991)</h3>
+      <p>El ministro <strong>Domingo Cavallo</strong> —el mismo funcionario que en 1982 había estatizado la deuda privada— implementa por ley la paridad <strong>1 peso = 1 dólar</strong>. La clave es que no se trata de una promesa de política económica, como la tablita de 1978, sino de una <strong>restricción institucional</strong>: la ley obliga al Banco Central a respaldar el 100% de la base monetaria con reservas, prohíbe la indexación de contratos, y le quita al Estado la posibilidad de emitir pesos para financiar el déficit. Esa diferencia —restricción legal dura, no solo un compromiso de política— es lo que le permite derrotar la inflación de manera creíble y casi inmediata, reactivando el crédito y el consumo.</p>
+      <p>Pero el mismo mecanismo reproduce, por otra vía, la tensión que ya se había visto con la tablita de 1978: al fijar el tipo de cambio en 1 a 1 mientras los precios internos seguían teniendo inercia inflacionaria, el tipo de cambio real se aprecia —vuelve el atraso cambiario, aunque más moderado que en 1980—.</p>
+      <h3>Desregulación, concentración y desempleo estructural</h3>
+      <p>La apertura y el dólar relativamente barato provocan una nueva ola de desindustrialización en los sectores pyme intensivos en mano de obra —textil, metalmecánica—, los mismos golpeados una y otra vez desde 1976. Los grandes ganadores son los grupos económicos locales ("los capitanes de la industria") y las empresas multinacionales, que concentran la producción; hacia el final de la década se produce además una masiva venta de empresas nacionales a capitales extranjeros —la <strong>extranjerización</strong>—.</p>
+      <p>El dato más inquietante del período es el <strong>desempleo</strong>: a pesar del crecimiento del PBI —un boom real, aunque impulsado en parte por el crédito—, el desempleo aumenta de forma estructural, hasta alcanzar un pico del 18% en 1995 tras el <strong>"Efecto Tequila"</strong>: la crisis del peso mexicano de diciembre de 1994 provoca una fuga de capitales que golpea a la Argentina pese a no tener conexión directa con el problema mexicano, mostrando cuán integradas —y frágiles— se habían vuelto las finanzas de los mercados emergentes bajo la globalización descripta en 5.1. Es la primera vez que la Argentina experimenta con claridad un "crecimiento sin empleo", una anomalía que anuncia los límites del modelo que se harán evidentes en la Unidad 6.</p>
+      `,
+      terms:[
+        {t:"Capitalización de deuda", d:"Mecanismo por el que el Estado paga privatizaciones con títulos de deuda depreciados, reduciendo a la vez el stock de deuda pública."},
+        {t:"Convertibilidad (1991)", d:"Ley que fija 1 peso = 1 dólar y obliga al BCRA a respaldar el 100% de la base monetaria con reservas, quitando margen de emisión."},
+        {t:"Extranjerización", d:"Venta masiva de empresas nacionales a capitales extranjeros hacia fines de los años 90."},
+        {t:"Efecto Tequila (1995)", d:"Contagio financiero de la crisis del peso mexicano (1994) que dispara el desempleo argentino a un pico del 18%."},
+      ],
+      recap:[
+        "Menem, presidente peronista, aplica el programa neoliberal más profundo de la historia argentina: un giro político notable.",
+        "Se privatizan ENTEL, Aerolíneas, ferrocarriles e YPF, en parte para pagar deuda vía capitalización de títulos.",
+        "La Convertibilidad (1991) fija 1 a 1 por ley, con restricción legal de emisión: derrota la inflación pero aprecia el tipo de cambio real.",
+        "Pese al crecimiento del PBI, el desempleo estructural sube hasta el 18% (1995) tras el Efecto Tequila: 'crecimiento sin empleo'.",
+      ]
+    },
+    {
+      id:"5-4", title:"5.4 El NEA entre dos modelos de desarrollo",
+      html:`
+      <h2>De la crisis de los cultivos tradicionales a la modernización excluyente</h2>
+      <p>El Nordeste argentino sufre con particular dureza el impacto de las políticas de los años 90, transitando de la crisis de sus cultivos tradicionales hacia lo que puede describirse como una <strong>modernización excluyente</strong>. La desregulación elimina organismos que habían sostenido a las economías regionales desde los años 30 y 40 —como la Junta Nacional de Granos o la comisión reguladora de la yerba mate creada en 1935—: un desmantelamiento literal de las instituciones que aparecieron en las unidades 2 y 3 de este mismo curso, vale la pena notar el círculo que se cierra. Sumado al atraso cambiario de la Convertibilidad y a la apertura comercial, el cultivo del algodón en Chaco y Formosa colapsa definitivamente frente a la competencia externa y la tecnificación, expulsando a miles de pequeños productores minifundistas y a sus trabajadores.</p>
+      <p>En su lugar se expande un <strong>nuevo dinamismo agroexportador</strong>: cultivos como la soja y la actividad forestal crecen con fuerza, pero bajo un modelo de <strong>"agronegocio"</strong> de baja demanda de mano de obra por hectárea —muy distinto del algodón minifundista que reemplaza—. Las estructuras productivas del NEA terminan de consolidarse como "cuasi enclaves": buena parte de la renta que generan se realiza fuera del territorio —en la Pampa Húmeda o directamente en el exterior—, con escasos encadenamientos productivos locales.</p>
+      <p>El resultado social es un <strong>círculo vicioso</strong> ya anunciado en unidades anteriores, pero que ahora puede cuantificarse: la falta de empleo privado genuino profundiza la dependencia del empleo público provincial y de las transferencias federales, y para 2008 el diferencial de pobreza del NEA respecto del promedio nacional había aumentado casi un 40%, consolidando a la región como un núcleo de pobreza estructural e indigencia dentro del país.</p>
+      `,
+      terms:[
+        {t:"Agronegocio", d:"Modelo agroexportador de escala, capital-intensivo y de baja demanda de mano de obra por hectárea (soja, forestación)."},
+      ],
+      recap:[
+        "La desregulación desmantela las instituciones (Junta de Granos, reguladora de yerba mate) que sostenían al NEA desde los años 30-40.",
+        "El algodón colapsa definitivamente; en su lugar se expande la soja y la forestación bajo un modelo de 'agronegocio'.",
+        "El NEA se consolida como 'cuasi enclave': la renta se realiza fuera del territorio.",
+        "Para 2008, la brecha de pobreza del NEA respecto del promedio nacional había crecido casi un 40%.",
+      ]
+    },
+  ]
+},
+{
+  id:"u6", num:"06", title:"Fin del modelo y reconstrucción", range:"1999 – 2015",
+  blurb:"El colapso de la convertibilidad, la crisis de 2001 y un ciclo de recuperación con viento de cola que vuelve a chocar, al final, con la restricción externa.",
+  sections:[
+    {
+      id:"6-1", title:"6.1 Contexto internacional: la crisis financiera de 2008",
+      html:`
+      <h2>De la burbuja inmobiliaria al rescate estatal</h2>
+      <p>El período está marcado por una alta volatilidad financiera global que culmina en la <strong>Crisis Financiera Internacional de 2008</strong>, considerada la más grave desde la Gran Depresión de 1930. Tras el estallido de la burbuja "puntocom" (2000) y los atentados del 11 de septiembre de 2001, la Reserva Federal de Estados Unidos baja drásticamente las tasas de interés para evitar una recesión —una nueva "plata dulce", esta vez global—. Esa liquidez abundante alimenta una burbuja inmobiliaria y el auge de las hipotecas de alto riesgo (<em class="tag">subprime</em>), empaquetadas en instrumentos financieros complejos y poco regulados que dispersaron el riesgo de manera opaca por todo el sistema financiero mundial (la llamada "banca en las sombras").</p>
+      <p>El estallido llega con la quiebra de <strong>Lehman Brothers</strong> en septiembre de 2008: desata un pánico financiero global, congela el crédito interbancario y provoca el derrumbe de las bolsas y del comercio mundial. La crisis se transmite a los países emergentes —incluida la Argentina— a través de la caída de los precios de las materias primas y una fuga de capitales hacia activos considerados más seguros ("vuelo a la calidad").</p>
+      <p>Lo llamativo de la respuesta es su contraste con el pasado: a diferencia de la ortodoxia aplicada en la crisis de 1930 o en la crisis de la deuda de los 80, esta vez la respuesta global —coordinada en parte por el G-20— es una intervención estatal masiva de corte neokeynesiano: bancos centrales que inyectan liquidez prácticamente ilimitada, gobiernos que nacionalizan bancos y aseguradoras (como AIG en Estados Unidos) para evitar un colapso sistémico, y paquetes de estímulo fiscal para sostener la demanda agregada. Es una ironía histórica que vale la pena señalar: el mismo Estado que el Consenso de Washington había declarado "el problema" en la Unidad 5 termina siendo, en 2008, la única herramienta capaz de contener el colapso del propio sistema que ese consenso había construido.</p>
+      `,
+      terms:[
+        {t:"Subprime", d:"Hipotecas de alto riesgo en EEUU, empaquetadas en instrumentos financieros complejos; origen de la crisis de 2008."},
+        {t:"Crisis de 2008", d:"Crisis financiera global iniciada con la quiebra de Lehman Brothers, la más grave desde 1930."},
+      ],
+      recap:[
+        "Tasas bajas tras 2001 alimentan una burbuja inmobiliaria subprime en EEUU.",
+        "La quiebra de Lehman Brothers (septiembre 2008) desata un pánico financiero global que golpea a los emergentes vía commodities y fuga de capitales.",
+        "La respuesta mundial es neokeynesiana (rescates, estímulo fiscal), en contraste con la ortodoxia de crisis anteriores.",
+      ]
+    },
+    {
+      id:"6-2", title:"6.2 Profundización del modelo y derrumbe del neoliberalismo (1999-2003)",
+      html:`
+      <h2>La fase terminal de la Convertibilidad</h2>
+      <p>El gobierno de la Alianza (<strong>Fernando de la Rúa</strong>, 1999-2001) recibe una economía ya en recesión, con alto desempleo y fuerte endeudamiento, agravada por un factor externo poco recordado pero decisivo: la devaluación brasileña de 1999, que de un día para otro vuelve mucho menos competitivas a las exportaciones argentinas dentro del Mercosur. Para sostener el "1 a 1" el gobierno aplica ajustes fiscales —el "impuestazo", recortes de salarios estatales y jubilaciones— que resultan <strong>procíclicos</strong>: en lugar de reactivar la economía, profundizan la recesión, porque recortar el gasto público en plena caída de la actividad achica la economía más rápido de lo que reduce el déficit medido como porcentaje del PBI. Es una trampa de política económica que se discute todavía hoy.</p>
+      <p>El <strong>Blindaje</strong> (diciembre de 2000) es un paquete de ayuda financiera del FMI por casi 40.000 millones de dólares, condicionado a una reforma previsional y a mayor austeridad fiscal: fracasa en recuperar la confianza de los mercados. El <strong>Megacanje</strong> (junio de 2001), bajo la gestión de Domingo Cavallo —de regreso como ministro—, canjea títulos de deuda de corto plazo por otros a plazos más largos, pero convalidando tasas de interés exorbitantes (cerca del 15% anual en dólares): compra tiempo en lo inmediato, pero aumenta la deuda futura y, paradójicamente, empeora la percepción de insolvencia del país en los mercados.</p>
+      <p>En diciembre de 2001, ante la fuga masiva de depósitos bancarios, Cavallo impone el <strong>"corralito"</strong>: restricciones al retiro de dinero en efectivo. La medida paraliza buena parte de la economía informal —dependiente del efectivo para funcionar día a día— y desata el estallido social. Las jornadas del <strong>19 y 20 de diciembre de 2001</strong> terminan con la renuncia de De la Rúa —que abandona la Casa Rosada en helicóptero, una imagen que quedó grabada en la memoria colectiva— en medio de una represión violenta. El presidente interino <strong>Adolfo Rodríguez Saá</strong> declara la cesación de pagos de la deuda externa: en ese momento, el default más grande de la historia financiera hasta esa fecha. Argentina llega a tener cinco presidentes en apenas diez días, hasta que asume <strong>Eduardo Duhalde</strong>.</p>
+      <p>Duhalde pone fin a la convertibilidad: devalúa el peso —que llega a cotizar cerca de 4 por dólar— y "pesifica" de manera asimétrica las deudas y los depósitos (las deudas en dólares se convierten a pesos a 1 a 1, favoreciendo a los deudores; los depósitos, a una relación menos favorable, perjudicando a los ahorristas), una medida profundamente redistributiva y legalmente muy discutida que generó litigios durante años. El costo social inmediato es enorme —el salario real cae un 30% y la pobreza supera el 50% de la población—, pero el reacomodamiento de los precios relativos que produce la devaluación, sumado a la enorme capacidad ociosa que dejó la recesión, sienta —de manera paradójica— las bases de la recuperación que viene después.</p>
+      `,
+      terms:[
+        {t:"Ajuste procíclico", d:"Recorte de gasto público en plena recesión que profundiza la caída de la actividad en lugar de reactivarla."},
+        {t:"Corralito (dic. 2001)", d:"Restricción al retiro de efectivo de los bancos que paraliza la economía informal y desata el estallido social."},
+        {t:"Pesificación asimétrica", d:"Conversión de deudas a pesos favorable a los deudores y de depósitos desfavorable a los ahorristas, tras el fin de la Convertibilidad."},
+      ],
+      recap:[
+        "De la Rúa hereda una recesión agravada por la devaluación brasileña de 1999; el ajuste fiscal resulta procíclico.",
+        "Blindaje (2000) y Megacanje (2001) no logran restaurar la confianza y aumentan el costo futuro de la deuda.",
+        "El corralito detona el estallido de diciembre de 2001: renuncia de De la Rúa y default más grande de la historia hasta ese momento.",
+        "Duhalde termina la Convertibilidad y pesifica de forma asimétrica: costo social enorme, pero sienta las bases de la recuperación.",
+      ]
+    },
+    {
+      id:"6-3", title:"6.3 De la recuperación económica al agotamiento del modelo (2003-2015)",
+      html:`
+      <h2>Viento de cola, superávits gemelos y un nuevo agotamiento</h2>
+      <p>Bajo los gobiernos de <strong>Néstor Kirchner</strong> y <strong>Cristina Fernández</strong>, este ciclo se caracteriza por un fuerte crecimiento inicial y la reaparición, hacia el final, de los mismos límites estructurales que atraviesan todo el curso.</p>
+      <h3>Recuperación y nuevo rol del Estado (2003-2007)</h3>
+      <p>El crecimiento "a tasas chinas" de estos años se explica por tres factores que conviene distinguir con precisión, porque no todos son igual de repetibles: la <strong>capacidad ociosa</strong> heredada de la crisis (fábricas que podían aumentar producción sin nueva inversión, tras años de funcionar muy por debajo de su capacidad), un <strong>tipo de cambio real alto</strong> que protegía a la industria local (justo lo contrario del atraso cambiario de la Convertibilidad), y un contexto internacional excepcionalmente favorable —el <strong>"viento de cola"</strong>— con precios récord de la soja impulsados por la demanda china: el mismo cultivo que había arrancado como una curiosidad experimental en la pampa de los años 60 (Unidad 3) se convierte ahora en el motor macroeconómico del país.</p>
+      <p>Se sostienen los <strong>"superávits gemelos"</strong>: superávit fiscal, apoyado en buena medida en las retenciones a las exportaciones de soja —el mismo mecanismo que Krieger Vasena había usado en 1967 (Unidad 3), ahora reeditado— y superávit comercial, gracias al tipo de cambio competitivo y a los altos precios de exportación. El Estado interviene activamente en la economía mediante subsidios a las tarifas de servicios públicos, control de precios y una fuerte obra pública.</p>
+      <h3>Desendeudamiento</h3>
+      <p>La normalización de la deuda es un eje central para recuperar autonomía de política económica. El <strong>canje de 2005</strong> reestructura la deuda que seguía en default desde 2001, logrando una quita histórica de capital e intereses con una adhesión del 76% de los acreedores (los tenedores que no entraron —los "holdouts", entre ellos los llamados "fondos buitre"— seguirán litigando durante años, aunque ese conflicto excede el período de este curso). En 2006 se cancela la totalidad de la deuda con el FMI (9.500 millones de dólares) usando reservas propias, en una decisión explícitamente política: evitar los condicionamientos del organismo, revirtiendo el patrón de dependencia del FMI que atraviesa el país desde la Unidad 4.</p>
+      <h3>Agotamiento del modelo (2008-2015)</h3>
+      <p>Durante las presidencias de Cristina Fernández el modelo enfrenta límites crecientes. El <strong>conflicto con el campo</strong> (2008): el intento de aplicar retenciones móviles a la soja (Resolución 125) genera una crisis política mayúscula —cortes de ruta, un prolongado paro agropecuario— y termina en un empate en el Senado que desempata el voto "no positivo" del vicepresidente Julio Cobos en contra del propio gobierno: un quiebre entre el Estado y el sector que, hasta entonces, había financiado buena parte de la recuperación.</p>
+      <p>Ante la crisis financiera global de 2008 (vista en 6.1), se estatizan las <strong>AFJP</strong> (los fondos de pensión privados vuelven al sistema estatal de reparto), en parte para acceder a sus activos en un momento de fuerte estrechez de liquidez. En 2012, ante un creciente déficit energético, se expropia el 51% de <strong>YPF</strong> a Repsol para recuperar el autoabastecimiento —revirtiendo, dos décadas después, la privatización de 1999 vista en la Unidad 5: otro círculo que se cierra dentro de este mismo relato—.</p>
+      <p>La inflación, la pérdida del superávit energético —la Argentina pasa a ser importadora neta de energía, justo cuando comienza a explorarse el desarrollo de Vaca Muerta— y la fuga de capitales terminan drenando las reservas del Banco Central; en 2011 se impone el <strong>"cepo cambiario"</strong>, un conjunto de controles a la compra de divisas. Entre 2012 y 2015 la economía se estanca en un cuadro de "estanflación", el déficit fiscal crece financiado cada vez más con emisión monetaria, y se priorizan medidas de corto plazo para sostener el consumo sin resolver los problemas de fondo: la inflación persistente y la falta de inversión productiva.</p>
+      <h3>El hilo que atraviesa las seis unidades</h3>
+      <p>Es un buen punto para cerrar todo el recorrido con una idea de síntesis: desde el modelo agroexportador de 1880 hasta el cepo cambiario de 2011, la economía argentina vuelve una y otra vez sobre la misma tensión de fondo —un sector exportador sujeto a los ciclos de precios internacionales y una economía urbano-industrial que depende de insumos y bienes de capital que no puede financiar por sí misma—. Ese es, en definitiva, el núcleo de la <strong>restricción externa</strong> presentada en la Unidad 3: el problema que organiza, con matices distintos en cada época, buena parte de la historia económica argentina del último siglo y medio.</p>
+      `,
+      terms:[
+        {t:"Viento de cola", d:"Contexto internacional excepcionalmente favorable (precios altos de exportación) que impulsa el crecimiento sin depender de reformas internas."},
+        {t:"Superávits gemelos", d:"Superávit fiscal y superávit comercial simultáneos, sostenidos en retenciones y en un tipo de cambio competitivo (2003-2007)."},
+        {t:"Cepo cambiario (2011)", d:"Controles a la compra de divisas impuestos ante la pérdida de reservas por inflación, déficit energético y fuga de capitales."},
+      ],
+      recap:[
+        "La recuperación 2003-07 se apoya en capacidad ociosa, tipo de cambio competitivo y 'viento de cola' de la soja: 'superávits gemelos'.",
+        "El desendeudamiento (canje 2005, pago al FMI 2006) busca recuperar autonomía de política económica.",
+        "La crisis de la Resolución 125 (2008) rompe la alianza con el campo que había financiado la recuperación.",
+        "Estatización de las AFJP (2008) y renacionalización de YPF (2012) revierten reformas de los 90.",
+        "El cepo cambiario (2011) y la estanflación de 2012-2015 muestran que la restricción externa —el hilo conductor del curso— sigue sin resolverse.",
+      ]
+    },
+  ]
+},
+];
+window.GLOSSARY = [
+  {t:"Agriculturización", u:"U1/U3", d:"Desplazamiento de tierras ganaderas hacia cultivos agrícolas; ocurre primero en los años 20 y de nuevo, tecnificada, en los 60."},
+  {t:"Agronegocio", u:"U5", d:"Modelo agroexportador de escala y capital intensivo, con baja demanda de mano de obra por hectárea (soja, forestación)."},
+  {t:"Argentinización", u:"U3", d:"Política de Aldo Ferrer (1970-71) para favorecer al capital nacional frente a la extranjerización industrial."},
+  {t:"Atraso cambiario / 'plata dulce'", u:"U4/U5", d:"Apreciación del tipo de cambio real cuando la devaluación anunciada corre por detrás de la inflación interna."},
+  {t:"BCRA", u:"U2", d:"Banco Central de la República Argentina, creado en 1935 para regular moneda y crédito y asistir al sistema bancario."},
+  {t:"Bicicleta financiera", u:"U4", d:"Arbitraje entre deuda barata en dólares y altas tasas locales, habilitado por la tablita cambiaria de 1978."},
+  {t:"Capitalismo", u:"U1", d:"Sistema donde privados producen e intercambian bienes vía transacciones de mercado a precios variables."},
+  {t:"Capitalización de deuda", u:"U5", d:"Pago de privatizaciones con títulos de deuda depreciados, que reduce a la vez el stock de deuda pública."},
+  {t:"Caja de Conversión", u:"U1", d:"Fondo creado en 1890 para respaldar en oro la emisión de billetes."},
+  {t:"Cepo cambiario", u:"U6", d:"Controles a la compra de divisas impuestos en 2011 ante la pérdida de reservas del Banco Central."},
+  {t:"Comunismo de guerra", u:"U1", d:"Primera etapa económica soviética (1918-21): nacionalización total y control centralizado, con fuerte caída productiva."},
+  {t:"Consenso de Washington", u:"U5", d:"Paquete de reformas de mercado impulsado por el FMI y el Banco Mundial desde fines de los 80."},
+  {t:"Control de Cambios (1931)", u:"U2", d:"Sistema de administración estatal de divisas para priorizar importaciones esenciales."},
+  {t:"Convertibilidad (1991)", u:"U5", d:"Ley que fija 1 peso = 1 dólar y obliga al BCRA a respaldar el 100% de la base monetaria con reservas."},
+  {t:"Corralito", u:"U6", d:"Restricción al retiro de efectivo de los bancos impuesta en diciembre de 2001."},
+  {t:"Cordobazo (1969)", u:"U3", d:"Insurrección popular en Córdoba que combina obreros y estudiantes; marca el fin político de Onganía."},
+  {t:"Crisis de Baring (1890)", u:"U1", d:"Crisis financiera argentina desatada por la especulación bancaria de la Ley de Bancos Garantidos (1887)."},
+  {t:"Cuasi-enclave", u:"U4/U5", d:"Estructura productiva donde la renta generada localmente se realiza y reinvierte fuera del territorio de origen."},
+  {t:"Cuello de botella", u:"U2/U3", d:"Freno al crecimiento cuando la industria, dependiente de insumos importados, se queda sin las divisas para comprarlos."},
+  {t:"CRYM", u:"U2", d:"Comisión Reguladora de la Yerba Mate (1935), limita plantaciones y fija precios en Misiones."},
+  {t:"Década perdida", u:"U4/U5", d:"Años 80 en América Latina, con el crédito externo cerrado tras el default mexicano de 1982."},
+  {t:"Desagio", u:"U5", d:"Mecanismo del Plan Austral para quitar de los contratos la inflación futura ya esperada."},
+  {t:"Desarrollismo", u:"U3", d:"Estrategia de Frondizi de integración vertical industrial financiada con inversión extranjera directa."},
+  {t:"Devaluación compensada", u:"U3", d:"Mecanismo de Krieger Vasena: devalúa pero aplica retenciones agrarias para que el Estado capture la renta cambiaria."},
+  {t:"Efecto Tequila (1995)", u:"U5", d:"Contagio financiero de la crisis del peso mexicano (1994) que dispara el desempleo argentino."},
+  {t:"Efecto Volcker", u:"U4", d:"Suba brusca de tasas de la Fed en 1979 que encarece la deuda externa de los países periféricos."},
+  {t:"Empate hegemónico", u:"U3", d:"Concepto de Portantiero: ningún bloque social logra imponer un proyecto económico duradero (1955-73)."},
+  {t:"Enclave", u:"U1", d:"Actividad productiva conectada al mercado mundial pero desarticulada del resto de la economía local."},
+  {t:"Estado Burocrático Autoritario", u:"U3", d:"Concepto de O'Donnell: régimen tecnocrático-militar que suspende la política partidaria."},
+  {t:"Estanflación", u:"U4/U5", d:"Estancamiento económico con inflación alta y simultánea; desafía a la teoría keynesiana en los 70."},
+  {t:"Estatización de la deuda privada (1982)", u:"U4", d:"El Estado asume como pública la deuda externa que habían contraído empresas privadas."},
+  {t:"Estructura productiva desequilibrada", u:"U3", d:"Concepto de Marcelo Diamand: un sector exportador de baja productividad relativa convive con una industria que no exporta."},
+  {t:"Extranjerización", u:"U5", d:"Venta masiva de empresas nacionales a capitales extranjeros hacia fines de los años 90."},
+  {t:"Frigorífico", u:"U1", d:"Establecimiento que permite congelar o enfriar carne para exportarla; motor de la 'estancia vacuna'."},
+  {t:"IAPI", u:"U2", d:"Instituto Argentino para la Promoción del Intercambio: monopolio estatal del comercio exterior que transfería renta agraria a la industria."},
+  {t:"Inflación inercial", u:"U5", d:"Inflación sostenida por expectativas y contratos indexados, no solo por la emisión monetaria."},
+  {t:"ISI", u:"U2/U3", d:"Industrialización por Sustitución de Importaciones: desarrollo industrial para reemplazar bienes antes importados."},
+  {t:"Juntas Reguladoras", u:"U2", d:"Organismos estatales (Granos, Carnes, Yerba Mate) que sostienen precios agrarios internos desde los años 30."},
+  {t:"La Forestal", u:"U1", d:"Empresa extranjera que explotó el quebracho colorado del Chaco y Santa Fe para producir tanino."},
+  {t:"Ley de Conversión (1899)", u:"U1", d:"Adopta de forma estable el patrón oro en la Argentina tras la crisis de 1890."},
+  {t:"Ley Oñativia (1964)", u:"U3", d:"Ley de Medicamentos de Illia: congela precios y exige a laboratorios extranjeros declarar sus costos."},
+  {t:"Megacanje (2001)", u:"U6", d:"Canje de deuda de corto por largo plazo a tasas exorbitantes, que aumentó la deuda futura."},
+  {t:"Minifundio", u:"U1/U2", d:"Parcela pequeña de tierra trabajada por una familia colona; base del ciclo algodonero del NEA."},
+  {t:"NEP", u:"U1", d:"Nueva Política Económica soviética (1921): retorno parcial al mercado y al capital privado."},
+  {t:"Patrón oro", u:"U1", d:"Mecanismo monetario que fija el valor de cada moneda a una cantidad de oro, generando tipos de cambio fijos."},
+  {t:"Pesificación asimétrica", u:"U6", d:"Conversión de deudas a pesos favorable a deudores y de depósitos desfavorable a ahorristas, tras el fin de la Convertibilidad."},
+  {t:"Planificación central", u:"U1", d:"Modelo estalinista de economía dirigida por el Estado mediante planes quinquenales."},
+  {t:"Puja distributiva", u:"U3", d:"Conflicto entre salarios y precios que vuelve a la inflación un fenómeno estructural."},
+  {t:"Restricción externa", u:"U2/U3/U6", d:"Límite crónico al crecimiento impuesto por la escasez de divisas frente a una industria que necesita importar."},
+  {t:"Retenciones", u:"U3/U6", d:"Impuestos a las exportaciones agropecuarias, usados para captar renta cambiaria o financiar el fisco."},
+  {t:"Stop and go", u:"U3", d:"Ciclo de expansión-crisis: crecimiento industrial → déficit de dólares → devaluación → recesión."},
+  {t:"Superávits gemelos", u:"U6", d:"Superávit fiscal y comercial simultáneos, sostenidos en retenciones y tipo de cambio competitivo (2003-07)."},
+  {t:"Sustitución fácil", u:"U2", d:"Primera etapa de la ISI: bienes de consumo simples, con poco capital y tecnología requeridos."},
+  {t:"Tablita cambiaria (1978)", u:"U4", d:"Cronograma de devaluaciones decrecientes preanunciadas que terminó generando atraso cambiario."},
+  {t:"Territorio nacional", u:"U1", d:"Espacio bajo administración directa del gobierno central, sin la autonomía política de una provincia."},
+  {t:"Triángulo comercial", u:"U1", d:"Esquema Argentina-Gran Bretaña-Estados Unidos: se vende a Londres pero se compra a Washington."},
+  {t:"Valorización financiera", u:"U4", d:"Lógica de acumulación donde la ganancia se busca en la especulación financiera en vez de en la producción."},
+  {t:"Vaquería / saladero", u:"U1", d:"Primeras formas de explotación ganadera: caza de cueros y elaboración de tasajo para exportar."},
+  {t:"Viento de cola", u:"U6", d:"Contexto internacional favorable (precios altos de exportación) que impulsa el crecimiento sin reformas internas."},
+];
+window.CARDS = [
+  {u:"u1",q:"¿Qué tres elementos integraron el mercado mundial entre 1870 y 1914?",a:"El patrón oro, las inversiones internacionales y los movimientos migratorios."},
+  {u:"u1",q:"¿Qué exigía el patrón oro a cada país miembro?",a:"Libre convertibilidad de la moneda en oro, libertad de entrada/salida de oro, y oferta monetaria respaldada por reservas."},
+  {u:"u1",q:"¿Cuáles son las tres etapas económicas de la Revolución Rusa?",a:"Comunismo de guerra → NEP (Nueva Política Económica) → Planificación central (Stalin)."},
+  {u:"u1",q:"¿Qué evento cierra la etapa clásica de expansión del capitalismo industrial?",a:"La Primera Guerra Mundial (1914-1918)."},
+  {u:"u1",q:"Ordená las etapas de la ganadería argentina, de la colonia a fines del siglo XIX.",a:"Vaquería (cueros) → estancia/tasajo → estancia lanar (lana) → estancia vacuna (frigorífico)."},
+  {u:"u1",q:"¿Qué ley de 1876 organizó la inmigración y colonización agrícola?",a:"La Ley 817, sancionada bajo la presidencia de Avellaneda."},
+  {u:"u1",q:"¿Qué desató la crisis de 1890 (Baring)?",a:"La especulación bancaria habilitada por la Ley de Bancos Garantidos de 1887, que permitía emitir billetes contra depósitos de oro sin reservas reales."},
+  {u:"u1",q:"¿Qué ley estabiliza el patrón oro en la Argentina en 1899?",a:"La Ley de Conversión, que adopta de forma estable el patrón oro tras la crisis de 1890."},
+  {u:"u1",q:"¿Cuál es el 'triángulo comercial' de la posguerra (1914-1930)?",a:"Argentina vende carnes y cereales a Gran Bretaña, pero compra manufacturas y tecnología a Estados Unidos, generando un déficit difícil de financiar."},
+  {u:"u1",q:"¿Cuáles son los cuatro 'ciclos del oro' del NEA?",a:"Oro rojo (tanino/quebracho), oro blanco (algodón), oro verde (yerba mate) y la ganadería correntina marginal."},
+  {u:"u2",q:"¿Qué fue el New Deal y qué inaugura?",a:"El plan de intervención estatal de Roosevelt en EEUU tras la crisis de 1929; inaugura el Estado de Bienestar moderno."},
+  {u:"u2",q:"¿Qué organismo se crea en 1935 para regular moneda y crédito en la Argentina?",a:"El Banco Central de la República Argentina (BCRA)."},
+  {u:"u2",q:"¿Qué es el IAPI y qué mecanismo usaba?",a:"El Instituto Argentino para la Promoción del Intercambio: compraba cosechas a precio fijo interno y las exportaba a precios internacionales altos, transfiriendo esa renta a la industria y los salarios."},
+  {u:"u2",q:"¿Qué provoca la crisis de 1949?",a:"Caída de precios agrícolas internacionales, sequías y agotamiento de las reservas de guerra frente a una industria que seguía necesitando importar; aparece el 'cuello de botella'."},
+  {u:"u2",q:"¿Qué buscó el Segundo Plan Quinquenal (1953-55) con la Ley 14.222?",a:"Atraer capital extranjero (contratos petroleros con California Argentina) para reducir el déficit energético."},
+  {u:"u2",q:"¿Qué organismo estabiliza a los productores de yerba mate de Misiones en 1935?",a:"La CRYM, Comisión Reguladora de la Yerba Mate."},
+  {u:"u3",q:"Describí el ciclo 'stop and go' en sus pasos clave.",a:"Expansión industrial → suben las importaciones → déficit de balanza de pagos → devaluación → cae el salario real → recesión ('pare')."},
+  {u:"u3",q:"¿Qué concepto usa Marcelo Diamand para describir el desequilibrio sectorial argentino?",a:"'Estructura productiva desequilibrada': un agro de baja productividad relativa convive con una industria que no exporta."},
+  {u:"u3",q:"¿Qué fue la 'batalla del petróleo' de Frondizi?",a:"Contratos con empresas extranjeras para explorar y producir petróleo, que triplicaron la producción y redujeron importaciones de combustible."},
+  {u:"u3",q:"¿Qué hizo la Ley Oñativia (1964) bajo el gobierno de Illia?",a:"Congeló precios de medicamentos y obligó a los laboratorios extranjeros a declarar sus costos de producción."},
+  {u:"u3",q:"¿En qué consistió la 'devaluación compensada' del Plan Krieger Vasena (1967)?",a:"Una gran devaluación combinada con retenciones a las exportaciones agrarias, para que el Estado capturara parte de la renta cambiaria y evitar que el aumento del dólar pasara íntegro a los precios de los alimentos."},
+  {u:"u3",q:"¿Qué fue el Cordobazo (1969) y qué consecuencia tuvo?",a:"Una insurrección popular de obreros y estudiantes en Córdoba contra la dictadura de Onganía; provoca la renuncia de Krieger Vasena y hiere de muerte al gobierno."},
+  {u:"u3",q:"¿Qué desplaza al algodón chaqueño desde los años 60?",a:"Las fibras sintéticas (nailon, poliéster), producto de la petroquímica de posguerra."},
+  {u:"u4",q:"¿Qué fue el 'efecto Volcker' y qué consecuencia tuvo en 1982?",a:"La suba brusca de tasas de la Fed en 1979 encareció la deuda externa latinoamericana a tasa variable; en 1982 México cayó en default, abriendo la 'década perdida'."},
+  {u:"u4",q:"¿Qué fue el Pacto Social de 1973 y qué actores lo integraban?",a:"Un acuerdo tripartito entre CGT, CGE y el Estado para frenar la inflación por consenso y redistribuir el ingreso."},
+  {u:"u4",q:"¿Qué fue el Rodrigazo (junio de 1975)?",a:"Un ajuste ortodoxo sin compensación (devaluación superior al 100%, suba de tarifas) que disparó una espiral hiperinflacionaria y una huelga general de la CGT."},
+  {u:"u4",q:"¿Cuáles son los tres ejes del Plan Martínez de Hoz (1976)?",a:"Apertura económica, reforma financiera (1977) y la tablita cambiaria (1978)."},
+  {u:"u4",q:"¿Qué es la 'bicicleta financiera'?",a:"Arbitraje: tomar deuda barata en dólares, invertir en pesos a tasas altas, y volver a dólares con ganancia gracias al tipo de cambio casi fijo de la tablita."},
+  {u:"u4",q:"¿Qué decisión toma el Estado en 1982 respecto de la deuda privada?",a:"La estatiza: asume como deuda pública los compromisos externos contraídos por empresas privadas durante la bicicleta financiera."},
+  {u:"u4",q:"¿Cuánto cae la participación de los asalariados en el ingreso durante la dictadura?",a:"Del 45% al 25% del ingreso nacional."},
+  {u:"u5",q:"¿Qué es el Consenso de Washington?",a:"Un paquete de reformas de mercado (disciplina fiscal, privatizaciones, apertura, desregulación) impulsado por el FMI y el Banco Mundial desde fines de los 80."},
+  {u:"u5",q:"¿Qué diagnóstico está detrás del Plan Austral (1985)?",a:"Que buena parte de la inflación era 'inercial' (por expectativas y contratos indexados), por eso combina congelamiento, nueva moneda (el Austral) y desagio."},
+  {u:"u5",q:"¿Cómo termina el gobierno de Alfonsín?",a:"Con una hiperinflación en 1989 (4.923% anual) que lo obliga a entregar el poder a Menem cinco meses antes de lo previsto."},
+  {u:"u5",q:"¿Qué diferencia estructural tiene la Convertibilidad (1991) frente a la tablita de 1978?",a:"La Convertibilidad es una restricción legal dura: por ley, el BCRA debe respaldar el 100% de la base monetaria con reservas, sin margen de emisión."},
+  {u:"u5",q:"¿Qué fue el 'Efecto Tequila' (1995) y qué provocó en la Argentina?",a:"El contagio de la crisis del peso mexicano de 1994, que disparó el desempleo argentino a un pico del 18%."},
+  {u:"u5",q:"¿Qué empresas emblemáticas se privatizan en los años 90?",a:"ENTEL, Aerolíneas Argentinas, la red ferroviaria e YPF (esta última en 1999, vendida a Repsol)."},
+  {u:"u6",q:"¿Qué evento detona la crisis financiera global de 2008?",a:"La quiebra del banco de inversión Lehman Brothers en septiembre de 2008."},
+  {u:"u6",q:"¿Qué fue el 'corralito' de diciembre de 2001?",a:"Una restricción al retiro de efectivo de los bancos que paralizó la economía informal y desató el estallido social del 19 y 20 de diciembre."},
+  {u:"u6",q:"¿Qué es la 'pesificación asimétrica' de 2002?",a:"La conversión de deudas a pesos a 1 a 1 (favorable a deudores) y de depósitos a una relación menos favorable (perjudicial para ahorristas), al salir de la Convertibilidad."},
+  {u:"u6",q:"¿Cuáles fueron los tres factores del crecimiento 2003-2007?",a:"Capacidad ociosa heredada de la crisis, tipo de cambio real alto, y un contexto internacional favorable ('viento de cola') con precios récord de la soja."},
+  {u:"u6",q:"¿Qué son los 'superávits gemelos'?",a:"Superávit fiscal (apoyado en retenciones a la soja) y superávit comercial simultáneos, entre 2003 y 2007."},
+  {u:"u6",q:"¿Qué generó la Resolución 125 (2008)?",a:"Un intento de subir las retenciones móviles a la soja que provocó un conflicto con el campo y terminó en un empate en el Senado, desempatado en contra del gobierno."},
+  {u:"u6",q:"¿Qué medidas revierten privatizaciones/reformas de los 90 durante 2008-2012?",a:"La estatización de las AFJP (2008) y la expropiación del 51% de YPF a Repsol (2012)."},
+  {u:"u6",q:"¿Qué controles se imponen en 2011 ante la pérdida de reservas?",a:"El 'cepo cambiario', un conjunto de restricciones a la compra de divisas."},
+];
+
+(function(){
+  const UNITS = window.UNITS, GLOSSARY = window.GLOSSARY, CARDS = window.CARDS;
+  const view = document.getElementById('view');
+  const breadcrumb = document.getElementById('breadcrumb');
+  const unitsNav = document.getElementById('unitsNav');
+  const opFill = document.getElementById('opFill');
+  const opPct = document.getElementById('opPct');
+  const searchInput = document.getElementById('searchInput');
+  const sidebar = document.getElementById('sidebar');
+  const scrim = document.getElementById('scrim');
+  const menuBtn = document.getElementById('menuBtn');
+
+  const MILESTONES = [
+    {y:1890,l:"Crisis de Baring"},{y:1914,l:"Primera Guerra Mundial"},{y:1929,l:"Crac de Wall Street"},
+    {y:1949,l:"Crisis del modelo peronista"},{y:1955,l:"Revolución Libertadora"},{y:1969,l:"Cordobazo"},
+    {y:1976,l:"Golpe y Plan Martínez de Hoz"},{y:1982,l:"Malvinas / estatización de la deuda"},
+    {y:1989,l:"Hiperinflación"},{y:1991,l:"Convertibilidad"},{y:2001,l:"Crisis de diciembre"},
+    {y:2008,l:"Crisis financiera global"},{y:2012,l:"Expropiación de YPF"},
+  ];
+
+  let openUnits = new Set();
+  let quiz = { filter:new Set(UNITS.map(u=>u.id)), deck:[], idx:0, flipped:false, known:0, seen:0 };
+
+  function escapeHtml(str){
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function stripHtml(html){ return html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
+
+  function getProgress(){
+    try{ return JSON.parse(localStorage.getItem('he_progress')||'{}'); }catch(e){ return {}; }
+  }
+  function setProgress(id,val){
+    const p = getProgress();
+    if(val) p[id]=true; else delete p[id];
+    try{ localStorage.setItem('he_progress', JSON.stringify(p)); }catch(e){}
+  }
+  function totalSections(){ return UNITS.reduce((a,u)=>a+u.sections.length,0); }
+  function unitDoneCount(u){ const p=getProgress(); return u.sections.filter(s=>p[s.id]).length; }
+  function overallDoneCount(){ const p=getProgress(); return UNITS.reduce((a,u)=>a+u.sections.filter(s=>p[s.id]).length,0); }
+
+  function currentRoute(){
+    const h = location.hash.replace(/^#\/?/,'');
+    return h.split('/').filter(Boolean);
+  }
+  function findSection(unitId, sectionId){
+    const u = UNITS.find(x=>x.id===unitId);
+    if(!u) return null;
+    const s = u.sections.find(x=>x.id===sectionId);
+    if(!s) return null;
+    return {u,s};
+  }
+
+  function closeSidebarMobile(){ sidebar.classList.remove('open'); scrim.classList.remove('open'); }
+
+  // ---------- sidebar ----------
+  function renderSidebarNav(){
+    const p = getProgress();
+    const route = currentRoute();
+    unitsNav.innerHTML = UNITS.map(u=>{
+      const done = unitDoneCount(u);
+      const total = u.sections.length;
+      const pct = total? Math.round(done/total*100):0;
+      const isActiveUnit = route[0]==='unidad' && route[1]===u.id;
+      const isOpen = openUnits.has(u.id) || isActiveUnit;
+      if(isOpen) openUnits.add(u.id);
+      const secs = u.sections.map(s=>{
+        const active = isActiveUnit && route[2]===s.id;
+        const label = s.title.replace(/^\d+(\.\d+)?\s*/,'');
+        return `<li><a class="section-link ${active?'active':''}" href="#/unidad/${u.id}/${s.id}"><span class="dot ${p[s.id]?'done':''}"></span>${label}</a></li>`;
+      }).join('');
+      return `<div class="unit-block ${u.id} ${isOpen?'open':''}">
+        <button class="unit-head" data-toggle="${u.id}" type="button">
+          <span class="unit-tab">${u.num}</span>
+          <span class="unit-titlewrap"><div class="unit-name">${u.title}</div><div class="unit-range mono">${u.range}</div></span>
+          <svg class="unit-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="unit-progress-track"><div class="up-fill" style="width:${pct}%"></div></div>
+        <ul class="section-list">${secs}</ul>
+      </div>`;
+    }).join('');
+
+    unitsNav.querySelectorAll('[data-toggle]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-toggle');
+        if(openUnits.has(id)) openUnits.delete(id); else openUnits.add(id);
+        renderSidebarNav();
+      });
+    });
+
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      const nav = a.getAttribute('data-nav');
+      const active = (nav==='home' && (route.length===0 || route[0]==='home')) || route[0]===nav;
+      a.classList.toggle('active', !!active);
+    });
+
+    const doneTotal = overallDoneCount(); const tot = totalSections();
+    const opctv = tot? Math.round(doneTotal/tot*100):0;
+    opFill.style.width = opctv+'%';
+    opPct.textContent = opctv+'%';
+  }
+
+  // ---------- timeline ----------
+  function renderTimeline(){
+    const scale = 960/(2015-1880);
+    const x = y => (20 + (y-1880)*scale).toFixed(1);
+    const bandDefs = [
+      {id:'u1',from:1880,to:1930},{id:'u2',from:1930,to:1955},{id:'u3',from:1955,to:1973},
+      {id:'u4',from:1973,to:1983},{id:'u5',from:1983,to:1999},{id:'u6',from:1999,to:2015},
+    ];
+    const years = [1880,1930,1955,1973,1983,1999,2015];
+    const bandsHtml = bandDefs.map((b,i)=>{
+      const u = UNITS[i];
+      const w = (x(b.to)-x(b.from)).toFixed(1);
+      return `<rect class="tl-band ${b.id}" x="${x(b.from)}" y="66" width="${w}" height="26" rx="4"><title>${escapeHtml(u.title)} (${u.range})</title></rect>
+      <text class="tl-num" x="${(parseFloat(x(b.from))+4).toFixed(1)}" y="58">${u.num}</text>`;
+    }).join('');
+    const axisY = 108;
+    const ticksHtml = years.map(y=>{
+      const anchor = y===1880 ? 'start' : (y===2015 ? 'end' : 'middle');
+      return `<line class="tl-tick" x1="${x(y)}" x2="${x(y)}" y1="${axisY}" y2="${axisY+5}"/><text class="tl-label" x="${x(y)}" y="${axisY+19}" text-anchor="${anchor}">${y}</text>`;
+    }).join('');
+    return `<svg class="timeline-svg" viewBox="0 0 1000 132" role="img" aria-label="Línea de tiempo de las seis unidades, 1880 a 2015">
+      ${bandsHtml}
+      <line class="tl-axis" x1="20" x2="980" y1="${axisY}" y2="${axisY}"/>
+      ${ticksHtml}
+    </svg>`;
+  }
+
+  // ---------- views ----------
+  function renderHome(){
+    breadcrumb.textContent = 'Inicio';
+    view.innerHTML = `
+      <div class="hero">
+        <div class="eyebrow">Cuaderno de estudio &middot; 6 unidades &middot; 1880–2015</div>
+        <h1>Historia Económica Argentina</h1>
+        <p class="lead">Del granero del mundo a la restricción externa crónica: un recorrido completo por el programa, con el contexto internacional y las razones detrás de cada giro de política económica — no solo qué pasó, sino por qué.</p>
+      </div>
+      <div class="timeline-card">
+        <h3>Las seis unidades a lo largo del tiempo</h3>
+        ${renderTimeline()}
+        <div class="milestone-row">
+          ${MILESTONES.map(m=>`<span class="milestone-chip"><b>${m.y}</b>${m.l}</span>`).join('')}
+        </div>
+      </div>
+      <div class="howto">
+        <div class="howto-item"><div class="howto-num">01</div><h4>Leé por unidad</h4><p>Cada punto del programa está desarrollado con contexto, causas y consecuencias, no solo la síntesis del apunte original.</p></div>
+        <div class="howto-item"><div class="howto-num">02</div><h4>Marcá tu avance</h4><p>Tildá "estudiado" al pie de cada sección. El progreso se guarda en este navegador.</p></div>
+        <div class="howto-item"><div class="howto-num">03</div><h4>Repasá con tarjetas</h4><p>El modo repaso toma preguntas de todas las unidades para practicar antes del parcial o el final.</p></div>
+      </div>
+      <h2 class="section-heading">Unidades del programa</h2>
+      <div class="unit-grid">
+        ${UNITS.map(u=>{
+          const done = unitDoneCount(u); const total = u.sections.length; const pct = total? Math.round(done/total*100):0;
+          return `<a class="unit-card ${u.id}" href="#/unidad/${u.id}/${u.sections[0].id}">
+            <div class="unit-card-top"><span class="unit-card-tab">${u.num}</span><span class="unit-card-range mono">${u.range}</span></div>
+            <h4>${u.title}</h4>
+            <p>${u.blurb}</p>
+            <div class="unit-card-progress">
+              <div class="ucp-track"><div class="ucp-fill" style="width:${pct}%"></div></div>
+              <div class="ucp-label">${done}/${total} secciones estudiadas</div>
+            </div>
+          </a>`;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  function renderSection(unitId, sectionId){
+    const found = findSection(unitId, sectionId);
+    if(!found){ location.hash = '#/home'; return; }
+    const {u,s} = found;
+    const idx = u.sections.findIndex(x=>x.id===s.id);
+    const uidx = UNITS.findIndex(x=>x.id===u.id);
+    let prevUnit=u, prevLink = idx>0? u.sections[idx-1]: null;
+    if(!prevLink && uidx>0){ prevUnit = UNITS[uidx-1]; prevLink = prevUnit.sections[prevUnit.sections.length-1]; }
+    let nextUnit=u, nextLink = idx<u.sections.length-1? u.sections[idx+1]: null;
+    if(!nextLink && uidx<UNITS.length-1){ nextUnit = UNITS[uidx+1]; nextLink = nextUnit.sections[0]; }
+
+    breadcrumb.innerHTML = `Unidad ${u.num} &middot; <b>${escapeHtml(u.title)}</b> &rsaquo; ${escapeHtml(s.title)}`;
+    const p = getProgress();
+    const isDone = !!p[s.id];
+    const termsHtml = (s.terms && s.terms.length) ? `
+      <div class="callout callout-terms">
+        <h4>Términos clave</h4>
+        <dl class="term-grid">
+          ${s.terms.map(t=>`<div class="term-item"><dt>${t.t}</dt><dd>${t.d}</dd></div>`).join('')}
+        </dl>
+      </div>` : '';
+    const recapHtml = (s.recap && s.recap.length) ? `
+      <div class="callout callout-recap">
+        <h4>Para recordar</h4>
+        <ul>${s.recap.map(r=>`<li>${r}</li>`).join('')}</ul>
+      </div>` : '';
+
+    view.innerHTML = `
+      <div class="crumb-eyebrow">Unidad ${u.num} &middot; ${u.range}</div>
+      <div class="article-head">
+        <h1>${escapeHtml(s.title)}</h1>
+        <label class="study-toggle ${isDone?'done':''}" id="studyToggle">
+          <input type="checkbox" ${isDone?'checked':''} />
+          <span id="studyToggleLabel">${isDone? 'Estudiado':'Marcar como estudiado'}</span>
+        </label>
+      </div>
+      <div class="prose">${s.html}</div>
+      ${termsHtml}
+      ${recapHtml}
+      <div class="section-nav">
+        ${prevLink? `<a href="#/unidad/${prevUnit.id}/${prevLink.id}"><small>&larr; Anterior</small><span>${escapeHtml(prevLink.title)}</span></a>`:'<div></div>'}
+        ${nextLink? `<a class="next" href="#/unidad/${nextUnit.id}/${nextLink.id}"><small>Siguiente &rarr;</small><span>${escapeHtml(nextLink.title)}</span></a>`:'<div></div>'}
+      </div>
+    `;
+    const cb = view.querySelector('.study-toggle input');
+    cb.addEventListener('change', ()=>{
+      setProgress(s.id, cb.checked);
+      view.querySelector('#studyToggle').classList.toggle('done', cb.checked);
+      view.querySelector('#studyToggleLabel').textContent = cb.checked? 'Estudiado':'Marcar como estudiado';
+      renderSidebarNav();
+    });
+  }
+
+  function renderGlossary(){
+    breadcrumb.textContent = 'Glosario';
+    const items = GLOSSARY.slice().sort((a,b)=>a.t.localeCompare(b.t,'es'));
+    view.innerHTML = `
+      <div class="hero">
+        <div class="eyebrow">Referencia rápida</div>
+        <h1>Glosario</h1>
+        <p class="lead">${items.length} términos clave del programa, con la unidad donde aparecen por primera vez.</p>
+      </div>
+      <dl class="glossary-grid">
+        ${items.map(g=>`<div class="gloss-item"><dt>${g.t}<span class="gloss-unit">${g.u}</span></dt><dd>${g.d}</dd></div>`).join('')}
+      </dl>
+    `;
+  }
+
+  // ---------- quiz ----------
+  function buildQuizDeck(){
+    let cards = CARDS.filter(c=>quiz.filter.has(c.u));
+    for(let i=cards.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [cards[i],cards[j]]=[cards[j],cards[i]]; }
+    quiz.deck = cards; quiz.idx=0; quiz.flipped=false; quiz.known=0; quiz.seen=0;
+  }
+  function attachQuizFilterHandlers(){
+    unitsNav && null;
+    document.querySelectorAll('.chip[data-u]').forEach(ch=>{
+      ch.addEventListener('click', ()=>{
+        const id = ch.getAttribute('data-u');
+        if(quiz.filter.has(id)){ if(quiz.filter.size>1) quiz.filter.delete(id); }
+        else quiz.filter.add(id);
+        buildQuizDeck();
+        renderQuiz();
+      });
+    });
+  }
+  function renderQuiz(){
+    breadcrumb.textContent = 'Modo repaso';
+    if(quiz.deck.length===0) buildQuizDeck();
+    const chips = UNITS.map(u=>`<button class="chip ${quiz.filter.has(u.id)?'active':''}" data-u="${u.id}" type="button">U${u.num}</button>`).join('');
+    const header = `<div class="hero"><div class="eyebrow">Práctica activa</div><h1>Modo repaso</h1><p class="lead">Tarjetas de pregunta y respuesta para practicar antes del parcial o el final. Elegí qué unidades entran en la ronda.</p></div>`;
+
+    if(quiz.deck.length===0){
+      view.innerHTML = `${header}
+        <div class="quiz-wrap">
+          <div class="quiz-filters">${chips}</div>
+          <div class="quiz-empty">No hay tarjetas para las unidades seleccionadas. Elegí al menos una.</div>
+        </div>`;
+      attachQuizFilterHandlers();
+      return;
+    }
+    if(quiz.idx >= quiz.deck.length){
+      view.innerHTML = `${header}
+        <div class="quiz-wrap">
+          <div class="quiz-filters">${chips}</div>
+          <div class="quiz-round-end">
+            <h3>Ronda terminada</h3>
+            <p>Repasaste ${quiz.seen} tarjetas y marcaste ${quiz.known} como sabidas.</p>
+            <button class="pill-btn primary" id="restartQuiz" type="button">Repetir ronda</button>
+          </div>
+        </div>`;
+      attachQuizFilterHandlers();
+      document.getElementById('restartQuiz').addEventListener('click', ()=>{ buildQuizDeck(); renderQuiz(); });
+      return;
+    }
+    const card = quiz.deck[quiz.idx];
+    const unit = UNITS.find(u=>u.id===card.u);
+    view.innerHTML = `${header}
+      <div class="quiz-wrap">
+        <div class="quiz-filters">${chips}</div>
+        <div class="quiz-stats"><span>Tarjeta <b class="mono">${quiz.idx+1}</b> / <b class="mono">${quiz.deck.length}</b></span><span>Sabidas: <b class="mono">${quiz.known}</b></span></div>
+        <div class="card-stage">
+          <div class="flashcard ${quiz.flipped?'flipped':''}" id="flashcard">
+            <div class="card-face front">
+              <div class="card-kicker">Unidad ${unit.num} &middot; Pregunta</div>
+              <div class="card-text">${escapeHtml(card.q)}</div>
+              <div class="card-hint">Clic o barra espaciadora para ver la respuesta</div>
+            </div>
+            <div class="card-face back">
+              <div class="card-kicker">Respuesta</div>
+              <div class="card-text">${escapeHtml(card.a)}</div>
+              <div class="card-hint">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-btn no" id="quizNo" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>No la sabía</button>
+          <button class="quiz-btn yes" id="quizYes" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>La sabía</button>
+        </div>
+      </div>`;
+    attachQuizFilterHandlers();
+    const fc = document.getElementById('flashcard');
+    fc.addEventListener('click', ()=>{ quiz.flipped = !quiz.flipped; fc.classList.toggle('flipped'); });
+    document.getElementById('quizYes').addEventListener('click', (e)=>{ e.stopPropagation(); quiz.known++; quiz.seen++; quiz.idx++; quiz.flipped=false; renderQuiz(); });
+    document.getElementById('quizNo').addEventListener('click', (e)=>{ e.stopPropagation(); quiz.seen++; quiz.idx++; quiz.flipped=false; renderQuiz(); });
+  }
+
+  document.addEventListener('keydown', (e)=>{
+    if(currentRoute()[0] !== 'repaso') return;
+    if(e.code==='Space'){ e.preventDefault(); const fc=document.getElementById('flashcard'); if(fc){ quiz.flipped=!quiz.flipped; fc.classList.toggle('flipped'); } }
+    else if(e.key==='ArrowRight'){ const b=document.getElementById('quizYes'); if(b) b.click(); }
+    else if(e.key==='ArrowLeft'){ const b=document.getElementById('quizNo'); if(b) b.click(); }
+  });
+
+  // ---------- search ----------
+  function renderSearch(q){
+    breadcrumb.innerHTML = `Buscar: <b>${escapeHtml(q)}</b>`;
+    const query = q.toLowerCase();
+    const results = [];
+    UNITS.forEach(u=>{
+      u.sections.forEach(s=>{
+        const text = stripHtml(s.html).toLowerCase();
+        if(s.title.toLowerCase().includes(query) || text.includes(query)){
+          results.push({unit:u, section:s});
+        }
+      });
+    });
+    const glossHits = GLOSSARY.filter(g=> g.t.toLowerCase().includes(query) || g.d.toLowerCase().includes(query));
+    view.innerHTML = `
+      <div class="hero"><div class="eyebrow">Resultados de búsqueda</div><h1>&ldquo;${escapeHtml(q)}&rdquo;</h1><p class="lead">${results.length} secciones y ${glossHits.length} términos del glosario coinciden.</p></div>
+      <ul class="search-results-list">
+        ${results.map(r=>`<a class="sr-item" href="#/unidad/${r.unit.id}/${r.section.id}"><small>Unidad ${r.unit.num}</small><div>${escapeHtml(r.section.title)}</div></a>`).join('')}
+        ${glossHits.map(g=>`<a class="sr-item" href="#/glosario"><small>Glosario</small><div>${escapeHtml(g.t)}</div></a>`).join('')}
+      </ul>
+      ${(results.length+glossHits.length)===0? '<p style="color:var(--ink-soft)">No se encontraron resultados. Probá con otro término.</p>':''}
+    `;
+  }
+
+  let searchDebounce;
+  searchInput.addEventListener('input', ()=>{
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(()=>{
+      const q = searchInput.value.trim();
+      if(q.length===0){ route(); return; }
+      breadcrumb.textContent = 'Buscando…';
+      renderSearch(q);
+    }, 180);
+  });
+
+  // ---------- router ----------
+  function route(){
+    const parts = currentRoute();
+    closeSidebarMobile();
+    if(parts.length===0 || parts[0]==='home'){ renderHome(); }
+    else if(parts[0]==='glosario'){ renderGlossary(); }
+    else if(parts[0]==='repaso'){ renderQuiz(); }
+    else if(parts[0]==='unidad' && parts[1] && parts[2]){ renderSection(parts[1], parts[2]); }
+    else { renderHome(); }
+    renderSidebarNav();
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', route);
+  menuBtn.addEventListener('click', ()=>{ sidebar.classList.add('open'); scrim.classList.add('open'); });
+  scrim.addEventListener('click', closeSidebarMobile);
+
+  route();
+})();
+</script>

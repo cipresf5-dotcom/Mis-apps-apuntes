@@ -37,3 +37,10 @@ services:
     rootDir: sociologia-economica
     buildCommand: ""
     staticPublishPath: .
+
+  - type: web
+    name: historia-economica-estudio
+    runtime: static
+    rootDir: historia-economica
+    buildCommand: ""
+    staticPublishPath: .

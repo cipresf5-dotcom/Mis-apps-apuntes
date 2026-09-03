@@ -10,7 +10,7 @@ window.PORTAL.anios = [
     materias: [
       { nombre: "Cuentas Nacionales", estado: "pronto" },
       { nombre: "Finanzas Públicas", estado: "app", url: "https://finanzas-publicas-estudio.onrender.com", desc: "Teoría por unidad, prácticos y parciales" },
-      { nombre: "Historia Económica", estado: "pronto" },
+      { nombre: "Historia Económica", estado: "app", url: "https://historia-economica-estudio.onrender.com", desc: "Cuaderno de estudio por unidades" },
       { nombre: "Inferencia Estadística", estado: "pronto" },
       { nombre: "Inferencia Estadística (LE)", estado: "app", url: "https://inferencia-estadistica-estudio.onrender.com", desc: "Teoría del 1º parcial con fórmulas y banco de preguntas" },
       { nombre: "Marketing", estado: "pronto" },

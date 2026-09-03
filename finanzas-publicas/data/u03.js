@@ -13,8 +13,16 @@ window.CURSO.unidades.push({
       titulo: "Los Recursos del Estado. Concepto. Clasificación",
       contenido: `
 <h3>Concepto</h3>
-<div class="def"><b>Recursos públicos:</b> son los <strong>ingresos que obtiene el Estado</strong>, preferentemente en dinero, para atender las erogaciones determinadas por las necesidades públicas (Villegas). Constituyen la contracara del gasto en la actividad financiera.</div>
-<p>Evolución del concepto: en el Estado liberal, el recurso era un simple medio para cubrir el gasto (finalidad fiscal). En el Estado moderno, el recurso es también un <strong>instrumento de política económica</strong> (finalidad extrafiscal): puede usarse para redistribuir, estabilizar o promover el desarrollo.</p>
+<p>No hay una definición única; distintos autores ponen el acento en aspectos diferentes:</p>
+<table>
+  <tr><th>Autor</th><th>Definición</th></tr>
+  <tr><td><strong>Jarach</strong></td><td>«Constituyen recursos del Estado los procedimientos mediante los cuales el mismo logra el poder de compra necesario para efectuar las erogaciones propias de su actividad financiera».</td></tr>
+  <tr><td><strong>Villegas</strong></td><td>(Siguiendo a Valdés Costa) «Los recursos públicos son los ingresos en la Tesorería del Estado, cualquiera sea su naturaleza económica o jurídica».</td></tr>
+  <tr><td><strong>Giuliani Fonrouge</strong></td><td>Los recursos públicos son «los ingresos que obtiene el Estado, preferentemente en dinero, para la atención de las erogaciones determinadas por exigencias administrativas o de índole económico-social».</td></tr>
+  <tr><td><strong>Atchabahian</strong></td><td>«Los medios pecuniarios de que el organismo público dispone para prestar los servicios públicos a su cargo; son los medios financieros necesarios para cubrir los presupuestos de gastos del Estado».</td></tr>
+  <tr><td><strong>José María Martín</strong></td><td>Reclama un concepto lo bastante amplio para comprender los variados ingresos del Estado: «recursos públicos es toda riqueza devengada a favor del Estado y acreditada como tal por su tesorería».</td></tr>
+</table>
+<p>Los ingresos públicos se destinan a financiar los gastos públicos, y en esa aplicación encuentra su justificativo la exigibilidad del recurso a la población. Evolución del concepto: en el Estado liberal, el recurso era un simple medio para cubrir el gasto (finalidad fiscal). En el Estado moderno, el recurso es también un <strong>instrumento de política económica</strong> (finalidad extrafiscal): puede usarse para redistribuir, estabilizar o promover el desarrollo.</p>
 
 <h3>Clasificaciones de los recursos</h3>
 
@@ -40,6 +48,31 @@ window.CURSO.unidades.push({
   <li><strong>Recursos del crédito público:</strong> el endeudamiento (Unidad IX).</li>
   <li><strong>Recursos parafiscales y de la seguridad social</strong> (ver 3.6).</li>
 </ul>
+
+<h4>4. Clasificación de Grizziotti (según la generación que los soporta)</h4>
+<table>
+  <tr><th>Categoría</th><th>Qué comprende</th></tr>
+  <tr><td><strong>Recursos de las generaciones pasadas</strong></td><td>Los impuestos que gravan la transmisión gratuita de bienes por causa de muerte (herencias).</td></tr>
+  <tr><td><strong>Recursos de las generaciones presentes</strong></td><td>Los que gravan capacidades contributivas que se demuestran en el presente (p. ej., el impuesto a la renta).</td></tr>
+  <tr><td><strong>Recursos de las generaciones futuras</strong></td><td>El crédito público: su carga (capital e intereses) será soportada por las futuras generaciones que deban pagarlo.</td></tr>
+</table>
+
+<h3>Bienes del dominio del Estado</h3>
+<p>Los recursos <strong>patrimoniales u originarios</strong> provienen, entre otras fuentes, de los bienes del Estado, que se clasifican en:</p>
+<ul>
+  <li><strong>Bienes de dominio público:</strong> destinados al disfrute de toda la comunidad, por causas naturales (ríos, lagos, playas) o artificiales (calles, puentes, plazas). Son <strong>inalienables e imprescriptibles</strong>, no pueden apropiarse privadamente, y su utilización es en principio <em>gratuita</em> (aunque en ocasiones especiales el Estado puede exigir un pago por concesión o autorización de uso).</li>
+  <li><strong>Bienes de dominio privado del Estado:</strong> satisfacen necesidades individuales o colectivas pero no están afectados al uso de todos los habitantes, sino al de determinadas personas vinculadas por su adquisición, localización, administración o concesión. También son recursos originarios los provenientes de la participación estatal en empresas mixtas o en sociedades con mayoría de capital privado.</li>
+</ul>
+
+<h3>Precios de las empresas estatales</h3>
+<p>Cuando el Estado actúa como empresa (a través de tarifas o precios de dependencias administrativas), pueden distinguirse tres modalidades:</p>
+<table>
+  <tr><th>Tipo</th><th>Cómo se fija</th></tr>
+  <tr><td><strong>Precio privado</strong></td><td>Se fija en base al mercado, como lo haría un particular: <em>costo + utilidad</em>. Compite con el sector privado y no reviste carácter público (ej.: Aerolíneas Argentinas).</td></tr>
+  <tr><td><strong>Precio público</strong></td><td>El precio es igual al costo del servicio, sin margen de utilidad.</td></tr>
+  <tr><td><strong>Precio político</strong></td><td>Al costo, el Estado le agrega o quita un adicional: lo encarece para desalentar un consumo, o lo abarata como beneficio a los usuarios.</td></tr>
+</table>
+<p class="muted"><strong>Cuadro tarifario según el destino de los beneficios:</strong> tarifa <em>postal</em> (mismo precio para cualquier destino dentro del territorio), tarifa <em>preferencial</em> (para productos, regiones o grupos sociales determinados, ej. boleto obrero), tarifa <em>price-cap</em> (fija hasta cierto nivel de consumo y luego variable, ej. energía eléctrica) y tarifa <em>multiparte</em> (una parte cubre costos fijos y otra costos variables).</p>
 `
     },
     {
@@ -64,6 +97,7 @@ window.CURSO.unidades.push({
   <tr><td><strong>Tasa</strong></td><td>La prestación efectiva o potencial de un <strong>servicio público divisible</strong> hacia el contribuyente.</td><td><strong>Vinculado</strong> (servicio individualizado).</td></tr>
   <tr><td><strong>Contribución especial</strong></td><td>Un <strong>beneficio</strong> derivado de una obra o actividad estatal (p. ej., valorización del inmueble).</td><td><strong>Vinculado</strong> (beneficio).</td></tr>
 </table>
+<div class="callout"><strong>Terminología de la clasificación económica de los tributos:</strong> en los tributos <strong>no vinculados</strong> (impuestos) no existe conexión del obligado con actividad estatal alguna que lo beneficie: la obligación nace ante un hecho que, según la valoración del legislador, revela capacidad de contribuir. En los tributos <strong>vinculados</strong>, el hecho generador se integra con una actividad o gasto a cargo del Estado que de algún modo afecta al obligado o repercute en su patrimonio; dentro de estos hay disparidad: en la <strong>tasa</strong> la obligación surge ante el mero goce o aprovechamiento del servicio (sin que interese el requerimiento ni el beneficio del obligado); en la <strong>contribución especial</strong> hay una actividad estatal que produce un <em>beneficio</em> concreto en el patrimonio del obligado, y es ese incremento patrimonial el que genera la obligación.</div>
 
 <h3>Principios distributivos de la carga tributaria</h3>
 <p>¿Cómo repartir el peso de los tributos entre los miembros de la comunidad? Dos grandes principios:</p>
@@ -116,6 +150,18 @@ window.CURSO.unidades.push({
   <li><strong>Sencillez y transparencia.</strong></li>
 </ul>
 <p class="muted">Estos principios suelen entrar en conflicto entre sí (p. ej., equidad vs. eficiencia, o eficiencia vs. simplicidad): el diseño tributario es siempre una búsqueda de equilibrio.</p>
+
+<h3>Clasificación completa de los impuestos vigentes en Argentina</h3>
+<p>Aplicando simultáneamente todos los criterios de clasificación (nivel de gobierno, objeto gravado, traslación, generalidad, sujeto y efecto redistributivo) a los principales impuestos argentinos:</p>
+<table>
+  <tr><th>Impuesto</th><th>Nivel</th><th>Objeto</th><th>Directo/Indirecto</th><th>General/Específico</th><th>Real/Personal</th><th>Efecto</th></tr>
+  <tr><td><strong>IVA</strong></td><td>Federal</td><td>Consumo</td><td>Indirecto</td><td>General</td><td>Real</td><td>Regresivo</td></tr>
+  <tr><td><strong>Ganancias</strong></td><td>Federal</td><td>Renta</td><td>Directo</td><td>General</td><td>Personal (PF) / proporcional 35% (sociedades)</td><td>Progresivo</td></tr>
+  <tr><td><strong>Internos</strong></td><td>Federal</td><td>Consumo</td><td>Indirecto</td><td>Específico</td><td>Real</td><td>Regresivo</td></tr>
+  <tr><td><strong>Bienes Personales</strong></td><td>Federal</td><td>Patrimonio</td><td>Directo</td><td>General</td><td>Real</td><td>Progresivo</td></tr>
+  <tr><td><strong>Ingresos Brutos</strong></td><td>Provincial</td><td>Consumo</td><td>Indirecto</td><td>General</td><td>Real</td><td>Regresivo</td></tr>
+  <tr><td><strong>Parque automotor (Patentes)</strong></td><td>Municipal</td><td>Patrimonio</td><td>Directo</td><td>Específico</td><td>Real</td><td>Progresivo</td></tr>
+</table>
 `
     },
     {
@@ -191,7 +237,34 @@ window.CURSO.unidades.push({
   </li>
   <li><strong>Según el mayor valor (plusvalía):</strong> se grava la diferencia de valor del inmueble antes y después de la obra. Es más exacto pero de difícil medición.</li>
 </ul>
-<p class="muted">El <strong>peaje</strong> es considerado por la doctrina mayoritaria y la Corte ("Estado Nacional c/ Arenera El Libertador") una contribución especial (o, para otros, una tasa), exigida por el uso/beneficio de una obra vial, siempre que exista vía alternativa razonable o se respeten ciertos recaudos.</p>
+
+<h3>El Peaje</h3>
+<div class="def"><b>Villegas:</b> «es la prestación dineraria que se exige por la circulación en una vía de comunicación vial o hidrográfica» (camino, túnel, puente, autopista).</div>
+<p><strong>Naturaleza jurídica</strong> (debatida): es un <strong>tributo</strong>, por ser coactivo y exigido en ejercicio del poder de imperio. Los caminos son bienes del dominio público, y el Estado cobra su uso por ciertas circunstancias. Para la doctrina mayoritaria es una <strong>contribución especial</strong> (la actividad estatal —construir/mantener el camino— produce un beneficio al usuario: ahorro de combustible, de tiempo, uso de vías más transitables).</p>
+<div class="callout"><strong>Requisitos de legalidad constitucional del peaje</strong> (art. 9 CN, que consagra la <em>libre circulación territorial</em>):
+<ol>
+  <li>El <em>quantum</em> debe ser bajo y razonable.</li>
+  <li>El hecho imponible debe consistir en la circulación por la zona estipulada.</li>
+  <li>Debe existir una <strong>vía alternativa</strong> gratuita.</li>
+  <li>Debe ser establecido por <strong>ley especial</strong>.</li>
+  <li>Si es interprovincial, debe surgir de una ley <strong>nacional</strong> (salvo que sea de alcance solo provincial).</li>
+</ol>
+En Argentina, la Ley 14.385 autoriza a Vialidad Nacional a fijar el peaje.</div>
+<p><strong>Diferencias con la tasa:</strong> el peaje es un ingreso <strong>originario</strong> (se percibe por el uso de una propiedad del Estado), aunque en ocasiones presenta rasgos de recurso derivado; se utiliza para realizar obras públicas y pagarlas con esos mismos recursos (la cesión de la recaudación permite pagarle al particular la obra, en lugar de hacerlo con el producido de los tributos generales). Es, en principio, un recurso <strong>voluntario</strong> basado en la teoría del beneficio —para que el pago sea voluntario deben existir vías alternativas gratuitas—; si esas vías no existen o no están en condiciones adecuadas, el peaje asume carácter <strong>coercitivo</strong>. Su desventaja es el tiempo y costo para el usuario; debe controlarse que no haya abusos y que se cumplan las condiciones de mantenimiento de la obra.</p>
+
+<h3>La Contribución de Mejoras en la Provincia del Chaco</h3>
+<p>Marco normativo: <strong>Decreto Ley 2794/56</strong> (Ley Orgánica de la Dirección de Vialidad Provincial), modificado y reglamentado por el <strong>Decreto Ley 4883/56</strong>; <strong>Ley 597/64</strong> (normas para la percepción) y <strong>Ley 1593/75</strong> (modificatoria), reglamentadas el 17/9/75.</p>
+<div class="def"><b>Zonas beneficiadas:</b> se consideran tales las comprendidas hasta <strong>15 km a cada lado</strong> del camino, y las comprendidas en arcos de <strong>1,5 km de radio</strong> en los extremos del camino (con centro en el eje, en la progresiva inicial o final). Las propiedades beneficiadas deben abonar un <strong>30% del costo</strong> de la obra como contribución de mejoras.</div>
+<p><strong>Liquidación:</strong> en razón inversa a la distancia del bien al eje del camino (medida en línea perpendicular desde su centro geométrico); la realiza <strong>Vialidad Provincial</strong>. Las propiedades frentistas al camino pagan además un adicional del <strong>5‰ del costo por metro lineal</strong> (con tope del 50% de la contribución que corresponda a cada inmueble). El costo del camino se determina por tramos, excluyendo las indemnizaciones por expropiación. <strong>Recauda:</strong> la Dirección de Rentas, en cuotas semestrales a 5 años (con descuento del 15% por pago contado o 10% si es en cuotas). <strong>Prescripción:</strong> 5 años.</p>
+<p><strong>Exenciones:</strong> quienes donen fracciones de tierra para la apertura/rectificación/ensanche de caminos (límite: el valor donado); los predios del ejido municipal y los inmuebles rurales públicos (Nación, provincia, municipio); los predios de asociaciones con personería jurídica destinados a educación gratuita o beneficencia pública; y (Ley 5098/2002) los talleres protegidos y entidades sin fines de lucro que trabajan con personas con discapacidad.</p>
+
+<h3>La Contribución de Mejoras en la ciudad de Resistencia</h3>
+<p>Marco normativo: <strong>Ordenanza 1181/85</strong>. Habilita a financiar obras de interés general para el ordenamiento urbano, el saneamiento ambiental o los desagües pluviales (calzadas, rotondas, cordones, alumbrado, desagües, etc.).</p>
+<div class="def"><b>Reparto del costo:</b> los <strong>beneficiados</strong> con la obra pagan el <strong>40%</strong> del costo total (al contado o en cuotas); el <strong>60%</strong> restante se financia con el Fondo Especial de Obras Públicas o el Fondo de Infraestructura (que se nutre, entre otras fuentes, de un adicional del <strong>8%</strong> sobre impuestos, derechos, patentes y tasas municipales vigentes).</div>
+<p><strong>Sistemas de liquidación</strong> (art. 22): generales (por unidad de liquidación o por unidad de vivienda: se divide el costo por cuadra entre el total de unidades, y se multiplica por las unidades que afecten a cada propiedad) o particulares para calzada (<em>por metro lineal de frente</em>, <em>por superficie tributaria</em> o <em>por zona de influencia</em>). <strong>Exigibilidad:</strong> si la obra la ejecuta un tercero, desde su recepción definitiva; si la ejecuta el Estado, desde su habilitación. <strong>Exención:</strong> inmuebles para espacios verdes/públicos y los que pertenecen a la propia municipalidad.</p>
+
+<h3>Monopolios fiscales</h3>
+<div class="def">Se produce cuando el <strong>Estado prohíbe por ley</strong> la concurrencia de otros oferentes, reservándose el lugar de proveedor único de un bien o servicio. Suele aplicarse a bienes considerados <strong>nocivos</strong> para la población (juegos de azar, algunos productos regulados): el Estado fija precios elevados, a la vez que protege a la población del consumo excesivo y se queda con la superutilidad monopólica.</div>
 `
     },
     {
@@ -209,7 +282,13 @@ window.CURSO.unidades.push({
 </ul>
 
 <h4>Naturaleza jurídica</h4>
-<p>Discutida: para la doctrina mayoritaria (y la Corte, caso "Cía. Química") tienen <strong>naturaleza tributaria</strong> (son coactivas y de fuente legal), por lo que les rigen los principios constitucionales tributarios. Otros las consideran una categoría <em>sui generis</em>.</p>
+<p>Discutida: para la doctrina mayoritaria (y la Corte, caso "Cía. Química") tienen <strong>naturaleza tributaria</strong> (son coactivas y de fuente legal), por lo que les rigen los principios constitucionales tributarios. Otros las consideran una categoría <em>sui generis</em>. Distintos autores la caracterizan así:</p>
+<table>
+  <tr><th>Autor</th><th>Postura</th></tr>
+  <tr><td><strong>Duverger</strong></td><td>Las llama «impuesto corporativo».</td></tr>
+  <tr><td><strong>Giuliani Fonrouge</strong></td><td>Son tributos dentro de la categoría de las contribuciones especiales: deben crearse por ley, que fije su monto y un máximo, sin dejar el gravamen librado al arbitrio del ente recaudador.</td></tr>
+  <tr><td><strong>Lucien Mehl</strong></td><td>Las diferencia de los impuestos porque en estos el provecho se distribuye en toda la colectividad, mientras que en la parafiscalidad el provecho se destina a un <strong>grupo profesional o social delimitado</strong>.</td></tr>
+</table>
 
 <h3>Recursos de la Seguridad Social</h3>
 <p>Son la especie parafiscal más importante. Financian el sistema de previsión y seguridad social (jubilaciones, pensiones, obras sociales, asignaciones familiares, riesgos del trabajo, desempleo).</p>
@@ -230,6 +309,31 @@ window.CURSO.unidades.push({
   <li><strong>Capitalización:</strong> cada aportante acumula un fondo individual que financia su propia prestación. Sensible al rendimiento financiero y al riesgo de mercado.</li>
   <li><strong>Sistemas mixtos.</strong></li>
 </ul>
+
+<h4>Contingencias cubiertas</h4>
+<p>La seguridad social es el sistema de protección que una sociedad construye para brindar amparo frente a los riesgos que atraviesan las personas a lo largo de la vida (un derecho humano fundamental). Las contingencias cubiertas se agrupan en tres categorías:</p>
+<table>
+  <tr><th>Categoría</th><th>Contingencias</th></tr>
+  <tr><td><strong>Biológicas</strong></td><td>Maternidad, vejez, desamparo por muerte.</td></tr>
+  <tr><td><strong>Patológicas</strong></td><td>Enfermedad, accidentes, invalidez.</td></tr>
+  <tr><td><strong>Económico-sociales</strong></td><td>Cargas de familia, desempleo, otras.</td></tr>
+</table>
+
+<h4>El régimen argentino: SIPA</h4>
+<p>La <strong>Ley 24.241</strong> creó el Sistema Integrado de Jubilaciones y Pensiones (SIJP), con dos regímenes: uno público de reparto y otro privado de capitalización. La <strong>Ley 26.425</strong> (2008/2009) unificó el sistema en el <strong>Sistema Integrado Previsional Argentino (SIPA)</strong>, financiado por un sistema solidario de <strong>reparto</strong>, eliminando el régimen de capitalización y garantizando a sus afiliados idéntica cobertura que el régimen público (art. 14 bis CN).</p>
+<p><strong>Alícuotas del régimen general:</strong></p>
+<table>
+  <tr><th>Concepto</th><th>Aporte trabajador</th><th>Contribución patronal</th></tr>
+  <tr><td>SIPA (Ley 24.241) — trabajador en relación de dependencia / autónomo</td><td>11% / 27%</td><td>—</td></tr>
+  <tr><td>PAMI — INSSJP (Ley 19.032)</td><td>3%</td><td>—</td></tr>
+  <tr><td>Obra social (Ley 23.660)</td><td>3%</td><td>6%</td></tr>
+  <tr><td><strong>Total</strong></td><td><strong>17,5%</strong></td><td><strong>27,5%</strong></td></tr>
+</table>
+<p><strong>Organismos:</strong> <strong>ANSES</strong> (ente descentralizado que otorga jubilaciones, pensiones, asignaciones familiares, seguro de desempleo); <strong>ART</strong> (aseguradoras privadas contratadas por los empleadores para reparar daños por accidentes o enfermedades laborales); <strong>PAMI/INSSJP</strong> (obra social nacional para jubilados, pensionados, mayores de 70 años sin jubilación y ex combatientes de Malvinas); <strong>DGRSS</strong> (dentro de AFIP, recauda y fiscaliza los recursos de la seguridad social).</p>
+
+<h4>Seguridad social en el Chaco (Ley 4.044/1994)</h4>
+<p>Comprende el régimen del personal de la Administración Pública provincial y municipal, retiros y pensiones policiales, jubilaciones y pensiones docentes, seguros y subsidios laborales, y préstamos y caja complementaria financiera. Administra cinco fondos: de jubilaciones/retiros/pensiones, obra social, alta complejidad, seguros y subsidios laborales, y préstamos y caja complementaria.</p>
+<div class="def"><b>El Fondo de Jubilaciones, Retiros y Pensiones se integra con:</b> un aporte del <strong>11%</strong> sobre las remuneraciones del personal en general, y un aporte del <strong>14%</strong> para el Gobernador, Vicegobernador, miembros del Superior Tribunal de Justicia, Procurador General, legisladores, ministros, secretarios y subsecretarios.</div>
 <p class="muted">En Argentina, los recursos de la seguridad social representan una porción muy significativa de la recaudación nacional y se vinculan con el gasto social analizado en la Unidad II.</p>
 `
     }

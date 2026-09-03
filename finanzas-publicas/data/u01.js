@@ -144,6 +144,7 @@ window.CURSO.unidades.push({
       titulo: "Finanzas Públicas: concepto, elementos y fines. Delimitación",
       contenido: `
 <h3>Concepto</h3>
+<div class="def"><b>Dino Jarach:</b> «Es la actividad económica del sector público que convive con la economía de mercado». La ciencia de las Finanzas Públicas tiene como objeto la <em>actividad financiera</em>; su contenido se identifica con el estudio de cada uno de los elementos financieros, por lo que el campo de estudio abarca la <strong>política financiera</strong>, la <strong>economía financiera</strong>, la <strong>sociología financiera</strong> y la <strong>administración o técnica financiera</strong>, todas complementadas por el <strong>Derecho Financiero</strong>.</div>
 <p>No hay una definición única; las principales concepciones ponen el acento en distintos aspectos:</p>
 <table>
   <tr><th>Autor</th><th>Énfasis</th></tr>
@@ -160,6 +161,34 @@ window.CURSO.unidades.push({
 
 <h4>Sujeto activo</h4>
 <p>Es el <strong>Estado</strong>. En un Estado federal (art. 1° de la Constitución Nacional) ello implica la <strong>distribución y coordinación de potestades tributarias</strong> entre Nación, provincias y municipios (tema que se profundiza en las Unidades IV y XI).</p>
+
+<h4>Teorías sobre la naturaleza del sujeto</h4>
+<p>Para explicar por qué el Estado es el sujeto de la actividad financiera han surgido tres teorías:</p>
+<table>
+  <tr><th>Teoría</th><th>Postura</th></tr>
+  <tr><td><strong>Histórica</strong></td><td>El Estado es una <em>necesidad histórica</em> del hombre.</td></tr>
+  <tr><td><strong>Individualista</strong></td><td>El sujeto de la actividad financiera es, antes que el Estado, el <em>individuo</em>; el Estado y sus manifestaciones sociales están en función de él.</td></tr>
+  <tr><td><strong>Realista</strong></td><td>Da preponderancia al <em>Estado</em> sobre el individuo: existe una relación de poderes entre ambos en la cual el individuo queda siempre subordinado al Estado.</td></tr>
+</table>
+<p>Nuestro país adopta la forma de gobierno <strong>federal</strong>: el Estado es el único y exclusivo sujeto de la actividad financiera, compuesto tanto por el ente central (Nación) como por los entes federativos (provincias) y los municipios. Esto implica una distribución del poder financiero bajo distintas reglas y estatutos jurídicos, con consecuencias y efectos jurídicos propios. El Estado tiene personalidad propia y una finalidad y autoridad independientes de los individuos: es el <em>gestor de la decisión financiera</em>. Las personas y entidades quedan sometidas a su autoridad por razones de pertenencia política, económica y social, contribuyen a proporcionarle ingresos, y a la vez son destinatarias de los gastos públicos que el Estado realiza con esos ingresos: el círculo se cierra.</p>
+
+<h4>Delimitación: sector público vs. sector privado</h4>
+<div class="def"><b>Núñez Miñana:</b> el sector público es el «conjunto de organismos y unidades económicas que dependen directamente del Estado, sea porque se trata de organismos integrantes del propio Estado (ej.: ministerios) o de empresas productivas de bienes y servicios de propiedad, conducción y/o control del Estado. El resto de unidades económicas que no integran el sector público componen el sector privado de la economía».</div>
+<p>El <strong>sector privado</strong> se basa en el funcionamiento del mercado: los resultados son consecuencia de la interacción de decisiones individuales (familias como consumidoras, empresas como oferentes), y se utilizan las herramientas de análisis de la economía. El <strong>sector público</strong> tiene un elemento distintivo que deriva del <em>poder del Estado</em>: sus resultados son consecuencia de una única unidad de decisión, y se utilizan las herramientas de análisis de las Finanzas Públicas.</p>
+
+<h4>Estructura del Sector Público Argentino</h4>
+<p>El sector público de la economía se subdivide en <strong>Sector Gobierno</strong> y <strong>Empresas Públicas</strong>:</p>
+<table>
+  <tr><th>Sector Gobierno</th><th>Empresas Públicas</th></tr>
+  <tr><td>Sus acciones son resultado de <strong>decisiones políticas</strong>; utiliza el mecanismo del <strong>presupuesto</strong> (proceso ingreso-gasto); su accionar es de naturaleza <strong>coactiva</strong> respecto de las demás unidades económicas.</td><td>Actúan de forma similar al sector privado, aunque con objetivos que pueden ser de tipo social según su creación; su accionar es <strong>no coactivo</strong> y usa instrumentos del mercado, como el sistema de precios.</td></tr>
+</table>
+<p>La composición institucional del sector público argentino se ordena así:</p>
+<ul>
+  <li><strong>Administración Pública Central</strong> + <strong>Organismos Descentralizados</strong> + <strong>Sistema de Seguridad Social</strong> = <strong>Administración Pública Nacional (APN)</strong>.</li>
+  <li><strong>APN</strong> + Empresas Públicas + Fondos Fiduciarios + Otros Entes = <strong>Sector Público No Financiero (SPNF)</strong>.</li>
+  <li><strong>SPNF</strong> + Provincias, CABA y Municipios = <strong>Sector Público Argentino</strong> (consolidado).</li>
+</ul>
+<p class="muted">Las empresas públicas producen "bienes privados" con características de consumo individual (rivalidad en el consumo), aplicación del principio de exclusión y divisibilidad de los beneficios — a diferencia de los bienes públicos que se estudian en el tema 1.5.</p>
 
 <h4>Fases de la actividad financiera</h4>
 <ol>
@@ -225,6 +254,38 @@ window.CURSO.unidades.push({
 </div>
 <p>Algunos autores añaden una cuarta función: <strong>desarrollo o crecimiento</strong> económico de largo plazo.</p>
 
+<h3>La función de asignación en detalle</h3>
+<p>Determinados bienes no pueden proveerse mediante el sistema de mercado, ya que este falla totalmente o funciona de manera ineficaz. La razón básica es que esos bienes deben ser percibidos en forma <strong>colectiva</strong> y, en consecuencia, su consumo por varias personas es <strong>no rival</strong>. Si los beneficios están disponibles para todos, los consumidores no desean voluntariamente efectuar pagos a los oferentes; la dificultad reside en decidir <em>qué clase y cantidad</em> de un bien social debería suministrarse y cuánto se debería pedir que pague cada consumidor. Por eso estos bienes se financian por medio del presupuesto y se ponen a disposición libres de cargas directas, independientemente de cómo sean producidos.</p>
+
+<h3>La función de redistribución: medición de la desigualdad</h3>
+<p>Para determinar la distribución justa se enfrentan dos inconvenientes: (1) la dificultad de comparar los niveles de utilidad que diferentes individuos derivan de su renta, y (2) las políticas de redistribución pueden suponer un <strong>costo de eficiencia</strong> que hay que sopesar frente al objetivo de equidad.</p>
+
+<div class="def"><b>Curva de Lorenz:</b> representación gráfica que refleja la desigualdad en la distribución de la renta, relacionando los grupos de población con su participación en el Ingreso Nacional. La <strong>diagonal de 45°</strong> representa la distribución perfectamente igualitaria (cada % de población recibe igual % del ingreso). La curva de Lorenz se ubica siempre por debajo de esa diagonal y tiene pendiente positiva en todos sus puntos: <strong>cuanto más alejada esté de la diagonal, mayor es la desigualdad</strong>. (Esta igualdad absoluta tampoco es deseable en sí misma, porque puede generar efectos desestimulantes para el progreso de la sociedad.)</div>
+
+<div class="def"><b>Coeficiente de Gini:</b> se basa en la curva de Lorenz. Sea <em>A</em> el área entre la diagonal de igualdad y la curva de Lorenz, y <em>B</em> el área restante bajo la diagonal. El coeficiente es:
+<p style="text-align:center; font-size:17px; margin:10px 0;">G = A / (A + B) = 2A</p>
+<ul>
+  <li>Si <strong>A = 0</strong> (la curva coincide con la diagonal): G = 0 → <strong>máxima igualdad</strong>.</li>
+  <li>Si <strong>B = 0</strong> (un solo individuo concentra todo el ingreso): G = A/A = 1 → <strong>máxima desigualdad</strong>.</li>
+</ul>
+Cuanto más se acerca G a 1, mayor es la desigualdad en la distribución del ingreso.</div>
+
+<h4>Mecanismos fiscales para la redistribución</h4>
+<p>Detectada la desigualdad, la <strong>eficiencia</strong> en la asignación de recursos requiere que cada factor se emplee de modo que se iguale el valor del producto marginal en todos los usos alternativos. Los mecanismos fiscales típicos son:</p>
+<ol>
+  <li>Un esquema de <strong>impuesto-transferencia</strong> que combina la imposición progresiva de la renta de las familias con ingresos superiores con una subvención a las de menor renta.</li>
+  <li><strong>Impuestos progresivos</strong> para financiar servicios públicos, especialmente viviendas sociales que benefician a las familias de bajos ingresos.</li>
+  <li>Una combinación de <strong>impuestos</strong> sobre los bienes adquiridos mayoritariamente por consumidores de ingresos elevados, junto con <strong>subvenciones</strong> a otros productos consumidos por sectores de renta baja.</li>
+</ol>
+
+<h3>Modelo de Haveman: transferencias de poder adquisitivo</h3>
+<p>Robert Haveman describe el funcionamiento del sector público como <em>«una serie de transferencias de poder adquisitivo de los particulares (familias y empresas) a las autoridades, y luego como una serie de transferencias de estas a aquellos»</em>. El Estado aplica impuestos al sector privado (le quita poder adquisitivo) y emplea lo recaudado en transferencias de ingresos o en la producción/adquisición de bienes y servicios, que a su vez benefician a individuos del sector privado. En síntesis: lo que el Estado obtiene del sector privado mediante impuestos, se lo devuelve en forma de transferencias, bienes o servicios.</p>
+
+<h3>Principio de Máximo Beneficio Social (Haveman)</h3>
+<p>Haveman plantea la pregunta clave de toda decisión de gasto: <em>¿la sociedad está en mejor situación a causa de la combinación impuesto-gasto? ¿Cómo es el <em>trade-off</em> entre impuesto y gasto?</em> Su regla: <strong>«el sector público, al emprender cualquier actividad, debe elegir la alternativa en que los beneficios sociales excedan a los costos en el monto máximo, y abstenerse de cualquier actividad cuyos costos no sean superados por los beneficios»</strong>.</p>
+<div class="callout">De esta definición surgen dos principios: (1) toda actividad estatal debe ser de <strong>utilidad pública</strong>; (2) los <strong>beneficios deben ser mayores que los costos</strong> esperados. Se debe elegir el proyecto que <strong>maximice el excedente</strong> de los beneficios sociales sobre los costos sociales.</div>
+<p>Gráficamente: el gasto del sector público debe impulsarse en cada campo hasta el punto en que el <strong>valor social marginal</strong> del último peso gastado iguale al <strong>costo social marginal</strong>. Eso asegura que el <em>beneficio neto social</em> total sea máximo. Si el gasto oficial fuera menor a ese punto, quedarían beneficios netos sin aprovechar; si fuera mayor, los pesos invertidos en esa zona tendrían costos sociales más altos que los beneficios que producen. (Este es el mismo principio de igualación en el margen que fundamenta el <em>análisis costo-beneficio</em> desarrollado en la Unidad II.)</p>
+
 <h3>El óptimo de Pareto</h3>
 <div class="callout"><strong>Definición:</strong> una asignación de recursos es <strong>eficiente en el sentido de Pareto</strong> (u óptima) cuando <em>no es posible mejorar la situación de un individuo sin empeorar la de otro</em>. Una <em>mejora paretiana</em> es un cambio que beneficia al menos a una persona sin perjudicar a ninguna.</div>
 <p>Condiciones de un óptimo de Pareto:</p>
@@ -243,6 +304,33 @@ window.CURSO.unidades.push({
   <li><strong>Paradoja de Condorcet / Teorema de imposibilidad de Arrow:</strong> las preferencias colectivas pueden ser <em>inconsistentes</em> (cíclicas); no existe un mecanismo de votación que cumpla simultáneamente todas las condiciones razonables de racionalidad y equidad.</li>
   <li><strong>Fallos del sector público:</strong> grupos de presión (<em>lobbies</em>), búsqueda de rentas (<em>rent seeking</em>), miopía del político (horizonte electoral) y burocracia que maximiza su presupuesto. Anticipa los <em>fallos del Estado</em> (tema 1.5).</li>
 </ul>
+
+<h4>Los tres tipos de agentes</h4>
+<p>La teoría de la elección pública concibe al Estado como el <strong>oferente monopólico</strong> de bienes públicos, en cuya oferta vuelca sus propios intereses y no necesariamente los de la sociedad; las decisiones colectivas son tomadas por quienes controlan el poder político. Mientras en el mercado actúa un <em>homo economicus</em> que maximiza su propio beneficio, esta teoría sostiene que en el sector público actúan <strong>tres tipos de agentes</strong>, cada uno con su propia lógica:</p>
+<table>
+  <tr><th>Agente</th><th>Rol</th></tr>
+  <tr><td><strong>Ciudadanos</strong></td><td>Eligen a sus representantes de gobierno y pueden asociarse y actuar como grupos de presión en organizaciones profesionales o sindicatos.</td></tr>
+  <tr><td><strong>Políticos</strong></td><td>Miembros de instituciones políticas encargados de tomar decisiones colectivas, con distintos niveles y grados de poder.</td></tr>
+  <tr><td><strong>Burócratas</strong></td><td>Toman decisiones en los distintos órganos de la administración (central, provincial, local); generalmente están encargados de <em>ejecutar</em> las decisiones ya tomadas a nivel político.</td></tr>
+</table>
+
+<h4>Dos grandes áreas de análisis positivo</h4>
+<ol>
+  <li><strong>Teoría de la demanda de bienes públicos:</strong> se ocupa de los problemas asociados a la <em>revelación de las preferencias</em>, a la agregación de esas preferencias y a los resultados de las reglas de votación a través de las cuales se manifiesta la demanda.</li>
+  <li><strong>Teoría de la oferta de bienes públicos:</strong> estudia el comportamiento de los políticos y burócratas, y el funcionamiento de las distintas instituciones políticas (el Ejecutivo, el Congreso, los partidos políticos, etc.).</li>
+</ol>
+
+<h4>Democracia directa y democracia representativa</h4>
+<div class="def"><b>Democracia directa (o pura):</b> el poder es ejercido directamente por el pueblo en una asamblea; según sus atribuciones, la ciudadanía puede aprobar o derogar leyes y elegir funcionarios. Contrasta con la <b>democracia representativa (o indirecta):</b> el poder se ejerce a través de representantes elegidos por sufragio en elecciones libres y periódicas, sometidos a la decisión de las mayorías. La <b>democracia deliberativa</b> incorpora elementos de ambas.</div>
+<p>Muchos países con democracia representativa habilitan formas limitadas de democracia directa:</p>
+<ul>
+  <li><strong>Iniciativa popular:</strong> permite a los ciudadanos presentar peticiones a los poderes del Estado para que un asunto público sea considerado (p. ej., una reforma legislativa o constitucional).</li>
+  <li><strong>Referéndum (plebiscito):</strong> se emplea para aprobar o rechazar una ley determinada.</li>
+  <li><strong>Revocatoria:</strong> da al pueblo el derecho de destituir de su cargo a los funcionarios electos antes de finalizar su mandato.</li>
+  <li><strong>Juicio por jurado:</strong> participación ciudadana directa y vinculante en el sistema de justicia, integrando tribunales de jurados, con lo cual se democratiza el Poder Judicial.</li>
+</ul>
+<p class="muted">Una característica central de la democracia representativa son los <strong>partidos políticos</strong>: organizaciones legales de corte ideológico conformadas por ciudadanos para representar intereses de sectores específicos de la población, con capacidad de actuar, influenciar y ocupar cargos en el poder político.</p>
+
 <p class="muted">En síntesis: el Estado interviene para corregir las fallas del mercado, pero la propia decisión pública tiene sus límites e imperfecciones. De ahí la importancia de evaluar costos y beneficios de cada intervención.</p>
 `
     },
@@ -287,6 +375,10 @@ window.CURSO.unidades.push({
 <h3>Bienes privados provistos por el Estado (bienes preferentes o meritorios)</h3>
 <div class="def">Son <b>bienes privados</b> (rivales y excluibles, podría proveerlos el mercado) que el Estado igualmente provee o subsidia porque considera que la sociedad debe consumirlos por encima de lo que cada individuo elegiría. Ejemplos: educación, salud, vivienda.</div>
 <p>Su provisión pública se funda en razones de <strong>equidad</strong>, en externalidades positivas y en la idea de que el individuo, librado a sí mismo, los consumiría en cantidad insuficiente (paternalismo justificado). Lo contrario son los <em>bienes prohibidos o no preferentes</em> (p. ej. drogas), que el Estado desalienta.</p>
+
+<h3>Bienes mixtos</h3>
+<div class="def">Son bienes que <b>no encuadran íntegramente</b> en las categorías anteriores: combinan características de los bienes públicos puros o preferentes con las de los bienes privados. Proporcionan una <em>utilidad privada</em> para quien paga el precio, pero también una <em>utilidad pública</em> para el resto de la sociedad.</div>
+<p><strong>Ejemplo clásico:</strong> una campaña de vacunación contra una enfermedad contagiosa impulsada por el Estado pero no gratuita. Quien se vacuna paga el precio y es beneficiario directo (bien privado); pero las personas <em>no</em> vacunadas también resultan beneficiadas, porque quedan protegidas contra el contagio (bien público puro para ellas, ya que nadie puede ser excluido de ese beneficio y su consumo —la protección— es conjunto).</p>
 
 <h3>Fallos del Estado</h3>
 <div class="callout"><strong>Concepto:</strong> la intervención estatal no siempre mejora la situación; el propio Estado puede fallar al intentar corregir el mercado, generando resultados ineficientes o no deseados.</div>

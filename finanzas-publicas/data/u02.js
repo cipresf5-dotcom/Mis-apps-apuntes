@@ -36,8 +36,30 @@ window.CURSO.unidades.push({
 <h3>Estructura: la organización de la Hacienda Pública</h3>
 <p>Argentina es un Estado <strong>representativo, republicano y federal</strong>: hay división de poderes y distintos niveles de gobierno. El Estado, como sujeto del gasto, comprende los tres poderes (Ejecutivo, Legislativo, Judicial), los tres niveles (nacional, provincial, municipal), las empresas estatales y las agencias públicas. Su organización administrativa configura una <em>hacienda dividida</em>: <strong>Administración Central</strong> y <strong>Organismos Descentralizados</strong>.</p>
 
+<h3>Elementos constitutivos del gasto público</h3>
+<p>La decisión sobre el gasto estatal presupone tres planos de análisis:</p>
+<ol>
+  <li><strong>Político:</strong> presupone dos valoraciones previas: (a) la <em>selección</em> de las necesidades de la colectividad que se consideran públicas —aspecto variable, ligado a la concepción sobre el papel del Estado—; y (b) la <em>comparación</em> entre la intensidad/urgencia de esas necesidades y la posibilidad material de satisfacerlas.</li>
+  <li><strong>Económico:</strong> es el empleo, la aplicación o la utilización de una riqueza, lo que supone efectos en la actividad económica general y también en el orden social.</li>
+  <li><strong>Jurídico o legal:</strong> se manifiesta en tres momentos — (a) la <strong>Ley de Administración Financiera</strong> (24.156, art. 12) dispone que en el presupuesto se incluyan todas las erogaciones del ejercicio; (b) la <strong>Ley General de Presupuesto</strong>, momento del cálculo y estimación del gasto (a cargo de la Oficina Nacional de Presupuesto y, a nivel provincial, de la Dirección de Finanzas y Presupuesto); (c) la <strong>Cuenta de Inversión</strong>, momento posterior de verificación y control de la gestión (en Chaco, a cargo del Tribunal de Cuentas).</li>
+</ol>
+<div class="callout"><strong>Base normativa:</strong> Constitución Nacional, art. 75 inc. 8 (el Congreso fija anualmente el presupuesto de gastos) y art. 99 inc. 10 (el Presidente supervisa la recaudación e inversión de las rentas conforme al presupuesto). Ley 24.156, art. 12 (los presupuestos comprenden todos los recursos y gastos previstos) y art. 21 (se consideran gastos del ejercicio todos los que se <em>devenguen</em> en el período, se traduzcan o no en salidas efectivas de dinero del Tesoro).</div>
+
 <h3>Clasificaciones del Gasto Público</h3>
-<p>El objetivo de clasificar es <strong>interpretar, analizar, evaluar y planificar</strong>. Las principales clasificaciones (Ley 24.156 de Administración Financiera y su decreto 1344/2007):</p>
+<p>El objetivo de clasificar es <strong>interpretar, analizar, evaluar y planificar</strong>: facilita determinar el volumen y composición del gasto, proyectar variables macroeconómicas, valorar resultados económicos y financieros, y analizar los efectos económicos y sociales de la actividad estatal. La <strong>Ley 24.156</strong> establece <strong>ocho clasificaciones</strong> para la presentación del gasto:</p>
+<div class="def">
+<ol>
+  <li><strong>Institucional</strong> (¿quién gasta?)</li>
+  <li><strong>Por categoría programática</strong></li>
+  <li><strong>Por finalidades y funciones</strong> (¿para qué se gasta?)</li>
+  <li><strong>Por fuentes de financiamiento</strong></li>
+  <li><strong>Por objeto del gasto</strong> (¿en qué se gasta?)</li>
+  <li><strong>Económica</strong></li>
+  <li><strong>Por tipo de moneda</strong></li>
+  <li><strong>Por ubicación geográfica</strong> (¿dónde se gasta?)</li>
+</ol>
+</div>
+<p>Las cuatro primeras (junto con la económica, la de objeto y la geográfica) son las que se desarrollan a continuación en detalle:</p>
 
 <h4>1. Clasificación económica</h4>
 <p>Atiende a la naturaleza de la transacción y permite evaluar el impacto sobre la economía.</p>
@@ -58,7 +80,23 @@ window.CURSO.unidades.push({
 <p>Responde a <strong>«¿quién gasta?»</strong>: Poder Ejecutivo (ministerios, secretarías, direcciones), Poder Legislativo, Poder Judicial.</p>
 
 <h4>4. Por objeto del gasto</h4>
-<p>Responde a <strong>«¿en qué se gasta?»</strong>: personal (remuneraciones, adicionales, asignaciones familiares), bienes de consumo, servicios no personales, intereses y gastos de la deuda, bienes de capital, inversiones financieras.</p>
+<p>Responde a <strong>«¿en qué se gasta?»</strong>, agrupando el gasto según el tipo de bien o servicio que compra el Estado. Ordena las partidas para facilitar la registración contable y el control legal (se usa combinada con la institucional para elaborar el presupuesto). A diferencia de la clasificación económica —que sirve para el análisis <em>macroeconómico</em>—, su utilidad reside en el análisis <strong>microeconómico</strong> del impacto del gasto sobre los distintos mercados. Se divide en <strong>nueve incisos</strong>:</p>
+<table>
+  <tr><th>Inciso</th><th>Contenido</th></tr>
+  <tr><td><strong>1. Gastos en personal</strong></td><td>Sueldos por servicios en relación de dependencia y a directorios/comisiones fiscalizadoras; incluye contribuciones patronales, asignaciones familiares, servicios extraordinarios y prestaciones sociales.</td></tr>
+  <tr><td><strong>2. Bienes de consumo</strong></td><td>Materiales y suministros consumibles para el funcionamiento de los entes estatales, incluida la conservación/reparación de bienes de capital.</td></tr>
+  <tr><td><strong>3. Servicios no personales</strong></td><td>Servicios para el funcionamiento estatal (servicios básicos, arrendamientos, publicidad, impresión), incluidos los usados en procesos productivos por entes comerciales/industriales.</td></tr>
+  <tr><td><strong>4. Bienes de uso</strong></td><td>Compra o construcción de bienes de capital que aumentan el activo del ente en el período (físicos, construcciones, equipos); duran más de un año y se deprecian.</td></tr>
+  <tr><td><strong>5. Transferencias</strong></td><td>Gastos sin contraprestación de bienes o servicios, con importes no reintegrables (ej.: becas).</td></tr>
+  <tr><td><strong>6. Activos financieros</strong></td><td>Compras de valores, créditos, acciones, títulos y bonos, públicos o privados.</td></tr>
+  <tr><td><strong>7. Servicios de la deuda y disminución de otros pasivos</strong></td><td>Pago de los servicios de la deuda pública y otros pasivos del sector público.</td></tr>
+  <tr><td><strong>8. Otros gastos</strong></td><td>Gastos de empresas públicas, instituciones financieras públicas y entidades descentralizadas con actividad industrial/comercial no incluidas antes.</td></tr>
+  <tr><td><strong>9. Gastos figurativos</strong></td><td>Contribuciones de la administración central, organismos descentralizados y entidades de seguridad social destinadas a integrar el financiamiento de otro ente del propio sector público (evita duplicar en las estadísticas los gastos ya contabilizados en el presupuesto general).</td></tr>
+</table>
+<p class="muted">Ejemplo aplicado (una universidad pública): los sueldos docentes van al inciso <em>personal</em>; los útiles de librería, a <em>bienes de consumo</em>; el servicio de limpieza o seguridad, a <em>servicios no personales</em>; las computadoras, a <em>bienes de uso</em>; la ampliación de un aula, a obras/trabajos públicos (dentro de bienes de uso); y las becas a estudiantes, a <em>transferencias</em>.</p>
+
+<h4>Por ubicación geográfica</h4>
+<p>Responde a <strong>«¿dónde se gasta?»</strong>. Permite determinar el impacto territorial de las erogaciones públicas y se emplea para implementar políticas deliberadas de promoción regional diferencial.</p>
 
 <h4>5. Por categorías programáticas</h4>
 <p>Asigna recursos a las categorías del presupuesto. El cálculo parte del mínimo nivel (actividad y obra) y por agregación llega a las de mayor nivel:</p>
@@ -77,6 +115,20 @@ window.CURSO.unidades.push({
       titulo: "Crecimiento del Gasto Público. Leyes de expansión",
       contenido: `
 <p>Una constante histórica es el <strong>aumento sostenido del gasto público</strong>. Para analizarlo hay que distinguir el crecimiento aparente del real.</p>
+
+<h3>Modificación del gasto: flexible y rígido (Fenochietto)</h3>
+<div class="def">
+<p><b>Gasto flexible:</b> su magnitud puede modificarse de un período a otro.</p>
+<p><b>Gasto rígido:</b> su magnitud <em>no</em> puede modificarse de un período a otro.</p>
+</div>
+<p>El gasto público tiene, en general, <strong>rigidez a la baja</strong>: es fácil de aumentar pero muy difícil de reducir. Fenochietto identifica cuatro <strong>restricciones que impiden reducir el gasto público</strong>:</p>
+<table>
+  <tr><th>Restricción</th><th>Explicación</th></tr>
+  <tr><td><strong>Naturaleza temporal</strong></td><td>Es más fácil planificar cambios para el <em>próximo</em> ejercicio fiscal que reducir el gasto ya comprometido en el actual.</td></tr>
+  <tr><td><strong>Clima financiero</strong> (nacional e internacional)</td><td>Reducir ciertos conceptos —como el pago de intereses o servicios de deuda— puede producir efectos adversos en el mercado financiero y afectar el nivel de inversiones.</td></tr>
+  <tr><td><strong>Marco legal</strong></td><td>Beneficios otorgados por programas presupuestarios se convierten en <em>derechos adquiridos</em> luego exigibles legalmente (ej.: jubilaciones, subsidios).</td></tr>
+  <tr><td><strong>Limitaciones políticas</strong></td><td>Una merma en el gasto de salud o educación, en un sistema democrático, trae problemas en toda la sociedad (alto costo político).</td></tr>
+</table>
 
 <h3>Crecimiento aparente vs. real</h3>
 <div class="def">
@@ -99,14 +151,23 @@ window.CURSO.unidades.push({
 
 <h3>Leyes y teorías de expansión</h3>
 
-<h4>Ley de Wagner (ley del crecimiento de los gastos del Estado)</h4>
-<div class="callout">"A medida que aumenta el ingreso per cápita en los países en vías de industrialización, el Estado aumenta su participación en el producto bruto." Es decir, la elasticidad del gasto público respecto del ingreso es <strong>mayor que la unidad</strong>.</div>
-<p>Wagner dio tres razones:</p>
+<h4>Ley de Wagner (1835–1917)</h4>
+<p>Formulada en <strong>1898</strong>, más que una "ley" es una <strong>observación empírica</strong>: constató que la tendencia de los gastos públicos era a elevarse, y la llamó <em>ley de crecimiento de los gastos públicos</em>, distinguiendo en ella fenómenos aparentes/reales y absolutos/relativos. Wagner explica el aumento del gasto en los países desarrollados con <strong>dos factores</strong> principales:</p>
 <ol>
-  <li>Aumento de las <strong>funciones administrativas y protectoras</strong> del Estado, con sustitución de la actividad privada por la pública (la urbanización y la densidad poblacional exigen más regulación).</li>
-  <li>Aumento de los <strong>gastos culturales y de bienestar</strong> (educación, redistribución), porque son <em>bienes superiores</em> con elasticidad-ingreso mayor a 1.</li>
-  <li>La industrialización crea grandes <strong>monopolios</strong> que requieren regulación estatal o su absorción por el Estado.</li>
+  <li>A medida que las sociedades se desarrollan, generan <strong>mayores conflictos de intereses</strong> entre sus miembros, y por lo tanto un <strong>mayor costo de intervención</strong> del Estado para resolverlos.</li>
+  <li>La demanda de los bienes y servicios que ofrece el Estado es <strong>elástica respecto de la renta</strong> (son <em>bienes superiores</em>): al crecer el ingreso, se demandan proporcionalmente más.</li>
 </ol>
+<p>Wagner sostenía que el aumento del gasto público podría ser <strong>superior</strong> al ritmo de crecimiento de la producción.</p>
+
+<h4>Ley 25.917 de Responsabilidad Fiscal</h4>
+<p>Es el <strong>límite legal contemporáneo</strong> al crecimiento del gasto en Argentina. Sus reglas centrales (arts. 10, 10 bis y 10 ter, según texto ordenado por la Ley 27.428):</p>
+<ul>
+  <li><strong>Art. 10:</strong> la tasa nominal de incremento del <strong>gasto público corriente primario neto</strong> de la Nación, las provincias y CABA <strong>no puede superar</strong> la tasa de aumento del índice de precios al consumidor previsto en el marco macrofiscal.</li>
+  <li><strong>Art. 10 bis:</strong> para las jurisdicciones con resultado corriente <strong>deficitario</strong> en el año previo, la tasa de aumento del <strong>gasto público primario neto</strong> tampoco puede superar la inflación proyectada.</li>
+  <li><strong>Art. 10 ter:</strong> las jurisdicciones que alcancen resultado financiero <strong>equilibrado o superavitario</strong> quedan exceptuadas de esos límites, pero el gasto corriente primario no puede superar entonces la tasa de <strong>crecimiento nominal del PBI</strong>.</li>
+  <li><strong>Art. 10 quáter:</strong> compromiso de <strong>no incrementar la relación de cargos ocupados</strong> en el sector público respecto de la población, salvo que se trate de nuevas inversiones en educación, salud o seguridad y exista resultado financiero equilibrado o superavitario.</li>
+</ul>
+<p class="muted">Estos artículos estuvieron suspendidos para los ejercicios 2020 y 2021 (Ley 27.591, art. 20) por la emergencia sanitaria.</p>
 
 <h4>Efecto desplazamiento o "efecto umbral" (Peacock y Wiseman, 1961)</h4>
 <p>El gasto no crece de forma continua sino <strong>escalonada</strong>: ante una conmoción social (guerra, crisis), la sociedad <em>tolera</em> un nivel de presión tributaria más alto. Pasada la crisis, el gasto y los impuestos no vuelven al nivel previo, sino que quedan "desplazados" hacia arriba (efecto inspección y efecto concentración).</p>
@@ -157,6 +218,32 @@ window.CURSO.unidades.push({
 </ul>
 
 <div class="callout"><strong>Regla general:</strong> el mismo gasto puede ser expansivo o inflacionario según la coyuntura (pleno empleo vs. capacidad ociosa), el sector beneficiado, el sector que soporta el financiamiento y el instrumento elegido.</div>
+
+<h3>Las tres ramas de Musgrave y el gasto según su finalidad</h3>
+<p>Musgrave identifica <strong>tres ramas de las Finanzas Públicas</strong> —producción de bienes y servicios, estabilización y desarrollo de la economía, y redistribución de rentas y patrimonio— que se corresponden con tres grandes finalidades del gasto. El efecto de cada financiamiento (tributos, crédito, emisión) varía según cuál de las tres persiga el gasto:</p>
+
+<h4>I) Gastos para la producción de bienes y servicios</h4>
+<ul>
+  <li><strong>Con recursos tributarios:</strong> el efecto redistributivo es mayor si el impuesto recae en los sectores de mayor capacidad contributiva (impuestos personales progresivos) y el servicio beneficia a los de menor capacidad (ambos efectos pueden potenciarse). En <strong>recesión</strong>, tender a recaudar de los de mayor ingreso y volcarlo a los de menor ingreso incrementa la renta nacional y el empleo. En <strong>plena ocupación</strong>, si el recurso reduce el gasto privado más de lo que aumenta el gasto público, hay efecto <em>recesivo</em>; si el gasto se destina a sectores de alta propensión marginal a consumir, se acelera el aumento de precios.</li>
+  <li><strong>Con crédito público:</strong> produce efectos sobre el mercado de capitales y la tasa de interés. En épocas de <strong>plena liquidez</strong>, el Estado puede tomar el excedente sin afectar severamente la tasa (efecto estabilizador). En épocas de <strong>iliquidez</strong>, compite con los particulares por los pocos fondos, sube la tasa y cae la inversión privada; además, al sustraer fondos del mercado de capitales limita su capacidad de financiar el consumo, lo que puede reducir la renta nacional.</li>
+  <li><strong>Con emisión monetaria:</strong> en <strong>pleno empleo</strong>, el total de dinero crece sin que aumenten los bienes y servicios producidos → efecto inflacionario. En <strong>recesión</strong>, el aumento del producto generado por el gasto compensa la tendencia al aumento de precios.</li>
+</ul>
+
+<h4>II) Gastos para la redistribución del ingreso</h4>
+<p>Su objeto es transferir riqueza de los sectores de altos recursos a los de bajos recursos, vía transferencias y provisión de servicios públicos.</p>
+<ul>
+  <li><strong>Con recursos tributarios:</strong> hay <strong>redistribución progresiva</strong> si se financia con impuestos a los de mayor capacidad y se destina a los de menor capacidad (en recesión estimula el crecimiento, porque los sectores de menor ingreso tienen mayor propensión a consumir y el multiplicador actúa a pleno; en pleno empleo sigue impulsando el crecimiento, con riesgo de recalentamiento). Hay <strong>redistribución regresiva</strong> si, por ejemplo, un servicio gratuito (educación) se financia con impuestos al consumo aplicados en zonas de alto poder adquisitivo: hay concentración, no redistribución.</li>
+  <li><strong>Con crédito público:</strong> hay que analizar dos transferencias distintas: entre quien suscribe la deuda y quien recibe el gasto, y entre quien la financia al vencimiento y quien recibe los intereses. Es <strong>progresiva</strong> si la deuda la suscriben personas con excedentes financieros y el gasto se destina a población de bajos ingresos; para que no se pierda la progresividad, quien soporte la carga tributaria en el tiempo debe ser la población de mayor poder adquisitivo.</li>
+  <li><strong>Con emisión monetaria:</strong> la redistribución se logra solo si <strong>no</strong> se produce un efecto inflacionario que neutralice el subsidio o la transferencia.</li>
+</ul>
+
+<h4>III) Gastos para financiar el desarrollo económico y social</h4>
+<p>Se destinan a obras de infraestructura o inversiones que estimulan el desarrollo económico o benefician la situación social del conjunto de la población.</p>
+<ul>
+  <li><strong>Con recursos tributarios</strong> que no afecten la formación de capital privado: puede haber (1) disminución de la equidad, si se renuncia a impuestos progresivos para estimular el ahorro y la inversión; y (2) reducción de la demanda de bienes de consumo, por impuestos al consumo que generan ahorro forzoso.</li>
+  <li><strong>Con crédito público:</strong> en expansión y pleno empleo, el Estado absorbe recursos destinados a la inversión y sube la tasa de interés (reducción de la inversión privada); además, la productividad de la inversión pública suele ser menor que la privada (enfriamiento de la economía). En recesión, en cambio, estimula la producción y el empleo.</li>
+  <li><strong>Con emisión monetaria:</strong> mismo patrón que en I) y II) — inflacionario en pleno empleo, compensador en recesión.</li>
+</ul>
 
 <h3>Gastos según su finalidad económica</h3>
 <ul>
@@ -220,6 +307,13 @@ Además, los requisitos <strong>cambian la conducta</strong> de los beneficiario
   <li>Todo programa es resultado de un <strong>proceso de negociación política</strong> con intereses diversos y contrapuestos; el debate público exige simplificación y está expuesto a presiones y corrupción. Analizar ese proceso ayuda a entender por qué un programa "es como es".</li>
 </ul>
 <p class="muted"><strong>Evaluación:</strong> el Estado tiene control limitado sobre la economía, por lo que deben analizarse las consecuencias del programa <em>a largo plazo</em>, cuando todos los agentes ya adaptaron su conducta. Las herramientas formales son el análisis <strong>costo-beneficio</strong> y el análisis <strong>costo-eficacia</strong>.</p>
+
+<h3>El análisis costo-beneficio: valor actual descontado</h3>
+<p>El corazón del análisis costo-beneficio es un conjunto de <strong>procedimientos sistemáticos</strong> para valorar bienes, de modo que los analistas políticos puedan determinar si un proyecto es o no, en conjunto, beneficioso. Permite que los políticos imiten a los mercados que funcionan bien: se debe asignar recursos a un proyecto siempre que el <strong>beneficio marginal social</strong> sea superior al <strong>costo marginal social</strong>.</p>
+<p><strong>Procedimiento del análisis privado</strong> (que el sector público adapta): (1) identificar el conjunto de proyectos posibles; (2) identificar todas las consecuencias de esas posibilidades; (3) asignar un valor a cada factor y a cada producto (estimando costos y precios de venta); (4) sumar costos y beneficios para estimar la rentabilidad total. El proyecto elegido es el que genera el <strong>mayor beneficio</strong> (máxima diferencia entre beneficios y costos).</p>
+<div class="def"><b>Valor Actual Descontado (VAD):</b> para comparar beneficios y costos que ocurren en fechas distintas, los valores futuros se multiplican por un <em>factor de descuento</em> que los hace equivalentes a valores actuales. El factor de descuento de un pago a efectuarse dentro de un año es <strong>1 / (1 + r)</strong>; dentro de dos años, <strong>1 / (1 + r)²</strong>; y así sucesivamente (siendo <em>r</em> la tasa de descuento). Sumando los valores descontados de todos los pagos/ingresos futuros se obtiene el VAD del proyecto.</div>
+<p>A partir del VAD se derivan otros indicadores usados en la evaluación de proyectos: el <strong>Valor Actual Neto (VAN)</strong> (VAD de los beneficios menos VAD de los costos: se acepta el proyecto si VAN &gt; 0), la <strong>Tasa Interna de Retorno (TIR)</strong> (la tasa de descuento que hace VAN = 0) y el <strong>coeficiente beneficio-costo</strong> (cociente entre el VAD de los beneficios y el VAD de los costos).</p>
+<p class="muted">A diferencia de una empresa privada, el Estado suele proveer bienes <strong>sin precio de mercado</strong> (o cuya eficiencia solo puede medirse observando el comportamiento social), por lo que comparar costos y beneficios es más difícil (ej.: cómo valuar una vida salvada o el tiempo ahorrado). Cuando no es posible cuantificar los beneficios, se recurre al <strong>análisis de costo-eficacia</strong>: comparar programas de beneficios similares y preguntar cuál los produce al menor costo.</p>
 `
     },
     {

@@ -16,3 +16,24 @@ services:
     rootDir: finanzas-publicas
     buildCommand: ""
     staticPublishPath: .
+
+  - type: web
+    name: inferencia-estadistica-estudio
+    runtime: static
+    rootDir: inferencia-estadistica
+    buildCommand: ""
+    staticPublishPath: .
+
+  - type: web
+    name: historia-pensamiento-economico-estudio
+    runtime: static
+    rootDir: historia-pensamiento-economico
+    buildCommand: ""
+    staticPublishPath: .
+
+  - type: web
+    name: sociologia-economica-estudio
+    runtime: static
+    rootDir: sociologia-economica
+    buildCommand: ""
+    staticPublishPath: .

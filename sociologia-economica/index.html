@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sociología Económica · U3–U6 · App de Estudio</title>
+<style>
+:root{
+  --paper:#F6F5F0;
+  --card:#FFFFFF;
+  --ink:#1C2430;
+  --ink-soft:#4A5568;
+  --line:#E2DFD6;
+  --u3:#B03A2E;
+  --u4:#2E5EAA;
+  --u5:#2E7D5B;
+  --u6:#7B4FA6;
+  --ok:#2E7D5B;
+  --bad:#B03A2E;
+  --radius:14px;
+  --shadow:0 2px 10px rgba(28,36,48,.07);
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'SF Mono',Consolas,'Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 80px}
+
+/* ---------- header ---------- */
+header{border-bottom:3px solid var(--ink);padding:26px 0 18px;margin-bottom:14px}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+h1{font-family:var(--serif);font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.15;margin-top:6px}
+h1 em{font-style:italic;color:var(--u3)}
+.sub{color:var(--ink-soft);font-size:.9rem;margin-top:6px}
+
+/* ---------- tabs ---------- */
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:0;background:var(--paper);padding:10px 0;z-index:50;border-bottom:1px solid var(--line)}
+.tab{border:1.5px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s}
+.tab:hover{transform:translateY(-1px)}
+.tab.active{background:var(--ink);color:#fff}
+.tab .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.tab[data-tab="u3"] .dot{background:var(--u3)}
+.tab[data-tab="u4"] .dot{background:var(--u4)}
+.tab[data-tab="u5"] .dot{background:var(--u5)}
+.tab[data-tab="u6"] .dot{background:var(--u6)}
+
+main section.panel{display:none;padding-top:18px}
+main section.panel.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- inicio ---------- */
+.grid-units{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.unit-card{background:var(--card);border:1px solid var(--line);border-top:5px solid;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s}
+.unit-card:hover{transform:translateY(-3px)}
+.unit-card h3{font-family:var(--serif);font-size:1.1rem;margin:4px 0 6px}
+.unit-card .num{font-family:var(--mono);font-size:1.6rem;font-weight:700}
+.unit-card p{font-size:.84rem;color:var(--ink-soft)}
+.unit-card .authors{font-family:var(--mono);font-size:.7rem;margin-top:10px;color:var(--ink-soft)}
+.uc3{border-top-color:var(--u3)}.uc3 .num{color:var(--u3)}
+.uc4{border-top-color:var(--u4)}.uc4 .num{color:var(--u4)}
+.uc5{border-top-color:var(--u5)}.uc5 .num{color:var(--u5)}
+.uc6{border-top-color:var(--u6)}.uc6 .num{color:var(--u6)}
+.howto{background:var(--card);border:1px dashed var(--ink-soft);border-radius:var(--radius);padding:16px 18px;margin-top:20px;font-size:.9rem}
+.howto strong{font-family:var(--serif)}
+.progress-banner{display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:14px 18px;margin-top:20px;flex-wrap:wrap}
+.progress-banner .bar{flex:1;min-width:160px;height:10px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
+.progress-banner .bar i{display:block;height:100%;width:0;background:#F0C75E;border-radius:99px;transition:width .4s}
+.progress-banner span{font-size:.84rem}
+
+/* ---------- teoría ---------- */
+.unit-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:14px;flex-wrap:wrap}
+.unit-head .big{font-family:var(--mono);font-size:2.4rem;font-weight:700}
+.unit-head h2{font-family:var(--serif);font-size:1.4rem}
+.unit-head .bib{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);width:100%}
+.point{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+.point.open{border-left-color:currentColor}
+.point-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
+.point-head:hover{background:#FBFAF7}
+.point-head .code{font-family:var(--mono);font-weight:700;font-size:.95rem;min-width:42px}
+.point-head h4{font-size:.95rem;font-weight:600;flex:1}
+.point-head .chev{transition:transform .2s;color:var(--ink-soft)}
+.point.open .chev{transform:rotate(90deg)}
+.point-head .read-btn{border:1.5px solid var(--line);background:none;border-radius:999px;font-size:.7rem;padding:4px 10px;cursor:pointer;color:var(--ink-soft);white-space:nowrap}
+.point-head .read-btn.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.point-body{display:none;padding:4px 18px 18px;border-top:1px dashed var(--line);font-size:.93rem}
+.point.open .point-body{display:block}
+.point-body p{margin:10px 0}
+.point-body strong{color:var(--ink)}
+.au{font-family:var(--serif);font-style:italic}
+.concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.concept{background:#FBFAF7;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.concept b{display:block;font-size:.85rem;margin-bottom:3px}
+.concept span{font-size:.82rem;color:var(--ink-soft)}
+table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem}
+table.cmp th{background:var(--ink);color:#fff;text-align:left;padding:8px 10px;font-weight:600}
+table.cmp td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;background:var(--card)}
+table.cmp tr td:first-child{font-weight:600;white-space:nowrap}
+.quote{border-left:4px solid currentColor;background:#FBFAF7;padding:10px 14px;margin:12px 0;font-family:var(--serif);font-style:italic;font-size:.9rem}
+.quote small{display:block;font-family:var(--sans);font-style:normal;color:var(--ink-soft);margin-top:4px}
+.link-note{background:#FFF8E8;border:1px solid #E8D9A8;border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.link-note b{color:#8A6D1B}
+pre.scheme{background:var(--ink);color:#E8E6DF;font-family:var(--mono);font-size:.76rem;line-height:1.7;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:12px 0;white-space:pre}
+.tag{display:inline-block;font-family:var(--mono);font-size:.66rem;border:1px solid currentColor;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.unit-u3{color:var(--u3)} .unit-u4{color:var(--u4)} .unit-u5{color:var(--u5)} .unit-u6{color:var(--u6)}
+.point-body{color:var(--ink)}
+
+/* ---------- flashcards ---------- */
+.fc-controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;align-items:center}
+.btn{border:1.5px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{opacity:.85}
+.btn.small{padding:5px 12px;font-size:.76rem}
+select.sel{border:1.5px solid var(--ink);border-radius:8px;padding:8px 10px;font-size:.85rem;background:var(--card);font-weight:600}
+.fc-stage{perspective:1200px;max-width:640px;margin:18px auto}
+.fc-card{position:relative;width:100%;min-height:300px;transform-style:preserve-3d;transition:transform .5s;cursor:pointer}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:var(--shadow)}
+.fc-front{background:var(--card);border:2px solid var(--ink)}
+.fc-front .q{font-family:var(--serif);font-size:1.25rem;line-height:1.4}
+.fc-back{background:var(--ink);color:#F2F0EA;transform:rotateY(180deg);border:2px solid var(--ink)}
+.fc-back .a{font-size:.95rem;line-height:1.55}
+.fc-meta{position:absolute;top:12px;left:14px;font-family:var(--mono);font-size:.68rem;color:var(--ink-soft)}
+.fc-back .fc-meta{color:#B9B5A9}
+.fc-hint{position:absolute;bottom:12px;font-size:.7rem;color:var(--ink-soft)}
+.fc-back .fc-hint{color:#B9B5A9}
+.fc-nav{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center}
+.fc-count{font-family:var(--mono);font-size:.84rem}
+
+/* ---------- quiz ---------- */
+.q-setup{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);max-width:560px;margin:16px auto;text-align:center}
+.q-setup h3{font-family:var(--serif);margin-bottom:10px}
+.q-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);max-width:720px;margin:16px auto}
+.q-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.76rem;color:var(--ink-soft);margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.q-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.q-bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.q-text{font-family:var(--serif);font-size:1.08rem;line-height:1.45;margin-bottom:16px}
+.q-opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#FBFAF7;border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:.9rem;cursor:pointer;transition:all .15s;font-family:var(--sans);color:var(--ink)}
+.q-opt:hover:not(:disabled){border-color:var(--ink);transform:translateX(3px)}
+.q-opt:disabled{cursor:default}
+.q-opt.correct{border-color:var(--ok);background:#EAF5EF;font-weight:600}
+.q-opt.wrong{border-color:var(--bad);background:#F9ECEA}
+.q-expl{display:none;border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.86rem}
+.q-expl.show{display:block;animation:fade .25s}
+.q-expl.good{background:#EAF5EF;border:1px solid var(--ok)}
+.q-expl.bad{background:#F9ECEA;border:1px solid var(--bad)}
+.q-expl b{display:block;margin-bottom:3px}
+.q-next{margin-top:14px;text-align:right}
+.q-result{text-align:center;padding:30px 20px}
+.q-result .score{font-family:var(--mono);font-size:3.2rem;font-weight:700}
+.q-result .msg{font-family:var(--serif);font-size:1.15rem;margin:8px 0 18px}
+.q-review{text-align:left;margin-top:20px}
+.q-review .item{border-left:4px solid var(--line);padding:8px 14px;margin-bottom:10px;font-size:.85rem;background:var(--card);border-radius:0 8px 8px 0}
+.q-review .item.good{border-left-color:var(--ok)}
+.q-review .item.bad{border-left-color:var(--bad)}
+
+@media(max-width:600px){
+  .point-head h4{font-size:.86rem}
+  .fc-front .q{font-size:1.05rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">FCE · UNNE · Lic. en Economía · Cátedra Blázquez de Merlo</div>
+  <h1>Sociología Económica — <em>Unidades 3 a 6</em></h1>
+  <div class="sub">App de estudio interactiva · Teoría por punto del programa + Flashcards + Quiz · Acuña · Castellani · Evans · Block · Neffa · Castel · Marini</div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="inicio" onclick="goTab('inicio')">Inicio</button>
+  <button class="tab" data-tab="u3" onclick="goTab('u3')"><span class="dot"></span>U3 Clases</button>
+  <button class="tab" data-tab="u4" onclick="goTab('u4')"><span class="dot"></span>U4 Estado-Mercado</button>
+  <button class="tab" data-tab="u5" onclick="goTab('u5')"><span class="dot"></span>U5 Trabajo</button>
+  <button class="tab" data-tab="u6" onclick="goTab('u6')"><span class="dot"></span>U6 Globalización</button>
+  <button class="tab" data-tab="flash" onclick="goTab('flash')">🃏 Flashcards</button>
+  <button class="tab" data-tab="quiz" onclick="goTab('quiz')">✏️ Quiz</button>
+</nav>
+
+<main>
+
+<!-- ============ INICIO ============ -->
+<section class="panel active" id="panel-inicio">
+  <div class="progress-banner">
+    <span><b id="prog-txt">0/16</b> puntos del programa leídos</span>
+    <div class="bar"><i id="prog-bar"></i></div>
+    <span id="prog-pct">0%</span>
+  </div>
+
+  <div class="grid-units">
+    <div class="unit-card uc3" onclick="goTab('u3')">
+      <div class="num">U3</div>
+      <h3>Sociología de las clases</h3>
+      <p>Patrones de acumulación, poder y fracciones de capital. La burguesía como actor político. El caso argentino.</p>
+      <div class="authors">ACUÑA (1994)</div>
+    </div>
+    <div class="unit-card uc4" onclick="goTab('u4')">
+      <div class="num">U4</div>
+      <h3>El Estado y el mercado</h3>
+      <p>Debate Estado-Mercado. Liberalismo, keynesianismo, estatismo marxiano. Ámbitos privilegiados de acumulación.</p>
+      <div class="authors">CASTELLANI · EVANS · BLOCK</div>
+    </div>
+    <div class="unit-card uc5" onclick="goTab('u5')">
+      <div class="num">U5</div>
+      <h3>Sociología del Trabajo</h3>
+      <p>Relación salarial, informalidad y precarización, CyMAT, género, educación-empleo.</p>
+      <div class="authors">NEFFA · CASTEL</div>
+    </div>
+    <div class="unit-card uc6" onclick="goTab('u6')">
+      <div class="num">U6</div>
+      <h3>Globalización y desigualdad</h3>
+      <p>Hechos económicos de la globalización, perspectiva del riesgo, consecuencias para América Latina.</p>
+      <div class="authors">MARINI · (BECK)</div>
+    </div>
+  </div>
+
+  <div class="howto">
+    <strong>Cómo usar la app:</strong> ① Leé la teoría de cada unidad — está organizada exactamente según los puntos del programa oficial (3.1, 3.2…). Marcá cada punto como leído con el botón <em>"Leído"</em>. ② Repasá con las <b>flashcards</b> (tocá la tarjeta para darla vuelta). ③ Cuando te sientas seguro/a, hacé el <b>quiz</b> filtrando por unidad o con todo mezclado. Cada respuesta tiene explicación al instante para aprender sobre la marcha. <em>Ojo: el progreso es de la sesión, no queda guardado al cerrar.</em>
+  </div>
+</section>
+
+<!-- ============ U3 ============ -->
+<section class="panel unit-u3" id="panel-u3">
+  <div class="unit-head">
+    <div class="big">3</div>
+    <h2>Sociología de las clases</h2>
+    <div class="bib">BIBLIOGRAFÍA BÁSICA: Acuña, C. (1994), "El análisis de la burguesía como actor político", <i>Realidad Económica</i> 128 · (Rosati y Donaire 2012 — no incluido en los materiales)</div>
+  </div>
+
+  <div class="point" data-point="3.1">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">3.1</span>
+      <h4>Patrones de acumulación y clases sociales. Poder y fracciones de capital</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><strong>La tesis central de Acuña:</strong> en toda sociedad con patrón capitalista de acumulación, la burguesía es la clase que, por su <strong>propiedad de los medios productivos</strong> y su consecuente <strong>control sobre las decisiones de inversión</strong>, determina la posibilidad de realización de los intereses económicos de todos los demás grupos sociales.</p>
+      <p>El mecanismo es el ciclo <b>ganancia → inversión → actividad económica → distribución</b>: el nivel de actividad depende de cuánto excedente se invierta, y de ese nivel dependen el empleo, los salarios y hasta la recaudación impositiva del Estado. Por eso la burguesía es:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Clase estratégica</b><span>Si sus intereses no se realizan (no hay ganancia ni inversión), tampoco se realizan los del resto de la sociedad.</span></div>
+        <div class="concept"><b>Clase privilegiada</b><span>La realización de sus intereses debe ocurrir <i>antes</i> que la de cualquier otro grupo para que el ciclo económico se cumpla.</span></div>
+        <div class="concept"><b>El "veto" capitalista</b><span>La desinversión como respuesta a políticas percibidas como amenazantes: cae la actividad, hay crisis distributiva y tensión social, y los gobiernos terminan "corrigiendo".</span></div>
+        <div class="concept"><b>Segundo "voto"</b><span>Los capitalistas no solo votan en elecciones: "votan" cotidianamente al decidir invertir o no, contratar o despedir, comprar o vender bonos.</span></div>
+      </div>
+      <p><strong>El capitalismo es estructuralmente clasista y no igualitario</strong>: esta inequidad es propia del modo de acumulación y existe más allá de que el régimen sea democrático o autoritario.</p>
+      <p><strong>Pero ojo — el veto no es absoluto.</strong> Acuña marca cinco factores que lo acotan históricamente (clave para no caer en el reduccionismo estructural):</p>
+      <pre class="scheme">1. Coyuntura recesiva  → si la desinversión "ya está sobre la mesa",
+                         pierde capacidad de amenaza (Skocpol: New Deal
+                         se aprobó CONTRA los capitalistas de EE.UU.)
+2. Estado inversor     → si el Estado controla la inversión o el bien
+                         exportable, el veto pesa menos (Chile: Estado
+                         llegó a realizar ~70% de la inversión bruta;
+                         Argentina: Estado depende del agro → veto fuerte)
+3. Sanciones estatales → impuestos a la renta potencial, amenazas de
+                         expropiación: encarecen desinvertir
+4. Contradicciones interburguesas → si un sector desinvierte y otro
+                         invierte más, el veto se neutraliza
+5. Más asociaciones empresarias que sindicatos → los intereses del
+                         capital NO son tan homogéneos como se supone</pre>
+      <p><strong>Fracciones de capital:</strong> la burguesía no es un bloque. Hay tensiones capital doméstico/multinacional, monopólico/atomizado, grande/pyme, productivo/financiero. La organización empresarial busca presionar al Estado, muchas veces <i>contra otros grupos capitalistas</i> (aranceles altos para "mis" productos y bajos para "mis" insumos, créditos y ventajas impositivas preferenciales), y eso es históricamente previo y más frecuente que organizarse para enfrentar sindicatos. En la capacidad de influir sobre medidas que afectan contradicciones intercapitalistas muchas veces se juega <b>la supervivencia misma</b> de empresas, sectores o ramas productivas.</p>
+      <p><strong>¿De qué depende que la burguesía logre organizarse?</strong> De su capacidad de resolver el "dilema del prisionero" en que se encuentra como "grupo latente" (Olson, ver 3.2). Y esa capacidad varía según variables bien concretas:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Concentración oligopólica</b><span>A menor número de potenciales coparticipantes, mayor sentido tiene el aporte individual y más fácil es detectar y sancionar al que "traiciona" el esfuerzo colectivo.</span></div>
+        <div class="concept"><b>Relación con el mercado internacional</b><span>Y presencia del capital multinacional: cruzan y fragmentan los intereses del sector.</span></div>
+        <div class="concept"><b>Legislación que incentiva la organización</b><span>El Estado puede "resolver" el dilema del prisionero de la burguesía — beneficio (privilegio) y riesgo a la vez: genera dependencia frente al Estado.</span></div>
+        <div class="concept"><b>Densidad de relaciones personales</b><span>Zeitlin y Ratcliff sobre Chile: los lazos familiares entre capitalistas y terratenientes eran tan estrechos que no son dos clases sino una — bajos costos de transacción, confianza desde la niñez, fácil sanción del "díscolo".</span></div>
+      </div>
+      <p><strong>Los tres niveles de conflicto que enfrenta la burguesía</strong> (claves para entender cuándo y cómo se organiza):</p>
+      <pre class="scheme">NIVEL 1 → conflictos sobre RESULTADOS específicos
+          (una tasa de beneficios, una negociación salarial)
+          dentro de reglas "dadas"
+NIVEL 2 → conflictos sobre las REGLAS que determinan las
+          estrategias posibles (leyes de acuerdos de precios,
+          convenciones colectivas de trabajo)
+NIVEL 3 → conflictos sobre el RÉGIMEN político mismo: las leyes
+          que rigen la participación política y la toma de
+          decisiones en el nivel social</pre>
+      <p>Un conflicto que se "extiende" de un nivel a otro implica enfrentar actores y reglas de resolución diferentes, desarrollar otras redes de alianzas y usar otros recursos: por eso la organización capitalista es <b>históricamente contingente</b> e imposible de prever fuera de relaciones sociales espacial e históricamente acotadas.</p>
+    </div>
+  </div>
+
+  <div class="point" data-point="3.2">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">3.2</span>
+      <h4>Desarrollo y clases sociales. Teorías y enfoques: los tres reduccionismos</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>El artículo es una crítica metodológica: las teorías que explican el comportamiento político de la burguesía con <strong>un solo conjunto de variables</strong> caen en falacias reduccionistas. Acuña propone articular tres conjuntos <b>codeterminantes</b>: estructural-económicos, político-institucionales e ideológicos.</p>
+
+      <table class="cmp">
+        <tr><th>Reduccionismo</th><th>Qué sostiene</th><th>Crítica de Acuña</th></tr>
+        <tr>
+          <td>Culturalista</td>
+          <td>A los capitalistas latinoamericanos les "falta conciencia" de clase: especulan, no invierten, copian a la oligarquía, por valores católicos/corporativos.</td>
+          <td>Las burguesías europeas "heroicas" se comportaron igual (Gerschenkron: en los capitalismos tardíos el Estado forzó la modernización). Las citas sobre burguesías "zánganas" ¡son de Marx y Engels sobre Francia e Inglaterra! La cultura es codeterminada por lo económico e institucional: su peso es una <b>hipótesis empírica a demostrar</b>, no un presupuesto.</td>
+        </tr>
+        <tr>
+          <td>Político-institucional (pluralismo y Olson)</td>
+          <td>Pluralismo: todo interés común genera un grupo de presión que compite en igualdad. Olson lo supera: por el free-rider ("colado"), interés común no garantiza acción colectiva; hacen falta incentivos selectivos.</td>
+          <td>El pluralismo ignora privilegios estructurales. La teoría de Olson es <b>no falsable</b>: define la "racionalidad" por sus resultados, en círculo. Y reducir todo a variables político-institucionales ignora que la burguesía parte de un lugar estratégico y privilegiado: es <b>mala metodología</b>.</td>
+        </tr>
+        <tr>
+          <td>Estructural-económico</td>
+          <td>(a) Neoclásico: el mercado preexiste a lo político; las asociaciones empresarias son una distorsión a remover. Becker: toda conducta es maximización de utilidad. (b) Clasista/marxista: los actores son "portadores" de espacios estructurales; el comportamiento es epifenómeno de la acumulación.</td>
+          <td>No hay mercados previos a estados e instituciones (Polanyi): la lógica de mercado es <b>co-constituida</b> por la acción estatal. Las condiciones estructurales fijan los <b>límites de factibilidad</b> de las estrategias, pero no explican qué estrategia específica se elige dentro de esos límites.</td>
+        </tr>
+      </table>
+
+      <p><strong>① El reduccionismo culturalista en detalle.</strong> El argumento típico: los capitalistas locales eluden los riesgos de liderar la "modernización" y maximizan ganancias con criterio cortoplacista; al no constituirse en el grupo de mayor <i>status</i> (por valores católicos/corporativos, peso inmigrante, condición de "nueva clase"), copian el comportamiento especulativo y consumista de las viejas oligarquías → estados autoritarios, despilfarro, crisis de acumulación. Acuña lo demuele con historia comparada: los industriales ingleses del siglo XVIII defendieron altas tarifas proteccionistas (y en el XIX pidieron eliminarlas cuando les convino — leyes del maíz); los cañones de la Royal Navy "abrieron" mercados y realizaron derechos monopólicos; y fue <b>Churchill</b> —no un estadista latinoamericano— quien dijo que en su sociedad muchos pensaban que la actividad industrial era "exclusividad de ladrones emprendedores". Hasta el supuesto generalizado de los historiadores alemanes sobre su propia burguesía "débil y subdesarrollada" repite el patrón: cada país "descubre" que su burguesía no fue "como las otras". El comportamiento histórico efectivo de las burguesías del norte y las latinoamericanas fue, hasta hace poco, <b>en gran medida similar</b>.</p>
+
+      <p><strong>② El pluralismo tradicional y sus tres supuestos falsos.</strong> En el pluralismo, el sistema político es un conjunto de interacciones entre grupos organizados que compiten por la distribución de recursos; las políticas públicas resultan del conflicto, compromiso y <i>bargaining</i> entre grupos con intereses diferenciados, no antagónicos y por tanto negociables. Obispos, feministas, obreros, ecologistas, capitalistas o campesinos quedan en <b>un mismo plano de oportunidades</b> para presionar al Estado. Sus tres supuestos, todos falsos para Acuña:</p>
+      <pre class="scheme">a) En el capitalismo democrático los privilegios NO existen
+   → FALSO: la burguesía es estructuralmente privilegiada (3.1)
+b) Si hay intereses comunes relevantes, necesariamente surgirán
+   asociaciones que los representen
+   → FALSO: lo refuta Olson (el "colado")
+c) Podemos explicar la conducta política empresarial atendiendo
+   solo a variables político-institucionales
+   → FALSO: mala metodología (ignora lo estructural)</pre>
+
+      <p><strong>③ Olson: el aporte y los límites.</strong> Su teoría de la acción colectiva supera el simplismo pluralista: los "grupos de interés" tienen éxito como <b>subproducto</b> de organizaciones basadas en <b>incentivos selectivos</b> — beneficios que solo obtienen los miembros (planes de salud, vivienda, créditos subsidiados) o costos por no unirse (acuerdos <i>close-shop</i>: no afiliarse implica perder el empleo). Pero para Acuña la teoría falla en tres puntos: (a) no define condiciones de "racionalidad" observables independientemente de la conducta; (b) circunscribe la racionalidad al cálculo beneficio individual neto; (c) no define condiciones de "irracionalidad" más allá de factores (líderes, movilizaciones) que no son suficientes ni necesarios. Resultado: una teoría <b>no falsable</b>, "un salón de espejos" que queda como especulación ideológico-filosófica más que como herramienta empírica.</p>
+
+      <p><strong>④ El reduccionismo neoclásico.</strong> El mercado se presenta como preexistente a las relaciones sociopolíticas, cuya eficiencia fue menguada por reglamentaciones estatales invasivas: la fuerza del mercado está "latente" y es "reencontrable" si se remueve el chaleco de fuerza estatal — el reformador neoclásico no construye mercados, los <b>libera</b>. Consecuencia: las asociaciones empresarias son fuente de ineficiencia a remover del contexto social, tan necesitadas de disciplinamiento como los sindicatos. Y no es solo una teoría económica: <span class="au">Becker</span> la presenta como marco de explicación de <b>toda</b> conducta humana (maximización individual de utilidad, equilibrio de mercados, preferencias estables — el proceso de decisión es igual para el suicidio que para la marca de café). <span class="au">Coase</span>, uno de sus exponentes más lúcidos, llegó a referirse a la economía neoclásica como <b>"una forma de teología"</b>.</p>
+
+      <p><strong>⑤ El reduccionismo clasista.</strong> Ventaja del marxismo sobre los marcos pluralistas: reconoce la contradicción estructural de intereses de clase. Problema: acentúa el plano estructural-económico como dominante sobre la superestructura político-institucional e ideológica. En <i>La Sagrada Familia</i> (1844) Marx afirma que <b>no importa lo que el proletariado considere su objetivo</b>: importa lo que se verá obligado a hacer, su fin histórico irrevocable más allá de intenciones. En <i>La Pobreza de la Filosofía</i> (1847), la legislación "simplemente expresa en palabras la voluntad de las relaciones económicas". De ahí la lectura (Althusser y Balibar, Cohen) de los individuos y actores colectivos como <b>"portadores" o "apoyos"</b> de espacios estructurales: la organización y comportamiento de los actores resulta un mero <b>epifenómeno</b> de la dinámica de acumulación. Acuña acepta que el tipo de propiedad determina el espacio estructural y los límites de los intereses comunes — pero la teoría de clases no puede explicar el comportamiento específico solo desde ahí.</p>
+
+      <p><strong>El argumento de las cuatro estrategias (clave de examen):</strong> supongamos que la burguesía enfrenta estrategias <b>a, b, c, d</b>; el análisis estructural muestra que <b>a</b> y <b>b</b> la perjudican y que <b>c</b> y <b>d</b> la favorecen — pero <b>c</b> frustra aumentos salariales y <b>d</b> los permite. Lo estructural explica por qué no eligió <b>a</b> o <b>b</b>, pero <em>no puede explicar</em> por qué eligió <b>c</b> en vez de <b>d</b>. Para eso hacen falta lo político-institucional y lo ideológico. Además: lo que es condición estructural en un momento dado <b>es producto de un proceso histórico</b> donde las acciones de períodos anteriores importaron — la "objetividad" de lo estructural se halla en su efecto de validar o invalidar proyectos como históricamente realizables o no.</p>
+
+      <p><strong>El papel de lo ideológico:</strong> las estrategias dependen de la <b>percepción</b> que los actores tienen de los límites de lo factible — de lo que el actor percibe como interés, opta como prioridad y "conoce" sobre la probabilidad de éxito. Esa percepción puede llevar a fijarse un objetivo irrealizable o a desestimar uno factible. Ejemplo histórico: la <b>revolución keynesiana</b>. En el paradigma neoclásico previo, el salario era solo un costo micro → ante la recesión se lo bajaba. El keynesianismo lo redefinió como componente de la demanda agregada → el aumento salarial en estancamiento pasó a permitir la reactivación global. <em>Sin cambiar la estructura, cambió la estructura de opciones percibidas y, con ella, el comportamiento histórico de gobiernos y burguesías.</em> Ejemplo de doble filo (Colton sobre el Frente Popular francés de 1936): el carácter prekeynesiano de la ideología económica dominante hizo que tanto Blum como la burguesía <b>desestimaran</b> la posibilidad de salir de la crisis vía gasto fiscal o salarios — un objetivo factible descartado por percepción.</p>
+    </div>
+  </div>
+
+  <div class="point" data-point="3.3">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">3.3</span>
+      <h4>Las clases dominantes y su perspectiva en las teorías del desarrollo. El caso argentino</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><strong>Teoría de la dependencia: tesis y simplismos.</strong> Los trabajos seminales de los '60 (Cardoso y Faletto, O'Donnell, Schmitter) articulaban bien las variables. La tesis central: la relación desigual y de subordinación entre países centrales y periféricos <b>no impide el desarrollo</b> de los últimos, sino que determina un tipo de desarrollo que asigna una <b>posición político-económica privilegiada a los sectores domésticos ligados al mercado internacional</b>. Pero "la dependencia" derivó luego en simplismos: el capital internacional y el imperialismo como <b>"demiurgos todopoderosos"</b> que anulan la autonomía de la burguesía local — eliminada "como sujeto social en sentido propio", por lo que no haría falta estudiarla.</p>
+      <p><strong>Las dos consecuencias del corte "internacionalizado vs. resto" según el dependentismo simplista — y por qué fallan:</strong></p>
+      <table class="cmp">
+        <tr><th>Clase</th><th>Argumento reduccionista</th><th>Refutación histórica</th></tr>
+        <tr><td>Trabajadores</td><td>La "aristocracia obrera" (empleada por las firmas dinámicas ligadas al mercado internacional) desarrolla estrategias no clasistas y colabora con la patronal; el resto confronta pero su accionar no impacta en la producción → ninguno es actor relevante.</td><td>El <b>Cordobazo y el Viborazo</b> (1969-1970): levantamientos militantes protagonizados justamente por obreros de la "aristocracia obrera" — eventos que "no podían" ocurrir según este esquema.</td></tr>
+        <tr><td>Capitalistas</td><td>El sector internacionalizado tiene visión "economicista" (statu quo, desinterés en la política); la "burguesía nacional" quiere cambios pero es incapaz por su debilidad y subordinación estructural → tampoco hay actor político relevante.</td><td>El acceso de la <b>CGE</b> (pequeño y mediano empresariado regional, la "burguesía nacional") al Ministerio de Economía en 1973, con una estrategia de desarrollo fortaleciendo el Estado — otro evento que "no podía" ocurrir.</td></tr>
+      </table>
+      <p>La cita que Acuña retoma de O'Donnell: los fenómenos de subordinación "no obstan para que, al mismo tiempo, la burguesía local tenga suficiente autonomía como para constituir un sujeto social en sentido propio ni para que sostenga significativos puntos de fricción con el capital transnacional".</p>
+
+      <p><strong>La obra cambiante de Marx sobre el Estado y la burguesía:</strong></p>
+      <div class="concept-grid">
+        <div class="concept"><b>Marx instrumentalista (hasta fines de los '40)</b><span><i>La Ideología Alemana</i>, <i>La Sagrada Familia</i>, el <i>Manifiesto</i> ("el Estado es el comité para la administración de los negocios de la burguesía"): división del trabajo estructural entre productores de bienes materiales (mercado) y administradores del Estado (intereses colectivos). Como la burguesía "no puede" organizarse desde el mercado, organiza al Estado para suplir esa incapacidad.</span></div>
+        <div class="concept"><b>Marx de la autonomía + abdicación (desde ~1850)</b><span><i>El XVIII Brumario</i>, <i>La Lucha de Clases en Francia</i>, <i>La Guerra Civil en Francia</i>: cuando la burguesía es derrotada políticamente y la clase obrera no está lista para gobernar, la burguesía <b>abdica</b> su poder político en favor de un Estado bonapartista — autónomo políticamente, pero obligado en última instancia a reproducir los intereses de la clase dominante.</span></div>
+        <div class="concept"><b>La clave de la "abdicación"</b><span>Solo se abdica lo que se puede retener → la burguesía <b>tiene</b> la posibilidad de organizarse como actor colectivo y decidir mantener o abandonar el poder político. Ejemplo: la burguesía inglesa, tras vencer a la aristocracia con las leyes del maíz, dejó el gobierno en sus manos para <b>diluir una imagen unificada</b> de su poder político y económico.</span></div>
+        <div class="concept"><b>Autonomía relativa</b><span>El Estado goza de independencia respecto de los intereses puntuales de la burguesía — pero solo relativa: en una sociedad de clases, las políticas estatales deben reproducir en última instancia un orden cuya precondición es la realización de los intereses colectivos burgueses. La imagen de neutralidad estatal, además, <b>desorganiza a la clase no propietaria</b> en un conjunto de ciudadanos individuales.</span></div>
+      </div>
+
+      <p><strong>Las correcciones estado-céntricas "más allá" de la autonomía relativa:</strong></p>
+      <div class="concept-grid">
+        <div class="concept"><b>Block</b><span>Rompe con el Estado "colonizado": los administradores estatales tienen intereses propios, pero los capitalistas, como inversores colectivos, tienen <b>veto</b>: "si fallan en invertir en niveles adecuados pueden crear grandes problemas políticos para los administradores estatales. Esto desincentiva la toma de medidas que puedan disminuir seriamente la tasa de inversión". El esquema vale para democracias y autoritarismos.</span></div>
+        <div class="concept"><b>Offe y Wiesenthal: dos lógicas</b><span>Organización capitalista = <b>monológica</b> (intereses dados y claros: la tasa de ganancia; el primer momento de organización es la propia firma, que ya coloca al Estado en dependencia y desorganiza a los trabajadores). Organización obrera = <b>dialógica</b> (los intereses se definen en lucha y diálogo, requieren redefinir identidades colectivas).</span></div>
+        <div class="concept"><b>Tres formas de organización capitalista (O&W)</b><span>Empresas, relaciones informales y asociaciones empresarias — todas de racionalidad utilitaria. Las <b>asociaciones</b> serían la forma menos efectiva: poder limitado para sancionar miembros, meras respuestas defensivas frente a la organización obrera o la intervención estatal.</span></div>
+        <div class="concept"><b>Conclusión común que Acuña rechaza</b><span>Si el Estado o la firma ya defienden los intereses colectivos del capital, la burguesía "no necesita" organizarse y las asociaciones son fenómenos irrelevantes → prestar atención a las organizaciones empresariales sería una pérdida de tiempo.</span></div>
+      </div>
+      <p><strong>La crítica empírica de Acuña</strong> (los cinco factores del punto 3.1 que acotan el veto, más una observación demoledora): si los intereses capitalistas fueran más homogéneos y fáciles de organizar que los obreros, debería haber <b>menos</b> asociaciones empresarias que sindicatos, con alta agregación. Las mediciones en Europa y América latina muestran lo contrario: el número de asociaciones empresariales por rama o sector es <b>siempre significativamente mayor</b> que el de sindicatos (Streek). La realidad histórica: el Estado no siempre responde a los intereses de la burguesía, los capitalistas a veces necesitan y pueden organizarse, y sus organizaciones a veces gozan de peso político significativo.</p>
+
+      <p><strong>La propuesta positiva (comentarios finales):</strong> analizar a la burguesía como actor colectivo exige <b>teorías de nivel medio</b> que articulen los tres conjuntos de variables, desplegando simultáneamente:</p>
+      <pre class="scheme">O'DONNELL — tres niveles del análisis de clase:
+  1. Estructural   → posición en el sistema productivo, en dos
+                     direcciones: hacia otras fracciones/clases
+                     y el aparato estatal, y "hacia adentro"
+                     (diferenciación estructural propia)
+  2. Corporativo   → la organización en asociaciones empresarias
+  3. Político-ideológico → trascender la defensa de intereses
+                     puntuales para presentarse como portadora de
+                     intereses generales (alianzas con burocracias,
+                     partidos, otros sectores)
+  "No se es clase sólo en el plano estructural": una clase o
+  fracción se constituye simultáneamente en los tres niveles.
+
+SCHMITTER & STREEK — la asociación empresaria resulta de la
+  presión simultánea de dos lógicas:
+  · Lógica de los MIEMBROS    → ofrecer incentivos suficientes
+    para obtener apoyo y recursos (por aquí penetra lo
+    estructural-económico). Función clave: no agregar intereses
+    dados sino REDEFINIRLOS en función del interés común.
+  · Lógica de la INFLUENCIA   → influir a autoridades estatales
+    y otras organizaciones (por aquí entra lo político-
+    institucional e ideológico)
+
+OFFE — tres miradas necesarias y simultáneas:
+  "desde abajo"   → intereses comunes agregados por la asociación
+  "desde arriba"  → relaciones político-institucionales e
+                    ideológicas en el sistema político
+  "desde adentro" → características organizacionales del actor
+  (crítica a Schvarzer: el "desde adentro" solo no alcanza)</pre>
+      <p>El desafío: estas "miradas", "planos" o "lógicas" <b>no son entradas opcionales</b> al tema — no se sostienen por sí mismas, deben desplegarse en forma simultánea y articulada. Usar teorías demasiado "macro" (que infieren la conducta desde las propiedades generales del modo de acumulación) o dejar afuera alguno de los conjuntos de variables conlleva alta probabilidad de caer en falacias reduccionistas.</p>
+
+      <p><strong>Caso argentino (ejemplos del texto):</strong> el Estado argentino depende del sector agrario-pampeano para obtener divisas → la desinversión de la burguesía pampeana lo coloca en situación de dependencia mucho mayor que la del Estado chileno (cobre) o venezolano (petróleo) frente a sus capitalistas locales. O'Donnell explica la dinámica cíclica argentina 1956-1976 por el patrón de contradicciones interburguesas (desinversión recurrente de uno y otro sector que impide la masa "mínima" de inversión y genera crisis cíclicas). Y los grupos económicos concentrados, dinámicos y diversificados surgidos de la crisis de los '80: si las políticas estatales acentúan los canales de consulta y codecisión <i>informales</i> con estos grupos, el resultado es acción colectiva no institucionalizada y pérdida de relevancia de las formas institucionalizadas.</p>
+      <div class="link-note"><b>Conexión con U4:</b> la centralidad de la inversión y el "veto" capitalista de Acuña es el fundamento teórico que Castellani usa para analizar los ámbitos privilegiados de acumulación en Argentina: la elite usa su poder estructural para capturar regulaciones estatales. Y los "canales informales de codecisión" de Acuña son el antecedente directo de las cinco prácticas de articulación público-privada.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ U4 ============ -->
+<section class="panel unit-u4" id="panel-u4">
+  <div class="unit-head">
+    <div class="big">4</div>
+    <h2>El Estado y el mercado</h2>
+    <div class="bib">BIBLIOGRAFÍA BÁSICA: Castellani (2007) · Evans (1996) · Block (2003, complementaria)</div>
+  </div>
+
+  <div class="point" data-point="4.1">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">4.1</span>
+      <h4>El debate Estado-Mercado: roles del Estado y del mercado en las sociedades contemporáneas</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>El debate sobre el rol del Estado en la economía no está resuelto: se reformula en cada crisis histórica. El Estado aparece alternativamente como motor del desarrollo o como su principal obstáculo. La pregunta de fondo nunca es neutral: detrás de cada respuesta hay un diagnóstico sobre qué produce desarrollo y qué lo bloquea.</p>
+      <p><span class="au">Block</span> radicaliza el argumento con su contraste entre <b>viejo y nuevo paradigma</b>. El nuevo paradigma —que llama <b>"reconstrucción de mercados"</b>— arranca <b>rechazando la idea misma de "intervención"</b> del Estado en la economía. La acción estatal no perturba a un mercado preexistente: los mercados son siempre <b>construidos, sostenidos y regulados</b> por el Estado, porque <i>los estados son necesarios para constituir las economías</i>. No existe el mercado "puro" anterior al Estado al que este vendría a interferir desde afuera.</p>
+      <p>El giro metodológico: en vez de medir la <b>variación cuantitativa</b> del grado de intervención (lo que hace el viejo paradigma), el nuevo paradigma se concentra en las <b>diferencias cualitativas</b> de la actividad estatal. Todo Estado, señala Block, hace cosas comunes que el viejo paradigma oscurece: regula el uso de activos productivos, fija las reglas entre empleadores y empleados, provee medios de pago y administra la frontera con el resto del mundo. La pregunta correcta no es "¿cuánto Estado?" sino <b>qué combinación específica de acción estatal y mercados produce qué resultados</b> — así "los prejuicios se transforman en enigmas empíricos".</p>
+      <p><strong>El fundamento: Polanyi.</strong> Block se apoya en el argumento de <span class="au">Karl Polanyi</span>: es un <b>"mito heroico"</b> creer que el siglo XIX fue el momento en que la sociedad de mercado emergió al desmantelarse el Estado que la constreñía (evolución en Inglaterra, revolución en Francia). Tanto el liberalismo como el marxismo comparten ese mito y <b>exageran la discontinuidad</b> entre la sociedad capitalista y la precapitalista. En ambas, los estados jugaron roles centrales: la economía siempre estuvo estructurada por la acción estatal.</p>
+      <p>Otras corrientes nutren el nuevo paradigma: la <b>economía institucional</b> (Commons — el Estado no es externo a la economía, es condición de posibilidad del mercado), el <b>realismo jurídico</b> norteamericano (los mercados no son naturales: son construcciones jurídicas que reflejan relaciones de poder), los <b>estudios legales críticos</b> y el propio <b>Marx</b> (la propiedad no es un derecho natural sino una relación social y política). La conclusión práctica de Block: no existe "el capitalismo de libre mercado" como entidad coherente —las economías de mercado varían enormemente en cómo estructuran sus instituciones—, y por eso las sociedades tienen un <b>amplio margen de elección</b> para combinar mercado y Estado sopesando eficiencia, equidad, democracia y derechos.</p>
+      <p><strong>Los cuatro roles constitutivos del Estado.</strong> El nuevo paradigma se vuelve operativo cuando Block muestra <b>cuatro grandes áreas</b> en las que el Estado <i>siempre</i> juega un rol, sea cual sea la ideología dominante. No son "intervenciones" opcionales: son las condiciones que hacen <i>posible</i> que exista un mercado.</p>
+      <table class="cmp">
+        <tr><th>Rol del Estado</th><th>En qué consiste</th><th>Ejemplos / claves</th></tr>
+        <tr><td>① Control de activos productivos <small>(derechos de propiedad)</small></td><td>La propiedad no es un derecho natural previo a la sociedad (visión "lockeana"): es una <b>construcción jurídica y política</b>. El Estado define quién controla qué, con qué límites y bajo qué condiciones.</td><td>Regula las externalidades (+/−) de toda producción; articula los derechos de los múltiples titulares de activos (capital humano, físico, financiero, intelectual). Distintos regímenes de propiedad (Alemania, Japón, EE.UU.) → resultados económicos distintos.</td></tr>
+        <tr><td>② Estructura de relaciones recurrentes <small>(empleo y familia)</small></td><td>El Estado regula las relaciones sociales básicas de las que depende la actividad económica: familiares, empleador-empleado, arrendatario-propietario.</td><td><b>Polanyi:</b> la <b>Nueva Ley de Pobres de 1834</b> en Inglaterra fue esencial para crear el mercado de trabajo moderno, forzando a los pobres a vender su fuerza de trabajo en las fábricas. Leyes laborales, educación y seguridad social definen qué <i>tipo</i> de mercado de trabajo existe. (Weber: cualquier atributo de grupo —raza, lengua, religión— puede usarse para monopolizar posiciones; el Estado refuerza o combate esa discriminación.)</td></tr>
+        <tr><td>③ Medios de pago <small>(moneda y crédito)</small></td><td>No existe una política monetaria neutral: toda decisión sobre la oferta de dinero y las tasas tiene <b>efectos distributivos</b>.</td><td>La escasez de dinero fortalece a los acreedores frente a los deudores; la abundancia, al revés. El <b>racionamiento del crédito</b> (negar crédito aun a quien pagaría tasas más altas) determina qué actividades se financian: el Estado puede reforzarlo o modificarlo.</td></tr>
+        <tr><td>④ Administración de la frontera internacional</td><td>El Estado regula los flujos de trabajo, mercancías y capital a través de sus fronteras. No hay "libre comercio" neutro: todo régimen comercial favorece a ciertos actores.</td><td>Los regímenes internacionales reflejan el balance de poder militar y económico (los países dominantes fijan las reglas). La movilidad de capitales puede <b>paralizar políticas expansivas</b> nacionales (réplica de los años 30 en los 90).</td></tr>
+      </table>
+      <p><strong>Los "intercambios bloqueados".</strong> Block retoma de <span class="au">Michael Walzer</span> la noción de <b>intercambios bloqueados</b>: transacciones que las sociedades <b>excluyen del mercado</b> por razones morales, políticas o culturales —la esclavitud, la venta de cargos públicos o de votos, el trabajo infantil—. Su existencia demuestra que el mercado <i>no</i> es una esfera natural y universal: sus fronteras son siempre fijadas políticamente. Dónde se traza la línea de lo "no vendible" es una decisión social, no un dato de la naturaleza.</p>
+      <p><span class="au">Evans</span> ilustra empíricamente este enfoque cualitativo. Identifica <strong>tres imágenes históricas</strong> del Estado en relación al desarrollo, cada una hija de un clima de época:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>① Estado agente del cambio ('50-'60)</b><span>Las teorías del desarrollo de posguerra suponían que el aparato estatal serviría para fomentar el cambio estructural: industrialización, modernización agrícola, infraestructura. La intervención es la solución.</span></div>
+        <div class="concept"><b>② Estado como problema ('70-'80)</b><span>La experiencia posterior socavó esa imagen. En África "ni los observadores más benévolos" podían ignorar el fracaso; en América Latina el "hipertrófico aparato estatal" aparecía como obstáculo. Giro neoliberal: el Estado es el problema, hay que achicarlo (De Soto). El "ajuste estructural" reemplaza al "cambio estructural".</span></div>
+        <div class="concept"><b>③ La capacidad importa ('90)</b><span>Pero el problema no fue solo "exceso" de Estado: algunos estados sí estimularon cambio estructural. El debate vira hacia las <i>condiciones</i> de la capacidad estatal: no cuánto interviene, sino con qué capacidad.</span></div>
+      </div>
+      <p><strong>El neoutilitarismo (el sustento teórico de la segunda imagen).</strong> La corriente que retrató al Estado como problema se apoya en el <b>neoutilitarismo</b>: aplica al funcionario la lógica del <i>maximizador individual</i>. Si el burócrata busca su beneficio personal como cualquier agente, el Estado tiende a crecer de forma <b>parasitaria</b> y a generar ineficiencias (de ahí la receta del "Estado mínimo"). Evans le <b>reconoce</b> un aporte —el Estado <i>puede</i> ser un problema— pero lo <b>critica</b> por simplista en tres puntos: (1) trata al Estado como un actor <b>monolítico</b> cuando tiene estructuras internas diversas y hasta contradictorias; (2) ignora que <b>hubo</b> Estados que promovieron el desarrollo (Este asiático); (3) su receta del Estado mínimo no resuelve el problema del desarrollo, solo lo <b>evade</b>.</p>
+      <p>La conclusión de Evans coincide con Block: el eje no es la cantidad de intervención sino su <b>forma y calidad</b>. Comparar Estados desarrollistas exitosos con Estados predatorios muestra que ambos intervienen — lo que los distingue es <i>cómo</i> se estructura esa intervención.</p>
+      <div class="link-note"><b>Articulación U3 → U4:</b> el rechazo de Block a la "intervención" y su apoyo en Polanyi es exactamente el argumento de Acuña (U3) contra el reduccionismo neoclásico: no hay mercados previos a los estados e instituciones; la "lógica de mercado" es co-constituida por la acción estatal y las instituciones políticas.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="4.2">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">4.2</span>
+      <h4>El liberalismo clásico, el estatismo keynesiano y el estatismo marxiano</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Block</span> organiza el "viejo paradigma" sobre <b>dos supuestos básicos</b>: (1) que el Estado y la economía son dos entidades analíticamente separables, cada una con sus propios principios, lo que permite imaginar distintos niveles de "interferencia" del Estado en la economía; y (2) que toda sociedad puede ubicarse en un <b>continuo</b> según cuánto controla el Estado a la economía. Sobre ese continuo, las posiciones se ordenan —según los partidarios del viejo paradigma— en paralelo al eje político izquierda-derecha:</p>
+      <pre class="scheme">VIEJO PARADIGMA · el continuo del control estatal
+
+  + autorregulación del mercado ←——————————→ - autorregulación
+  - control estatal           ←——————————→ + control estatal
+
+  Estado      Estado de    Estado        Estado          Estado
+  de bienes   estabiliz.   de derechos   desarrollista   socialista
+  públicos    macroec.     sociales
+  (DERECHA) ————————————————————————————————————→ (IZQUIERDA)</pre>
+      <p>En vez de ubicarlos por "cuánto Estado", Block los distingue por <b>el tipo de argumento</b> que cada uno usa para justificar la intervención. Son <b>cinco tipos ideales</b>, ordenados del más derechista al más izquierdista:</p>
+      <table class="cmp">
+        <tr><th>Tipo ideal</th><th>Argumento central</th><th>Detalle</th></tr>
+        <tr><td>① Estado de bienes públicos</td><td>El Estado solo debe proveer lo que el mercado no puede: bienes públicos.</td><td>Adam Smith: defensa, justicia y obras públicas "ventajosas para la sociedad" cuyo beneficio no cubriría el gasto de un privado. Incluye reducir externalidades negativas ("males públicos": contaminación, jornada excesiva — el ejemplo de Marx en El Capital) y promover externalidades positivas (educación, salud, vivienda).</td></tr>
+        <tr><td>② Estado estabilizador macroeconómico</td><td>Las economías de mercado alternan auge y depresión: el Estado debe atenuar el ciclo.</td><td>Asociado a Keynes pero anterior a él (crisis del siglo XIX, banca central). "Estabilizadores automáticos" (seguro de desempleo) sostienen el consumo en la caída; más polémico es el gasto deficitario deliberado. Los monetaristas (Friedman) reducen todo a proveer una moneda estable.</td></tr>
+        <tr><td>③ Estado de derechos sociales</td><td>La expansión del rol estatal deriva del desarrollo de la ciudadanía.</td><td><b>T. H. Marshall:</b> derechos civiles (s. XVIII) → políticos (s. XIX) → <b>sociales</b> (s. XX), que protegen al ciudadano del libre juego del mercado. La acción estatal "desmercantiliza" el trabajo (Esping-Andersen, Offe) dando ingresos ajenos al mercado.</td></tr>
+        <tr><td>④ Estado desarrollista</td><td>El Estado debe promover activamente el crecimiento industrial.</td><td>El más antiguo (crítica mercantilista a Smith: Hamilton, List) y el más reciente. Dos corrientes: la del "desarrollo tardío" (<b>Gerschenkron</b>: el Estado reemplaza a los empresarios privados; Japón, Corea, Taiwán) y la keynesiana de la <b>socialización de la inversión</b> (Keynes temía que los privados no invirtieran lo suficiente ante el riesgo). Hoy: gasto en infraestructura para alentar la inversión privada.</td></tr>
+        <tr><td>⑤ Estado socialista</td><td>El rol estatal debe ampliarse hasta eliminar las injusticias del mercado.</td><td>Tradición marxista: mercado y propiedad privada producen inequidad y alienación, solo eliminables aboliendo la propiedad privada. Dos vertientes: explotación (marxismo científico) y alienación (marxismo crítico). En la práctica, construyeron Estados muy fuertes.</td></tr>
+      </table>
+      <div class="link-note"><b>Ojo, error frecuente:</b> los cinco tipos NO son "liberalismo / keynesianismo / marxismo + dos más". El programa pide los tres centrales (liberalismo clásico = bienes públicos; estatismo keynesiano = estabilizador + desarrollista; estatismo marxiano = socialista), pero Block despliega cinco tipos ideales ordenados sobre el continuo. El estabilizador y el desarrollista son ambos "keynesianos" pero analíticamente distintos: estabilizar es periódico, socializar la inversión es permanente.</div>
+      <p><strong>La crítica de Block — la indeterminación.</strong> Lo más llamativo del viejo paradigma es su <b>extremada indeterminación</b>: una misma iniciativa (p. ej. una reforma laboral) puede justificarse desde cualquiera de las cinco posiciones. El concepto de bienes públicos, sin ir más lejos, puede sostener tanto un Estado mínimo como una regulación amplísima, según cómo se definan las externalidades.</p>
+      <p>¿Qué sostiene entonces cada posición? <b>Prejuicios</b>, no argumentos. Block identifica dos conjuntos: (1) la <b>desconfianza en el Estado</b> (visto como parásito, despilfarrador, ineficiente — Buchanan, Hayek, Stigler) y (2) la <b>desconfianza en el mercado</b> (visto como productor inherente de inequidad y deshumanización). Son prejuicios porque se presentan sin identificar las circunstancias específicas bajo las cuales esos resultados negativos ocurrirían, y casi no hay investigación empírica que los verifique. Esa omisión es el síntoma de que <b>el viejo paradigma está exhausto</b>.</p>
+      <div class="link-note"><b>Conexión U3:</b> esta indeterminación es la versión "estatal" del argumento de Acuña: ni el reduccionismo neoclásico ni el clasista pueden derivar el comportamiento concreto de sus premisas. Block muestra que lo mismo pasa con las teorías normativas sobre el Estado.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="4.3">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">4.3</span>
+      <h4>Relación estructura social-Estado y su correlato en las políticas públicas</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>El Estado no es un actor neutral suspendido sobre la estructura social: sus capacidades, su autonomía y la orientación de sus políticas <b>resultan de relaciones concretas entre el aparato estatal y la estructura social</b>. <span class="au">Evans</span> ataca la dicotomía simplista del viejo paradigma ("más Estado" vs. "menos Estado") con un análisis comparado de experiencias reales del Tercer Mundo, ordenadas según el <i>tipo</i> de relación Estado-sociedad:</p>
+      <table class="cmp">
+        <tr><th>Tipo de Estado</th><th>Caso</th><th>Característica</th></tr>
+        <tr><td>Predatorio</td><td><b>Zaire</b> (Mobutu)</td><td>El Estado saquea a la sociedad sin proveer nada a cambio del excedente que extrae. Funciona como "cleptocracia": los cargos se asignan por lazos personales con el presidente y su camarilla. Ausencia de burocracia coherente → bloquea el desarrollo. La relación es negativa entre maximización de ingresos públicos y desarrollo.</td></tr>
+        <tr><td>Desarrollista</td><td><b>Japón, Corea, Taiwán</b></td><td>Promueven la transformación industrial. El caso modélico es el <b>MITI</b> japonés: burocracia meritocrática de elite (reclutada de las mejores universidades), con identidad corporativa fuerte y vínculos densos con el sector privado. El Estado moldea el mercado mediante intervenciones estratégicamente seleccionadas (crédito, licencias de tecnología, política industrial). <b>Corea</b> usó los <i>chaebols</i> (conglomerados familiares) como correa de transmisión, condicionando el acceso al crédito y a los mercados a <b>metas de desempeño exportador</b> — con más coerción y menor institucionalización de los vínculos que Japón. La <b>India</b>, en cambio, tuvo una burocracia de elite cohesionada (el IAS) pero con <b>escaso enraizamiento</b> con el sector privado: autonomía sin capacidad de coordinar → intervenciones ineficaces.</td></tr>
+        <tr><td>Intermedio</td><td><b>Brasil, India</b></td><td>Combinaciones parciales: "bolsones de eficiencia" (en Brasil, el BNDE, Itamaraty, los grupos ejecutivos) en medio de un aparato clientelar y fragmentado. Capacidad transformadora desigual según sector y coyuntura.</td></tr>
+      </table>
+      <p><strong>El concepto central: autonomía enraizada (<i>embedded autonomy</i>).</strong> Evans parte de la noción weberiana de burocracia para pensar la <b>autonomía</b> del Estado: una burocracia coherente (selección meritocrática, carrera estable, identidad corporativa) puede perseguir objetivos propios sin ser capturada por intereses particulares. Pero —y aquí está el giro contra el sentido común— <b>la autonomía pura no basta y hasta es contraproducente</b>: un Estado totalmente <i>aislado</i> de la sociedad civil (como sugeriría equiparar capacidad estatal con aislamiento) no obtiene la información ni la cooperación que necesita para intervenir con eficacia. La fórmula es la combinación de los dos rasgos:</p>
+      <pre class="scheme">AUTONOMÍA ENRAIZADA (embedded autonomy)
+  = AUTONOMÍA      → coherencia burocrática interna, mérito,
+                     identidad corporativa, capacidad de fijar
+                     objetivos propios (raíz weberiana)
+  + ENRAIZAMIENTO  → red densa de lazos con el sector privado que
+    (embeddedness)   provee información y permite construir
+                     proyectos conjuntos e implementarlos
+
+  Solo autonomía (sin lazos)  → Estado aislado, ciego, ineficaz
+  Solo lazos (sin autonomía)  → captura, Estado predatorio/clientelar
+  Las dos juntas              → capacidad transformadora (desarrollista)</pre>
+      <p>La conclusión de Evans (su resumen textual): la capacidad transformadora del Estado requiere "una mezcla de coherencia interna y de conexiones externas". Esto <b>cuestiona la tendencia a equiparar capacidad estatal con aislamiento</b> respecto de la sociedad civil — un Estado capaz no es un Estado encerrado en sí mismo.</p>
+      <p><span class="au">Castellani</span> retoma esta perspectiva con la noción de <b>autonomía relativa</b> (en clave poulantziana: el Estado no es mero instrumento de clase, tiene márgenes propios) y la aplica al <b>caso argentino</b>, mostrando su <b>degradación histórica</b>. Su tesis: cuando el Estado pierde autonomía relativa frente a las fracciones del capital concentrado, las políticas públicas dejan de orientarse al interés general y reproducen los intereses particulares de esas fracciones. El correlato concreto es la proliferación de los <b>ámbitos privilegiados de acumulación</b> (4.4).</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Autonomía enraizada (Evans)</b><span>Coherencia burocrática + lazos densos con el sector privado. Es la propiedad <i>virtuosa</i> del Estado desarrollista. Sin enraizamiento, la autonomía es estéril.</span></div>
+        <div class="concept"><b>Autonomía relativa (Castellani / Poulantzas)</b><span>El Estado tiene márgenes propios pero limitados. Su <i>erosión</i> habilita la captura por las fracciones dominantes. Variable que puede degradarse.</span></div>
+        <div class="concept"><b>Estado predatorio (Evans)</b><span>El reverso del desarrollista: sin coherencia ni proyecto, extrae sin devolver. Zaire como caso límite.</span></div>
+        <div class="concept"><b>Crisis del Estado argentino</b><span>No achicamiento sino degradación: expansión del intervencionismo junto a deterioro de las capacidades efectivas. El Estado hace más pero peor.</span></div>
+      </div>
+      <p><strong>El correlato en las políticas públicas:</strong> el tipo de relación estructura social-Estado se traduce directamente en la orientación de las políticas. Un Estado con autonomía enraizada sostiene políticas de desarrollo de largo plazo; un Estado capturado produce políticas que transfieren recursos a las fracciones dominantes bajo apariencia de interés general. Las políticas públicas son el <b>"correlato"</b> visible de relaciones de poder estructurales menos visibles.</p>
+    </div>
+  </div>
+
+  <div class="point" data-point="4.4">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">4.4</span>
+      <h4>El Estado y la promoción de ámbitos estratégicos de acumulación</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><strong>Concepto central de Castellani.</strong> Un <b>ámbito privilegiado de acumulación (APA)</b> es una red integrada por prácticas, actores, actividades económicas y regulaciones estatales que permite a un conjunto reducido de empresas privadas obtener <b>cuasi-rentas de privilegio</b> de manera no transitoria. No es un sector ni una empresa: es una <i>articulación</i> público-privada que se sostiene en el tiempo.</p>
+      <p>Para entenderlo hay que distinguir dos tipos de ganancia extraordinaria:</p>
+      <table class="cmp">
+        <tr><th></th><th>Cuasi-renta tecnológica (Schumpeter)</th><th>Cuasi-renta de privilegio (Nochteff)</th></tr>
+        <tr><td>Origen</td><td>La innovación: un producto, proceso o mercado nuevo.</td><td>Regulaciones estatales que protegen posiciones monopólicas u oligopólicas.</td></tr>
+        <tr><td>Duración</td><td>Transitoria: se erosiona cuando los competidores imitan la innovación.</td><td>No transitoria: dura mientras dure la intervención estatal que la sostiene.</td></tr>
+        <tr><td>Efecto macro</td><td>Impulsa el desarrollo sostenido y el cambio técnico.</td><td>Bloquea la acumulación de capacidades tecnológicas; genera "burbujas" de crecimiento inestable.</td></tr>
+        <tr><td>Conducta que premia</td><td>Innovar, asumir riesgo tecnológico.</td><td>Hacer lobby, capturar regulación, evitar el riesgo.</td></tr>
+      </table>
+      <p><strong>La "opción blanda".</strong> La elite económica argentina optó <b>sistemáticamente</b> por buscar rentas de privilegio en lugar de innovar — la "opción blanda" frente a la "opción dura" del esfuerzo tecnológico. Esto es <b>racional a nivel microeconómico</b> (es más seguro y rentable capturar una regulación que apostar a innovar) pero <b>devastador a nivel macroeconómico</b>: impide que el país acumule capacidades tecnológicas y lo condena a ciclos de crecimiento inestable. Es el reverso exacto del Estado desarrollista de Evans.</p>
+      <p><strong>Las cinco prácticas de articulación público-privada</strong> que sostienen un APA (van de lo más institucional a lo más opaco):</p>
+      <pre class="scheme">1. Prácticas corporativas formales  → gremios empresarios,
+                                      demandas públicas, lobby institucional
+2. Lobby informal                   → presiones directas no
+                                      institucionalizadas sobre funcionarios
+3. Colonización del aparato estatal → ubicar en cargos clave a
+                                      funcionarios comprometidos con
+                                      los intereses privados del ámbito
+4. Prácticas colusorias             → acuerdos de precios entre empresas
+                                      y con el Estado (cartelización)
+5. Corrupción                       → sobornos para garantizar el
+                                      sostenimiento del ámbito</pre>
+      <p><strong>Ámbitos históricos concretos en Argentina (1966-1989)</strong> que identifica el texto: obras públicas, régimen de "compre nacional", promoción industrial, privatizaciones periféricas, <b>estatización de la deuda privada</b> (1981), entre otros. El espacio donde estos ámbitos se reproducen con mayor intensidad es el <b>complejo económico estatal-privado</b>: siderurgia, petroquímica, energía y construcción — sectores donde la frontera entre lo público y lo privado se vuelve más porosa y las cuasi-rentas de privilegio más cuantiosas.</p>
+      <p><strong>El círculo vicioso del estancamiento.</strong> El concepto articula toda la unidad: la captura del Estado y la degradación de sus capacidades se retroalimentan:</p>
+      <div class="quote">"El círculo vicioso del estancamiento: la pérdida de calidad de la intervención estatal aumenta el poder económico de la fracción privilegiada → que usa ese poder para sostener los ámbitos → lo que debilita aún más las capacidades estatales."<small>Síntesis de Castellani (2007)</small></div>
+      <p>Cada vuelta del círculo consolida las cuasi-rentas de privilegio y erosiona más la autonomía relativa del Estado. Es la contracara argentina del proceso virtuoso que Evans describe para el Este asiático: allí el enraizamiento producía desarrollo; acá la captura produce estancamiento.</p>
+      <div class="link-note"><b>Conexión U3 → U4:</b> los APA son la aplicación concreta del "veto capitalista" y los "canales informales de codecisión" de Acuña. La burguesía concentrada usa su poder estructural (control de la inversión) para capturar regulaciones que le garantizan rentas — exactamente el comportamiento que Acuña dice que NO se explica solo por lo estructural, sino articulando lo político-institucional (las regulaciones) y lo ideológico (la legitimación de la "opción blanda").</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ U5 ============ -->
+<section class="panel unit-u5" id="panel-u5">
+  <div class="unit-head">
+    <div class="big">5</div>
+    <h2>Sociología del Trabajo</h2>
+    <div class="bib">BIBLIOGRAFÍA: Neffa et al., "Actividad, empleo y desempleo: conceptos y definiciones" (CEIL-CONICET) · Neffa (2001) · Castel (1997)</div>
+  </div>
+
+  <div class="point" data-point="5.1">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.1</span>
+      <h4>El fenómeno social del Trabajo: concepto y transformaciones</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>El trabajo no es solo una actividad económica: es un <strong>fenómeno social total</strong> que articula la producción de bienes y servicios con la reproducción de identidades, relaciones de poder y estructuras de integración social. Analizar el trabajo solo como factor productivo (como hace la economía estándar) deja afuera su función central: ser el principal mecanismo de <b>integración social</b> en la modernidad.</p>
+      <p><span class="au">Neffa</span> parte de un <b>problema de medición estructural</b>: las categorías estadísticas tradicionales —empleado / desempleado / inactivo— son insuficientes para captar la complejidad real del trabajo contemporáneo. La medición del desempleo "solo se refiere a la falta de empleo" y deja fuera fenómenos masivos: el subempleo, la informalidad, el trabajo no registrado, los trabajadores desalentados. Las herramientas con que medimos el mundo del trabajo fueron diseñadas para la sociedad salarial fordista y ya no captan lo que pasa.</p>
+      <p><strong>La distinción conceptual de base (Neffa): actividad ≠ trabajo ≠ empleo.</strong> El lenguaje cotidiano los confunde, pero son tres círculos concéntricos cada vez más estrechos. La consecuencia clave: <b>no toda persona que trabaja tiene empleo</b> (el trabajo doméstico no remunerado <i>es</i> trabajo pero no es empleo), y <b>no todo empleo es asalariado</b>.</p>
+      <table class="cmp">
+        <tr><th>Categoría</th><th>Definición</th><th>Ejemplos</th></tr>
+        <tr><td>Actividad</td><td>La noción <b>más amplia</b>: todo el dinamismo de la naturaleza humana (laboral, doméstica, educativa, cultural, deportiva, política…).</td><td>Estudiar, militar, cuidar hijos, hacer deporte.</td></tr>
+        <tr><td>Trabajo</td><td>Una forma de actividad orientada a producir un bien o servicio <b>socialmente útil</b>, con realidad objetiva exterior al sujeto (hay siempre diferencia entre trabajo prescripto y trabajo real).</td><td>Trabajo doméstico no remunerado, trabajo voluntario, producción para autoconsumo.</td></tr>
+        <tr><td>Empleo</td><td>Trabajo realizado para obtener un <b>ingreso</b> (como asalariado, empleador o cuentapropista). Puede ser mercantil o no, con o sin relación de dependencia.</td><td>Empleado registrado, cuentapropista, trabajador informal remunerado.</td></tr>
+      </table>
+      <p><strong>Modalidades de movilización de la fuerza de trabajo (Freyssinet).</strong> Neffa clasifica el trabajo cruzando dos variables — el <i>tipo de actividad</i> (mercantil / no mercantil) y el <i>modo de movilización</i> (forzado / libre / asalariado):</p>
+      <table class="cmp">
+        <tr><th>Modo</th><th>No mercantil</th><th>Mercantil</th></tr>
+        <tr><td>Forzado</td><td>Esclavos o prisioneros obligados a trabajar.</td><td>Esclavos/prisioneros en actividades productivas para el mercado.</td></tr>
+        <tr><td>Libre</td><td>Trabajo doméstico, trabajo militante (sin salario ni dependencia).</td><td>Independientes, informales, cuentapropistas (sin salario ni dependencia).</td></tr>
+        <tr><td>Asalariado</td><td>Empleados públicos, servicio doméstico asalariado.</td><td>Asalariados en empresas privadas. <b>El caso más estudiado</b> por la sociología del trabajo.</td></tr>
+      </table>
+      <p><span class="au">Castel</span> aporta la <b>dimensión histórica de largo plazo</b>: el trabajo asalariado fue <i>construido socialmente</i> como eje de la integración moderna, pero no siempre lo fue. En el siglo XIX el salariado era sinónimo de <b>precariedad, dependencia y degradación</b> —apenas un escalón por encima de la indigencia—. La gran transformación fue convertir ese estatuto vulnerable en la <b>"sociedad salarial"</b> del siglo XX: un orden donde el empleo estable garantizaba acceso a protecciones (salud, jubilación, seguro de desempleo), identidad colectiva y participación en el consumo. Esa estabilidad no fue natural sino el producto de un largo proceso histórico de luchas y construcción institucional.</p>
+      <p><strong>Las "zonas" de Castel</strong> (su mapa de la integración social según los ejes trabajo y relaciones sociales):</p>
+      <pre class="scheme">          + integración por el trabajo →
+  ┌─────────────────────┬─────────────────────┐
+  │  ZONA DE            │  ZONA DE             │  + inserción
+  │  INTEGRACIÓN        │  (transición)        │  relacional
+  │  empleo estable +   │                      │
+  │  redes sólidas      │                      │
+  ├─────────────────────┼─────────────────────┤
+  │  ZONA DE            │  ZONA DE             │  - inserción
+  │  VULNERABILIDAD     │  DESAFILIACIÓN       │  relacional
+  │  trabajo precario + │  sin trabajo + sin   │
+  │  fragilidad de lazos│  soporte relacional  │
+  └─────────────────────┴─────────────────────┘
+          - integración por el trabajo →</pre>
+      <p>Las transformaciones del entorno laboral desde los años '70 —globalización, flexibilización, reestructuración productiva, tercerización— <b>desestabilizaron la sociedad salarial</b>, empujando a sectores crecientes desde la zona de integración hacia la de vulnerabilidad, y de ahí al riesgo de desafiliación. Esas nuevas formas de vulnerabilidad no encajan en las categorías clásicas de análisis: de ahí la conexión directa con el problema de medición de Neffa.</p>
+
+      <p><strong>La "nueva cuestión social" (Castel en detalle).</strong> Castel sostiene que la exclusión y el desempleo <b>no son fenómenos marginales</b>: son el resultado del <b>derrumbe de la condición salarial</b>. La <b>condición salarial</b> no es solo el salario: es el conjunto de derechos, protecciones y reconocimiento social que el trabajo asalariado aseguró en el siglo XX —la <b>ciudadanía social</b>—. Su crisis hace reaparecer la <b>vulnerabilidad de masas en el centro</b> de las sociedades desarrolladas. Es "nueva" porque no afecta a los "incapaces" históricos (los pobres del siglo XIX) sino al <b>núcleo de la fuerza de trabajo</b>; tiene la misma magnitud que el pauperismo del siglo XIX, pero golpea al corazón de la sociedad.</p>
+      <p><strong>Las tres fragilidades de los "Treinta Gloriosos".</strong> El período 1945-1975 está mitificado. Castel muestra que la seguridad salarial nunca fue tan sólida como se recuerda:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>① Carácter inacabado</b><span>Los logros sociales eran etapas, no derechos plenos. Aun tras la ley de despido de 1973, el despedido seguía debiendo probar la injusticia.</span></div>
+        <div class="concept"><b>② Efectos perversos del Estado social</b><span>Generó un individualismo paradójico: desligó al individuo de las solidaridades concretas (vecindad, familia extensa). El individuo pasó a depender del Estado, no de la red social.</span></div>
+        <div class="concept"><b>③ Seguridad sin garantía legal</b><span>La estabilidad del empleo dependía del <i>crecimiento</i>, no de un derecho. Al cambiar la coyuntura, el contrato "por tiempo indeterminado" se reveló como un hecho empírico, no una protección real.</span></div>
+      </div>
+      <p><strong>Desafiliación, no "exclusión".</strong> Castel <b>prefiere "desafiliación"</b> a "exclusión": nadie está completamente <i>fuera</i> de la sociedad. "Exclusión" supone un corte adentro/afuera; <b>desafiliación</b> implica un <b>continuum</b> de posiciones más o menos laxas. Los desafiliados fueron <i>desligados</i> de las redes de integración (trabajo, familia, comunidad) pero <b>siguen bajo la dependencia del centro</b>. Es un <b>proceso</b>, no un estado. (Las tres zonas del mapa de arriba —integración / vulnerabilidad / desafiliación— son los tramos de ese continuum, cruzando el eje del trabajo con el eje relacional.)</p>
+      <p><strong>Los supernumerarios.</strong> El desempleo es lo más visible, pero el proceso más profundo es la <b>precarización</b> (en Francia, el contrato por tiempo indeterminado cayó del 80% al 65% de los activos). Castel identifica tres zonas de cristalización de la nueva cuestión social:</p>
+      <table class="cmp">
+        <tr><th>Zona</th><th>Quiénes</th><th>Qué les pasa</th></tr>
+        <tr><td>Desestabilización de los estables</td><td>Clase obrera integrada, sectores medios bajos.</td><td>Riesgo de caída desde posiciones antes seguras; bloqueo de la movilidad ascendente. Base social del populismo.</td></tr>
+        <tr><td>Instalación en la precariedad</td><td>Jóvenes que alternan empleo/no empleo.</td><td>El "interino permanente". Emerge una <b>cultura de lo aleatorio</b>: sin proyecto, estrategias de sobrevida basadas en el presente.</td></tr>
+        <tr><td><b>Supernumerarios</b></td><td>Trabajadores 50+, jóvenes sin primer empleo, desocupados crónicos.</td><td>Flotan en "tierra de nadie" social. <b>No son explotados</b> (serían necesarios): son literalmente <b>"de más"</b>. Sin utilidad social = sin peso político.</td></tr>
+      </table>
+      <p>Por eso los supernumerarios <b>no generan movimientos sociales</b>: carecen de las tres condiciones (organización colectiva, proyecto alternativo y sentimiento de ser indispensables). Solo pueden oscilar entre la resignación y la violencia autodestructiva.</p>
+      <p><strong>Del integracionismo a la inserción: el mito de Sísifo.</strong> Castel distingue dos lógicas de política social:</p>
+      <table class="cmp">
+        <tr><th>Políticas de integración (hasta ~1975)</th><th>Políticas de inserción (desde ~1980)</th></tr>
+        <tr><td><b>Universalistas:</b> buscan la homogeneización social desde el centro, extendiendo la seguridad social a todos.</td><td><b>Focalizadas</b> en poblaciones deficitarias (discriminación positiva). Reconocen implícitamente que habría poblaciones potencialmente "inintegrables".</td></tr>
+      </table>
+      <p>El <b>RMI</b> (Ingreso Mínimo de Inserción, Francia 1988) fue una innovación importante —por primera vez se reconoce el desempleo <b>estructural</b> como problema sistémico y no como falla individual—. Pero su resultado fue magro: solo ~15% de los beneficiarios encuentra empleo y ~70% permanece desocupado o inactivo. La inserción deja de ser una <i>etapa</i> y se vuelve un <b>estado permanente</b>: como <b>Sísifo</b>, se empuja la roca que siempre vuelve a caer. Castel no critica los <i>principios</i> del RMI, sino sus <i>resultados</i>: las políticas de inserción "se detienen a la puerta de las empresas" y no pueden resolver lo que el mercado produce estructuralmente.</p>
+      <p><strong>Las cuatro opciones de futuro (y la que defiende Castel).</strong></p>
+      <table class="cmp">
+        <tr><th>Opción</th><th>Diagnóstico de Castel</th></tr>
+        <tr><td>① Profundizar la degradación (liberal pura)</td><td>Dejar reinar el mercado autorregulado. Con Polanyi: <b>destruye el orden social</b> sin generar uno nuevo.</td></tr>
+        <tr><td>② Mantener el cuasi statu quo</td><td>Gestionar la crisis con más recursos pero sin cambiar la lógica. Riesgo: normalizar la <b>sociedad dual</b> (un 20% de supernumerarios permanentes).</td></tr>
+        <tr><td>③ Alternativas al trabajo asalariado</td><td>"Yacimientos de empleos" (servicios de proximidad). Castel es escéptico: tienden al <b>neodomesticismo</b> (Gorz), reproducen relaciones de servidumbre y no resuelven la ciudadanía social.</td></tr>
+        <tr><td><b>④ Redistribución de los recursos escasos ← la que defiende</b></td><td>Repartir trabajo y protecciones. <b>No restaurar</b> la sociedad salarial, sino <b>extender sus atributos</b> (tiempo, salario, protecciones) a formas <i>postsalariales</i>. Requiere voluntad política y negociación.</td></tr>
+      </table>
+      <p><strong>Estado social y mercado (con Polanyi).</strong> El Estado social no se <i>opone</i> al mercado: lo regula y humaniza. El mercado autorregulado, librado a sí mismo, destruye el orden social; en el siglo XIX lo amortiguaban las solidaridades tradicionales, hoy solo quedan las protecciones del Estado social. La <b>propiedad social</b> (seguridad social, derecho del trabajo) funcionó como un equivalente patrimonial para los no propietarios: erradicarla sería una "contrarrevolución cultural".</p>
+      <div class="link-note"><b>Nota de unidades:</b> en algunos materiales "La nueva cuestión social" de Castel figura asociada a la Unidad 6. En esta app se ubica en la U5 porque sus conceptos (condición salarial, desafiliación, supernumerarios) son la contracara teórica de las categorías de Neffa sobre el trabajo. La articulación con la U6 (riesgo y globalización) está en el punto 6.2.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="5.2">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.2</span>
+      <h4>Articulación entre proceso de trabajo y modo de acumulación</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>El concepto articulador es la <strong>relación salarial</strong>: no un mero contrato entre individuos libres, sino una <b>relación social</b> que define cómo se distribuye el valor producido, quién controla el proceso productivo y qué protecciones cubren al trabajador. Es el puente teórico entre el nivel micro (cómo se trabaja) y el nivel macro (cómo se acumula el capital).</p>
+      <p><span class="au">Neffa</span>, en la tradición <b>regulacionista</b> (Boyer), distingue dos niveles que hay que articular sin confundir:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Proceso de trabajo</b><span>Las formas concretas en que se organiza la producción: división de tareas, tecnología, ritmos, control y supervisión. El nivel del "taller".</span></div>
+        <div class="concept"><b>Modo de acumulación</b><span>La lógica macro de expansión del capital: qué se produce, para qué mercados, cómo se valoriza. El nivel del "sistema".</span></div>
+        <div class="concept"><b>Relación salarial</b><span>El conjunto de condiciones que regulan el uso y la reproducción de la fuerza de trabajo: forma del salario, contrato, protecciones, negociación. El nexo entre los dos niveles.</span></div>
+        <div class="concept"><b>Modo de regulación</b><span>El conjunto de normas, instituciones y acuerdos que estabilizan temporalmente la articulación entre proceso de trabajo y acumulación (convenios, legislación laboral, sistema de protecciones).</span></div>
+      </div>
+      <p>La articulación entre estos niveles <b>varía históricamente</b>. Los dos grandes patrones:</p>
+      <pre class="scheme">TAYLORISMO-FORDISMO (gran parte del s.XX)
+  Proceso:     división extrema del trabajo, cadena de montaje,
+               trabajo estandarizado y descalificado (Taylor:
+               separación entre concepción y ejecución)
+  Acumulación: producción en masa + consumo en masa → los salarios
+               funcionan como DEMANDA que realiza la producción
+  R. salarial: negociación colectiva, convenios por rama, carrera
+               interna en la firma, salario indirecto creciente
+
+POSFORDISMO / ACUMULACIÓN FLEXIBLE (desde los '70)
+  Proceso:     producción just-in-time, polivalencia, equipos,
+               externalización de etapas, calidad total
+  Acumulación: mercados segmentados y volátiles, las FINANZAS como
+               eje de valorización por encima de lo productivo
+  R. salarial: individualización del vínculo, flexibilización
+               (numérica, funcional, salarial), desregulación</pre>
+      <p><strong>La crisis del régimen de acumulación y la heterogeneización de la relación salarial.</strong> Neffa (en clave regulacionista) ubica el punto de quiebre a <b>mediados de los años '70</b>: la crisis del régimen de acumulación fordista transformó profundamente el modo de regulación, y dentro de él la relación salarial fue la forma institucional más afectada. Lo que antes se consideraban los <b>"verdaderos empleos"</b> (predominantes en los países capitalistas desarrollados) pierde peso, y proliferan las <b>"formas particulares de empleo"</b> o "empleos atípicos".</p>
+      <p>El "verdadero empleo" —la relación salarial fordista— se caracterizaba por:</p>
+      <pre class="scheme">EL "VERDADERO EMPLEO" (relación salarial fordista)
+  1. en relación de dependencia, contrato por tiempo INDETERMINADO
+  2. de tiempo completo
+  3. ejecutado en un establecimiento del empleador, distinto
+     del domicilio del trabajador
+  4. con protección social y derechos laborales plenos
+
+  → La crisis de los '70 erosiona los cuatro rasgos:
+    contratos temporales, tiempo parcial, trabajo a domicilio /
+    deslocalizado, y pérdida de protecciones.
+    Esto es la HETEROGENEIZACIÓN de la relación salarial.</pre>
+      <p>El proceso empezó en los países industrializados y se amplió a los semi-industrializados y emergentes, <b>específicamente en Argentina</b>. La consecuencia: el desplazamiento del poder en la relación salarial desde el nivel colectivo (convenio, sector) hacia el individual o la empresa subcontratista, debilitando la capacidad de negociación de los trabajadores.</p>
+      <div class="link-note"><b>Conexión con U4:</b> Castellani muestra que en Argentina este proceso se articuló con la expansión de los ámbitos privilegiados de acumulación. La estatización de la deuda privada (1981) y la valorización financiera de los '80-'90 implicaron una <b>transferencia masiva de ingresos</b> desde los sectores asalariados hacia el capital concentrado, condicionando estructuralmente la relación salarial. El giro a la acumulación flexible y financiera no fue solo global: tuvo su forma local específica vía los APA.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="5.3">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.3</span>
+      <h4>La informalidad y precarización del empleo</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Neffa</span> distingue con precisión conceptos que suelen confundirse pero refieren a fenómenos distintos. Confundirlos es un error típico de examen:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Sector informal</b><span>Definición del <b>PREALC/OIT (1978)</b>: agrupa las actividades de bajo nivel de productividad, los trabajadores independientes (salvo profesionales) y las empresas muy pequeñas o no organizadas. Categoría sobre las <i>unidades productivas</i>.</span></div>
+        <div class="concept"><b>Empleo precario</b><span>Trabajo sin estabilidad, sin cobertura social, sin carrera. Puede existir <i>dentro del sector formal</i> (no registro, contratos temporales abusivos) o del informal. Categoría sobre la <i>calidad del vínculo</i>.</span></div>
+        <div class="concept"><b>Trabajo no registrado / clandestino</b><span>Empleo que no cumple las obligaciones legales de registro y aportes ("en negro"). En Argentina, históricamente 30-40% del empleo. Categoría <i>jurídico-administrativa</i>.</span></div>
+        <div class="concept"><b>Tercerización</b><span>Transferencia de actividades a subcontratistas: reduce costos laborales y elude responsabilidades, generando "zonas grises".</span></div>
+        <div class="concept"><b>CDD y ATT (triangulación)</b><span>Contratos de duración determinada y agencias de trabajo temporario: el contrato se firma con la <i>agencia</i>, no con el empleador efectivo → <b>triangulación</b> de la relación salarial. Genera segmentación y dificulta la negociación colectiva. En Argentina, los "contratos basura" de la Ley Nacional de Empleo (1991) no crearon empleo nuevo: solo aumentaron la rotación.</span></div>
+      </div>
+      <p><strong>Las características del sector informal según PREALC/OIT.</strong> Lo definen mejor un conjunto de rasgos que la sola idea de "ilegalidad":</p>
+      <pre class="scheme">· unidades de producción muy heterogéneas
+· facilidad de entrada al sector
+· mercados competitivos pero NO reglamentados
+· predominio de recursos y factores de producción locales
+· dificultad para acceder a créditos institucionales
+· medios de producción propiedad de personas físicas y familiares
+· actividades de pequeña escala, inestables o ambulantes
+· producción destinada al mercado local
+· tecnologías poco productivas e intensivas en trabajo
+· calificaciones adquiridas FUERA del sistema escolar formal
+· pocas personas por unidad; predominan el empleo no asalariado
+  y los trabajadores familiares no remunerados</pre>
+      <p><strong>La doble perspectiva de Víctor Tokman</strong> (ex director del PREALC). Tokman redefinió la informalidad en dos sentidos que conviene no mezclar: como <b>sector</b> (el conjunto de unidades de baja productividad descrito arriba) y como <b>conjunto de actividades que operan al margen del marco legal y regulatorio</b> (la "informalidad" entendida como incumplimiento normativo, que puede darse incluso en empresas formales). Esta doble cara explica por qué la informalidad cumple a la vez función de <b>refugio</b> (absorbe a los expulsados del empleo formal) y de <b>estrategia de acumulación</b> que evade regulaciones para bajar costos.</p>
+      <p><strong>Por qué la informalidad no es un residuo del pasado.</strong> No es atraso premoderno que el desarrollo eliminará: se <b>expande</b> con la reestructuración productiva global y la heterogeneización de la relación salarial (ver 5.2). En la periferia adquiere rasgos propios, pero la lógica de fondo es global.</p>
+      <div class="link-note"><b>El "cuenta-propista":</b> ilustra toda la complejidad. Bajo el mismo rótulo conviven un microempresario genuino, un autónomo libre (profesional independiente) o —muy frecuentemente— un <b>asalariado encubierto</b> que trabaja de hecho para una sola empresa sin relación laboral reconocida. Las estadísticas que cuentan "cuenta-propistas" mezclan estos casos y vuelven a invisibilizar relaciones salariales encubiertas: otra vez el problema de medición de Neffa.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="5.4">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.4</span>
+      <h4>Empleo y condiciones de trabajo</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Neffa</span> distingue el <b>empleo</b> —la relación contractual con la empresa— de las <b>condiciones de trabajo</b> —cómo se lleva a cabo el proceso laboral concreto—. Para la OIT, "empleo" abarca tanto el asalariado como el independiente, e incluye a quienes tienen vínculo formal aunque estén temporalmente ausentes (enfermedad, vacaciones, huelga, licencia). Las <b>CyMAT</b> (condiciones y medio ambiente de trabajo) incluyen cargas físicas (esfuerzo, posturas, ruido, temperatura), psíquicas (ritmo, autonomía, presión de tiempo, inseguridad), cognitivas y relacionales: su deterioro afecta la salud y la subjetividad más allá del salario.</p>
+      <p><strong>El subempleo según la OIT</strong> (definiciones textuales que conviene citar bien):</p>
+      <table class="cmp">
+        <tr><th>Tipo</th><th>Definición OIT</th><th>Clave</th></tr>
+        <tr><td>Subempleo <b>visible</b></td><td>"Personas con empleo asalariado o independiente que durante el período de referencia trabajan <i>involuntariamente</i> menos que la duración normal y que buscaban o estaban disponibles para un trabajo adicional".</td><td>Es un problema de <i>cantidad de horas</i>. Es lo único que la mayoría de los países mide.</td></tr>
+        <tr><td>Subempleo <b>invisible</b></td><td>"Concepto analítico que refleja una mala distribución de la mano de obra o un desequilibrio entre la mano de obra y los otros factores. Síntomas: bajo nivel de ingresos, aprovechamiento insuficiente de las calificaciones y baja productividad".</td><td>Es un problema de <i>calidad / productividad</i>. Donde se midió, abarca <b>muchos más</b> trabajadores que el visible.</td></tr>
+      </table>
+      <p><strong>Las categorías básicas de la OIT.</strong> La <b>PEA</b> (Población Económicamente Activa) reúne a todos los que aportan trabajo para producir bienes y servicios económicos en el período de referencia: <b>ocupados + desocupados</b>. La <b>PNEA</b> (inactivos) son quienes no entran en ninguna de esas dos: estudiantes que no trabajan, amas de casa, jubilados, personas con incapacidad. (<i>Excepción argentina:</i> se considera activa a quien, sin remuneración, trabaja al menos <b>15 horas</b> en la semana de referencia.)</p>
+      <table class="cmp">
+        <tr><th>Categoría OIT</th><th>Condiciones</th><th>Problema</th></tr>
+        <tr><td><b>Ocupado</b></td><td>Empleo asalariado o independiente que, en el período de referencia: trabajó <b>al menos una hora remunerada</b>; o no trabajó pero mantiene vínculo formal (vacaciones, enfermedad, huelga, licencia); o es trabajador familiar no remunerado ≥15 hs semanales.</td><td>El criterio de <b>"una hora"</b> es tan mínimo que tiende a <b>sobreestimar el empleo</b>: alguien que hizo una changa de pocas horas figura como ocupado.</td></tr>
+        <tr><td><b>Desocupado</b> <small>(desocupación abierta)</small></td><td>Cumple <b>simultáneamente las tres</b> condiciones: (1) sin empleo; (2) <b>disponible</b> para trabajar; (3) <b>buscando activamente</b> (acciones concretas de búsqueda).</td><td>Quien dejó de buscar (desalentado) <b>queda afuera</b> de la definición aunque quiera trabajar: pasa a contarse como inactivo.</td></tr>
+      </table>
+      <p><strong>El desempleo como construcción histórica.</strong> Neffa subraya que la "desocupación" es una categoría estadística <b>reciente</b>, construida socialmente en los países desarrollados: no existía en los primeros censos. Se vinculaba a las categorías asalariadas; quien trabajaba en empresas familiares o en su domicilio, al interrumpir su actividad, no era contado como "desocupado". La categoría misma supone un cierto tipo de relación salarial.</p>
+      <p><strong>Las cuatro intersecciones de Freyssinet (el corazón de Neffa).</strong> Los cambios en el mercado de trabajo volvieron <b>borrosas las fronteras</b> entre las tres categorías clásicas —empleo, desempleo e inactividad—. En vez de ignorar las zonas de superposición, Freyssinet (retomado por Neffa) propone analizarlas como <b>cuatro sectores de intersección</b>:</p>
+      <pre class="scheme">         EMPLEO
+        /      \
+   (1) /        \ (2)
+ tiempo parcial   tiempo parcial
+ VOLUNTARIO       INVOLUNTARIO
+ (∩ inactividad)  (∩ desempleo)
+        \        /
+         \  (4) /
+      trabajo clandestino y
+      no registrado (∩ las tres)
+              |
+         (3) desempleo oculto:
+         formación, retiro anticipado,
+         "desalentados" (∩ inactividad-desempleo)
+
+  INACTIVIDAD ————————————————— DESEMPLEO</pre>
+      <div class="concept-grid">
+        <div class="concept"><b>Sector 1 — Tiempo parcial voluntario</b><span>Intersección empleo / inactividad. Puesto de tiempo completo pero no estable todo el año (estacional/temporal), o jornada inferior a la "normal" aceptada voluntariamente.</span></div>
+        <div class="concept"><b>Sector 2 — Tiempo parcial involuntario</b><span>Intersección empleo / desempleo. Se acepta como "mal menor": tienen contrato pero trabajan a tiempo parcial sin desearlo. Estadísticamente cuentan como <i>empleados</i> (es el subempleo visible).</span></div>
+        <div class="concept"><b>Sector 3 — Desempleo oculto</b><span>Intersección inactividad / desempleo. Trabajadores "desalentados" que dejaron de buscar por inexistencia de posibilidades, períodos de formación, ceses anticipados de actividad. No cuentan como desempleados (que exige búsqueda activa): la tasa oficial los borra.</span></div>
+        <div class="concept"><b>Sector 4 — Trabajo clandestino y no registrado</b><span>Intersección de las tres categorías. Empleo "en negro" que escapa a todo registro y puede solaparse con quien figura como inactivo o desocupado.</span></div>
+      </div>
+      <p>El subempleo en <b>calificaciones</b> (profesionales en puestos por debajo de su formación) es una variante del subempleo invisible. Y la <b>desocupación de larga duración (DLD)</b> es el desenlace dramático de estos flujos: cuando la persona transita desde la inactividad o el empleo hacia un desempleo que se perpetúa pese a la búsqueda activa, agota sus derechos a la seguridad social y no dispone de recursos propios ni ayuda familiar.</p>
+      <p><strong>El desempleo oculto y los dos "efectos".</strong> Junto a la desocupación <i>abierta</i> hay un <b>desempleo oculto</b> de dos tipos: <b>dentro de la inactividad</b> (los <i>desalentados</i>, que no buscan porque creen que no hallarán empleo: figuran como inactivos pero son desocupados de hecho) y <b>dentro de los ocupados</b> (quienes hacen una changa de pocas horas y por eso cuentan como ocupados, pero en realidad buscan empleo; en Argentina este grupo puede <b>superar</b> en número a los desocupados abiertos). Dos efectos contrapuestos mueven la PEA:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Efecto trabajador adicional</b><span>Cuando un miembro del hogar pierde el empleo, otros miembros (antes inactivos) salen a buscar trabajo → <b>aumenta</b> la PEA y puede subir la tasa de desempleo.</span></div>
+        <div class="concept"><b>Efecto trabajador desalentado</b><span>Ante escasas oportunidades, algunos desocupados dejan de buscar y pasan a inactivos → <b>reduce artificialmente</b> la tasa de desempleo oficial (los borra del numerador).</span></div>
+      </div>
+      <p><strong>Indicadores alternativos D1–D7 (adaptación de Herrero).</strong> Como la tasa oficial subestima la realidad, se construye un abanico de indicadores de creciente amplitud. La oficial es la D5 (criterio OIT); la D7 es la más abarcadora:</p>
+      <pre class="scheme">D1 → desempleo de larga duración (3 meses o más)
+D2 → los que perdieron INVOLUNTARIAMENTE su empleo
+D3 → desempleo de adultos mayores de 25 años
+D4 → desempleo de tiempo completo
+D5 → tasa convencional OIT  ★ LA OFICIAL
+D6 → D5 + buscan tiempo completo + ½ de los que buscan parcial
+     + part-time involuntarios
+D7 → D6 + trabajadores DESALENTADOS  ★ LA MÁS AMPLIA
+     (desocupación abierta + oculta + subempleo involuntario)
+
+Resultado GBA, mayo 1987-1996: la D7 creció de 9,8% a 26,8%
+de la PEA. La oficial (D5) subestimaba fuertemente la situación.</pre>
+      <p><strong>La Encuesta Permanente de Hogares (EPH).</strong> Es el principal instrumento de medición del mercado de trabajo urbano en Argentina, a cargo del <b>INDEC</b> desde 1973. Mide la tasa de actividad (PEA/población total), de empleo (ocupados/población total), de desocupación (desocupados/PEA) y de subocupación (subocupados/PEA). La reforma clave fue el pasaje de la <b>EPH puntual</b> (relevamientos de mayo y octubre) a la <b>EPH continua (2003)</b>, relevada semana a semana con resultados trimestrales: respondía a la mayor velocidad de los cambios laborales posfordistas (rotación, entradas/salidas frecuentes del desempleo, pluriactividad). <i>Problema persistente:</i> tras los cambios organizacionales en el INDEC en 2007 se cuestionó la confiabilidad de los datos.</p>
+      <p><strong>Vulnerabilidad y empleabilidad.</strong> Dos probabilidades distintas que conviene no confundir:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Vulnerabilidad</b><span>Probabilidad de <i>quedar</i> desocupado. Depende del tipo de contrato previo (precario/indefinido), sector, edad, calificación y género.</span></div>
+        <div class="concept"><b>Empleabilidad</b><span>Probabilidad de que un desocupado <i>encuentre</i> empleo en un período dado. <b>Disminuye</b> con: mayor duración del desempleo, mayor edad, menor calificación. Las mujeres tienen empleabilidad relativamente menor (los empleadores esperan que trabajen menos tiempo por licencias, cuidados, etc.).</span></div>
+      </div>
+      <p><strong>Tipología de itinerarios de los desocupados (Freyssinet).</strong> No todos los desempleos son iguales: difieren en perfil y dinámica.</p>
+      <table class="cmp">
+        <tr><th>Tipo</th><th>Perfil</th><th>Dinámica</th></tr>
+        <tr><td>Repetitivo</td><td>Jóvenes de baja calificación, ex trabajadores precarios, mujeres que se reinsertan.</td><td>Pasan frecuentemente por el mercado laboral, sin acceso al seguro de desempleo. Salen rápido, pero hacia empleos precarios o contratos de duración determinada.</td></tr>
+        <tr><td>De reconversión</td><td>Ex titulares de contratos indefinidos, hombres adultos calificados de industrias en crisis.</td><td>Permanecen más tiempo: mientras cobran el seguro de desempleo buscan un empleo estable acorde a sus calificaciones.</td></tr>
+        <tr><td>De exclusión</td><td>Jóvenes con fracaso escolar, adultos poco calificados próximos a la jubilación.</td><td><b>El más grave:</b> desempleo estructural de larga duración. Deterioro de calificaciones, desaliento, pérdida del derecho al seguro → se convierten en desocupados ocultos.</td></tr>
+      </table>
+      <p><strong>Castel y las protecciones.</strong> El <b>"salario indirecto"</b> (salud, jubilación, accidentes) no es un complemento sino componente central del trabajo decente. Su erosión produce <b>desafiliación social</b>: la pérdida <i>simultánea</i> del lazo laboral y del lazo de sociabilidad que ese lazo sostenía. No es solo perder ingreso: es perder la red de pertenencia e identidad que el trabajo estable proveía.</p>
+      <div class="link-note"><b>Conexión:</b> las cuatro intersecciones de Freyssinet son la demostración técnica del "problema de medición" de Neffa (5.1): la realidad laboral desborda las tres casillas oficiales, y lo que queda en los bordes —el subempleo invisible, el desempleo oculto, el trabajo no registrado— es justamente lo que las estadísticas estándar subestiman.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="5.5">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.5</span>
+      <h4>Desigualdades de género en el mercado de trabajo</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><strong>El problema metodológico de base (Neffa).</strong> Las categorías de población económicamente activa / inactiva fueron construidas tomando como norma implícita el trabajo <i>masculino, remunerado y a tiempo completo</i>. Esto tiene una consecuencia política enorme: el <b>trabajo doméstico y de cuidados no remunerado</b> —mayoritariamente femenino— queda fuera del sistema de cuentas nacionales y de las estadísticas de empleo. Una parte sustancial de la producción social que sostiene la reproducción de la fuerza de trabajo se vuelve, literalmente, <b>invisible</b> para la medición económica.</p>
+      <p><strong>La división sexual del trabajo.</strong> Hay una asignación social de tareas según género que precede y condiciona la inserción laboral: el trabajo productivo (remunerado, público, valorizado) asociado a lo masculino, y el trabajo reproductivo (no remunerado, doméstico, invisibilizado) asociado a lo femenino. Esta división no es natural sino una construcción social e histórica.</p>
+      <p>Las desigualdades se expresan en varias dimensiones que conviene no confundir:</p>
+      <table class="cmp">
+        <tr><th>Dimensión</th><th>Definición</th><th>Ejemplo</th></tr>
+        <tr><td>Brecha salarial</td><td>Las mujeres perciben en promedio salarios menores por trabajo equivalente.</td><td>Igual puesto, igual calificación, menor remuneración.</td></tr>
+        <tr><td>Segregación horizontal</td><td>Concentración femenina en sectores y ramas de menor remuneración.</td><td>Servicios, cuidados, enseñanza, comercio, trabajo doméstico.</td></tr>
+        <tr><td>Segregación vertical</td><td>Subrepresentación en cargos de dirección y toma de decisiones.</td><td>"Techo de cristal": las mujeres acceden poco a la cúpula de las organizaciones.</td></tr>
+      </table>
+      <p><strong>La doble jornada (Castel + perspectiva de género).</strong> La doble jornada femenina —trabajo remunerado <i>más</i> trabajo doméstico y de cuidados no remunerado— implica una forma específica de vulnerabilidad en el mercado laboral. Para compatibilizar ambas demandas, las mujeres tienen mayor probabilidad de acceder a empleos <b>parciales o informales</b>, lo que a su vez:</p>
+      <pre class="scheme">Doble jornada → necesidad de flexibilidad horaria
+             → empleos parciales / informales / precarios
+             → menores ingresos + menor cobertura previsional
+             → mayor vulnerabilidad en la vejez
+             → refuerza la brecha y la dependencia económica
+  (un círculo que se retroalimenta)</pre>
+      <p>Así, la desigualdad de género en el trabajo no es un problema "aparte" sino que se entrelaza con la precarización (5.3), las condiciones de trabajo (5.4) y la desafiliación (Castel): las mujeres están sobrerrepresentadas en las zonas de vulnerabilidad.</p>
+      <div class="link-note"><b>Nota del programa:</b> la bibliografía complementaria (Wainerman 2002; Barrere-Maurisson 1999) profundiza la reestructuración de las fronteras entre trabajo remunerado y no remunerado en el hogar, y la "vida doble" femenina. El punto se articula con toda la unidad aunque no haya bibliografía básica específica en los materiales.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="5.6">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">5.6</span>
+      <h4>Aproximaciones teóricas a la relación educación-empleo</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p>La relación educación-empleo es un campo de disputa teórica. La pregunta de fondo: ¿la educación distribuye oportunidades de manera meritocrática, o reproduce las desigualdades de origen? Tres enfoques dan respuestas opuestas:</p>
+      <table class="cmp">
+        <tr><th>Enfoque</th><th>Tesis central</th><th>Límite / crítica</th></tr>
+        <tr><td>Capital humano<br><small>(Becker)</small></td><td>La educación es una <b>inversión</b> que aumenta la productividad del trabajador y, por tanto, su salario. Relación directa y meritocrática: a más credenciales, mejor posición. El que estudia, asciende.</td><td>Neffa lo cuestiona empíricamente: el <b>subempleo en calificaciones</b> es masivo. Si la credencial garantizara el puesto, no habría profesionales en empleos por debajo de su formación. La promesa meritocrática no se cumple.</td></tr>
+        <tr><td>Reproducción social<br><small>(Bourdieu)</small></td><td>La educación <b>no distribuye</b> oportunidades: <b>reproduce</b> las desigualdades de origen. El capital cultural y social que se pone en juego en la escuela favorece sistemáticamente a quienes ya tienen ventajas de clase. La escuela legitima la desigualdad presentándola como mérito.</td><td>Las credenciales "infladas" (más años de escolaridad para el mismo puesto) son el correlato de la expansión educativa <i>sin</i> expansión equivalente de empleos calificados: estudiar más para competir por lo mismo.</td></tr>
+        <tr><td>Segmentación del mercado de trabajo</td><td>El mercado no es uno sino <b>varios</b>, con "pisos" de entrada. El acceso al <b>segmento primario</b> (empleos estables, protegidos, con carrera) depende de credenciales pero también de redes, origen social y género.</td><td>La educación sola no garantiza pasar al segmento primario cuando los mecanismos de segmentación operan sobre otras variables. Hay barreras que el título no derriba.</td></tr>
+      </table>
+      <p><strong>El núcleo del debate.</strong> El capital humano supone un mercado de trabajo abierto donde el mérito (medido en credenciales) determina la posición. Bourdieu y la segmentación muestran que el mercado está estructurado de antemano por la clase, las redes y el género: la educación opera <i>dentro</i> de esas estructuras, no por encima de ellas. La expansión educativa, lejos de igualar, puede reproducir la desigualdad en una nueva forma (la "carrera de credenciales").</p>
+      <div class="link-note"><b>Conexión:</b> Neffa muestra que en Argentina el subempleo en calificaciones (5.4) es una forma frecuente de subempleo invisible entre jóvenes profesionales. Esto cuestiona la promesa de movilidad social vía educación en un contexto de mercado de trabajo <b>segmentado</b> y con <b>alta informalidad</b> (5.3): el título es necesario pero no suficiente, y a veces ni siquiera necesario para el segmento secundario precarizado.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ U6 ============ -->
+<section class="panel unit-u6" id="panel-u6">
+  <div class="unit-head">
+    <div class="big">6</div>
+    <h2>Globalización y desigualdad</h2>
+    <div class="bib">BIBLIOGRAFÍA BÁSICA: Marini (2008, págs. 247-271) · Complementaria: Beck, Stiglitz, Ferrer, Gereffi</div>
+  </div>
+
+  <div class="point" data-point="6.1">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">6.1</span>
+      <h4>Los hechos económicos de la Globalización</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Marini</span> escribe desde la <b>teoría marxista de la dependencia</b>: su tesis de partida es que la globalización <strong>no es un fenómeno radicalmente nuevo</strong>. Es la forma <i>actual</i> que adopta la expansión capitalista mundial, cuya lógica de fondo —la acumulación en el centro a costa de la periferia— permanece constante desde los orígenes del capitalismo. Lo que cambia son los <b>mecanismos concretos</b> de esa expansión, no su carácter estructural. Por eso Marini se opone a las lecturas que presentan la globalización como una era inédita que habría disuelto las viejas relaciones centro-periferia: para él, las actualiza bajo nuevas formas.</p>
+      <p>Los <b>hechos económicos centrales</b> de la globalización contemporánea, según Marini:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Liberalización comercial y financiera</b><span>Desmantelamiento de barreras arancelarias y controles de capital. Favorece la movilidad del <i>capital</i> pero no la del <i>trabajo</i>: asimetría estructural que beneficia al capital.</span></div>
+        <div class="concept"><b>Cadenas globales de valor</b><span>La producción se fragmenta globalmente. La periferia se inserta en los eslabones de <i>menor</i> valor agregado: manufactura intensiva en trabajo, ensamblaje, recursos naturales.</span></div>
+        <div class="concept"><b>Transnacionalización del capital</b><span>Las corporaciones transnacionales organizan la producción a escala global, debilitando la capacidad regulatoria de los Estados nacionales periféricos. El poder se desplaza del Estado-nación a la empresa global.</span></div>
+        <div class="concept"><b>Financiarización</b><span>El capital financiero toma la delantera sobre el productivo. La valorización vía especulación financiera supera a la vía productiva en muchos sectores: el dinero que genera dinero sin pasar por la producción.</span></div>
+        <div class="concept"><b>Transferencia de excedente</b><span>Vía remesas de utilidades, pago de deuda, regalías tecnológicas y términos de intercambio desfavorables. Es el mecanismo dependentista clásico actualizado: el excedente generado en la periferia fluye hacia el centro.</span></div>
+        <div class="concept"><b>Competencia vía costos laborales</b><span>La atracción de inversión extranjera en la periferia se apoya en salarios bajos. Genera presión a la baja de salarios <i>incluso en las economías centrales</i>: la "race to the bottom" o carrera hacia el fondo.</span></div>
+      </div>
+      <p><strong>La asimetría capital/trabajo.</strong> El punto que Marini subraya: la globalización liberó la circulación del capital pero mantuvo trabadas las fronteras al trabajo. El capital puede deslocalizarse buscando el salario más bajo; el trabajador no puede seguirlo libremente. Esta asimetría es la base material del poder de negociación creciente del capital y decreciente del trabajo a escala mundial — conecta directamente con la flexibilización de la U5.</p>
+      <div class="link-note"><b>Conexión con U4:</b> Block (U4) argumenta que la globalización financiera de los '90 sometió a los Estados a la disciplina de los mercados de capitales internacionales, reduciéndoles el margen de acción macroeconómica. Esto se articula con Evans: es muy difícil sostener "autonomía enraizada" y políticas de desarrollo de largo plazo en contextos de apertura financiera irrestricta, donde una fuga de capitales puede castigar cualquier política que el mercado financiero desapruebe.</div>
+    </div>
+  </div>
+
+  <div class="point" data-point="6.2">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">6.2</span>
+      <h4>La perspectiva del riesgo</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Beck</span> (bibliografía complementaria) propone el concepto de <strong>sociedad del riesgo mundial</strong>. Su tesis: la modernidad tardía genera <b>riesgos de nuevo tipo</b> —ecológicos, financieros, tecnológicos, terroristas— que son <b>globales en su alcance pero desiguales en su distribución</b>. La producción de riqueza viene acompañada de una producción sistemática de riesgos que la sociedad debe gestionar.</p>
+      <p><strong>Riesgos clásicos vs. riesgos de la modernidad tardía</strong> (el corte conceptual de Beck):</p>
+      <table class="cmp">
+        <tr><th></th><th>Riesgos industriales clásicos</th><th>Riesgos de la sociedad del riesgo</th></tr>
+        <tr><td>Alcance</td><td>Locales, acotados a un lugar o grupo (accidentes laborales, enfermedades ocupacionales).</td><td>Globales: no respetan fronteras nacionales (cambio climático, crisis financieras, pandemias).</td></tr>
+        <tr><td>Distribución</td><td>Tendencialmente ligados a la clase (más expuestos los trabajadores).</td><td>Trascienden la clase en su alcance, aunque su distribución sigue siendo desigual.</td></tr>
+        <tr><td>Previsibilidad</td><td>Calculables y asegurables con criterios actuariales.</td><td>De baja probabilidad pero consecuencias catastróficas: escapan al cálculo asegurador clásico.</td></tr>
+        <tr><td>Visibilidad</td><td>Perceptibles directamente.</td><td>Muchas veces invisibles, mediados por el conocimiento experto (radiación, contaminantes).</td></tr>
+      </table>
+      <p><strong>"Globales en alcance" no significa "igualitarios".</strong> Este es el matiz clave que suele preguntarse: aunque los nuevos riesgos atraviesan fronteras y clases, su <b>distribución sigue siendo profundamente desigual</b>. Quienes tienen más recursos pueden protegerse mejor (mudarse, asegurarse, acceder a información); los más vulnerables quedan más expuestos. El riesgo se democratiza en su alcance pero se concentra en su impacto.</p>
+      <p>Desde los textos disponibles en la unidad, la perspectiva del riesgo puede articularse en <b>dos dimensiones</b>:</p>
+      <div class="concept-grid">
+        <div class="concept"><b>Riesgo económico-financiero (Block, U4)</b><span>La desregulación financiera de los '90 reprodujo las condiciones de inestabilidad de los años '30. La libre movilidad de capitales expone a las economías periféricas a <i>crisis cambiarias y financieras de origen externo</i>, sobre las que tienen escasa capacidad de control. El riesgo viene de afuera y se sufre adentro.</span></div>
+        <div class="concept"><b>Riesgo social-laboral (Castel, U5)</b><span>La erosión de las protecciones del trabajo genera una nueva forma de riesgo: la <i>vulnerabilidad social generalizada</i>. Las "zonas de vulnerabilidad" de Castel son espacios de riesgo de desafiliación donde la caída en la precariedad no es un evento puntual sino una <b>condición estructural</b> que puede activarse en cualquier momento.</span></div>
+      </div>
+      <p>Las dos dimensiones convergen: la apertura financiera (riesgo macro) precariza el empleo (riesgo micro). El trabajador periférico queda expuesto simultáneamente a la volatilidad de los mercados globales y a la fragilidad de sus propias protecciones — una doble exposición característica de la inserción dependiente en la globalización.</p>
+    </div>
+  </div>
+
+  <div class="point" data-point="6.3">
+    <div class="point-head" onclick="togglePoint(this)">
+      <span class="code">6.3</span>
+      <h4>Consecuencias sociales para América Latina y Argentina</h4>
+      <button class="read-btn" onclick="markRead(event,this)">Leído</button>
+      <span class="chev">▶</span>
+    </div>
+    <div class="point-body">
+      <p><span class="au">Marini</span> identifica consecuencias <b>estructurales</b> específicas de la inserción latinoamericana en la globalización capitalista. No son efectos coyunturales sino rasgos del tipo de inserción dependiente:</p>
+      <p><strong>1. Superexplotación del trabajo como mecanismo de competitividad.</strong> Este es el concepto más importante de Marini. La inserción periférica en las cadenas globales se sostiene en la <b>reducción del costo laboral por debajo del valor de reproducción de la fuerza de trabajo</b>. En el centro, el capital extrae plusvalía pero paga un salario que permite al trabajador reproducirse; en la periferia, la competitividad se logra pagando <i>menos de lo necesario</i> para esa reproducción (alargando la jornada, intensificando el trabajo, comprimiendo el salario). Conclusión demoledora: la "ventaja comparativa" de América Latina en la economía global es, en el fondo, <b>pobreza salarial estructural</b>. Lo que se vende como eficiencia es superexplotación.</p>
+      <p><strong>2. Especialización regresiva (reprimarización).</strong> La apertura comercial destruyó industrias locales sin crear empleos equivalentes. Los países se especializaron en los eslabones de <i>menor</i> valor agregado: exportación de commodities, maquila, servicios de baja calificación. La <b>"reprimarización"</b> de las economías latinoamericanas en los años '90 —el retorno a un perfil exportador primario— es la expresión concreta de este proceso. Es "regresiva" porque hace retroceder la complejidad productiva ya alcanzada: el reverso exacto del desarrollo schumpeteriano de Castellani (U4).</p>
+      <p><strong>3. Disociación entre ciclo productivo y consumo popular.</strong> En el fordismo (U5), los salarios eran demanda: producir y consumir se reforzaban en un círculo virtuoso. En la inserción globalizada periférica, la producción se orienta a <i>mercados externos</i> o a las <i>elites locales</i>, no al consumo de las mayorías. Resultado: el ingreso se concentra y el mercado interno se estrecha. Se rompe el vínculo entre crecimiento y bienestar popular — se puede crecer exportando mientras la mayoría se empobrece.</p>
+      <p><strong>Las consecuencias en Argentina (la gran síntesis de las tres unidades):</strong></p>
+      <table class="cmp">
+        <tr><th>Consecuencia</th><th>Expresión en Argentina (conexión U4/U5)</th></tr>
+        <tr><td>Valorización financiera como eje de acumulación</td><td><b>Estatización de la deuda externa privada (1981):</b> el Estado absorbió los pasivos de las empresas que habían especulado financieramente, transfiriendo el costo al conjunto social. Es a la vez ámbito privilegiado de acumulación (Castellani, U4) y financiarización dependiente (Marini, U6).</td></tr>
+        <tr><td>Destrucción del entramado industrial</td><td>Apertura comercial de los '90 + privatizaciones: eliminación de ámbitos de acumulación productiva sin generación de capacidades alternativas. La reprimarización argentina.</td></tr>
+        <tr><td>Precarización y desempleo estructural</td><td>Neffa (U5): expansión del subempleo, la informalidad y el trabajo no registrado como correlato laboral de la reestructuración productiva. La superexplotación tiene rostro de precariedad.</td></tr>
+        <tr><td>Límites a la autonomía estatal</td><td>Evans (U4): la disciplina de los mercados financieros internacionales redujo el margen de maniobra del Estado argentino para políticas de desarrollo. Sin autonomía no hay proyecto de desarrollo posible.</td></tr>
+      </table>
+      <p><strong>Cómo cierra el programa.</strong> La U6 funciona como integradora: Marini muestra que la globalización no es un proceso neutro y técnico sino la forma actual de la dependencia, que se expresa en <b>superexplotación del trabajo</b> (conecta con la U5 de Neffa y Castel), <b>captura del Estado y reprimarización</b> (conecta con la U4 de Castellani y Evans) y, en el fondo, la centralidad del control de la inversión por el capital concentrado (la U3 de Acuña). Las cuatro unidades describen, desde ángulos distintos, un mismo proceso: cómo el poder estructural del capital se traduce en políticas estatales, condiciones de trabajo e inserción global desfavorables para las mayorías.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section class="panel" id="panel-flash">
+  <div class="unit-head"><div class="big">🃏</div><h2>Flashcards</h2><div class="bib">TOCÁ LA TARJETA PARA VER LA RESPUESTA · USÁ ← → DEL TECLADO PARA NAVEGAR</div></div>
+  <div class="fc-controls">
+    <select class="sel" id="fc-filter" onchange="fcFilter()">
+      <option value="all">Todas las unidades</option>
+      <option value="3">Solo Unidad 3</option>
+      <option value="4">Solo Unidad 4</option>
+      <option value="5">Solo Unidad 5</option>
+      <option value="6">Solo Unidad 6</option>
+    </select>
+    <button class="btn small" onclick="fcShuffle()">🔀 Mezclar</button>
+  </div>
+  <div class="fc-stage">
+    <div class="fc-card" id="fc-card" onclick="this.classList.toggle('flipped')">
+      <div class="fc-face fc-front"><span class="fc-meta" id="fc-meta-f"></span><div class="q" id="fc-q"></div><span class="fc-hint">tocá para ver la respuesta</span></div>
+      <div class="fc-face fc-back"><span class="fc-meta" id="fc-meta-b"></span><div class="a" id="fc-a"></div><span class="fc-hint">tocá para volver</span></div>
+    </div>
+  </div>
+  <div class="fc-nav">
+    <button class="btn" onclick="fcMove(-1)">← Anterior</button>
+    <span class="fc-count" id="fc-count"></span>
+    <button class="btn" onclick="fcMove(1)">Siguiente →</button>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="panel" id="panel-quiz">
+  <div class="unit-head"><div class="big">✏️</div><h2>Quiz</h2><div class="bib">RESPUESTA + EXPLICACIÓN AL INSTANTE · LAS OPCIONES SE MEZCLAN EN CADA INTENTO</div></div>
+  <div id="quiz-zone">
+    <div class="q-setup" id="q-setup">
+      <h3>Elegí qué practicar</h3>
+      <p style="font-size:.86rem;color:var(--ink-soft);margin-bottom:14px">Las preguntas siguen los puntos del programa. Podés repetirlo las veces que quieras: cambia el orden cada vez.</p>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <button class="btn" onclick="startQuiz('3')">Unidad 3</button>
+        <button class="btn" onclick="startQuiz('4')">Unidad 4</button>
+        <button class="btn" onclick="startQuiz('5')">Unidad 5</button>
+        <button class="btn" onclick="startQuiz('6')">Unidad 6</button>
+        <button class="btn primary" onclick="startQuiz('all')">🔥 Todo mezclado</button>
+      </div>
+    </div>
+    <div id="q-game" style="display:none">
+      <div class="q-card">
+        <div class="q-top"><span id="q-num"></span><span id="q-unit"></span><span id="q-score"></span></div>
+        <div class="q-bar"><i id="q-bar"></i></div>
+        <div class="q-text" id="q-text"></div>
+        <div id="q-opts"></div>
+        <div class="q-expl" id="q-expl"></div>
+        <div class="q-next"><button class="btn primary" id="q-next-btn" style="display:none" onclick="nextQ()">Siguiente →</button></div>
+      </div>
+    </div>
+    <div id="q-end" style="display:none">
+      <div class="q-card q-result">
+        <div class="score" id="q-final"></div>
+        <div class="msg" id="q-msg"></div>
+        <button class="btn primary" onclick="resetQuiz()">Hacer otro quiz</button>
+        <div class="q-review" id="q-review"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+/* ================= NAVEGACIÓN ================= */
+function goTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelector('.tab[data-tab="'+id+'"]').classList.add('active');
+  window.scrollTo({top:0});
+}
+function togglePoint(head){ head.parentElement.classList.toggle('open'); }
+
+/* ================= PROGRESO ================= */
+const TOTAL_POINTS = document.querySelectorAll('.point').length;
+let readSet = new Set();
+function markRead(ev,btn){
+  ev.stopPropagation();
+  const code = btn.closest('.point').dataset.point;
+  if(readSet.has(code)){ readSet.delete(code); btn.classList.remove('done'); btn.textContent='Leído'; }
+  else { readSet.add(code); btn.classList.add('done'); btn.textContent='✓ Leído'; }
+  const n = readSet.size, pct = Math.round(n/TOTAL_POINTS*100);
+  document.getElementById('prog-txt').textContent = n+'/'+TOTAL_POINTS;
+  document.getElementById('prog-bar').style.width = pct+'%';
+  document.getElementById('prog-pct').textContent = pct+'%';
+}
+
+/* ================= FLASHCARDS ================= */
+const CARDS = [
+ {u:3,p:'3.1',q:'¿Por qué Acuña dice que la burguesía es una clase "estratégica y privilegiada"?',a:'Estratégica: si sus intereses (ganancia → inversión) no se realizan, tampoco se realizan los del resto de la sociedad. Privilegiada: la realización de sus intereses debe ocurrir ANTES que la de cualquier otro grupo para que se cumpla el ciclo ganancia-inversión-actividad-distribución.'},
+ {u:3,p:'3.1',q:'¿Qué es el "veto" capitalista?',a:'La desinversión como respuesta a políticas estatales percibidas como amenazantes: cae la actividad económica, hay crisis distributiva y tensión social, hasta que el gobierno "corrige" e implementa medidas acordes a los intereses de la burguesía. Es el "segundo voto" cotidiano de los capitalistas.'},
+ {u:3,p:'3.1',q:'Nombrá 3 de los 5 factores que acotan históricamente el veto de la desinversión (Acuña).',a:'1) Coyunturas recesivas donde la desinversión ya está presente (Skocpol: New Deal). 2) Mayor papel del Estado como inversor (Chile ~70% de la inversión bruta). 3) Sanciones político-institucionales a la desinversión. 4) Contradicciones interburguesas que la compensan. 5) Hay más asociaciones empresarias que sindicatos: los intereses del capital no son tan homogéneos.'},
+ {u:3,p:'3.2',q:'¿Qué le critica Acuña al reduccionismo culturalista ("falta de conciencia" de los capitalistas latinoamericanos)?',a:'Las burguesías europeas "modelo" se comportaron históricamente igual (Gerschenkron: capitalismos tardíos con Estados que forzaron la modernización). Las citas clásicas sobre burguesías "zánganas" son de Marx y Engels sobre Francia e Inglaterra. La cultura no es variable independiente: su peso determinante es una hipótesis empírica a demostrar caso por caso.'},
+ {u:3,p:'3.2',q:'¿Qué es el problema del free-rider ("colado") en Olson y qué crítica le hace Acuña a su teoría?',a:'El maximizador individual prefiere gozar de los beneficios de la acción colectiva sin asumir sus costos, por lo que el interés común NO basta para la organización (dilema del prisionero). Crítica de Acuña: la teoría es NO FALSABLE — define la racionalidad por sus resultados, en círculo, como "un salón de espejos".'},
+ {u:3,p:'3.2',q:'Explicá el argumento de las estrategias a, b, c, d de Acuña.',a:'Si lo estructural muestra que a y b perjudican a la burguesía y c y d la favorecen, lo estructural explica por qué NO eligió a o b — pero no por qué eligió c en vez de d. Las condiciones estructurales fijan los LÍMITES de factibilidad, no las estrategias específicas. Para éstas hay que incorporar lo político-institucional y lo ideológico.'},
+ {u:3,p:'3.2',q:'¿Cómo ilustra la "revolución keynesiana" el peso de los factores ideológicos (Acuña)?',a:'En el paradigma neoclásico el salario era solo costo micro → en recesión se descartaba aumentarlo. El keynesianismo lo redefinió como componente de la demanda agregada → el aumento salarial pasó a ser compatible con las ganancias. Al redefinir los límites de lo factible PERCIBIDOS, revolucionó las opciones estratégicas y el comportamiento histórico de los actores.'},
+ {u:3,p:'3.3',q:'¿Qué son las "dos lógicas de la acción colectiva" de Offe y Wiesenthal?',a:'La organización capitalista es MONOLÓGICA: intereses dados y claros (la tasa de ganancia), no requieren diálogo; la firma ya organiza. La de los trabajadores es DIALÓGICA: sus intereses, límites y parámetros se definen permanentemente en lucha y diálogo colectivo. Acuña critica el supuesto de homogeneidad del interés capitalista.'},
+ {u:3,p:'3.3',q:'¿Cuáles son los tres niveles del análisis de clase según O\'Donnell (retomados por Acuña)?',a:'1) Estructural: posición en el sistema productivo (hacia otras fracciones/clases y "hacia adentro"). 2) Corporativo: la organización en asociaciones empresarias. 3) Político-ideológico: presentarse como portadora de intereses generales en alianza con burocracias, partidos u otros sectores. No se es clase solo en el plano estructural.'},
+ {u:3,p:'3.3',q:'¿Qué son la "lógica de los miembros" y la "lógica de la influencia" (Schmitter y Streek)?',a:'Las asociaciones empresarias resultan de dos presiones simultáneas: la lógica de los MIEMBROS (ofrecer incentivos para obtener apoyo y recursos — por ahí penetra lo estructural-económico) y la lógica de la INFLUENCIA (influir sobre el Estado y otras organizaciones — por ahí entra lo político-institucional e ideológico).'},
+ {u:3,p:'3.3',q:'¿Por qué el Estado argentino es más vulnerable a la desinversión que el chileno o venezolano (Acuña)?',a:'Porque depende del sector capitalista agrario-pampeano para obtener divisas: la desinversión de la burguesía pampeana lo coloca en fuerte dependencia. Chile y Venezuela controlaban la producción/comercialización de sus principales exportables (cobre, petróleo), lo que redefine los términos de influencia entre capitalistas y Estado.'},
+ {u:4,p:'4.1',q:'¿Cuáles son las tres imágenes históricas del Estado según Evans?',a:'1) Estado como agente del cambio estructural (años \'50-\'60, hegemonía keynesiana). 2) Estado como problema y obstáculo (años \'70-\'80, neoliberalismo). 3) El Estado cuya calidad importa (años \'90, neoinstitucionalismo). Lo que cambia no es SI interviene, sino CÓMO.'},
+ {u:4,p:'4.1',q:'¿Por qué para Block la pregunta "¿cuánto Estado?" está mal planteada?',a:'Porque Estado y mercado no son entidades separadas que se interfieren: los mercados son siempre construidos, sostenidos y regulados por la acción estatal. La pregunta correcta es qué TIPO de articulación Estado-mercado produce qué resultados.'},
+ {u:4,p:'4.2',q:'¿Cuáles son los cinco tipos ideales del "viejo paradigma" según Block, ordenados de derecha a izquierda?',a:'1) Estado de bienes públicos (provee solo lo que el mercado no puede). 2) Estado estabilizador macroeconómico (atenúa los ciclos). 3) Estado de derechos sociales (Marshall: la ciudadanía social desmercantiliza el trabajo). 4) Estado desarrollista (Gerschenkron y Keynes: promueve el crecimiento industrial / socializa la inversión). 5) Estado socialista (elimina las injusticias del mercado aboliendo la propiedad privada). Crítica: son INDETERMINADOS, sostenidos por prejuicios.'},
+ {u:4,p:'4.3',q:'¿Qué es la "autonomía enraizada" de Evans?',a:'Combinación de coherencia burocrática interna (selección meritocrática, carrera, identidad corporativa) + redes densas y fluidas con el sector privado. Ni captura ni aislamiento: sin vínculos el Estado no obtiene información para intervenir estratégicamente. Es la condición del Estado desarrollista exitoso.'},
+ {u:4,p:'4.3',q:'¿Qué pasa cuando el Estado pierde "autonomía relativa" según Castellani?',a:'Las políticas públicas dejan de orientarse al interés general y pasan a reproducir los intereses particulares de las fracciones del capital concentrado. El correlato concreto es la proliferación de ámbitos privilegiados de acumulación.'},
+ {u:4,p:'4.4',q:'Definí "ámbito privilegiado de acumulación" (Castellani).',a:'Red integrada por prácticas, actores, actividades económicas y regulaciones estatales que permite a empresas privadas obtener cuasi-rentas de privilegio de manera NO transitoria. Ejemplos argentinos 1966-1989: obras públicas, compre nacional, promoción industrial, estatización de deuda privada.'},
+ {u:4,p:'4.4',q:'Diferenciá cuasi-renta tecnológica de cuasi-renta de privilegio.',a:'Tecnológica (Schumpeter): surge de la innovación, es transitoria (se erosiona con la imitación) e impulsa el desarrollo. De privilegio (Nochteff): surge de regulaciones estatales que protegen posiciones monopólicas, no es transitoria (dura mientras dure la intervención) y bloquea la acumulación de capacidades tecnológicas. La elite argentina eligió la "opción blanda".'},
+ {u:4,p:'4.4',q:'¿Cuáles son las cinco prácticas de articulación público-privada que sostienen los APA?',a:'1) Prácticas corporativas formales (gremios empresarios). 2) Lobby informal. 3) Colonización del aparato estatal (funcionarios comprometidos con intereses privados). 4) Prácticas colusorias (acuerdos de precios). 5) Corrupción (sobornos).'},
+ {u:5,p:'5.1',q:'¿Por qué Castel dice que la "sociedad salarial" es una construcción histórica?',a:'Porque el trabajo asalariado no siempre fue eje de integración: en el siglo XIX era sinónimo de precariedad y vulnerabilidad. La sociedad salarial fordista del siglo XX —empleo estable con protecciones, identidad colectiva y consumo— fue construida socialmente, y por eso pudo desestabilizarse desde los \'70.'},
+ {u:5,p:'5.2',q:'¿Qué es la "relación salarial" y por qué articula proceso de trabajo y modo de acumulación?',a:'No es solo un contrato individual: es una relación social que define cómo se distribuye el valor, quién controla el proceso productivo y qué protecciones cubren al trabajador. En el fordismo: negociación colectiva y salarios como demanda. En el posfordismo: individualización, flexibilización, desregulación.'},
+ {u:5,p:'5.2',q:'Compará fordismo y posfordismo en proceso de trabajo y acumulación.',a:'Fordismo: división extrema del trabajo y cadena de montaje; producción en masa + consumo en masa (salarios = demanda); convenios colectivos. Posfordismo (desde los \'70): just-in-time, polivalencia, externalización; mercados segmentados y finanzas como eje de valorización; relación salarial individualizada y desregulada.'},
+ {u:5,p:'5.3',q:'Diferenciá sector informal, empleo precario y trabajo no registrado (Neffa).',a:'Sector informal: unidades productivas al margen de los marcos normativos (OIT 1972). Empleo precario: sin estabilidad, cobertura ni carrera — puede darse dentro del sector FORMAL o del informal. Trabajo no registrado: incumple registro y aportes (en Argentina, 30-40% histórico del empleo).'},
+ {u:5,p:'5.3',q:'¿Por qué el "cuenta-propista" ilustra la complejidad de la informalidad?',a:'Porque la misma categoría puede esconder realidades opuestas: un microempresario genuino, un trabajador autónomo libre, o —muy frecuentemente— un asalariado encubierto que trabaja para una empresa sin relación laboral reconocida.'},
+ {u:5,p:'5.4',q:'Definí los cuatro tipos de subempleo/desempleo que escapan a la medición estándar (Neffa).',a:'Subempleo visible: trabaja menos horas de las que desea, involuntariamente. Subempleo invisible: jornada completa pero baja productividad/remuneración. Subempleo en calificaciones: profesionales en puestos por debajo de su formación. Desempleo oculto: "desalentados" que dejaron de buscar y no aparecen en la tasa oficial.'},
+ {u:5,p:'5.4',q:'¿Qué es la "desafiliación social" (Castel)?',a:'La pérdida simultánea del lazo laboral y del lazo de sociabilidad que ese lazo sostenía. Resulta de la erosión de las protecciones (el "salario indirecto": salud, jubilación, accidentes), que no son un complemento sino componente central del trabajo.'},
+ {u:5,p:'5.5',q:'¿Cuál es el problema metodológico de base en la medición del trabajo femenino?',a:'Las categorías de población activa/inactiva se construyeron tomando como norma el trabajo masculino, remunerado y a tiempo completo. El trabajo doméstico no remunerado —mayoritariamente femenino— queda fuera de las cuentas nacionales, invisibilizando parte sustancial de la producción social.'},
+ {u:5,p:'5.5',q:'Distinguí segregación horizontal y vertical de género en el mercado de trabajo.',a:'Horizontal: concentración femenina en sectores de menor remuneración (servicios, cuidados, comercio). Vertical: subrepresentación en cargos de dirección y toma de decisiones ("techo de cristal"). Se suman a la brecha salarial por trabajo equivalente.'},
+ {u:5,p:'5.6',q:'¿Qué postula la teoría del capital humano y cómo la cuestiona Neffa?',a:'Becker: la educación es una inversión que aumenta la productividad y el salario — relación directa y meritocrática credencial→puesto. Neffa lo cuestiona mostrando que el subempleo en calificaciones es masivo: la credencial no garantiza el puesto correspondiente.'},
+ {u:6,p:'6.1',q:'¿Por qué para Marini la globalización no es un fenómeno radicalmente nuevo?',a:'Porque es la forma actual de la expansión capitalista mundial: la lógica de fondo —acumulación en el centro a costa de la periferia— permanece constante. Lo que cambian son los mecanismos: liberalización, cadenas globales de valor, transnacionalización, financiarización, transferencia de excedente.'},
+ {u:6,p:'6.1',q:'¿Qué es la "race to the bottom"?',a:'La competencia entre países por atraer inversión extranjera vía costos laborales bajos genera presión a la baja de los salarios — incluso en las economías centrales. Es uno de los hechos económicos centrales de la globalización según Marini.'},
+ {u:6,p:'6.2',q:'¿Qué es la "sociedad del riesgo mundial" de Beck?',a:'La modernidad tardía genera riesgos de nuevo tipo —ecológicos, financieros, terroristas— globales en su alcance pero desiguales en su distribución. A diferencia de los riesgos industriales clásicos, no respetan fronteras nacionales ni de clase.'},
+ {u:6,p:'6.3',q:'¿Qué es la "superexplotación del trabajo" en Marini?',a:'El mecanismo de competitividad de la inserción periférica: reducir el costo laboral por debajo del valor de reproducción de la fuerza de trabajo. La "ventaja comparativa" latinoamericana es, en el fondo, pobreza salarial estructural.'},
+ {u:6,p:'6.3',q:'¿Qué fue la "especialización regresiva" / reprimarización?',a:'La apertura comercial destruyó industrias locales sin crear empleos equivalentes: los países se especializaron en eslabones de bajo valor agregado (commodities, maquila, servicios de baja calificación). La reprimarización de los \'90 es su expresión concreta.'},
+ {u:6,p:'6.3',q:'¿Qué significó la estatización de la deuda externa privada (1981) leída desde Marini y Castellani?',a:'El Estado absorbió los pasivos de empresas que habían especulado financieramente, transfiriendo el costo al conjunto social. Expresa la valorización financiera como eje de acumulación y funciona como ámbito privilegiado de acumulación (U4).'},
+ {u:4,p:'4.1',q:'¿Por qué para Block es una "ficción" hablar de intervención estatal en el mercado?',a:'Porque "intervención" supone un mercado autorregulado preexistente que el Estado vendría a perturbar desde afuera. Pero los mercados son siempre construidos y sostenidos por el Estado (derechos de propiedad, contratos, moneda, regulaciones): no hay mercado "puro" anterior. Por eso la pregunta no es cuánto sino qué tipo de articulación produce qué resultados.'},
+ {u:4,p:'4.2',q:'¿Qué quiere decir Block con que las posiciones del "viejo paradigma" son "indeterminadas"?',a:'Que no derivan conclusiones unívocas de sus premisas: el mismo argumento de bienes públicos puede justificar Estado mínimo O regulación extensa según cómo se definan las externalidades. Lo que sostiene cada posición no es lógica sino prejuicios: desconfianza apriorística en el Estado (derecha) o en el mercado (izquierda).'},
+ {u:4,p:'4.3',q:'Según la tipología de Evans, ¿qué distingue a un Estado "predatorio" de uno "desarrollista"?',a:'El predatorio tiene la burocracia capturada por intereses privados, sin coherencia interna: saquea la sociedad sin promover desarrollo (ej. Zaire). El desarrollista tiene autonomía enraizada (burocracia meritocrática + redes con el sector privado) y promueve transformación industrial (ej. Este asiático).'},
+ {u:4,p:'4.4',q:'¿Qué es la "opción blanda" de la elite económica argentina (Castellani)?',a:'Buscar sistemáticamente cuasi-rentas de privilegio (capturar regulaciones estatales) en lugar de innovar y asumir riesgo tecnológico (la "opción dura"). Es racional a nivel microeconómico —más seguro y rentable— pero devastador a nivel macro: impide acumular capacidades tecnológicas y genera crecimiento inestable.'},
+ {u:5,p:'5.1',q:'¿Cuáles son las cuatro zonas de Castel según los ejes trabajo y relaciones sociales?',a:'Zona de integración (empleo estable + redes sólidas), zona de vulnerabilidad (trabajo precario + lazos frágiles), zona de transición, y zona de desafiliación (sin trabajo + sin soporte relacional). La crisis de la sociedad salarial empuja a sectores crecientes desde la integración hacia la vulnerabilidad y el riesgo de desafiliación.'},
+ {u:5,p:'5.2',q:'¿Qué es el "modo de regulación" en la tradición regulacionista (Boyer/Neffa)?',a:'El conjunto de normas, instituciones y acuerdos (convenios, legislación laboral, sistema de protecciones) que estabilizan temporalmente la articulación entre proceso de trabajo y modo de acumulación. Cuando ese modo de regulación entra en crisis, cambia toda la relación salarial (ej. el pasaje del fordismo al posfordismo).'},
+ {u:5,p:'5.3',q:'¿Por qué la informalidad NO es un residuo del pasado, según Neffa?',a:'Porque se expande con la reestructuración productiva global: no es atraso premoderno sino producto moderno de la flexibilización, y crece también en economías centrales. En la periferia cumple doble función: sector refugio (absorbe a los expulsados del empleo formal) y espacio de acumulación capitalista que evade regulaciones laborales.'},
+ {u:5,p:'5.4',q:'¿Qué incluyen las CyMAT (condiciones y medio ambiente de trabajo) según Neffa?',a:'Cargas físicas (esfuerzo, posturas, ruido, temperatura), cargas psíquicas (ritmo, falta de autonomía, presión de tiempo, inseguridad), cargas cognitivas (atención, memoria, decisiones) y cargas relacionales (conflictos, trato con público). Su deterioro afecta la salud y la subjetividad más allá del nivel salarial.'},
+ {u:5,p:'5.5',q:'¿Qué es la división sexual del trabajo y cómo se conecta con la doble jornada?',a:'Es la asignación social de tareas por género: trabajo productivo (remunerado, público) asociado a lo masculino; trabajo reproductivo (no remunerado, doméstico) a lo femenino. Genera la doble jornada femenina (trabajo remunerado + doméstico), que empuja a empleos parciales/informales, menores ingresos y menor cobertura previsional: un círculo que refuerza la desigualdad.'},
+ {u:6,p:'6.1',q:'¿Por qué la asimetría capital/trabajo es central en el análisis de Marini?',a:'Porque la globalización liberó la circulación del capital pero mantuvo trabadas las fronteras al trabajo: el capital puede deslocalizarse buscando el salario más bajo, el trabajador no puede seguirlo. Esta asimetría es la base material del creciente poder de negociación del capital y decreciente del trabajo a escala mundial.'},
+ {u:6,p:'6.2',q:'¿Por qué "global en alcance" no significa "igualitario" en la sociedad del riesgo (Beck)?',a:'Porque aunque los nuevos riesgos atraviesan fronteras y clases en su alcance, su distribución sigue siendo profundamente desigual: quienes tienen más recursos pueden protegerse mejor (mudarse, asegurarse, informarse) y los más vulnerables quedan más expuestos. El riesgo se democratiza en alcance pero se concentra en impacto.'},
+ {u:4,p:'4.1',q:'¿Qué es el "nuevo paradigma" o "reconstrucción de mercados" de Block?',a:'Rechaza la idea misma de "intervención" estatal: los mercados son siempre construidos, sostenidos y regulados por el Estado, porque los estados son necesarios para constituir las economías. En vez de medir la variación CUANTITATIVA del control estatal, analiza las diferencias CUALITATIVAS de la actividad estatal. Los prejuicios se transforman en enigmas empíricos: ¿qué combinación de Estado y mercado produce qué resultados?'},
+ {u:4,p:'4.1',q:'¿Cuál es el "mito heroico" del mercado según Polanyi (citado por Block)?',a:'La creencia de que el siglo XIX fue el momento en que la sociedad de mercado emergió al desmantelarse el Estado que la constreñía (evolución en Inglaterra, revolución en Francia). Liberalismo y marxismo comparten ese mito y exageran la discontinuidad entre lo capitalista y lo precapitalista: en ambas etapas los estados estructuraron la economía.'},
+ {u:4,p:'4.2',q:'¿Cuáles son los dos conjuntos de prejuicios que, según Block, sostienen el viejo paradigma?',a:'1) Desconfianza en el Estado: visto como parásito, despilfarrador e ineficiente (Buchanan, Hayek, Stigler). 2) Desconfianza en el mercado: visto como productor inherente de inequidad y deshumanización. Son prejuicios porque se presentan sin identificar las circunstancias específicas en que esos resultados ocurrirían, y casi no hay investigación que los verifique.'},
+ {u:4,p:'4.3',q:'¿Qué caso usa Evans como ejemplo de Estado predatorio y por qué?',a:'Zaire (Mobutu): el Estado saquea a la sociedad sin devolver nada del excedente que extrae, funcionando como cleptocracia donde los cargos se asignan por lazos personales con el presidente y su camarilla. Sin burocracia coherente, bloquea el desarrollo. Es el reverso del Estado desarrollista (Japón/MITI).'},
+ {u:4,p:'4.3',q:'Según Evans, ¿por qué la "autonomía pura" (aislamiento) NO basta para un Estado capaz?',a:'Porque un Estado totalmente aislado de la sociedad civil no obtiene la información ni la cooperación que necesita para intervenir con eficacia. Por eso la capacidad transformadora requiere autonomía enraizada: coherencia burocrática interna MÁS conexiones externas densas con el sector privado. Esto cuestiona equiparar capacidad estatal con aislamiento.'},
+ {u:5,p:'5.3',q:'¿Cómo definió el PREALC/OIT (1978) al sector informal?',a:'Como el conjunto de actividades de bajo nivel de productividad, los trabajadores independientes (salvo profesionales) y las empresas muy pequeñas o no organizadas. Sus rasgos: facilidad de entrada, mercados no reglamentados, recursos locales, dificultad de acceso al crédito institucional, pequeña escala, tecnologías intensivas en trabajo, calificaciones adquiridas fuera del sistema escolar y predominio del empleo no asalariado y familiar no remunerado.'},
+ {u:5,p:'5.4',q:'¿Cómo define la OIT el subempleo visible y el invisible?',a:'Visible: personas que trabajan INVOLUNTARIAMENTE menos que la duración normal y están disponibles para más horas (problema de cantidad de horas). Invisible: concepto analítico que refleja mala distribución de la mano de obra, con síntomas de bajos ingresos, aprovechamiento insuficiente de las calificaciones y baja productividad (problema de calidad). El invisible abarca muchos más trabajadores, pero casi no se mide.'},
+ {u:5,p:'5.4',q:'¿Cuáles son las cuatro intersecciones de Freyssinet (retomadas por Neffa)?',a:'Sector 1: tiempo parcial VOLUNTARIO (empleo ∩ inactividad). Sector 2: tiempo parcial INVOLUNTARIO (empleo ∩ desempleo, = subempleo visible). Sector 3: desempleo oculto — desalentados, formación, retiro anticipado (inactividad ∩ desempleo). Sector 4: trabajo clandestino y no registrado (∩ las tres categorías). Surgen porque las fronteras entre empleo, desempleo e inactividad se volvieron borrosas.'},
+ {u:5,p:'5.4',q:'¿Por qué Neffa dice que el "desempleo" es una construcción histórica reciente?',a:'Porque es una categoría estadística que no existía en los primeros censos: se construyó socialmente en los países desarrollados y se vinculaba a las categorías asalariadas. Quien trabajaba en empresas familiares o en su domicilio, al interrumpir su actividad, no era contado como "desocupado". La categoría misma supone un cierto tipo de relación salarial.'}
+];
+let fcDeck = CARDS.slice(), fcIdx = 0;
+function fcRender(){
+  if(!fcDeck.length){document.getElementById('fc-q').textContent='No hay tarjetas para este filtro.';return}
+  const c = fcDeck[fcIdx];
+  document.getElementById('fc-card').classList.remove('flipped');
+  setTimeout(()=>{
+    document.getElementById('fc-q').textContent = c.q;
+    document.getElementById('fc-a').textContent = c.a;
+    document.getElementById('fc-meta-f').textContent = 'U'+c.u+' · punto '+c.p;
+    document.getElementById('fc-meta-b').textContent = 'U'+c.u+' · punto '+c.p;
+  }, 120);
+  document.getElementById('fc-count').textContent = (fcIdx+1)+' / '+fcDeck.length;
+}
+function fcMove(d){ if(!fcDeck.length)return; fcIdx=(fcIdx+d+fcDeck.length)%fcDeck.length; fcRender(); }
+function fcFilter(){
+  const v = document.getElementById('fc-filter').value;
+  fcDeck = v==='all' ? CARDS.slice() : CARDS.filter(c=>String(c.u)===v);
+  fcIdx=0; fcRender();
+}
+function fcShuffle(){ fcDeck.sort(()=>Math.random()-.5); fcIdx=0; fcRender(); }
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('panel-flash').classList.contains('active'))return;
+  if(e.key==='ArrowRight')fcMove(1);
+  if(e.key==='ArrowLeft')fcMove(-1);
+  if(e.key===' '){e.preventDefault();document.getElementById('fc-card').classList.toggle('flipped');}
+});
+
+/* ================= QUIZ ================= */
+const QUESTIONS = [
+ {u:3,q:'Según Acuña, la burguesía es una clase "privilegiada" porque…',o:['la realización de sus intereses debe ocurrir antes que la de cualquier otro grupo para que se cumpla el ciclo económico','tiene mayor nivel educativo y de status que el resto de la sociedad','controla directamente el aparato del Estado en todas las sociedades capitalistas','sus miembros están exentos del pago de impuestos'],c:0,e:'El privilegio es estructural: ganancia → inversión → actividad → distribución. Si la burguesía no realiza primero sus intereses (ganancias), no hay inversión ni actividad de la que dependan los demás. No requiere controlar el Estado ni tener más status.'},
+ {u:3,q:'El "veto capitalista" en Acuña se ejerce principalmente a través de…',o:['la desinversión frente a políticas percibidas como amenazantes','el financiamiento de partidos políticos opositores','golpes de Estado militares','el control de los medios de comunicación'],c:0,e:'El veto es estructural, no conspirativo: al desinvertir cae la actividad, hay crisis distributiva y tensión social, y los gobiernos terminan "corrigiendo". Es el "segundo voto" cotidiano: invertir o no, contratar o despedir.'},
+ {u:3,q:'¿Cuál de estos factores ACOTA la capacidad de veto de la desinversión, según Acuña?',o:['Un proceso recesivo donde la desinversión ya está presente "sobre la mesa"','La existencia de elecciones periódicas','La libertad de prensa','La homogeneidad de los intereses capitalistas'],c:0,e:'Ejemplo de Skocpol: a inicios de los \'30 las medidas centrales del New Deal se aprobaron contra la oposición capitalista — en plena recesión, la amenaza de desinvertir pierde fuerza porque ya está consumada. Otros factores: Estado inversor, sanciones, contradicciones interburguesas.'},
+ {u:3,q:'La crítica de Acuña al reduccionismo culturalista ("a los capitalistas latinoamericanos les falta conciencia") se apoya en que…',o:['las burguesías europeas se comportaron históricamente de manera muy similar a las latinoamericanas','los capitalistas latinoamericanos sí tienen plena conciencia de clase','la cultura no existe como variable social','América latina no tiene capitalistas verdaderos'],c:0,e:'Gerschenkron mostró que en los capitalismos "tardíos" (Francia, Prusia, Rusia) el Estado forzó la modernización; las citas sobre burguesías "zánganas" son de Marx y Engels ¡sobre Francia e Inglaterra! La cultura es codeterminada: su peso es hipótesis empírica, no presupuesto teórico.'},
+ {u:3,q:'En la teoría de Olson, el "colado" (free-rider) es…',o:['quien busca gozar de los beneficios de la acción colectiva sin asumir los costos del aporte individual','un líder sindical que traiciona a sus bases','un capitalista que invierte en el extranjero','un funcionario estatal corrupto'],c:0,e:'Por la estructura del dilema del prisionero, la estrategia racional del maximizador es desear el éxito de la acción colectiva sin aportar. Generalizado, esto hace fracasar la estrategia común: por eso interés común NO garantiza organización (hacen falta incentivos selectivos).'},
+ {u:3,q:'¿Por qué Acuña califica la teoría de la acción colectiva de Olson como "no falsable"?',o:['Porque define la racionalidad por sus consecuencias: explica los eventos por medio de los mismos eventos, en círculo','Porque carece de datos estadísticos','Porque nunca fue publicada en revistas con referato','Porque fue refutada por la evidencia empírica'],c:0,e:'No hay condiciones de "racionalidad" o "irracionalidad" observables independientes de la conducta: como "un salón de espejos", la noción a priori de racionalidad siempre se sostiene cambiando el signo según lo observado. Queda como especulación axiomática, aporte ontológico más que teoría empírica.'},
+ {u:3,q:'El argumento de las estrategias "a, b, c, d" de Acuña muestra que el análisis estructural-económico…',o:['fija los límites de factibilidad pero no explica la estrategia específica elegida dentro de ellos','es completamente inútil para el análisis político','determina exactamente qué estrategia elegirá la burguesía','solo sirve para analizar a la clase trabajadora'],c:0,e:'Lo estructural explica por qué la burguesía no eligió a o b (la perjudican), pero no por qué eligió c en vez de d (ambas la favorecen, con efectos distintos sobre los salarios). Esa elección requiere lo político-institucional y lo ideológico: codeterminación.'},
+ {u:3,q:'Para Acuña, la "revolución keynesiana" ilustra el peso de lo ideológico porque…',o:['al redefinir el salario como componente de la demanda, cambió la percepción de los límites de lo factible y el comportamiento de los actores','demostró matemáticamente que el marxismo era falso','eliminó las crisis económicas para siempre','fue impuesta por la fuerza militar en América latina'],c:0,e:'En el paradigma neoclásico el salario era solo costo → bajarlo en recesión. Keynes lo volvió demanda agregada → el aumento salarial en estancamiento podía reactivar. Sin cambiar la estructura, cambió la estructura de opciones percibidas: las estrategias dependen de cómo el actor "conoce" lo factible.'},
+ {u:3,q:'Según Offe y Wiesenthal, la forma política de la organización capitalista es "monológica" porque…',o:['sus intereses están dados y son claros (la tasa de ganancia), sin necesidad de diálogo para definirlos','los capitalistas hablan mucho en los medios','requiere asambleas permanentes para definir objetivos','depende del liderazgo de una sola persona'],c:0,e:'A diferencia de los trabajadores, cuya definición de intereses es "dialógica" (objeto permanente de lucha y diálogo colectivo), el interés capitalista tendría un parámetro claro y previo. Acuña critica este supuesto: la evidencia muestra más asociaciones empresarias que sindicatos — los intereses del capital no son tan homogéneos.'},
+ {u:3,q:'Los tres niveles del análisis de clase según O\'Donnell son…',o:['estructural, corporativo y político-ideológico','económico, social y cultural','micro, meso y macro','local, nacional e internacional'],c:0,e:'No "se es clase" solo en el plano estructural: una clase o fracción se constituye simultáneamente en su posición productiva (estructural), su organización en asociaciones (corporativo) y su actuación presentándose como portadora de intereses generales (político-ideológico).'},
+ {u:3,q:'¿Por qué la desinversión de la burguesía pampeana pone al Estado argentino en situación de mayor dependencia que la de otros Estados de la región?',o:['Porque el Estado argentino depende del sector agrario para obtener divisas, mientras Chile o Venezuela controlaban sus principales exportables','Porque Argentina no tiene otros sectores económicos','Porque la Constitución argentina lo establece','Porque los capitalistas argentinos son más ricos que los chilenos'],c:0,e:'Cuando el Estado capta o controla un "enclave" productivo (cobre chileno, petróleo venezolano), se redefinen los términos de influencia. El Estado argentino, dependiente del agro exportador para las divisas, queda más expuesto al veto de esa fracción.'},
+ {u:4,q:'Las tres imágenes históricas del Estado que identifica Evans son…',o:['agente del cambio (años 50-60), problema u obstáculo (años 70-80), y Estado cuya calidad importa (años 90)','liberal, keynesiano y marxista','mínimo, regulador y empresario','colonial, nacional y global'],c:0,e:'Cada imagen corresponde a un clima de época: hegemonía keynesiana-desarrollista, giro neoliberal, y neoinstitucionalismo. La conclusión de Evans: lo que cambia no es si el Estado interviene, sino cómo lo hace.'},
+ {u:4,q:'Para Block, el error del debate "¿cuánto Estado?" es que…',o:['Estado y mercado no son entidades separadas: los mercados son construidos, sostenidos y regulados por la acción estatal','el Estado siempre debe ser lo más chico posible','el mercado no existe realmente','la pregunta correcta es cuántos funcionarios públicos hay'],c:0,e:'La pregunta correcta es qué tipo de articulación Estado-mercado produce qué resultados. Coincide con Polanyi (citado por Acuña en U3): no hay mercados previos a estados e instituciones.'},
+ {u:4,q:'En la sistematización de Block, ¿cuál es el orden correcto de los cinco tipos ideales de derecha a izquierda?',o:['bienes públicos → estabilizador macroeconómico → derechos sociales → desarrollista → socialista','socialista → desarrollista → estabilizador → bienes públicos → derechos sociales','bienes públicos → socialista → desarrollista → estabilizador → derechos sociales','desarrollista → socialista → bienes públicos → estabilizador → derechos sociales'],c:0,e:'Block los ordena en el continuo según el argumento que usan para justificar la intervención, del más derechista (bienes públicos, Adam Smith) al más izquierdista (socialista, abolición de la propiedad privada). El de derechos sociales (Marshall) está en el medio; el desarrollista incluye a Gerschenkron y la socialización de la inversión de Keynes.'},
+ {u:4,q:'El "nuevo paradigma" de Block (reconstrucción de mercados) se caracteriza por…',o:['rechazar la idea de "intervención" estatal y analizar las diferencias cualitativas, no cuantitativas, de la acción del Estado','proponer el Estado mínimo como ideal','medir con precisión cuánto debe intervenir el Estado','eliminar toda regulación de los mercados'],c:0,e:'El nuevo paradigma parte de que los estados son necesarios para constituir las economías: no hay mercado previo al Estado. Por eso abandona la pregunta cuantitativa ("¿cuánto Estado?") y pregunta qué combinación cualitativa de Estado y mercado produce qué resultados — "los prejuicios se transforman en enigmas empíricos".'},
+ {u:4,q:'Según Polanyi (citado por Block), el "mito heroico" del mercado consiste en…',o:['creer que la sociedad de mercado emergió en el siglo XIX al desmantelarse el Estado que la constreñía','pensar que el mercado siempre existió desde la antigüedad','sostener que el Estado nunca tuvo rol económico','afirmar que el socialismo es inevitable'],c:0,e:'Liberalismo y marxismo comparten ese mito y exageran la discontinuidad entre lo capitalista y lo precapitalista. Para Polanyi, en ambas etapas los estados jugaron roles centrales: la economía siempre estuvo estructurada por la acción estatal. Es el fundamento del nuevo paradigma.'},
+ {u:4,q:'El Estado predatorio de Evans (ejemplificado en Zaire) se define porque…',o:['saquea a la sociedad sin devolver nada del excedente, con cargos asignados por lazos personales y sin burocracia coherente','interviene demasiado en la economía con buena burocracia','no interviene en absoluto en la economía','promueve la industrialización con autonomía enraizada'],c:0,e:'Es el reverso del Estado desarrollista (Japón/MITI). La cleptocracia de Mobutu carecía de coherencia burocrática: los cargos se distribuían por relaciones personales con el presidente y su camarilla, lo que bloqueaba el desarrollo. Muestra que "más Estado" no garantiza nada: importa el TIPO de relación Estado-sociedad.'},
+ {u:5,q:'El subempleo invisible, según la OIT, se caracteriza por…',o:['bajos ingresos, aprovechamiento insuficiente de calificaciones y baja productividad (problema de calidad)','trabajar involuntariamente menos horas que la jornada normal','no estar registrado ante la seguridad social','haber dejado de buscar empleo'],c:0,e:'El subempleo VISIBLE es un problema de cantidad de horas (trabajar involuntariamente menos que lo normal); el INVISIBLE es un problema de calidad/productividad. Donde se midieron ambos, el invisible abarca muchos más trabajadores — pero la mayoría de los países solo mide el visible. Es el argumento de medición de Neffa.'},
+ {u:5,q:'En el esquema de Freyssinet (Neffa), el "desempleo oculto" (sector 3) corresponde a la intersección entre…',o:['inactividad y desempleo: desalentados, formación, retiro anticipado de actividad','empleo e inactividad','empleo y desempleo','las tres categorías a la vez'],c:0,e:'El sector 3 reúne a quienes dejaron de buscar por falta de posibilidades ("desalentados"), están en formación o cesaron anticipadamente su actividad. No cuentan como desempleados (que exige búsqueda activa) sino como inactivos: la tasa oficial los borra. El sector 4 (clandestino/no registrado) es el que cruza las tres categorías.'},
+ {u:5,q:'Según Neffa, los cuatro rasgos del "verdadero empleo" (relación salarial fordista) eran…',o:['relación de dependencia por tiempo indeterminado, tiempo completo, en establecimiento del empleador, con protección social','autónomo, por tiempo parcial, a domicilio, sin protección','informal, temporal, familiar, sin contrato','tercerizado, flexible, por proyecto, sin convenio'],c:0,e:'La crisis del régimen de acumulación de mediados de los años 70 erosionó estos cuatro rasgos, dando lugar a las "formas particulares de empleo" o empleos atípicos: la heterogeneización de la relación salarial. El proceso empezó en los países desarrollados y se amplió a los emergentes, específicamente Argentina.'},
+ {u:4,q:'¿Cuál es la crítica de Block al "viejo paradigma" (liberalismo, keynesianismo, marxismo)?',o:['Sus posiciones son indeterminadas y se sostienen en prejuicios: el mismo argumento puede justificar Estado mínimo o regulación extensa','Que ninguno consideró la existencia del dinero','Que son demasiado modernos','Que solo se aplican a países desarrollados'],c:0,e:'El argumento de los bienes públicos puede justificar casi cualquier tamaño de Estado según cómo se definan las externalidades. Lo que sostiene a cada posición es desconfianza apriorística en el Estado (derecha) o en el mercado (izquierda), no lógica.'},
+ {u:4,q:'La "autonomía enraizada" de Evans combina…',o:['coherencia burocrática interna + redes densas y fluidas con el sector privado','aislamiento total del Estado respecto de los empresarios','privatización de las empresas públicas + apertura comercial','federalismo político + centralización fiscal'],c:0,e:'La autonomía pura (aislamiento) tampoco es virtuosa: sin vínculos con los actores económicos el Estado no obtiene información para intervenciones estratégicas eficaces. Burocracia meritocrática + "enraizamiento": condición del Estado desarrollista exitoso.'},
+ {u:4,q:'Un "ámbito privilegiado de acumulación" (Castellani) es…',o:['una red de prácticas, actores y regulaciones estatales que permite obtener cuasi-rentas de privilegio de manera no transitoria','una zona franca de exportación','un parque industrial estatal','una innovación tecnológica protegida por patente'],c:0,e:'Lo clave: la ganancia extraordinaria no surge de innovar sino de regulaciones estatales que protegen posiciones monopólicas, y NO es transitoria (dura mientras dure la intervención). Ejemplos argentinos: obras públicas, compre nacional, promoción industrial, estatización de deuda privada.'},
+ {u:4,q:'La diferencia central entre cuasi-renta tecnológica y cuasi-renta de privilegio es que…',o:['la tecnológica surge de la innovación y es transitoria; la de privilegio surge de regulaciones estatales y no es transitoria','la tecnológica es ilegal y la de privilegio legal','la de privilegio impulsa el desarrollo sostenido','no hay diferencia, son sinónimos'],c:0,e:'Schumpeter vs. Nochteff. La tecnológica se erosiona con la imitación e impulsa el desarrollo; la de privilegio bloquea la acumulación de capacidades tecnológicas. La elite argentina optó sistemáticamente por la "opción blanda": racional a nivel micro, devastador a nivel macro.'},
+ {u:4,q:'¿Cuál de estas NO es una de las cinco prácticas de articulación público-privada que sostienen los APA?',o:['La negociación colectiva con los sindicatos','El lobby informal','La colonización del aparato estatal','Las prácticas colusorias'],c:0,e:'Las cinco prácticas de Castellani son: corporativas formales, lobby informal, colonización del aparato estatal, prácticas colusorias y corrupción. La negociación colectiva es un concepto de la U5 (relación salarial fordista), no una práctica de sostenimiento de ámbitos.'},
+ {u:4,q:'El "círculo vicioso del estancamiento" en Castellani consiste en que…',o:['la pérdida de calidad estatal aumenta el poder de la fracción privilegiada, que lo usa para sostener los ámbitos, debilitando aún más al Estado','el Estado gasta más de lo que recauda y se endeuda','los trabajadores piden aumentos que generan inflación','las exportaciones caen por el tipo de cambio atrasado'],c:0,e:'Es la dinámica de retroalimentación entre captura estatal y poder económico concentrado: cada vuelta del círculo erosiona más las capacidades estatales y consolida las cuasi-rentas de privilegio.'},
+ {u:5,q:'Para Castel, la "sociedad salarial" del siglo XX fue…',o:['una construcción histórica donde el empleo estable garantizaba protecciones, identidad y consumo','una condición natural de toda economía de mercado','un invento de los sindicatos argentinos','una etapa exclusiva de los países socialistas'],c:0,e:'En el siglo XIX el salariado era sinónimo de precariedad. Que el trabajo asalariado se volviera EL eje de integración social fue una construcción del capitalismo fordista — y por eso pudo desestabilizarse desde los \'70 con la flexibilización y la reestructuración.'},
+ {u:5,q:'La "relación salarial" (Neffa, tradición regulacionista) se define como…',o:['una relación social que define la distribución del valor, el control del proceso productivo y las protecciones del trabajador','un contrato puramente individual entre empleado y empleador','el monto del salario mínimo fijado por ley','la relación entre salario nominal y salario real'],c:0,e:'Es el concepto que ARTICULA proceso de trabajo y modo de acumulación. En el fordismo: convenios colectivos y salarios como demanda. En el posfordismo: individualización y desregulación — el poder se desplaza del nivel colectivo al individual.'},
+ {u:5,q:'En el posfordismo / acumulación flexible, el eje de la valorización pasa a ser…',o:['las finanzas, con mercados segmentados y producción just-in-time','la producción en masa para el consumo masivo','la agricultura de subsistencia','el monopolio estatal del comercio exterior'],c:0,e:'Frente al fordismo (producción en masa + consumo en masa, donde los salarios eran demanda), la acumulación flexible segmenta mercados, externaliza producción y pone a las finanzas como eje — debilitando la posición negociadora de los trabajadores.'},
+ {u:5,q:'Según Neffa, el "empleo precario"…',o:['puede existir tanto dentro del sector formal como del informal','es exactamente lo mismo que el sector informal','solo existe en los países subdesarrollados','desapareció con la globalización'],c:0,e:'Precariedad = sin estabilidad, sin cobertura, sin carrera. Una empresa formal puede tener empleo precario (no registro, contratos temporales abusivos). El sector informal, en cambio, refiere a unidades productivas al margen de los marcos normativos (OIT 1972). No confundir conceptos: pregunta clásica.'},
+ {u:5,q:'El "desempleo oculto" refiere a…',o:['personas que dejaron de buscar trabajo activamente y no aparecen en la tasa oficial','trabajadores en negro','empleados públicos que no van a trabajar','personas con dos trabajos simultáneos'],c:0,e:'Son los "trabajadores desalentados". Junto con el subempleo visible, el invisible y el de calificaciones, muestran que las categorías estándar (empleado/desempleado/inactivo) subestiman el problema laboral real — el argumento de medición de Neffa.'},
+ {u:5,q:'El "subempleo en calificaciones" es…',o:['profesionales o técnicos ocupando puestos por debajo de su formación','trabajar menos horas de las deseadas','trabajar sin aportes jubilatorios','no tener título secundario'],c:0,e:'Es "fuga de talentos a bajo costo" y una forma de subempleo invisible. Neffa lo usa para cuestionar la teoría del capital humano (U5.6): la credencial educativa no garantiza el puesto correspondiente.'},
+ {u:5,q:'La "desafiliación social" de Castel es…',o:['la pérdida simultánea del lazo laboral y del lazo de sociabilidad que ese lazo sostenía','la renuncia voluntaria a un sindicato','la migración del campo a la ciudad','el cambio de obra social'],c:0,e:'Resulta de la erosión de las protecciones (el "salario indirecto": salud, jubilación, accidentes), que para Castel son componente CENTRAL del trabajo, no un complemento. Las "zonas de vulnerabilidad" son el espacio de riesgo de desafiliación.'},
+ {u:5,q:'La "segregación horizontal" de género en el mercado de trabajo significa…',o:['concentración femenina en sectores de menor remuneración (servicios, cuidados, comercio)','subrepresentación de mujeres en cargos de dirección','que mujeres y hombres trabajan en pisos distintos del mismo edificio','que las mujeres no pueden trabajar de noche'],c:0,e:'Horizontal = entre sectores; vertical = en la jerarquía (techo de cristal). Se suman a la brecha salarial. Y de base está el problema metodológico: las categorías estadísticas toman como norma el trabajo masculino remunerado a tiempo completo, invisibilizando el trabajo doméstico.'},
+ {u:5,q:'El enfoque de la "reproducción social" (Bourdieu) sostiene que la educación…',o:['reproduce las desigualdades de origen a través del capital cultural y social','garantiza la movilidad social ascendente','es una inversión que siempre aumenta el salario','no tiene ninguna relación con el empleo'],c:0,e:'Contra el capital humano (Becker), Bourdieu muestra que el sistema educativo favorece sistemáticamente a quienes ya tienen ventajas de clase. Las credenciales "infladas" (más años de escolaridad para el mismo puesto) son el correlato de la expansión educativa sin empleos calificados equivalentes.'},
+ {u:6,q:'Para Marini, la globalización es…',o:['la forma actual de la expansión capitalista mundial, con la misma lógica centro-periferia y nuevos mecanismos','un fenómeno radicalmente nuevo sin precedentes históricos','un proceso que igualó las condiciones entre países','una etapa superada en el siglo XXI'],c:0,e:'La lógica de fondo —acumulación en el centro a costa de la periferia— permanece. Cambian los mecanismos: liberalización comercial y financiera, cadenas globales de valor, transnacionalización, financiarización, transferencia de excedente y competencia vía costos laborales.'},
+ {u:6,q:'En las cadenas globales de valor, la periferia se inserta típicamente en…',o:['los eslabones de menor valor agregado: manufactura intensiva y recursos naturales','el diseño y la investigación y desarrollo','las finanzas internacionales','los eslabones de mayor valor agregado'],c:0,e:'La producción se fragmenta globalmente, pero la distribución del valor es asimétrica: el centro retiene diseño, marca y tecnología; la periferia aporta commodities, maquila y trabajo barato. Base de la "especialización regresiva".'},
+ {u:6,q:'La "financiarización" significa que…',o:['el capital financiero toma la delantera sobre el productivo como vía de valorización','los bancos desaparecen de la economía','el Estado controla todos los flujos de capital','la moneda deja de existir'],c:0,e:'La valorización vía especulación financiera supera a la productiva en muchos sectores. En Argentina su expresión extrema fue la "valorización financiera" como eje de acumulación, con la estatización de la deuda privada (1981) como hito (conexión con Castellani/U4).'},
+ {u:6,q:'Los riesgos de la "sociedad del riesgo mundial" (Beck) se diferencian de los riesgos industriales clásicos en que…',o:['son globales en su alcance pero desiguales en su distribución, y no respetan fronteras nacionales ni de clase','solo afectan a los trabajadores fabriles','son fácilmente asegurables','afectan únicamente a los países pobres'],c:0,e:'Riesgos ecológicos, financieros y terroristas trascienden fronteras — a diferencia de los accidentes laborales o enfermedades ocupacionales del industrialismo clásico. Pero ojo: globales en alcance NO significa igualitarios en distribución.'},
+ {u:6,q:'La "superexplotación del trabajo" (Marini) implica que…',o:['el costo laboral se reduce por debajo del valor de reproducción de la fuerza de trabajo','los trabajadores hacen demasiadas horas extras pagas','los salarios crecen por encima de la productividad','el Estado subsidia los salarios'],c:0,e:'Es el mecanismo de competitividad de la inserción periférica en las cadenas globales: la "ventaja comparativa" latinoamericana es pobreza salarial estructural. Se conecta con la precarización que describe Neffa (U5).'},
+ {u:6,q:'La "disociación entre ciclo productivo y consumo popular" (Marini) significa que…',o:['producir para mercados externos o elites no genera el círculo virtuoso de demanda interna del fordismo','la producción y el consumo ocurren en estaciones del año distintas','los consumidores no saben qué se produce','las fábricas están lejos de las ciudades'],c:0,e:'En el fordismo los salarios eran demanda (U5.2). En la inserción globalizada periférica, la producción se orienta afuera o a las elites: el ingreso se concentra y el mercado interno se estrecha. Tercera consecuencia estructural junto a superexplotación y especialización regresiva.'},
+ {u:6,q:'La estatización de la deuda externa privada argentina (1981) ejemplifica…',o:['la valorización financiera como eje de acumulación: el Estado absorbió pasivos de empresas especuladoras, socializando el costo','una política keynesiana de pleno empleo','la nacionalización de los recursos naturales','un programa de redistribución progresiva del ingreso'],c:0,e:'Es el caso donde convergen las tres unidades: ámbito privilegiado de acumulación (Castellani, U4), transferencia de ingresos de asalariados al capital concentrado que condicionó la relación salarial (U5), y financiarización dependiente (Marini, U6).'},
+ {u:4,q:'En la tipología de Evans, el Estado "predatorio" se caracteriza por…',o:['una burocracia capturada por intereses privados, sin coherencia interna, que saquea la sociedad sin promover desarrollo','una burocracia meritocrática con redes densas con el sector privado','la ausencia total de Estado','intervenir poco pero con alta calidad técnica'],c:0,e:'El predatorio (ej. Zaire de Mobutu) es lo opuesto al desarrollista: sin coherencia interna ni autonomía, los funcionarios usan el cargo para enriquecimiento personal. El desarrollista, en cambio, combina autonomía enraizada y promueve transformación industrial.'},
+ {u:4,q:'¿Por qué Block sostiene que las posiciones del "viejo paradigma" son indeterminadas?',o:['porque el mismo argumento puede justificar conclusiones opuestas según cómo se definan los términos, y lo que las sostiene son prejuicios','porque carecen de fundamento matemático','porque nunca se aplicaron en la práctica','porque todas coinciden en el fondo'],c:0,e:'El argumento de bienes públicos puede justificar Estado mínimo o regulación extensa según cómo se definan las externalidades. No es la lógica interna lo que decide, sino una desconfianza apriorística en el Estado (derecha) o en el mercado (izquierda). De ahí que Block proponga abandonar la pregunta "¿cuánto Estado?".'},
+ {u:5,q:'Las cuatro zonas de Castel se ordenan según…',o:['dos ejes: la integración por el trabajo y la inserción relacional','el nivel de ingresos exclusivamente','la edad de los trabajadores','la rama de actividad económica'],c:0,e:'Cruzando ambos ejes surgen la zona de integración (empleo estable + redes sólidas), la de vulnerabilidad (trabajo precario + lazos frágiles) y la de desafiliación (sin trabajo + sin soporte relacional). La crisis de la sociedad salarial desplaza a sectores crecientes hacia la vulnerabilidad.'},
+ {u:5,q:'El "modo de regulación" (tradición regulacionista) se refiere a…',o:['el conjunto de normas e instituciones que estabilizan temporalmente la articulación entre proceso de trabajo y acumulación','la cantidad de regulaciones que dicta el Estado','la regulación del mercado financiero únicamente','el reglamento interno de cada empresa'],c:0,e:'Convenios, legislación laboral y sistema de protecciones estabilizan la relación entre cómo se trabaja y cómo se acumula. Cuando ese modo de regulación entra en crisis (como en el pasaje del fordismo al posfordismo), se transforma toda la relación salarial.'},
+ {u:5,q:'¿Cuál de estas afirmaciones sobre la división sexual del trabajo es correcta?',o:['asigna socialmente el trabajo reproductivo no remunerado a lo femenino y el productivo remunerado a lo masculino, y no es natural sino una construcción histórica','es una ley biológica universal','desapareció con la incorporación de la mujer al mercado laboral','solo existe en sociedades premodernas'],c:0,e:'Esta división precede y condiciona la inserción laboral. Genera la doble jornada femenina, que empuja a empleos parciales/informales, menores ingresos y menor cobertura previsional — entrelazándose con la precarización (5.3) y la desafiliación (Castel).'},
+ {u:6,q:'La asimetría central que destaca Marini en la globalización es que…',o:['el capital circula libremente buscando salarios bajos, pero el trabajo no puede seguirlo: las fronteras siguen trabadas para los trabajadores','el comercio creció más que las finanzas','los Estados periféricos ganaron autonomía','los salarios subieron en todo el mundo'],c:0,e:'Esta asimetría es la base material del creciente poder de negociación del capital y decreciente del trabajo a escala mundial: el capital puede deslocalizarse, el trabajador no. Conecta directamente con la flexibilización de la U5 y la "race to the bottom".'},
+ {u:6,q:'En la "sociedad del riesgo" de Beck, que los riesgos sean "globales en alcance" significa que…',o:['atraviesan fronteras y clases en su alcance, aunque su distribución y su impacto siguen siendo desiguales','afectan a todos por igual, sin distinción de recursos','solo afectan a los países centrales','son siempre asegurables con criterios actuariales'],c:0,e:'El matiz clave: el riesgo se democratiza en su alcance (no respeta fronteras) pero se concentra en su impacto (quienes tienen más recursos se protegen mejor). No confundir alcance global con distribución igualitaria.'},
+ {u:4,q:'Según Block, ¿cuáles son los cuatro roles que el Estado SIEMPRE cumple (el "nuevo paradigma")?',o:['definir los derechos de propiedad, regular las relaciones de empleo y familia, proveer moneda y crédito, y administrar la frontera internacional','recaudar impuestos, dictar leyes, hacer obra pública y mantener el orden','producir bienes, fijar precios, emplear trabajadores y exportar','educar, asegurar la salud, jubilar y subsidiar'],c:0,e:'No son intervenciones opcionales sino las condiciones que hacen POSIBLE un mercado: la propiedad es construcción jurídica (no natural), las relaciones laborales y familiares están reguladas (ej. la Nueva Ley de Pobres de 1834), no hay política monetaria neutral (efectos distributivos), y todo régimen de frontera favorece a ciertos actores.'},
+ {u:4,q:'Los "intercambios bloqueados" (Walzer, retomado por Block) son…',o:['transacciones que las sociedades excluyen del mercado por razones morales o políticas (esclavitud, venta de cargos o votos, trabajo infantil)','operaciones financieras suspendidas por el Estado en una crisis','acuerdos de precios entre empresas','exportaciones prohibidas por sanciones internacionales'],c:0,e:'Su existencia demuestra que el mercado no es una esfera natural y universal: dónde se traza la línea de lo "no vendible" es una decisión política, no un dato de la naturaleza. Es un argumento clave del nuevo paradigma de Block.'},
+ {u:4,q:'¿Qué le reconoce y qué le critica Evans al neoutilitarismo?',o:['le reconoce que el Estado PUEDE ser un problema, pero lo critica por tratarlo como actor monolítico, ignorar los Estados desarrollistas y limitarse a evadir el problema con el "Estado mínimo"','le reconoce todo y no le critica nada','lo rechaza por completo porque el Estado nunca es un problema','solo le critica que use demasiada matemática'],c:0,e:'El neoutilitarismo aplica al burócrata la lógica del maximizador individual y concluye que el Estado crece de forma parasitaria. Evans acepta el diagnóstico parcial pero objeta su simplismo: el Estado tiene estructuras internas diversas, hubo Estados que sí promovieron desarrollo (Este asiático), y el "Estado mínimo" no resuelve el desarrollo, lo evade.'},
+ {u:5,q:'En Neffa, ¿cuál es la diferencia entre "trabajo" y "empleo"?',o:['todo empleo es trabajo, pero no todo trabajo es empleo: el empleo es el trabajo realizado para obtener un ingreso','son sinónimos exactos','el trabajo es remunerado y el empleo no','el empleo es manual y el trabajo es intelectual'],c:0,e:'Actividad ⊃ Trabajo ⊃ Empleo. El trabajo doméstico no remunerado ES trabajo pero NO es empleo. Y no todo empleo es asalariado (también el cuentapropista o el empleador). Confundirlos invisibiliza fenómenos masivos como el trabajo de cuidados.'},
+ {u:5,q:'El criterio OIT de "una hora remunerada" para considerar a alguien OCUPADO es problemático porque…',o:['es tan mínimo que tiende a sobreestimar el empleo: una changa de pocas horas hace figurar a la persona como ocupada','exige demasiadas horas de trabajo','solo se aplica a los asalariados registrados','no toma en cuenta el salario percibido'],c:0,e:'Por eso aparece el "desempleo oculto dentro de los ocupados": personas que buscan empleo activamente pero, por haber trabajado una hora, cuentan como ocupadas. En Argentina ese grupo puede superar en número a los desocupados abiertos.'},
+ {u:5,q:'¿Qué condiciones debe cumplir SIMULTÁNEAMENTE una persona para ser "desocupada" según la OIT?',o:['no tener empleo, estar disponible para trabajar y buscar activamente empleo','no tener empleo y haber sido despedida','estar inscripta en una oficina de empleo','no haber trabajado nunca'],c:0,e:'Las tres condiciones juntas definen la desocupación ABIERTA. Quien dejó de buscar (trabajador desalentado) NO cumple la tercera condición y queda contado como inactivo, aunque quiera trabajar: por eso la tasa oficial subestima el desempleo real.'},
+ {u:5,q:'El indicador D7 (adaptación de Herrero) es la tasa más amplia porque suma a la D6…',o:['los trabajadores desalentados, captando desocupación abierta + oculta + subempleo involuntario','solo a los jóvenes sin experiencia','únicamente a los desocupados de larga duración','a los jubilados que quieren reincorporarse'],c:0,e:'En el GBA, mayo 1987-1996, la D7 creció de 9,8% a 26,8% de la PEA mientras la oficial (D5, criterio OIT) subestimaba fuertemente la situación. Los indicadores van de D1 (larga duración) a D7 (la más abarcadora).'},
+ {u:5,q:'¿Cuál fue el principal cambio de la EPH del INDEC en 2003?',o:['el pasaje de una encuesta puntual (mayo y octubre) a una continua relevada semana a semana','la creación de la encuesta por primera vez','dejar de medir el desempleo','pasar de medición urbana a rural'],c:0,e:'La EPH continua respondió a la mayor velocidad de los cambios laborales posfordistas (rotación, entradas/salidas frecuentes del desempleo, pluriactividad). Más tarde, los cambios organizacionales del INDEC en 2007 pusieron en cuestión la confiabilidad de los datos.'},
+ {u:5,q:'Distinguí "vulnerabilidad" de "empleabilidad" (Neffa).',o:['vulnerabilidad = probabilidad de QUEDAR desocupado; empleabilidad = probabilidad de que un desocupado ENCUENTRE empleo','son lo mismo medido de dos formas','vulnerabilidad se aplica a empresas y empleabilidad a personas','empleabilidad es la cantidad de empleos disponibles'],c:0,e:'La empleabilidad disminuye con la mayor duración del desempleo, la mayor edad y la menor calificación; las mujeres tienen empleabilidad relativamente menor. Ambas son probabilidades distintas que dependen de variables como contrato previo, sector, edad y género.'},
+ {u:5,q:'En la tipología de itinerarios de Freyssinet, ¿cuál es el desempleo MÁS grave?',o:['el desempleo de exclusión: estructural y de larga duración, con deterioro de calificaciones y conversión en desocupados ocultos','el desempleo repetitivo','el desempleo de reconversión','el subempleo visible'],c:0,e:'El repetitivo (jóvenes, precarios, mujeres reinsertándose) sale rápido pero hacia empleos precarios; el de reconversión (adultos calificados de industrias en crisis) busca empleo estable mientras cobra el seguro; el de exclusión (fracaso escolar, adultos próximos a jubilarse) es el desempleo estructural de larga duración.'},
+ {u:5,q:'¿Por qué Castel prefiere hablar de "desafiliación" en vez de "exclusión"?',o:['porque nadie está completamente fuera de la sociedad: hay un continuum y los desafiliados siguen bajo la dependencia del centro','porque "exclusión" es una palabra demasiado fuerte','porque la exclusión solo existe en los países pobres','porque la desafiliación es un estado permanente e irreversible'],c:0,e:'"Exclusión" supone un corte adentro/afuera; "desafiliación" implica un PROCESO y un continuum de posiciones. Los desafiliados fueron desligados de las redes de integración (trabajo, familia, comunidad) pero siguen dependiendo del centro. Las zonas integración/vulnerabilidad/desafiliación son los tramos de ese continuum.'},
+ {u:5,q:'Los "supernumerarios" de Castel se caracterizan por…',o:['ser personas socialmente "de más": ni siquiera explotadas, sin utilidad social y por ende sin peso político','ser trabajadores que cobran horas extra','ser la elite empresarial','ser los empleados públicos sobrantes'],c:0,e:'No son "no-fuerzas sociales" explotadas (eso supondría que son necesarios): son literalmente "de más". Por eso no generan movimientos sociales: les faltan organización colectiva, proyecto alternativo y sentimiento de ser indispensables. Solo oscilan entre resignación y violencia autodestructiva.'},
+ {u:5,q:'¿Por qué Castel compara las políticas de inserción (el RMI) con el "mito de Sísifo"?',o:['porque la inserción deja de ser una etapa y se vuelve un estado permanente: solo ~15% encuentra empleo y la mayoría sigue desocupada','porque son políticas demasiado caras','porque benefician solo a los ya integrados','porque fueron un éxito rotundo'],c:0,e:'Castel no critica los principios del RMI (reconoce el desempleo estructural como problema sistémico, no como falla individual), sino sus resultados: ~70% permanece desocupado o inactivo. Como Sísifo, la roca siempre vuelve a caer. Las políticas de inserción "se detienen a la puerta de las empresas".'},
+ {u:5,q:'¿Cuál de las cuatro opciones de futuro defiende Castel frente a la nueva cuestión social?',o:['redistribuir los recursos escasos (trabajo y protecciones), extendiendo los atributos del salariado a formas postsalariales','dejar reinar el mercado autorregulado','mantener el statu quo gestionando la crisis','crear "yacimientos de empleos" en servicios de proximidad'],c:0,e:'Castel rechaza la opción liberal pura (con Polanyi: el mercado autorregulado destruye el orden social), el statu quo (normaliza la sociedad dual) y los "yacimientos de empleos" (neodomesticismo, Gorz). Defiende NO restaurar la sociedad salarial sino extender sus atributos —tiempo, salario, protecciones— a formas postsalariales. Requiere voluntad política.'}
+];
+let qPool=[], qIdx=0, qScore=0, qLog=[];
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startQuiz(u){
+  qPool = shuffle(u==='all' ? QUESTIONS.slice() : QUESTIONS.filter(q=>String(q.u)===u));
+  qIdx=0; qScore=0; qLog=[];
+  document.getElementById('q-setup').style.display='none';
+  document.getElementById('q-end').style.display='none';
+  document.getElementById('q-game').style.display='block';
+  renderQ();
+}
+function renderQ(){
+  const q = qPool[qIdx];
+  document.getElementById('q-num').textContent = 'Pregunta '+(qIdx+1)+' de '+qPool.length;
+  document.getElementById('q-unit').textContent = 'Unidad '+q.u;
+  document.getElementById('q-score').textContent = '✓ '+qScore+' correctas';
+  document.getElementById('q-bar').style.width = (qIdx/qPool.length*100)+'%';
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-expl').className='q-expl';
+  document.getElementById('q-next-btn').style.display='none';
+  const box=document.getElementById('q-opts'); box.innerHTML='';
+  const order = shuffle(q.o.map((t,i)=>({t,i})));
+  order.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='q-opt'; b.textContent=opt.t;
+    b.onclick=()=>answer(b,opt.i===q.c,q);
+    box.appendChild(b);
+  });
+}
+function answer(btn,ok,q){
+  document.querySelectorAll('.q-opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===q.o[q.c])b.classList.add('correct');
+  });
+  if(!ok)btn.classList.add('wrong');
+  if(ok)qScore++;
+  qLog.push({q:q.q,ok});
+  const ex=document.getElementById('q-expl');
+  ex.innerHTML='<b>'+(ok?'✓ ¡Correcto!':'✗ Incorrecto')+'</b>'+q.e;
+  ex.className='q-expl show '+(ok?'good':'bad');
+  document.getElementById('q-score').textContent='✓ '+qScore+' correctas';
+  const nb=document.getElementById('q-next-btn');
+  nb.style.display='inline-block';
+  nb.textContent = qIdx===qPool.length-1 ? 'Ver resultado →' : 'Siguiente →';
+}
+function nextQ(){
+  qIdx++;
+  if(qIdx>=qPool.length){endQuiz();return;}
+  renderQ();
+}
+function endQuiz(){
+  document.getElementById('q-game').style.display='none';
+  document.getElementById('q-end').style.display='block';
+  const pct=Math.round(qScore/qPool.length*100);
+  document.getElementById('q-final').textContent=qScore+'/'+qPool.length;
+  let msg;
+  if(pct>=90)msg='Excelente, Fran — nivel de coloquio. 🏆';
+  else if(pct>=70)msg='Muy bien — repasá los puntos en rojo y estás.';
+  else if(pct>=50)msg='Vas por buen camino: volvé a la teoría de los puntos fallados.';
+  else msg='Falta repaso: leé de nuevo las unidades y usá las flashcards antes de reintentar.';
+  document.getElementById('q-msg').textContent=msg;
+  const rev=document.getElementById('q-review');
+  rev.innerHTML='<h4 style="margin-bottom:8px;font-family:var(--serif)">Repaso del intento</h4>'+
+    qLog.map(l=>'<div class="item '+(l.ok?'good':'bad')+'">'+(l.ok?'✓ ':'✗ ')+l.q+'</div>').join('');
+}
+function resetQuiz(){
+  document.getElementById('q-end').style.display='none';
+  document.getElementById('q-setup').style.display='block';
+}
+
+/* init */
+fcRender();
+</script>
+</body>
+</html>

@@ -12,7 +12,7 @@ window.PORTAL.anios = [
       { nombre: "Finanzas Públicas", estado: "app", url: "https://finanzas-publicas-estudio.onrender.com", desc: "Teoría por unidad, prácticos y parciales" },
       { nombre: "Historia Económica", estado: "pronto" },
       { nombre: "Inferencia Estadística", estado: "pronto" },
-      { nombre: "Inferencia Estadística (LE)", estado: "pronto" },
+      { nombre: "Inferencia Estadística (LE)", estado: "app", url: "https://inferencia-estadistica-estudio.onrender.com", desc: "Teoría del 1º parcial con fórmulas y banco de preguntas" },
       { nombre: "Marketing", estado: "pronto" },
       { nombre: "Matemática Financiera", estado: "pronto" },
       { nombre: "Microeconomía Avanzada", estado: "pronto" },
@@ -30,9 +30,9 @@ window.PORTAL.anios = [
       { nombre: "Administración Tributaria", estado: "pronto" },
       { nombre: "Econometría", estado: "pronto" },
       { nombre: "Economía Internacional", estado: "pronto" },
-      { nombre: "Historia del Pensamiento Económico", estado: "pronto" },
+      { nombre: "Historia del Pensamiento Económico", estado: "app", url: "https://historia-pensamiento-economico-estudio.onrender.com", desc: "App de estudio del 2º parcial" },
       { nombre: "Investigación de Mercado", estado: "pronto" },
-      { nombre: "Sociología Económica", estado: "pronto" },
+      { nombre: "Sociología Económica", estado: "app", url: "https://sociologia-economica-estudio.onrender.com", desc: "App de estudio, Unidades 3 a 6" },
       { nombre: "Toma de Decisiones", estado: "pronto" }
     ]
   }

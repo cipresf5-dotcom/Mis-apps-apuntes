@@ -399,6 +399,32 @@
   $(".brand").style.cursor = "pointer";
   $(".brand").addEventListener("click", renderHome);
 
+  // ---- Menú móvil: botón hamburguesa + fondo oscuro ----
+  // (se crea siempre; el CSS lo mantiene oculto salvo en pantallas angostas,
+  // así funciona igual en la web y en el archivo único para celular)
+  (function initMobileMenu() {
+    const app = document.getElementById("app");
+    const bar = el("div", { id: "mobile-bar" },
+      '<button id="m-menu" aria-label="Abrir menú">☰</button><span class="m-title">Finanzas Públicas</span>');
+    app.parentNode.insertBefore(bar, app);
+    const bd = el("div", { id: "backdrop" });
+    document.body.appendChild(bd);
+    const sb = $("#sidebar");
+    function openNav() { sb.classList.add("open"); bd.classList.add("show"); }
+    function closeNav() { sb.classList.remove("open"); bd.classList.remove("show"); }
+    const mq = window.matchMedia("(max-width: 760px)");
+    $("#m-menu", bar).addEventListener("click", (e) => {
+      e.stopPropagation();
+      sb.classList.contains("open") ? closeNav() : openNav();
+    });
+    bd.addEventListener("click", closeNav);
+    // Cerrar el menú al elegir una unidad, un parcial, o volver al inicio
+    ["#unit-list", "#parcial1-btn", "#parcial2-btn", ".brand"].forEach(sel => {
+      const node = $(sel);
+      if (node) node.addEventListener("click", () => { if (mq.matches) closeNav(); });
+    });
+  })();
+
   // ---- Arranque ----
   const last = localStorage.getItem(LAST_KEY);
   if (last && CURSO.unidades.some(u => u.id === parseInt(last, 10))) {

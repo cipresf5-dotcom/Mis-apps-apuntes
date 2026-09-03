@@ -4,6 +4,13 @@
 # bloque "type: web / runtime: static" con su rootDir correspondiente.
 services:
   - type: web
+    name: mis-apuntes-portal
+    runtime: static
+    rootDir: portal
+    buildCommand: ""
+    staticPublishPath: .
+
+  - type: web
     name: finanzas-publicas-estudio
     runtime: static
     rootDir: finanzas-publicas

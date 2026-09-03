@@ -1,0 +1,122 @@
+:root {
+  --bg: #0f1419;
+  --bg-soft: #161c24;
+  --bg-card: #1b232d;
+  --panel: #131922;
+  --border: #283544;
+  --text: #e6edf3;
+  --text-dim: #9fb0c0;
+  --text-faint: #6b7d8f;
+  --accent: #3fae6b;
+  --accent-soft: #2c7a4b;
+  --accent-glow: rgba(63, 174, 107, 0.15);
+  --warn: #e0a93b;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+[data-theme="light"] {
+  --bg: #f3f6f4;
+  --bg-soft: #ffffff;
+  --bg-card: #ffffff;
+  --panel: #ffffff;
+  --border: #d9e2dc;
+  --text: #18241d;
+  --text-dim: #4c5d52;
+  --text-faint: #7c8c81;
+  --accent: #2c8a52;
+  --accent-soft: #43a96a;
+  --accent-glow: rgba(44, 138, 82, 0.12);
+  --shadow: 0 6px 20px rgba(40, 70, 50, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; min-height: 100%;
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: 16px; line-height: 1.6;
+}
+
+#app { min-height: 100vh; display: flex; flex-direction: column; }
+
+#topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px; border-bottom: 1px solid var(--border);
+  background: var(--panel); position: sticky; top: 0; z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.brand-mark {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #fff; display: grid; place-items: center;
+  font-weight: 800; letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong { font-size: 17px; }
+.brand-text span { font-size: 12px; color: var(--text-faint); }
+
+.ghost-btn {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-dim); border-radius: 9px; padding: 8px 14px;
+  cursor: pointer; font-size: 13px; font-family: var(--font);
+  transition: background .15s, color .15s;
+}
+.ghost-btn:hover { background: var(--bg-soft); color: var(--text); }
+
+#view { flex: 1; max-width: 1000px; margin: 0 auto; padding: 40px 28px 80px; width: 100%; }
+
+/* Home: selección de año */
+.hero { margin-bottom: 32px; }
+.hero h1 { font-size: 30px; margin: 0 0 8px; }
+.hero p { color: var(--text-dim); margin: 0; max-width: 60ch; }
+
+.anio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 26px; }
+.anio-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px 20px; cursor: pointer;
+  transition: transform .12s, border-color .15s; text-align: center;
+}
+.anio-card:hover { transform: translateY(-3px); border-color: var(--accent-soft); box-shadow: var(--shadow); }
+.anio-card .ac-num { font-size: 40px; font-weight: 800; color: var(--accent); line-height: 1; }
+.anio-card .ac-tit { font-size: 15px; font-weight: 600; margin-top: 8px; }
+.anio-card .ac-count { font-size: 12px; color: var(--text-faint); margin-top: 6px; }
+
+/* Vista de año: lista de materias */
+.breadcrumb {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 18px;
+  font-size: 13px; color: var(--text-faint);
+}
+.breadcrumb button {
+  background: none; border: none; color: var(--accent); cursor: pointer;
+  font-size: 13px; font-family: var(--font); padding: 0;
+}
+.breadcrumb button:hover { text-decoration: underline; }
+
+.materia-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 18px; }
+.materia-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; position: relative; overflow: hidden;
+}
+.materia-card.is-app { cursor: pointer; transition: transform .12s, border-color .15s; }
+.materia-card.is-app:hover { transform: translateY(-2px); border-color: var(--accent-soft); box-shadow: var(--shadow); }
+.materia-card.is-pronto { opacity: .55; cursor: default; }
+.mc-nombre { font-size: 15px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+.mc-desc { font-size: 12.5px; color: var(--text-faint); line-height: 1.4; }
+.mc-badge {
+  display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .4px;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 6px; margin-top: 10px;
+}
+.mc-badge.app { background: var(--accent); color: #fff; }
+.mc-badge.pronto { background: var(--bg-soft); color: var(--text-faint); border: 1px solid var(--border); }
+.mc-arrow { position: absolute; top: 16px; right: 16px; color: var(--accent); font-size: 18px; opacity: 0; transition: opacity .15s; }
+.materia-card.is-app:hover .mc-arrow { opacity: 1; }
+
+@media (max-width: 640px) {
+  #topbar { padding: 14px 18px; }
+  #view { padding: 26px 18px 60px; }
+  .hero h1 { font-size: 24px; }
+}

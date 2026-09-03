@@ -8,7 +8,13 @@ desplegadas desde este mismo repositorio en Render.
 
 | Carpeta | Qué es | URL (una vez publicada) |
 |---|---|---|
+| [`portal/`](portal/) | Portal de inicio: elegís el año y ves sus materias | `https://mis-apuntes-portal.onrender.com` |
 | [`finanzas-publicas/`](finanzas-publicas/) | App de estudio de Finanzas Públicas (UNNE, 3er año) | `https://finanzas-publicas-estudio.onrender.com` |
+
+El portal linkea a cada app publicada; las materias sin app propia aparecen
+como «Próximamente». Para conectar una materia nueva: crear su carpeta acá,
+sumarla a `render.yaml`, y agregar su entrada (`estado: "app"`, `url: "..."`)
+en `portal/data/anios.js`.
 
 ## Cómo se actualiza el contenido
 

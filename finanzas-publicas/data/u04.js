@@ -3,9 +3,11 @@ window.CURSO.unidades.push({
   numero: "IV",
   titulo: "El Marco Jurídico de la Hacienda Pública",
   bibliografia: [
-    "Jarach, D. (2013) Parte V, Cap. IV",
+    "Villegas, H. B. — Manual de Finanzas Públicas (Depalma) / Curso (2021) Cap. IX",
+    "Giuliani Fonrouge, C. — Derecho Financiero (Depalma)",
     "Vizcaíno, C. (2017) Caps. V y VI",
-    "Villegas, H. B. (2021) Cap. IX"
+    "Jarach, D. (2013) Parte V, Cap. IV",
+    "PPT de cátedra 2026 — Marco Jurídico de la Hacienda Pública (Cra. B. Romero)"
   ],
   temas: [
     {
@@ -32,6 +34,23 @@ window.CURSO.unidades.push({
   <tr><td>Nace directamente de la <strong>Constitución</strong> o de principios institucionales. Lo tienen la <strong>Nación</strong> y las <strong>Provincias</strong> (las provincias son preexistentes y conservan todo el poder no delegado — art. 121 CN).</td><td>No lo otorga la carta constitucional, sino que surge de una <strong>ley</strong> dictada por un ente con poder originario. Tradicionalmente se atribuye a los <strong>Municipios</strong> (su poder deriva de las constituciones provinciales).</td></tr>
 </table>
 <div class="callout">Tras la reforma de 1994 (art. 123 CN) que consagra la <strong>autonomía municipal</strong>, parte de la doctrina y la jurisprudencia ("Rivademar", "Municipalidad de La Plata") reconocen a los municipios un poder tributario propio, aunque <em>limitado y reglado</em> por la provincia (ver tema 4.6).</div>
+
+<h3>Fundamento constitucional y alcance por nivel</h3>
+<p>El poder fiscal surge de los <strong>arts. 4, 9, 10, 11 y 12</strong> (derechos, garantías y libre circulación), <strong>75 incs. 1, 2 y 10</strong> (atribuciones del Congreso) y <strong>121 y 126</strong> (poderes provinciales) de la CN.</p>
+<ul>
+  <li><strong>Nación y Provincias:</strong> tienen poder <em>originario</em> — las provincias por ser <strong>preexistentes</strong> (conservan el poder no delegado, art. 121) y la Nación porque su poder nace de la propia CN.</li>
+  <li><strong>Municipios (postura de la cátedra):</strong> carecen de poder originario; solo tienen un <em>poder derivado</em>, el que la provincia les <strong>asigne</strong>. Su potestad deriva de las leyes que las provincias dicten en cumplimiento de los arts. 5 y 123 CN (autonomía atenuada/reglada — ver 4.6).</li>
+</ul>
+
+<h3>Sobre el carácter "abstracto"</h3>
+<p>El poder tributario es abstracto porque implica <strong>supremacía</strong> (un ente colocado en un plano superior y preeminente) y, correlativamente, <strong>sujeción</strong> (una masa indiscriminada de individuos en un plano inferior): existe como potestad aunque no se lo ejerza en un caso concreto.</p>
+
+<h3>Límites y control jurisdiccional</h3>
+<ul>
+  <li><strong>Límite formal:</strong> la potestad solo se ejerce <em>por ley</em> (garantía de competencia del órgano que dicta la norma — principio de legalidad).</li>
+  <li><strong>Límite material:</strong> alcanza al <em>contenido</em> de la norma tributaria (justicia y razonabilidad de la imposición — ver principios en 4.5).</li>
+  <li><strong>Control jurisdiccional:</strong> lo ejerce el Poder Judicial (control de constitucionalidad). Es <em>concreto</em>, no abstracto: procede a instancia del titular de un derecho agraviado por la norma y la invalidez se declara <em>para las partes</em> del pleito. La justicia federal revisa los tributos nacionales; la provincial, los provinciales y municipales, sin perjuicio del recurso extraordinario ante la CSJN.</li>
+</ul>
 `
     },
     {
@@ -61,6 +80,23 @@ window.CURSO.unidades.push({
 
 <h3>Aplicación en el tiempo: irretroactividad</h3>
 <div class="callout"><strong>Principio:</strong> las leyes tributarias rigen para el futuro. La <strong>retroactividad</strong> en materia tributaria es, en principio, <strong>inconstitucional</strong> cuando afecta un <em>hecho imponible ya cumplido</em> y un <strong>derecho adquirido</strong> (la Corte protege el pago realizado con efecto liberatorio). En tributos de hecho imponible <em>de ejercicio</em> (de formación sucesiva, como Ganancias), la jurisprudencia ha sido más flexible si la ley se dicta antes del cierre del ejercicio.</div>
+<p class="muted">Fundamento normativo: <strong>art. 7 CCyC</strong> (las leyes no tienen efecto retroactivo, salvo disposición en contrario, y la retroactividad nunca puede afectar garantías constitucionales). La CSJN admite retroactividad durante el año fiscal en curso, salvo que exista <em>efecto liberatorio</em> del pago (gravamen ya pagado sin dolo, determinado por el Fisco o convenido con el contribuyente).</p>
+
+<h3>Contenido: juridicidad del gasto y de los recursos</h3>
+<p>El derecho financiero da unidad jurídica al ciclo ingresos-gastos, cuyo plan es el <strong>presupuesto</strong>. La <strong>Ley 24.156</strong> de Administración Financiera es central:</p>
+<ul>
+  <li><strong>Juridicidad del gasto:</strong> está regulado por la Ley 24.156; se estima por la <em>Ley Anual de Presupuesto General</em>; y se verifica su ejecución mediante el control de la <em>cuenta de inversión</em>.</li>
+  <li><strong>Juridicidad de los recursos:</strong> la Ley 24.156 define qué es un recurso en el campo presupuestario y su clasificación. Rige el <strong>principio de las cifras brutas</strong>: recursos y gastos figuran por montos íntegros, sin compensaciones entre sí (ej.: no se descuenta de la recaudación el costo de funcionamiento del organismo recaudador). Se aplica el principio de legalidad.</li>
+</ul>
+
+<h3>La actividad financiera en la Constitución (secuencia)</h3>
+<p>La CN reparte la actividad financiera entre los poderes: el <strong>Jefe de Gabinete</strong> confecciona y ejecuta el presupuesto y recauda las rentas (art. 100 incs. 6 y 7); el <strong>Congreso</strong> fija el presupuesto y calcula las contribuciones (art. 75 incs. 2, 4, 7 y 8); el <strong>Presidente</strong> supervisa la recaudación (art. 99 inc. 10); la <strong>Auditoría General de la Nación</strong> controla (art. 85); el <strong>Defensor del Pueblo</strong> (art. 86) y el <strong>Ministerio Público</strong> (art. 120) intervienen; y el <strong>Poder Judicial</strong> ejerce el control de constitucionalidad (art. 116).</p>
+
+<h3>Territorialidad (vigencia en el espacio)</h3>
+<p>La ley tributaria se aplica dentro de los límites territoriales sometidos a la soberanía del Estado. Puede atemperarse para evitar la <strong>doble imposición</strong>; a la vez, por el principio de soberanía, puede gravarse a nacionales, residentes o domiciliados por bienes poseídos o rentas obtenidas <em>fuera</em> del país (criterio de <strong>renta mundial</strong>).</p>
+
+<h3>Interpretación en el Código Tributario del Chaco</h3>
+<p>El Código del Chaco recoge el principio de <strong>realidad económica</strong> (se atiende a los actos o situaciones efectivamente realizados, con prescindencia de las formas en que se exterioricen). Su <strong>art. 9</strong>: son admisibles todos los métodos de interpretación, pero <em>en ningún caso</em> se establecerá un gravamen ni se considerará a alguien contribuyente sino en virtud del código o de la ley; en materia de <strong>exenciones</strong> la interpretación es <em>estricta</em> (ajustada a las expresamente enunciadas). Supletoriamente puede acudirse a otras leyes.</p>
 `
     },
     {
@@ -95,6 +131,14 @@ window.CURSO.unidades.push({
   <li>Las provincias tienen sus <strong>Códigos Fiscales / Tributarios</strong> (parte general + parte especial de cada tributo) y sus <strong>leyes tarifarias</strong>.</li>
   <li>Referencia regional: el <strong>Modelo de Código Tributario para América Latina</strong> (OEA/BID).</li>
 </ul>
+
+<h3>Métodos de codificación</h3>
+<ul>
+  <li><strong>Limitada:</strong> sistematiza solo los <em>principios fundamentales</em> del derecho tributario sustantivo, administrativo, penal y procesal.</li>
+  <li><strong>Amplia:</strong> los principios generales <em>más</em> las disposiciones específicas de cada gravamen, salvo las alícuotas o cuotas fijas (que se fijan por leyes complementarias, según la coyuntura económica).</li>
+  <li><strong>Total:</strong> reúne en un solo cuerpo legal <em>todas</em> las normas, generales y específicas, incluidas las alícuotas.</li>
+</ul>
+<p class="muted">En Argentina la <strong>Ley 11.683</strong> (sancionada en 1933, con modificaciones) hace de código de los tributos nacionales —contiene normas sustantivas: sujetos, domicilio fiscal, pago, prescripción, etc.—; existe además el <strong>Código Aduanero</strong>. Las provincias tienen sus Códigos Fiscales/Tributarios.</p>
 `
     },
     {
@@ -124,6 +168,7 @@ window.CURSO.unidades.push({
 
 <h3>Distribución en materia de gastos</h3>
 <p>La CN no enumera taxativamente los gastos de cada nivel, pero del reparto de competencias surge que cada nivel atiende sus funciones. En la práctica, las <strong>provincias concentran funciones de gasto</strong> intensivas (educación, salud, seguridad), mientras la <strong>Nación concentra la recaudación</strong>. Ese <strong>desequilibrio fiscal vertical</strong> es el núcleo del problema del federalismo fiscal argentino (Unidad XI).</p>
+<div class="callout"><strong>Precisiones de la cátedra:</strong> la <em>cláusula de prosperidad</em> (<span class="cn">art. 75 inc. 18</span>) habilita a la Nación a eximir de impuestos nacionales, pero la CSJN <strong>no</strong> lo admite respecto de <em>tasas retributivas</em> ni <em>contribuciones de mejoras</em>. El <em>comercio interjurisdiccional</em> (<span class="cn">art. 75 inc. 13</span>) puede ser gravado por las provincias en tanto el gravamen local no funcione como una <em>aduana interior</em> (en transporte, según el Convenio Multilateral — art. 9, Ley 23.548). En materia de <strong>gastos</strong>, el <span class="cn">art. 5</span> obliga a cada provincia a asegurar la administración de justicia, el régimen municipal y la educación primaria; el presupuesto nacional lo aprueba el Congreso (<span class="cn">art. 75 inc. 8</span>) bajo principios de equilibrio fiscal (Ley 24.156) y control de la AGN.</div>
 `
     },
     {
@@ -131,6 +176,7 @@ window.CURSO.unidades.push({
       titulo: "Principios constitucionales tributarios",
       contenido: `
 <p>El poder tributario está <strong>limitado por garantías constitucionales</strong> que protegen al contribuyente. Son límites al ejercicio del poder de imperio.</p>
+<div class="callout"><strong>Dos tipos de límite (cátedra):</strong> el <em>límite formal</em> es el principio de <strong>legalidad</strong> (garantía de competencia: el tributo solo se crea por ley; arts. 17 y 19; el art. 99 inc. 3 veda los DNU en materia tributaria); el <em>límite material</em> es la <strong>capacidad contributiva</strong> —la aptitud económica de los miembros de la comunidad para contribuir a la cobertura de los gastos públicos—, que da contenido y justicia a la imposición.</div>
 
 <h3>Legalidad (o reserva de ley)</h3>
 <div class="def"><b>"Nullum tributum sine lege":</b> no hay tributo sin ley previa que lo establezca. Solo el <strong>Congreso/Legislatura</strong> puede crear tributos y definir todos sus elementos esenciales (hecho imponible, sujetos, base, alícuota, exenciones).</div>
@@ -149,7 +195,7 @@ window.CURSO.unidades.push({
 <p>(Art. 4) El tributo debe ser <strong>justo y razonable</strong>. Incluye una valoración de lo que es justo desde el punto de vista moral y cultural; funciona como pauta de razonabilidad global del sistema.</p>
 
 <h3>No confiscatoriedad</h3>
-<div class="callout">Deriva de la <strong>garantía de propiedad</strong> (art. 17). Un tributo es <strong>confiscatorio</strong> cuando absorbe una <em>parte sustancial</em> de la renta o del capital. La Corte fijó pautas (históricamente, el <strong>33%</strong> como tope referencial para ciertos tributos <em>directos</em> sobre la renta o el patrimonio). Protege contra la destrucción de la fuente de riqueza.</div>
+<div class="callout">Deriva de la <strong>garantía de propiedad</strong> (art. 17). Un tributo es <strong>confiscatorio</strong> cuando absorbe una <em>parte sustancial</em> de la renta o del capital. La Corte fijó pautas (históricamente, el <strong>33%</strong> como tope referencial para ciertos tributos <em>directos</em> sobre la renta o el patrimonio; caso del Impuesto Inmobiliario que absorbe el 33% de la renta calculada según el rendimiento normal y medio de una correcta explotación — <em>Fallos 196:122</em>). Protege contra la destrucción de la fuente de riqueza.</div>
 
 <h3>Otras garantías</h3>
 <ul>
@@ -181,6 +227,22 @@ window.CURSO.unidades.push({
   <li>Debe respetar los <strong>compromisos asumidos por la provincia</strong> en la coparticipación federal (que obliga a no aplicar tributos <em>análogos</em> a los nacionales coparticipados — Ley 23.548).</li>
   <li>Sus tributos deben respetar los <strong>principios constitucionales</strong> (legalidad, igualdad, no confiscatoriedad).</li>
   <li>En la práctica, el principal tributo municipal es la <strong>Tasa por Inspección de Seguridad e Higiene</strong> (y tasas por servicios urbanos), cuya legitimidad exige la <em>efectiva prestación del servicio</em> y <em>razonable proporción con su costo</em> (ver tema 3.4; caso "Laboratorios Raffo c/ Municipalidad de Córdoba", 2009).</li>
+</ul>
+
+<h3>Jurisprudencia y coordinación (cátedra)</h3>
+<ul>
+  <li><strong>"Swift de La Plata"</strong> (CSJN, Fallos 251:50/51): las tasas municipales deben retribuir un <em>servicio efectivamente prestado</em> y su monto no puede exceder el costo de la prestación.</li>
+  <li><strong>Coparticipación</strong> (art. 9 inc. b, Ley 23.548): cada provincia que adhiere se obliga —por sí y por sus municipios, autárquicos o no— a <em>no aplicar gravámenes análogos</em> a los nacionales coparticipados; la obligación <em>no</em> alcanza a las tasas retributivas de servicios efectivamente prestados.</li>
+  <li><strong>Pactos Fiscales:</strong> las provincias se comprometen a promover la derogación de tasas municipales que graven los mismos hechos económicos que ellas se obligaron a no gravar (combustibles, gas, energía eléctrica, etc.).</li>
+  <li><strong>Convenio Multilateral (art. 35):</strong> los municipios de una misma provincia, en conjunto, no pueden gravar más ingresos que los atribuidos a esa provincia; la base imponible se distribuye entre los municipios donde el sujeto tiene local.</li>
+  <li><strong>Comisión Arbitral:</strong> sostiene que los municipios son autónomos por mandato constitucional, pero esa autonomía <em>no es soberana</em>: está sujeta a los lineamientos de la CN y a la supremacía del art. 31.</li>
+</ul>
+
+<h3>Referencias normativas en el Chaco</h3>
+<ul>
+  <li><strong>Constitución de la Provincia del Chaco:</strong> Sección Séptima, arts. 187 a 206.</li>
+  <li><strong>Ley Orgánica Municipal del Chaco N.º 4233:</strong> arts. 2, 3, 7, 10 y 21 a 24.</li>
+  <li><strong>Carta Orgánica de la Ciudad de Resistencia:</strong> Título IV, Capítulo II, arts. 194 y 195.</li>
 </ul>
 `
     }

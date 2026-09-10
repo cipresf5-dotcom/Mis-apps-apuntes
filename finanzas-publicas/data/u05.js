@@ -48,6 +48,15 @@ window.CURSO.unidades.push({
   <li><strong>Alícuota:</strong> el porcentaje o monto que se aplica a la base. Puede ser fija, proporcional o progresiva (ver 5.2).</li>
 </ul>
 <p class="muted">También integran la estructura las <strong>exenciones</strong> (situaciones que, configurando el hecho imponible, la ley libera del pago) y las <strong>deducciones</strong>.</p>
+
+<h3>La estructura del impuesto según Núñez Miñana</h3>
+<p>Desde una óptica económica, Núñez Miñana describe los elementos básicos de todo impuesto:</p>
+<ul>
+  <li><strong>Materia imponible:</strong> el elemento material que el legislador elige como <em>punto de impacto</em> del tributo (bienes, factores, valor agregado, remuneraciones). Suele dar nombre al impuesto (a las ganancias, a los combustibles).</li>
+  <li><strong>Hecho generador (imponible):</strong> la <em>circunstancia concreta</em>, ligada a la materia imponible, que hace nacer la obligación y vincula al contribuyente con el fisco (producir o consumir un bien, poseer un factor, exportar o importar).</li>
+  <li><strong>Unidad contribuyente:</strong> el sujeto (contribuyente <em>de iure</em>) responsable de la obligación. Definirlo con precisión es clave, sobre todo en operaciones internacionales (riesgo de doble imposición).</li>
+  <li><strong>Monto del impuesto:</strong> resulta de la <em>base imponible</em> (cantidad física o valor) y de las <em>alícuotas</em>, que pueden ser <strong>únicas</strong> (p. ej., 35% para las sociedades de capital), <strong>diferenciales</strong> (21% general y 10,5% para ciertos bienes en el IVA) o <strong>marginales ascendentes</strong> (Ganancias de personas humanas).</li>
+</ul>
 `
     },
     {
@@ -91,6 +100,22 @@ window.CURSO.unidades.push({
   <li><strong>Proporcionales:</strong> alícuota <em>constante</em> cualquiera sea la base (IVA 21%).</li>
   <li><strong>Progresivos:</strong> la alícuota <em>aumenta</em> al crecer la base (Ganancias de personas humanas). Técnicas: progresión por clases/categorías y por <em>escalones</em> (la más usada, evita saltos).</li>
   <li><strong>Regresivos:</strong> la alícuota <em>disminuye</em> al crecer la base. <span class="muted">Importante: un impuesto puede ser proporcional en su alícuota pero <em>regresivo en sus efectos</em> respecto del ingreso, como el IVA, porque los sectores de menores ingresos consumen una proporción mayor de su renta.</span></li>
+</ul>
+
+<h3>Técnicas de progresividad</h3>
+<p>Cuando el impuesto es progresivo, la progresión puede construirse de tres formas:</p>
+<ul>
+  <li><strong>Por categorías o clases:</strong> se agrupa a los contribuyentes en clases según el monto total de la base y se aplica <em>una sola alícuota</em> a todo el monto de la clase. Es simple, pero genera el <strong>"error de salto"</strong>: pasar de una clase a otra puede elevar mucho el impuesto por un peso más de base.</li>
+  <li><strong>Por grados o escalones:</strong> se subdivide la base en <em>escalones</em> y se aplica a cada uno una alícuota creciente; todos pagan igual hasta el mismo monto y solo el <em>excedente</em> tributa a la alícuota mayor. Evita el error de salto (es la técnica del Impuesto a las Ganancias).</li>
+  <li><strong>Por deducción en la base:</strong> se resta del monto una suma fija <em>no imponible</em> y se aplica una alícuota <em>constante</em> sobre el remanente; la progresividad surge de la <strong>tasa efectiva</strong>, que crece con la base aunque la alícuota nominal sea única.</li>
+</ul>
+
+<h3>Según la base de medición de la capacidad contributiva</h3>
+<ul>
+  <li><strong>Al ingreso / renta:</strong> relacionan la contribución con el ingreso obtenido (Ganancias).</li>
+  <li><strong>Al patrimonio / riqueza:</strong> gravan la tenencia de bienes a una fecha (Bienes Personales, Inmobiliario).</li>
+  <li><strong>A la herencia:</strong> gravan la riqueza transmitida a título gratuito.</li>
+  <li><strong>Al consumo / compraventa de bienes:</strong> gravan el gasto (IVA, Internos).</li>
 </ul>
 `
     },
@@ -171,6 +196,7 @@ window.CURSO.unidades.push({
   <li><strong>Rezago de recaudación:</strong> tiempo entre el hecho imponible y el ingreso efectivo del tributo.</li>
 </ul>
 <div class="callout"><strong>Efecto Olivera-Tanzi:</strong> en contextos de <em>alta inflación</em>, el rezago de recaudación licúa el valor real de los impuestos (se cobran con moneda depreciada), reduciendo la recaudación real y agravando el déficit.</div>
+<p class="muted">La magnitud del efecto depende de dos factores: la <strong>tasa de inflación</strong> observada entre el momento del hecho imponible y la fecha de pago (cuanto mayor, más se licúa lo recaudado) y la <strong>elasticidad</strong> del sistema tributario (el promedio ponderado de las elasticidades de cada tributo). Es más severo, entonces, en economías con tributos poco elásticos y rezagos largos.</p>
 
 <h3>Gasto tributario (tax expenditure)</h3>
 <div class="def">Es la <strong>recaudación que el Estado resigna</strong> por otorgar tratamientos preferenciales: exenciones, deducciones, alícuotas reducidas, diferimientos, regímenes de promoción.</div>
@@ -186,6 +212,9 @@ window.CURSO.unidades.push({
   <li><strong>Sistema tributario:</strong> conjunto de tributos <em>coherente y coordinado</em>, organizado conforme a principios. Es un ideal "racional".</li>
   <li><strong>Régimen tributario:</strong> el conjunto de tributos tal como existe de hecho, muchas veces fruto de la improvisación histórica (lo "real").</li>
 </ul>
+<p>Todo sistema tributario tiene una <strong>limitación espacial</strong> (rige en un territorio) y <strong>temporal</strong> (en una época), y es fruto de un <em>proceso evolutivo</em> incidido por las ideologías y la cultura de cada momento. Sainz de Bujanda advertía que "pocas veces los tributos mantienen el enlace lógico entre fines y medios": por eso se distingue el sistema <strong>racional</strong> (diseñado deliberadamente) del <strong>histórico</strong> (resultado de la acumulación).</p>
+<h4>Postulados de un sistema tributario ideal</h4>
+<p>Justicia y equidad · estabilidad · neutralidad · suficiencia · elasticidad · simplicidad · certeza. Además, los impuestos deben diseñarse para alcanzar los objetivos de la <strong>política fiscal</strong>: máxima equidad en la distribución de la carga, mínima interferencia en la asignación de recursos y promoción de la estabilidad y el crecimiento; todo ello con una administración lo menos costosa posible (para el fisco y el contribuyente) y un rendimiento fiscal adecuado.</p>
 
 <h3>Estructura del sistema tributario argentino</h3>
 <p>Por nivel de gobierno:</p>
@@ -199,6 +228,7 @@ window.CURSO.unidades.push({
 <h3>La Administración Tributaria</h3>
 <p>Organismo encargado de aplicar, recaudar y fiscalizar los tributos. A nivel nacional: <strong>ARCA</strong> (ex AFIP), que comprende la Dirección General Impositiva (DGI) y la Dirección General de Aduanas (DGA). En las provincias, las Direcciones de Rentas / Agencias de Recaudación.</p>
 <p><strong>Funciones y facultades:</strong> recaudación, verificación y fiscalización, determinación de oficio, aplicación de sanciones, dictado de normas reglamentarias e interpretativas (rige la Ley 11.683). Sus facultades están limitadas por las garantías del contribuyente.</p>
+<p>Sus tres <strong>funciones</strong> operativas son: <em>recaudación</em> (difundir normas, evacuar consultas y percibir los pagos; actitud pasiva frente al obligado), <em>fiscalización</em> (controlar el cumplimiento de los deberes formales y materiales) y <em>cobranza</em> (reclamo activo del incumplimiento: boletas de deuda, embargos). Como órgano recaudador nacional, <strong>ARCA</strong> —creada como AFIP por el decreto 1156/96, fusionando la DGI y la Aduana e incorporando luego los recursos de la seguridad social— tiene además <strong>facultades de reglamentación</strong> (dictar normas generales obligatorias sobre inscripción, declaraciones juradas, retenciones, etc.) y de <strong>interpretación</strong> con carácter general obligatorio (sus interpretaciones se publican en el Boletín Oficial).</p>
 
 <h3>Evasión y elusión</h3>
 <table>
@@ -207,6 +237,15 @@ window.CURSO.unidades.push({
 </table>
 <p><strong>Economía de opción (planificación lícita):</strong> elegir, entre alternativas legales, la de menor carga, <em>sin</em> abuso de formas. Es <strong>lícita</strong> y se distingue de la elusión.</p>
 <p class="muted">Causas de la evasión: alta presión percibida, complejidad, baja percepción de riesgo, debilidad de la administración, falta de conciencia fiscal. Combatirla mejora la equidad (todos pagan) y la suficiencia del sistema.</p>
+
+<h3>Modalidades de incumplimiento tributario</h3>
+<ul>
+  <li><strong>Ocultamiento de la base imponible:</strong> total (no presentar declaración jurada) o parcial (declarar montos inferiores a los reales) → genera la "economía subterránea" o circuito en negro.</li>
+  <li><strong>Exageración de deducciones, exenciones o créditos</strong> respecto de los importes verdaderos (incluso obteniendo reembolsos indebidos, p. ej. devolución del IVA de exportación).</li>
+  <li><strong>Traslación de la base a fiscos de menor alícuota:</strong> entre jurisdicciones locales (p. ej. patentar automotores donde la patente es más baja) o entre países, vía "precios de transferencia" hacia filiales en paraísos fiscales.</li>
+  <li><strong>Morosidad en el pago:</strong> por motivos reales (dificultades financieras) o especulativos (con alta inflación puede resultar más barato "endeudarse con el fisco" que con el sistema financiero).</li>
+</ul>
+<p class="muted">Distinta de todas ellas es la <strong>exención</strong>: la propia ley libera —de forma perfectamente legal y a veces deliberada, para estimular sectores o conductas— a ciertos sujetos (exenciones <em>subjetivas</em>) u operaciones (exenciones <em>objetivas</em>); su costo fiscal se cuantifica como gasto tributario (ver 5.4).</p>
 `
     }
   ],

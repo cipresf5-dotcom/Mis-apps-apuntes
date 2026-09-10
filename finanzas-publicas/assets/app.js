@@ -77,6 +77,7 @@
     localStorage.removeItem(LAST_KEY);
     renderSidebar(null);
     setParcialActive(false);
+    setCnActive(false);
     const view = $("#view");
     view.innerHTML = `
       <div class="home-hero">
@@ -106,6 +107,7 @@
     localStorage.setItem(LAST_KEY, String(id));
     renderSidebar(id);
     setParcialActive(false);
+    setCnActive(false);
     $("#content").scrollTop = 0;
 
     const view = $("#view");
@@ -200,6 +202,7 @@
     localStorage.removeItem(LAST_KEY);
     renderSidebar(null);
     setParcialActive(n);
+    setCnActive(false);
     $("#content").scrollTop = 0;
 
     const p = (n === 2) ? window.CURSO.parcial2 : window.CURSO.parcial1;
@@ -345,6 +348,44 @@
     });
   }
 
+  function setCnActive(on) {
+    const btn = $("#cn-btn");
+    if (btn) btn.classList.toggle("active", !!on);
+  }
+
+  // ---- Constitución Nacional (apartado de referencia) ----
+  function renderConstitucion() {
+    localStorage.removeItem(LAST_KEY);
+    renderSidebar(null);
+    setParcialActive(false);
+    setCnActive(true);
+    $("#content").scrollTop = 0;
+
+    const c = window.CURSO.constitucion;
+    const view = $("#view");
+    if (!c) {
+      view.innerHTML = `<div class="unit-head"><h1>Constitución Nacional</h1></div><p class="placeholder">No hay datos cargados.</p>`;
+      return;
+    }
+    let body = "";
+    (c.grupos || []).forEach(g => {
+      body += `<h3>${g.titulo}</h3>`;
+      body += `<div class="cn-scroll"><table class="cn-table">
+        <tr><th>Artículo</th><th>Qué dice</th><th>Se relaciona con</th></tr>`;
+      (g.articulos || []).forEach(a => {
+        body += `<tr><td><strong>${a.art}</strong></td><td>${a.dice}</td><td>${a.rel}</td></tr>`;
+      });
+      body += `</table></div>`;
+    });
+    view.innerHTML = `
+      <div class="unit-head">
+        <div class="eyebrow">Referencia</div>
+        <h1>Constitución Nacional</h1>
+        <div class="biblio">${c.intro}</div>
+      </div>
+      <div class="tema-body cn-body">${body}</div>`;
+  }
+
   // Inserta los botones de Parciales en la barra lateral (una sola vez)
   (function mountParcialesBtn() {
     if (!window.CURSO) return;
@@ -363,6 +404,18 @@
       b2.addEventListener("click", () => renderParciales(2));
       anchor.insertAdjacentElement("afterend", b2);
     }
+  })();
+
+  // Inserta el botón de Constitución Nacional en la barra lateral
+  (function mountConstitucionBtn() {
+    if (!window.CURSO || !window.CURSO.constitucion) return;
+    const list = $("#unit-list");
+    if (!list) return;
+    const anchor = $("#parcial2-btn") || $("#parcial1-btn") || list;
+    const b = el("button", { id: "cn-btn", className: "ghost-btn parciales-btn",
+      title: "Artículos de la Constitución Nacional" }, "📜 Constitución Nacional");
+    b.addEventListener("click", () => renderConstitucion());
+    anchor.insertAdjacentElement("afterend", b);
   })();
 
   // Bloque colapsable de Trabajos Prácticos (sin checkbox de progreso)
@@ -548,7 +601,7 @@
     });
     bd.addEventListener("click", closeNav);
     // Cerrar el menú al elegir una unidad, un parcial, o volver al inicio
-    ["#unit-list", "#parcial1-btn", "#parcial2-btn", ".brand"].forEach(sel => {
+    ["#unit-list", "#parcial1-btn", "#parcial2-btn", "#cn-btn", ".brand"].forEach(sel => {
       const node = $(sel);
       if (node) node.addEventListener("click", () => { if (mq.matches) closeNav(); });
     });

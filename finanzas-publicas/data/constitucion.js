@@ -29,7 +29,10 @@ window.CURSO.constitucion = {
     },
     {
       titulo: "3. Principios y garantías constitucionales tributarias",
+      nota: "Cada principio tributario se apoya en uno o más artículos: legalidad / reserva de ley (arts. 4, 17, 19, 52, 75 inc. 1 y 2, y 99 inc. 3); igualdad y generalidad (art. 16); proporcionalidad y equidad (arts. 4 y 75 inc. 2); no confiscatoriedad (arts. 4 y 17); razonabilidad (art. 28); supremacía constitucional (art. 31).",
       articulos: [
+        { art: "Art. 4", dice: "Además de formar el Tesoro Nacional (ver grupo 1), es base de la equidad y la proporcionalidad: las contribuciones deben imponerse \"equitativa y proporcionalmente a la población\"; y de la legalidad (solo el Congreso las establece).", rel: "Unidad IV (4.5 principios) · Unidad V" },
+        { art: "Art. 75 inc. 2 (principio)", dice: "Refuerza la proporcionalidad y la legalidad: las contribuciones directas que fija el Congreso deben ser \"proporcionalmente iguales en todo el territorio de la Nación\". (Su alcance sobre coparticipación se detalla en el grupo 4.)", rel: "Unidad IV (4.5) · Unidad V" },
         { art: "Art. 16", dice: "Todos los habitantes son iguales ante la ley. \"La igualdad es la base del impuesto y de las cargas públicas.\" Fundamento de los principios de igualdad y generalidad.", rel: "Unidad IV (4.5) · Unidad V (teoría de la imposición)" },
         { art: "Art. 17", dice: "La propiedad es inviolable. Sólo el Congreso impone las contribuciones que se expresan en el art. 4 (principio de legalidad). Ningún servicio personal es exigible sino en virtud de ley. La confiscación de bienes queda borrada para siempre del Código Penal. Base de la legalidad y de la no confiscatoriedad.", rel: "Unidad IV (4.5 legalidad y no confiscatoriedad) · Unidad V" },
         { art: "Art. 19", dice: "Ningún habitante será obligado a hacer lo que no manda la ley, ni privado de lo que ella no prohíbe (principio de reserva de ley).", rel: "Unidad IV (4.5 legalidad / reserva)" },

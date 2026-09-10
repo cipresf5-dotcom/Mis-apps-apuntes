@@ -380,6 +380,7 @@
     let body = "";
     (c.grupos || []).forEach(g => {
       body += `<h3>${g.titulo}</h3>`;
+      if (g.nota) body += `<p class="cn-nota">${g.nota}</p>`;
       body += `<div class="cn-scroll"><table class="cn-table">
         <tr><th>${cfg.col0}</th><th>${cfg.col1}</th><th>Se relaciona con</th></tr>`;
       (g.articulos || g.leyes || []).forEach(a => {

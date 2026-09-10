@@ -307,6 +307,8 @@ html, body {
 .tema-body ul.cn-arts { margin: 8px 0 0; padding-left: 16px; border-top: 1px solid var(--border); padding-top: 6px; }
 .tema-body ul.cn-arts li { margin: 3px 0; font-size: 13px; color: var(--text-dim); }
 .tema-body ul.cn-arts li strong { color: var(--accent); }
+.tema-body .cn-nota { color: var(--text-dim); font-size: 13.5px; margin: 2px 0 8px;
+  border-left: 3px solid var(--accent-soft); padding: 6px 12px; background: var(--bg-soft); border-radius: 0 8px 8px 0; }
 
 /* ---- Parciales ---- */
 .parciales-btn { border-color: var(--accent-soft); color: var(--accent); font-weight: 600; }

@@ -66,6 +66,23 @@ window.CURSO.unidades.push({
   <li><strong>Situación o ubicación del bien (territorial):</strong> grava los bienes situados en el territorio, sea quien sea el titular. Para no residentes se aplica este criterio (con responsables sustitutos).</li>
 </ul>
 
+<h3>Unidad contribuyente y criterios de atribución</h3>
+<p>En el impuesto personal al patrimonio hay que definir la <strong>unidad contribuyente</strong>: el tratamiento de la <em>sociedad conyugal</em> (imposición conjunta —igual carga, con progresividad— vs. independiente; asignación a uno de los cónyuges o a elección de cada uno, hoy también por cuestiones de género) y del <em>patrimonio de los menores</em>. Los <strong>criterios de atribución</strong> vinculan al contribuyente con la materia gravada:</p>
+<ul>
+  <li><strong>Personales:</strong> residencia, domicilio, ciudadanía o nacionalidad.</li>
+  <li><strong>Económicos:</strong> territorio o situación del bien (teoría del beneficio).</li>
+</ul>
+<p>La combinación de criterios entre países genera <strong>doble imposición internacional</strong>, que se atenúa con convenios y con la figura del <strong>responsable sustituto</strong> (para bienes de no residentes).</p>
+
+<h3>Tratamientos alternativos (personas y empresas)</h3>
+<p>Cuando el patrimonio de las personas humanas incluye su participación en empresas, hay tres esquemas posibles:</p>
+<ul>
+  <li><strong>Integración total:</strong> se grava a la persona humana por <em>todo</em> su patrimonio neto, incluida la participación en sociedades; a la empresa se le aplica un impuesto proporcional que el socio computa como <strong>pago a cuenta</strong> en su DJ (permite el <em>control cruzado</em>).</li>
+  <li><strong>Integración parcial:</strong> se grava el patrimonio individual (con la participación en sociedades <em>de personas</em>) con alícuotas progresivas, y las sociedades <em>de capital</em> son sujeto separado; una misma actividad puede quedar gravada a alícuotas distintas.</li>
+  <li><strong>Separación (no integración):</strong> se grava por separado el patrimonio individual (alícuota progresiva) y a las sociedades de capital o de personas (alícuota proporcional), sin incorporar la participación societaria en la DJ personal.</li>
+</ul>
+<div class="callout"><strong>Bienes Personales (datos 2023, orientativos):</strong> mínimo no imponible general de $100.000.000 y de $350.000.000 para el inmueble destinado a <em>casa-habitación</em>; alícuotas del 0,50% al 1,50% (con "beneficio cumplidor", del 0,25% al 1%). <span class="muted">Los montos y las alícuotas se actualizan por ley cada año: verificar los vigentes al momento de estudiar.</span></div>
+
 <h3>Efectos económicos</h3>
 <ul>
   <li>Sobre el <strong>ahorro</strong>: puede desincentivarlo (grava la riqueza acumulada).</li>
@@ -91,6 +108,10 @@ window.CURSO.unidades.push({
   <li>Suele funcionar como <strong>impuesto mínimo</strong> complementario del impuesto a la renta: asegura que las empresas tributen aun cuando declaren pérdidas o renta baja (presunción de que el activo debe generar una renta mínima). Por eso a menudo es computable como <strong>pago a cuenta</strong> del impuesto a las ganancias, o viceversa.</li>
   <li>Tiene función de <strong>control</strong> y de incentivo al uso eficiente del activo (penaliza activos improductivos).</li>
 </ul>
+
+<h3>Fundamentos y críticas (Jarach)</h3>
+<p>Jarach señala razones que justifican gravar el capital de las empresas: como <em>sustituto</em> de los impuestos sucesorios y de las transferencias a título oneroso; como <em>adelanto</em> del impuesto personal al patrimonio neto de las personas físicas; y, considerando el valor de las acciones o participaciones, como <em>sustitutivo</em> del impuesto al patrimonio neto personal. Eiroa Vilarnovo agrega: recaudación, simplicidad, evitar distorsiones en el mercado y su uso como gravamen mínimo de <em>renta presunta</em>.</p>
+<p><strong>Argumentos en contra:</strong> puede <em>trasladarse</em> (volviéndose indirecto y regresivo); recae con más peso sobre las <em>empresas marginales y las que se inician</em>; <em>desalienta la inversión</em>, sobre todo en épocas de recesión; discrimina contra las empresas de <em>uso intensivo de capital</em>; y, si coexiste con el gravamen a las personas físicas, genera <em>doble imposición</em> (agravada cuando recae sobre el patrimonio bruto).</p>
 
 <h3>Valuación de los bienes de la empresa</h3>
 <p>Se nutre de la <strong>contabilidad</strong> y las normas impositivas:</p>

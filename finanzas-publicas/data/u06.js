@@ -87,6 +87,19 @@ window.CURSO.unidades.push({
 </ol>
 <div class="callout">El <strong>mínimo no imponible</strong> deja fuera del gravamen la renta de subsistencia (capacidad contributiva). Las <strong>deducciones por cargas de familia</strong> personalizan el impuesto según la situación del contribuyente.</div>
 
+<h3>Problemas de medición</h3>
+<p>El impuesto personal a la renta plantea dos problemas prácticos:</p>
+<ul>
+  <li><strong>Unidad contribuyente:</strong> definir si tributa el <em>individuo</em> o el <em>grupo familiar</em>. Es una cuestión discutida (sin consenso absoluto), con efectos sobre la <em>equidad</em> —dos hogares con igual ingreso total repartido distinto entre sus miembros pueden pagar distinto por la progresividad— y sobre los <em>incentivos</em> (p. ej., la decisión del segundo perceptor del hogar a trabajar).</li>
+  <li><strong>Implicancia del tiempo (imputación):</strong> como la renta es un <em>flujo</em> y no un stock, hay que definir el <strong>período fiscal</strong> y <em>cuándo</em> se imputan rentas y gastos. Criterios:
+    <ul>
+      <li><strong>Devengado:</strong> se imputa cuando nace el derecho a la renta (o la obligación del gasto), aunque no se haya cobrado o pagado.</li>
+      <li><strong>Percibido:</strong> se imputa cuando efectivamente se cobra o se paga.</li>
+      <li><strong>Devengado exigible:</strong> variante que permite imputar cuando la renta ya devengada se torna <em>exigible</em> (p. ej., ventas en cuotas).</li>
+    </ul>
+    Sobre estos cómputos incide fuertemente la <strong>inflación</strong> (rentas nominales vs. reales).</li>
+</ul>
+
 <h3>Tratamiento de las rentas irregulares</h3>
 <div class="def"><b>Rentas irregulares (no periódicas):</b> ganancias que se generan a lo largo de <em>varios años</em> pero se perciben en <strong>un solo ejercicio</strong> (indemnizaciones, derechos de autor acumulados, venta de un bien con plusvalía de años).</div>
 <p><strong>Problema:</strong> al sumarse íntegramente en el año de percepción, la <strong>progresividad las castiga</strong> en exceso (saltan a un tramo de alícuota más alto del que les correspondería si se hubieran percibido año a año). Es una <em>inequidad</em> generada por la combinación de progresividad + anualidad.</p>
@@ -178,6 +191,15 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <li><strong>Crédito de impuesto (imputación):</strong> el socio computa como pago a cuenta el impuesto que pagó la sociedad.</li>
   <li><strong>Exención o alícuota reducida</strong> sobre dividendos.</li>
 </ul>
+
+<h3>¿Integración o separación? (criterios de gravabilidad)</h3>
+<p>Sobre cómo tratar a la sociedad y al accionista hay dos posturas (Vizcaíno):</p>
+<ul>
+  <li><strong>Integración:</strong> la renta debe gravarse igual cualquiera sea la forma de organización de la empresa, recayendo la imposición definitiva en el <em>accionista</em>. Cumple la <em>neutralidad</em> (el impuesto no depende de la forma jurídica) y mide la capacidad contributiva en términos de cargas personales.</li>
+  <li><strong>Separación:</strong> la persona jurídica es un <em>sujeto distinto</em> de los tenedores de sus acciones; se grava a la sociedad y a los accionistas en forma independiente, lo que —según las tasas que se fijen— puede rendir mayores ingresos fiscales.</li>
+</ul>
+<p>Reig y Jarach abogaban por <strong>gravar a la sociedad</strong> (principio del beneficio: la sociedad de capital se beneficia usando los servicios del Estado; además se evita la evasión y se facilita la redistribución). Jarach clasificaba a los accionistas en <em>capitalistas</em> (buscan dividendos), <em>especuladores</em> (buscan la diferencia de cotización) y <em>empresarios</em> (buscan la evolución de la empresa).</p>
+<p><strong>Formas de integración:</strong> (a) <em>sistema de sociedades de personas</em> —se grava directamente a los socios, prescindiendo de la sociedad; solo viable en sociedades "cerradas"—; (b) <em>crédito por dividendos percibidos</em> —el accionista computa el impuesto pagado por la sociedad—, con los métodos de <em>retención</em>, <em>crédito parcial</em> y <em>adicional progresivo</em>; (c) <em>gravar las utilidades no distribuidas</em> o crédito por dividendos pagados —la sociedad deduce de su renta los dividendos que paga—.</p>
 
 <h3>Criterios de vinculación: Fuente vs. Renta Mundial</h3>
 <table>

@@ -18,7 +18,14 @@ window.CURSO.unidades.push({
 <p>Caracteres: prestación coactiva, en dinero, de fuente legal, <strong>no vinculada</strong> (sin contraprestación individualizada) y destinada a financiar el gasto público (finalidad fiscal, eventualmente extrafiscal).</p>
 
 <h3>Naturaleza y fundamento</h3>
-<p>Su fundamento es el <strong>deber de contribuir</strong> al sostenimiento del Estado según la <strong>capacidad contributiva</strong> (no la teoría del precio/seguro). Es expresión del poder de imperio limitado por la Constitución.</p>
+<p>Su fundamento es el <strong>deber de contribuir</strong> al sostenimiento del Estado según la <strong>capacidad contributiva</strong>. Es expresión del poder de imperio limitado por la Constitución.</p>
+<p>La doctrina financiera (García Vizcaíno) reseña varias <strong>teorías que justifican el impuesto</strong>:</p>
+<ul>
+  <li><strong>Enfoque ético (Griziotti):</strong> antes que un fenómeno jurídico, el impuesto es una norma <em>ética</em>: la vida social implica gastos colectivos que deben repartirse entre los asociados según la utilidad que obtienen de la comunidad.</li>
+  <li><strong>Teoría del cambio (precio de cambio):</strong> el impuesto se asimila a un <em>precio</em> o contraprestación por los servicios que presta el Estado.</li>
+  <li><strong>Teoría de la prima de seguro:</strong> el impuesto sería una <em>prima</em> que pagan los poseedores de bienes para que el Estado garantice la seguridad de sus personas y propiedades.</li>
+  <li><strong>Teoría de la distribución de la carga pública (Laferrière y Waline):</strong> la obligación nace de la <em>solidaridad social</em>; todos deben sostener al Estado según su capacidad. Es la postura dominante (concuerda Villegas: si los ciudadanos crearon el Estado, es lógico que contribuyan a su sostenimiento).</li>
+</ul>
 
 <h3>El hecho imponible (estructura del impuesto)</h3>
 <div class="callout"><strong>Hecho imponible:</strong> el presupuesto de hecho, descripto por la ley, cuya realización genera el nacimiento de la <strong>obligación tributaria</strong>. Es el "corazón" del tributo.</div>
@@ -106,6 +113,12 @@ window.CURSO.unidades.push({
   <li><strong>Difusión (o remoción):</strong> los efectos posteriores sobre el consumo, el ahorro y la producción de quien soportó el impuesto.</li>
 </ul>
 <p>La posibilidad de trasladar depende de las <strong>elasticidades</strong> de oferta y demanda, del tipo de mercado (más fácil en monopolio) y de la coyuntura.</p>
+<h4>Amortización y capitalización del impuesto</h4>
+<p>Efectos <em>peculiares</em> de los impuestos <strong>reales que gravan permanentemente la renta de capitales durablemente invertidos</strong>:</p>
+<ul>
+  <li><strong>Amortización:</strong> al crearse un impuesto permanente sobre el rédito de un capital, el <em>valor del bien cae</em> en un importe igual a la capitalización del impuesto futuro. <em>Ejemplo:</em> bien de $1.000 con renta neta de $50, gravada con una tasa del 10% ($5 anuales), siendo la tasa de interés del mercado 5%: el valor del bien baja $100 (de $1.000 a $900). La pérdida la sufre quien era propietario al crearse el impuesto; no afecta a futuros compradores (ya adquieren al precio rebajado).</li>
+  <li><strong>Capitalización:</strong> fenómeno inverso (Einaudi, Griziotti). La <em>derogación</em> o reducción de ese impuesto real <em>aumenta</em> el valor del bien: quien compró en $900, al derogarse el gravamen y mantenerse la tasa, ve subir el precio a $1.000.</li>
+</ul>
 
 <h3>El exceso de carga (peso muerto, "excess burden")</h3>
 <div class="callout"><strong>Exceso de carga:</strong> es la pérdida de bienestar que provoca un impuesto <em>por encima</em> de la recaudación que obtiene el Estado. Surge porque el impuesto <strong>distorsiona las decisiones</strong> (efecto sustitución) y reduce el volumen de transacciones por debajo del óptimo.</div>
@@ -121,6 +134,19 @@ window.CURSO.unidades.push({
 <h3>La Curva de Laffer</h3>
 <div class="def">Relaciona la <strong>alícuota</strong> del impuesto con la <strong>recaudación</strong>. Tiene forma de "U invertida": con alícuota 0% la recaudación es 0; con alícuota 100% también es 0 (nadie produce/declara). Existe un punto intermedio de <strong>recaudación máxima</strong>.</div>
 <p>Implicancia: a partir de cierto nivel, <strong>subir la alícuota reduce la recaudación</strong> (por desincentivo a producir y por aumento de evasión/elusión). Es un argumento (discutido en su aplicación empírica) a favor de no sobrecargar las alícuotas.</p>
+
+<h3>Teoría de la imposición óptima</h3>
+<p>Estudia cómo <strong>diseñar los impuestos para minimizar la distorsión y la ineficiencia</strong> (el exceso de carga) sin resignar la recaudación necesaria. Un <em>impuesto neutral</em> es el que no altera las decisiones económicas; como casi todos los impuestos son distorsivos (entre dos inversiones de igual riesgo y rentabilidad, el contribuyente elige la de menor carga), la imposición óptima busca el <em>menor sacrificio de eficiencia</em> compatible con los objetivos de equidad y suficiencia.</p>
+
+<h3>Principios económicos de la imposición (Neumark)</h3>
+<p>Un sistema tributario debe observar principios que, con frecuencia, entran en conflicto entre sí (equidad vs. eficiencia). Neumark agrupa, entre los de fines político-sociales:</p>
+<ul>
+  <li><strong>Generalidad:</strong> el impuesto debe alcanzar a todos los sujetos con capacidad contributiva.</li>
+  <li><strong>Igualdad:</strong> tratar igual a quienes están en igual situación.</li>
+  <li><strong>Capacidad de pago:</strong> la carga debe ser igualmente onerosa, en términos relativos, para cada contribuyente.</li>
+  <li><strong>Redistribución:</strong> atenuar, mediante la imposición, las desigualdades de renta que genera el mercado.</li>
+</ul>
+<p class="muted">Se complementan con los principios económico-técnicos: economía (bajo costo de recaudación), neutralidad, comodidad en el pago, productividad y no gravar actividades que recién se inician.</p>
 `
     },
     {

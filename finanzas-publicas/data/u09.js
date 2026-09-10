@@ -39,6 +39,9 @@ window.CURSO.unidades.push({
 
 <h3>Organismos de control y marco legal</h3>
 <p>En Argentina, la <strong>Ley 24.156</strong> (Administración Financiera) regula el sistema de crédito público (arts. 56 a 71): toda operación requiere <strong>autorización legal</strong> (en la ley de presupuesto o ley especial). Controlan: la <strong>Oficina Nacional de Crédito Público</strong> (órgano rector), la <strong>SIGEN</strong> (control interno) y la <strong>AGN</strong> (control externo, depende del Congreso). Rige el principio de legalidad: no hay endeudamiento válido sin ley.</p>
+
+<h3>La autorización legal (Ley 24.156)</h3>
+<p>El <strong>art. 56</strong> define el crédito público como la capacidad del Estado de endeudarse para <em>inversiones reproductivas</em>, atender casos de <em>evidente necesidad nacional</em>, <em>reestructurar</em> su organización o <em>refinanciar</em> pasivos (la doctrina discute si esa enumeración es <em>limitativa</em> o meramente <em>enunciativa</em>). La <strong>ley de presupuesto</strong> debe indicar, como mínimo, para cada operación autorizada (<strong>art. 60</strong>): el <strong>tipo de deuda</strong> (interna o externa), el <strong>monto máximo</strong>, el <strong>plazo mínimo de amortización</strong> y el <strong>destino</strong> del financiamiento. Ninguna entidad del sector público puede iniciar operaciones sin autorización previa de la Secretaría de Hacienda (art. 59); la Oficina Nacional de Crédito Público fiscaliza que los fondos se apliquen a sus fines (arts. 68-69).</p>
 `
     },
     {
@@ -124,6 +127,14 @@ window.CURSO.unidades.push({
   <li><strong>Riesgo país</strong> (spread sobre bonos del Tesoro de EE.UU.): refleja la <strong>percepción de los mercados</strong> sobre la probabilidad de default.</li>
 </ul>
 
+<h4>Presión crediticia y familias de indicadores</h4>
+<p>Análogamente a la <em>presión tributaria</em>, la <strong>presión crediticia</strong> relaciona los <em>recursos crediticios</em> que obtiene el Estado con el PBI (o la renta nacional), mostrando cuánto extrae de la economía por vía del crédito. Los indicadores suelen agruparse en:</p>
+<ul>
+  <li><strong>Stock-stock:</strong> Deuda/población (per cápita), Deuda/patrimonio nacional, Deuda/inversión pública.</li>
+  <li><strong>Stock-flujo:</strong> Deuda/PBI, Deuda/presupuesto anual, Deuda externa/exportaciones.</li>
+  <li><strong>Flujo-flujo:</strong> recursos crediticios/PBI (presión crediticia) y —el más representativo— <strong>servicios de la deuda (intereses + amortización)/PBI</strong> y servicios/exportaciones.</li>
+</ul>
+
 <h3>Sostenibilidad de la deuda</h3>
 <div class="callout">La deuda es <strong>sostenible</strong> si el cociente Deuda/PBI no crece indefinidamente. Depende de: la <strong>tasa de interés (r)</strong>, la <strong>tasa de crecimiento de la economía (g)</strong> y el <strong>resultado fiscal primario</strong>. <br><strong>Condición clave:</strong> si la tasa de interés supera el crecimiento (r &gt; g), se necesita <strong>superávit primario</strong> para estabilizar la deuda; si g &gt; r, la deuda puede estabilizarse aun con déficit primario moderado.</div>
 <p class="muted">Una crisis de deuda no surge solo del nivel, sino de la <strong>dinámica</strong> (perfil de vencimientos, moneda, tasa) y de la <strong>confianza</strong> (acceso al refinanciamiento).</p>
@@ -142,6 +153,7 @@ window.CURSO.unidades.push({
   <li><strong>Tesis del acto de soberanía (Jarach y otros):</strong> es un <strong>acto unilateral</strong> de soberanía del Estado (sobre todo en empréstitos forzosos o cuando el Estado modifica condiciones); no sería un contrato común.</li>
   <li><strong>Postura mixta:</strong> es contractual en su origen pero el Estado conserva prerrogativas de derecho público.</li>
 </ul>
+<p class="muted">Quienes niegan la naturaleza contractual (Drago, Ingrosso, Sayagués Laso, Giuliani Fonrouge) se apoyan en que: los empréstitos se emiten en virtud del <em>poder soberano</em>; surgen de <em>autorización legislativa</em> que fija sus condiciones; no hay <em>persona determinada</em> a cuyo favor se obliguen; el incumplimiento <em>no da acción judicial</em> (el servicio se atiende o suspende por actos de soberanía); y no hay <em>acuerdo de voluntades</em> (los títulos se lanzan al mercado con valor prefijado).</p>
 
 <h3>Clasificación del empréstito</h3>
 <ul>
@@ -164,6 +176,9 @@ window.CURSO.unidades.push({
   <li><strong>Negociación/cotización:</strong> los títulos se negocian en el mercado secundario; su precio refleja la confianza (riesgo).</li>
   <li><strong>Servicio:</strong> el pago periódico de <em>renta</em> (interés) y la <em>amortización</em> del capital según el plan (sistema francés, alemán, americano, bullet).</li>
 </ul>
+
+<h3>Garantías del empréstito</h3>
+<p>Para hacer más atractiva la suscripción, el Estado suele ofrecer garantías: <strong>reales</strong> (afectación de bienes o rentas determinadas), <strong>personales</strong> (un tercero se compromete al pago), <strong>especiales</strong> (afectación de ingresos específicos, p. ej. de una aduana) y <strong>contra fluctuaciones monetarias</strong> (cláusulas de ajuste por índices, oro o moneda extranjera, para proteger al acreedor de la desvalorización).</p>
 `
     },
     {

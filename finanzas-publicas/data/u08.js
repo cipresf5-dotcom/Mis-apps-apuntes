@@ -74,6 +74,14 @@ window.CURSO.unidades.push({
 
 <h3>Características generales</h3>
 <p>Son <strong>indirectos, reales, trasladables</strong> (recaen en el consumidor final), de alta productividad recaudatoria y, en general, <strong>regresivos</strong> respecto del ingreso. Para atenuar la regresividad se usan <strong>exenciones</strong> o <strong>alícuotas diferenciales</strong> sobre bienes de la canasta básica.</p>
+
+<h3>Impuestos específicos (selectivos): justificación</h3>
+<p>Se aplican generalmente en la <strong>primera etapa</strong> del proceso, sobre una gama <em>limitada</em> de productos que no sufren transformaciones posteriores (combustibles, tabaco, bebidas alcohólicas, artículos de lujo). Son indirectos, monofásicos, y pueden ser ad valorem o específicos. Su justificación:</p>
+<ul>
+  <li><strong>Fin extrafiscal (impuestos correctivos):</strong> compensan <em>externalidades negativas</em> del consumo. <em>Combustibles:</em> recuperar los costos que el tránsito ocasiona (cercano a un peaje), regular la contaminación y limitar el uso de un recurso no renovable. <em>Bebidas alcohólicas y tabaco:</em> recuperar costos en salud y desalentar el consumo nocivo.</li>
+  <li><strong>Teoría del beneficio:</strong> deben aportar más al Estado quienes más servicios reciben de él.</li>
+  <li><strong>Eficiencia y equidad:</strong> producen <em>poca carga excedente</em> cuando gravan bienes de <strong>demanda inelástica</strong>; gravar artículos de lujo tiene menor costo político e introduce algo de progresividad. Por equidad se aconseja <em>no</em> gravar los artículos de primera necesidad (su imposición sería regresiva).</li>
+</ul>
 `
     },
     {
@@ -192,6 +200,8 @@ window.CURSO.unidades.push({
   <li>Bajan el <strong>precio interno</strong> de los bienes exportables (efecto antiinflacionario y redistributivo a favor del consumo interno).</li>
   <li>Alta capacidad recaudatoria y fácil cobro; pero pueden ser <strong>distorsivas</strong> y desalentar inversión en el sector.</li>
 </ul>
+<h4>Régimen cambiario (gravamen implícito)</h4>
+<p>El tipo de cambio puede operar como un tributo <em>encubierto</em>: bajo control de cambios, el monopolio del mercado de divisas por el Banco Central y la brecha entre el <em>tipo comprador</em> y el <em>tipo vendedor</em> equivalen a un gravamen sobre quienes compran divisas (y un subsidio a quienes las venden). Sumado a las retenciones, el esquema reduce el precio que reciben los exportadores y busca contener los precios internos.</p>
 <div class="callout"><strong>Principio de imposición en destino:</strong> el comercio internacional se grava donde se <em>consume</em> el bien. Por eso las <strong>exportaciones se eximen / gravan a tasa cero</strong> (con devolución del IVA) — para no "exportar impuestos" — y las importaciones tributan el IVA local, igualando la competencia.</div>
 `
     }

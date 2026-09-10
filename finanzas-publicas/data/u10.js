@@ -111,12 +111,17 @@ window.CURSO.unidades.push({
       id: "10.4",
       titulo: "El ciclo presupuestario: programación, aprobación, ejecución y control. Cuenta de Inversión",
       contenido: `
-<p>El <strong>ciclo (o dinámica) presupuestario</strong> es el conjunto de etapas que recorre el presupuesto, desde su elaboración hasta el control de su ejecución. En Argentina lo regula la <strong>Ley 24.156</strong>.</p>
+<p>El <strong>ciclo (o dinámica) presupuestario</strong> es el conjunto de etapas que recorre el presupuesto, desde su elaboración hasta el control de su ejecución. En Argentina lo regula la <strong>Ley 24.156</strong> de Administración Financiera (la ley de presupuesto consta de tres títulos —art. 19—: disposiciones generales, presupuesto de la administración central y de los organismos descentralizados; las disposiciones generales no pueden crear ni modificar tributos —art. 20—), complementada por la <strong>Ley de Solvencia Fiscal 25.152</strong> y la <strong>Ley de Responsabilidad Fiscal 25.917</strong> (a la que el Chaco adhirió por Ley 5483, con su propia Ley de Administración Financiera 4787).</p>
 
 <h3>1. Preparación / Formulación (Poder Ejecutivo)</h3>
 <ul>
   <li>La <strong>Oficina Nacional de Presupuesto</strong> (órgano rector) coordina; cada jurisdicción elabora su anteproyecto según las políticas y techos fijados.</li>
   <li>El <strong>Ejecutivo</strong> consolida el <strong>proyecto de ley</strong> de presupuesto y lo envía al Congreso (antes del 15 de septiembre).</li>
+</ul>
+<h4>Métodos de estimación de gastos y recursos</h4>
+<ul>
+  <li><strong>Cálculo de los gastos:</strong> por <em>apreciación directa</em> para los gastos obligatorios e ineludibles (personal —planta, escalafón, aportes patronales—, intereses de la deuda según los contratos, obra pública según certificaciones, alquileres según contratos); y en base a los <em>registros contables</em> (gastos históricos y su evolución) para los gastos de operación que no pueden estimarse directamente (servicios, insumos).</li>
+  <li><strong>Cálculo de los recursos:</strong> por <em>valuación directa</em> (estimación de los rendimientos probables a partir de datos estadísticos e indicadores macroeconómicos: PBI, inflación, sectores); por el método <em>automático</em> (toma lo recaudado en el último ejercicio); por <em>promedios</em> (promedio de tres o más ejercicios); o por el método <em>combinado</em> (mixto de los anteriores).</li>
 </ul>
 
 <h3>2. Discusión y aprobación (Poder Legislativo)</h3>

@@ -8,6 +8,16 @@ $src = "C:\Users\franc\OneDrive\Escritorio\3ro\Finanzas Publicas\App Finanzas Pu
 $dst = Join-Path $PSScriptRoot "..\finanzas-publicas"
 $repoRoot = Join-Path $PSScriptRoot ".."
 
+# Estampar fecha y hora de la última actualización en la fuente (data\curso.js)
+$now = Get-Date -Format 'dd/MM/yyyy HH:mm'
+$cursoPath = Join-Path $src "data\curso.js"
+if (Test-Path $cursoPath) {
+  $contenido = Get-Content $cursoPath -Raw
+  $contenido = [regex]::Replace($contenido, 'window\.CURSO\.actualizado = "[^"]*";', "window.CURSO.actualizado = `"$now`";")
+  [System.IO.File]::WriteAllText($cursoPath, $contenido, (New-Object System.Text.UTF8Encoding($false)))
+  Write-Host "Sello de actualizacion: $now" -ForegroundColor Green
+}
+
 function Copy-If-Exists($relPath) {
   $from = Join-Path $src $relPath
   $to = Join-Path $dst $relPath

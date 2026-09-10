@@ -134,6 +134,13 @@
       cont.appendChild(renderPracticos(u));
     }
 
+    // Sección de Repaso interactivo (si la unidad la tiene)
+    if (u.repaso && ((u.repaso.vf && u.repaso.vf.length) ||
+                     (u.repaso.fill && u.repaso.fill.length) ||
+                     (u.repaso.analisis && u.repaso.analisis.length))) {
+      cont.appendChild(renderRepaso(u));
+    }
+
     // Navegación
     const idx = CURSO.unidades.findIndex(x => x.id === id);
     const prev = CURSO.unidades[idx - 1], next = CURSO.unidades[idx + 1];
@@ -372,6 +379,128 @@
     return wrap;
   }
 
+  // ---- Repaso interactivo (V/F, Completar, Análisis) ----
+  function normalizeTxt(s) {
+    return (s || "").toLowerCase().trim().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+  }
+
+  function updateRepasoScore(wrap) {
+    const mcAns = wrap.querySelectorAll(".mc-q.answered");
+    const fillAns = wrap.querySelectorAll(".rp-fill.answered");
+    let ok = 0;
+    mcAns.forEach(q => { if (!q.querySelector(".mc-op.wrong")) ok++; });
+    fillAns.forEach(f => { if (f.classList.contains("rp-ok")) ok++; });
+    const done = wrap.querySelector(".rp-done"), okc = wrap.querySelector(".rp-okc");
+    if (done) done.textContent = mcAns.length + fillAns.length;
+    if (okc) okc.textContent = ok;
+  }
+
+  function renderRepaso(u) {
+    const r = u.repaso || {};
+    const vf = r.vf || [], fill = r.fill || [], analisis = r.analisis || [];
+    const total = vf.length + fill.length;
+
+    let body = r.intro ? `<p class="muted">${r.intro}</p>` : "";
+    body += `<div class="mc-scorebar">Respondidas <span class="rp-done">0</span>/${total} · Correctas <span class="rp-okc">0</span></div>`;
+
+    if (vf.length) {
+      body += `<h2 class="parcial-unidad">Verdadero / Falso</h2>`;
+      vf.forEach((it, i) => {
+        body += `
+          <div class="mc-q" data-correct="${it.v ? 0 : 1}">
+            <div class="q">${i + 1}. ${it.q}</div>
+            <div class="mc-ops">
+              <button class="mc-op" data-i="0"><b>V)</b> Verdadero</button>
+              <button class="mc-op" data-i="1"><b>F)</b> Falso</button>
+            </div>
+            <div class="mc-exp">${it.exp}</div>
+          </div>`;
+      });
+    }
+
+    if (fill.length) {
+      body += `<h2 class="parcial-unidad">Completar</h2>`;
+      fill.forEach((it, i) => {
+        body += `
+          <div class="rp-fill">
+            <div class="q">${i + 1}. ${it.q}</div>
+            <input type="text" class="rp-input" placeholder="Escribí tu respuesta...">
+            <button class="rp-check">Verificar</button>
+            <div class="feedback rp-fb"></div>
+          </div>`;
+      });
+    }
+
+    if (analisis.length) {
+      body += `<h2 class="parcial-unidad">Análisis</h2>`;
+      analisis.forEach((it, i) => {
+        body += `
+          <div class="tp">
+            <div class="tp-consigna">${i + 1}. ${it.q}</div>
+            <details class="tp-toggle"><summary>Ver respuesta modelo</summary>
+            <div class="tp-resp">${it.a}</div></details>
+          </div>`;
+      });
+    }
+
+    const wrap = el("div", { className: "tema repaso-block" });
+    wrap.innerHTML = `
+      <div class="tema-head">
+        <div class="tp-badge">✎</div>
+        <div class="tema-title">Repaso interactivo</div>
+        <div class="tema-chevron">▶</div>
+      </div>
+      <div class="tema-body">${body}</div>`;
+    $(".tema-head", wrap).addEventListener("click", () => wrap.classList.toggle("open"));
+
+    // V/F (reusa el motor de multiple choice)
+    wrap.querySelectorAll(".mc-q").forEach(q => {
+      const correct = parseInt(q.getAttribute("data-correct"), 10);
+      q.querySelectorAll(".mc-op").forEach(op => {
+        op.addEventListener("click", () => {
+          if (q.classList.contains("answered")) return;
+          q.classList.add("answered");
+          const i = parseInt(op.getAttribute("data-i"), 10);
+          q.querySelectorAll(".mc-op").forEach(o => {
+            const oi = parseInt(o.getAttribute("data-i"), 10);
+            if (oi === correct) o.classList.add("correct");
+            o.disabled = true;
+          });
+          if (i !== correct) op.classList.add("wrong");
+          const exp = q.querySelector(".mc-exp");
+          if (exp) exp.classList.add("show");
+          updateRepasoScore(wrap);
+        });
+      });
+    });
+
+    // Completar
+    wrap.querySelectorAll(".rp-fill").forEach((f, idx) => {
+      const item = fill[idx];
+      const input = f.querySelector(".rp-input");
+      const btn = f.querySelector(".rp-check");
+      const fb = f.querySelector(".rp-fb");
+      const check = () => {
+        if (f.classList.contains("answered")) return;
+        f.classList.add("answered");
+        const val = normalizeTxt(input.value);
+        const ok = (item.resp || []).some(a => {
+          const na = normalizeTxt(a);
+          return na === val || (val.length > 1 && val.includes(na));
+        });
+        input.disabled = true; btn.disabled = true;
+        if (ok) f.classList.add("rp-ok");
+        fb.innerHTML = ok ? `Correcto. Respuesta: <b>${item.sol}</b>` : `Respuesta correcta: <b>${item.sol}</b>`;
+        fb.className = "feedback rp-fb show " + (ok ? "ok" : "no");
+        updateRepasoScore(wrap);
+      };
+      btn.addEventListener("click", check);
+      input.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+    });
+
+    return wrap;
+  }
+
   // ---- Tema de color (claro/oscuro) ----
   function applyTheme(mode) {
     if (mode === "light") document.documentElement.setAttribute("data-theme", "light");
@@ -423,6 +552,15 @@
       const node = $(sel);
       if (node) node.addEventListener("click", () => { if (mq.matches) closeNav(); });
     });
+  })();
+
+  // ---- Última actualización (fecha y hora del último deploy) ----
+  (function mountLastUpdate() {
+    const sb = $("#sidebar");
+    const stamp = window.CURSO && window.CURSO.actualizado;
+    if (!sb || !stamp) return;
+    sb.appendChild(el("div", { className: "last-update" },
+      `Última actualización<br><b>${stamp}</b>`));
   })();
 
   // ---- Arranque ----

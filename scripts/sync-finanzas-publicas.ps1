@@ -12,7 +12,7 @@ $repoRoot = Join-Path $PSScriptRoot ".."
 $now = Get-Date -Format 'dd/MM/yyyy HH:mm'
 $cursoPath = Join-Path $src "data\curso.js"
 if (Test-Path $cursoPath) {
-  $contenido = Get-Content $cursoPath -Raw
+  $contenido = Get-Content $cursoPath -Raw -Encoding UTF8
   $contenido = [regex]::Replace($contenido, 'window\.CURSO\.actualizado = "[^"]*";', "window.CURSO.actualizado = `"$now`";")
   [System.IO.File]::WriteAllText($cursoPath, $contenido, (New-Object System.Text.UTF8Encoding($false)))
   Write-Host "Sello de actualizacion: $now" -ForegroundColor Green

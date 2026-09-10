@@ -77,7 +77,7 @@
     localStorage.removeItem(LAST_KEY);
     renderSidebar(null);
     setParcialActive(false);
-    setCnActive(false);
+    setRefActive(null);
     const view = $("#view");
     view.innerHTML = `
       <div class="home-hero">
@@ -107,7 +107,7 @@
     localStorage.setItem(LAST_KEY, String(id));
     renderSidebar(id);
     setParcialActive(false);
-    setCnActive(false);
+    setRefActive(null);
     $("#content").scrollTop = 0;
 
     const view = $("#view");
@@ -202,7 +202,7 @@
     localStorage.removeItem(LAST_KEY);
     renderSidebar(null);
     setParcialActive(n);
-    setCnActive(false);
+    setRefActive(null);
     $("#content").scrollTop = 0;
 
     const p = (n === 2) ? window.CURSO.parcial2 : window.CURSO.parcial1;
@@ -348,31 +348,41 @@
     });
   }
 
-  function setCnActive(on) {
-    const btn = $("#cn-btn");
-    if (btn) btn.classList.toggle("active", !!on);
+  // ---- Apartados de referencia (Constitución y Leyes) ----
+  const REF = {
+    constitucion: { key: "constitucion", btn: "#cn-btn", titulo: "Constitución Nacional",
+      col0: "Artículo", col1: "Qué dice", store: () => window.CURSO.constitucion },
+    leyes: { key: "leyes", btn: "#leyes-btn", titulo: "Leyes y normas relacionadas",
+      col0: "Ley / Norma", col1: "Qué regula", store: () => window.CURSO.leyes }
+  };
+
+  function setRefActive(key) {
+    Object.values(REF).forEach(r => {
+      const b = $(r.btn);
+      if (b) b.classList.toggle("active", r.key === key);
+    });
   }
 
-  // ---- Constitución Nacional (apartado de referencia) ----
-  function renderConstitucion() {
+  function renderReference(key) {
+    const cfg = REF[key];
     localStorage.removeItem(LAST_KEY);
     renderSidebar(null);
     setParcialActive(false);
-    setCnActive(true);
+    setRefActive(key);
     $("#content").scrollTop = 0;
 
-    const c = window.CURSO.constitucion;
+    const c = cfg.store();
     const view = $("#view");
     if (!c) {
-      view.innerHTML = `<div class="unit-head"><h1>Constitución Nacional</h1></div><p class="placeholder">No hay datos cargados.</p>`;
+      view.innerHTML = `<div class="unit-head"><h1>${cfg.titulo}</h1></div><p class="placeholder">No hay datos cargados.</p>`;
       return;
     }
     let body = "";
     (c.grupos || []).forEach(g => {
       body += `<h3>${g.titulo}</h3>`;
       body += `<div class="cn-scroll"><table class="cn-table">
-        <tr><th>Artículo</th><th>Qué dice</th><th>Se relaciona con</th></tr>`;
-      (g.articulos || []).forEach(a => {
+        <tr><th>${cfg.col0}</th><th>${cfg.col1}</th><th>Se relaciona con</th></tr>`;
+      (g.articulos || g.leyes || []).forEach(a => {
         body += `<tr><td><strong>${a.art}</strong></td><td>${a.dice}</td><td>${a.rel}</td></tr>`;
       });
       body += `</table></div>`;
@@ -380,7 +390,7 @@
     view.innerHTML = `
       <div class="unit-head">
         <div class="eyebrow">Referencia</div>
-        <h1>Constitución Nacional</h1>
+        <h1>${cfg.titulo}</h1>
         <div class="biblio">${c.intro}</div>
       </div>
       <div class="tema-body cn-body">${body}</div>`;
@@ -406,16 +416,23 @@
     }
   })();
 
-  // Inserta el botón de Constitución Nacional en la barra lateral
-  (function mountConstitucionBtn() {
-    if (!window.CURSO || !window.CURSO.constitucion) return;
+  // Inserta los botones de referencia (Constitución y Leyes) en la barra lateral
+  (function mountRefBtns() {
     const list = $("#unit-list");
-    if (!list) return;
-    const anchor = $("#parcial2-btn") || $("#parcial1-btn") || list;
-    const b = el("button", { id: "cn-btn", className: "ghost-btn parciales-btn",
-      title: "Artículos de la Constitución Nacional" }, "📜 Constitución Nacional");
-    b.addEventListener("click", () => renderConstitucion());
-    anchor.insertAdjacentElement("afterend", b);
+    if (!list || !window.CURSO) return;
+    let anchor = $("#parcial2-btn") || $("#parcial1-btn") || list;
+    if (window.CURSO.constitucion) {
+      const b = el("button", { id: "cn-btn", className: "ghost-btn parciales-btn",
+        title: "Artículos de la Constitución Nacional" }, "📜 Constitución Nacional");
+      b.addEventListener("click", () => renderReference("constitucion"));
+      anchor.insertAdjacentElement("afterend", b); anchor = b;
+    }
+    if (window.CURSO.leyes) {
+      const b = el("button", { id: "leyes-btn", className: "ghost-btn parciales-btn",
+        title: "Leyes y normas relacionadas con las unidades" }, "⚖️ Leyes relacionadas");
+      b.addEventListener("click", () => renderReference("leyes"));
+      anchor.insertAdjacentElement("afterend", b);
+    }
   })();
 
   // Bloque colapsable de Trabajos Prácticos (sin checkbox de progreso)
@@ -601,7 +618,7 @@
     });
     bd.addEventListener("click", closeNav);
     // Cerrar el menú al elegir una unidad, un parcial, o volver al inicio
-    ["#unit-list", "#parcial1-btn", "#parcial2-btn", "#cn-btn", ".brand"].forEach(sel => {
+    ["#unit-list", "#parcial1-btn", "#parcial2-btn", "#cn-btn", "#leyes-btn", ".brand"].forEach(sel => {
       const node = $(sel);
       if (node) node.addEventListener("click", () => { if (mq.matches) closeNav(); });
     });

@@ -383,7 +383,10 @@
       body += `<div class="cn-scroll"><table class="cn-table">
         <tr><th>${cfg.col0}</th><th>${cfg.col1}</th><th>Se relaciona con</th></tr>`;
       (g.articulos || g.leyes || []).forEach(a => {
-        body += `<tr><td><strong>${a.art}</strong></td><td>${a.dice}</td><td>${a.rel}</td></tr>`;
+        const arts = (a.arts && a.arts.length)
+          ? `<ul class="cn-arts">${a.arts.map(x => `<li><strong>${x.n}</strong> — ${x.t}</li>`).join("")}</ul>`
+          : "";
+        body += `<tr><td><strong>${a.art}</strong></td><td>${a.dice}${arts}</td><td>${a.rel}</td></tr>`;
       });
       body += `</table></div>`;
     });

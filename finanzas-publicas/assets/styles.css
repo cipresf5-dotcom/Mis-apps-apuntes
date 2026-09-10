@@ -304,6 +304,9 @@ html, body {
 .tema-body table.cn-table td:nth-child(1) { color: var(--accent); font-weight: 600; word-break: break-word; }
 .tema-body table.cn-table th:nth-child(3),
 .tema-body table.cn-table td:nth-child(3) { color: var(--text-dim); font-size: 13px; }
+.tema-body ul.cn-arts { margin: 8px 0 0; padding-left: 16px; border-top: 1px solid var(--border); padding-top: 6px; }
+.tema-body ul.cn-arts li { margin: 3px 0; font-size: 13px; color: var(--text-dim); }
+.tema-body ul.cn-arts li strong { color: var(--accent); }
 
 /* ---- Parciales ---- */
 .parciales-btn { border-color: var(--accent-soft); color: var(--accent); font-weight: 600; }

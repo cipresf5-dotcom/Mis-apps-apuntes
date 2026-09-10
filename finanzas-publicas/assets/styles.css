@@ -293,12 +293,17 @@ html, body {
 }
 .last-update b { color: var(--text-dim); }
 
-/* ---- Constitución Nacional ---- */
+/* ---- Apartados de referencia (Constitución / Leyes) ---- */
 .tema-body.cn-body { display: block; }
 .tema-body .cn-scroll { overflow-x: auto; margin: 4px 0 10px; }
-.tema-body table.cn-table td:first-child { white-space: nowrap; color: var(--accent); font-weight: 600; vertical-align: top; }
-.tema-body table.cn-table th:last-child,
-.tema-body table.cn-table td:last-child { color: var(--text-dim); font-size: 13px; }
+.tema-body table.cn-table { table-layout: fixed; min-width: 640px; }
+.tema-body table.cn-table th, .tema-body table.cn-table td { vertical-align: top; }
+.tema-body table.cn-table th:nth-child(1), .tema-body table.cn-table td:nth-child(1) { width: 19%; }
+.tema-body table.cn-table th:nth-child(2), .tema-body table.cn-table td:nth-child(2) { width: 56%; }
+.tema-body table.cn-table th:nth-child(3), .tema-body table.cn-table td:nth-child(3) { width: 25%; }
+.tema-body table.cn-table td:nth-child(1) { color: var(--accent); font-weight: 600; word-break: break-word; }
+.tema-body table.cn-table th:nth-child(3),
+.tema-body table.cn-table td:nth-child(3) { color: var(--text-dim); font-size: 13px; }
 
 /* ---- Parciales ---- */
 .parciales-btn { border-color: var(--accent-soft); color: var(--accent); font-weight: 600; }

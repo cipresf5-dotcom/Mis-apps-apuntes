@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escritura Científica en Economía</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --paper:#EEF1F3;
+    --surface:#FFFFFF;
+    --surface-2:#E3E8EC;
+    --ink:#16213D;
+    --ink-soft:#4A5670;
+    --ink-faint:#7C8699;
+    --accent-gold:#93690F;
+    --accent-gold-bg:#F3E7CE;
+    --accent-red:#A63D2C;
+    --accent-red-bg:#F5E1DC;
+    --accent-teal:#256B54;
+    --accent-teal-bg:#DCEEE6;
+    --line: rgba(22,33,61,0.14);
+    --shadow: 0 1px 2px rgba(22,33,61,0.06), 0 10px 28px rgba(22,33,61,0.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0D1424;
+      --surface:#151E35;
+      --surface-2:#1D2A46;
+      --ink:#E9ECF5;
+      --ink-soft:#B6C0D8;
+      --ink-faint:#8492B0;
+      --accent-gold:#DCAB55;
+      --accent-gold-bg:#3A2E15;
+      --accent-red:#E38670;
+      --accent-red-bg:#3B201A;
+      --accent-teal:#63C2A2;
+      --accent-teal-bg:#112E26;
+      --line: rgba(233,236,245,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 28px rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0D1424;
+    --surface:#151E35;
+    --surface-2:#1D2A46;
+    --ink:#E9ECF5;
+    --ink-soft:#B6C0D8;
+    --ink-faint:#8492B0;
+    --accent-gold:#DCAB55;
+    --accent-gold-bg:#3A2E15;
+    --accent-red:#E38670;
+    --accent-red-bg:#3B201A;
+    --accent-teal:#63C2A2;
+    --accent-teal-bg:#112E26;
+    --line: rgba(233,236,245,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 28px rgba(0,0,0,0.4);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    padding:0 20px 64px;
+  }
+  h1,h2,h3,h4{
+    font-family:"Fraunces", Georgia, serif;
+    text-wrap:balance;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--accent-gold);}
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+
+  /* ---------- header ---------- */
+  .masthead{
+    max-width:1180px;
+    margin:0 auto;
+    padding:40px 0 24px;
+    border-bottom:2px solid var(--ink);
+  }
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:10px;
+  }
+  .masthead h1{
+    font-size:clamp(28px,4.2vw,44px);
+    line-height:1.08;
+    max-width:16ch;
+  }
+  .masthead p{
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin-top:10px;
+    font-size:16px;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink-soft);
+    background:var(--surface);
+  }
+
+  /* ---------- layout ---------- */
+  .layout{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:220px minmax(0,1fr);
+    gap:48px;
+    align-items:start;
+  }
+  nav.toc{
+    position:sticky;
+    top:20px;
+    padding:20px 0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  nav.toc a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:14px;
+    padding:7px 10px;
+    border-radius:8px;
+    border-left:2px solid transparent;
+  }
+  nav.toc a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.toc .toc-num{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-faint); margin-right:6px;}
+
+  main{min-width:0; padding-top:8px;}
+  section{
+    max-width:760px;
+    margin:0 0 56px;
+    scroll-margin-top:20px;
+  }
+  section > .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:6px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .sec-num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:14px;
+    color:var(--surface);
+    background:var(--ink);
+    padding:4px 9px;
+    border-radius:6px;
+    flex:none;
+  }
+  section h2{font-size:clamp(22px,3vw,28px);}
+  .sec-sub{color:var(--ink-faint); font-size:14px; margin-top:2px;}
+
+  p{margin:0 0 12px; max-width:68ch;}
+  .lede{color:var(--ink-soft); font-size:17px;}
+
+  /* ---------- generic components ---------- */
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0;}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .card h3{font-size:16px; margin-bottom:6px;}
+  .card p{font-size:14px; color:var(--ink-soft); margin-bottom:0;}
+  .card .card-label{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent-gold); margin-bottom:6px; display:block;
+  }
+
+  .note{
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent-gold);
+    background:var(--accent-gold-bg);
+    border-radius:0 10px 10px 0;
+    padding:12px 16px;
+    font-size:14.5px;
+    color:var(--ink);
+    margin:16px 0;
+  }
+  .note strong{color:var(--accent-gold);}
+
+  .order-list{
+    list-style:none; padding:0; margin:18px 0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .order-list li{
+    display:grid;
+    grid-template-columns:34px 1fr 46px;
+    align-items:center;
+    gap:12px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:9px 14px;
+    font-size:14.5px;
+  }
+  .order-list .pos{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px; color:var(--ink-faint);
+  }
+  .order-list .write-order{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    text-align:right;
+    color:var(--accent-gold);
+    font-weight:600;
+  }
+
+  table{border-collapse:collapse; width:100%; font-size:14.5px; margin:14px 0;}
+  th,td{border-bottom:1px solid var(--line); text-align:left; padding:8px 10px; vertical-align:top;}
+  th{font-family:"IBM Plex Mono",monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); font-weight:600;}
+
+  .subsec{margin-top:28px;}
+  .subsec h3{font-size:19px; margin-bottom:8px;}
+  .subsec h3 .en{font-family:"Source Sans 3",sans-serif; font-weight:400; font-style:italic; color:var(--ink-faint); font-size:14px; margin-left:6px;}
+
+  blockquote{
+    margin:16px 0; padding:10px 18px;
+    border-left:3px solid var(--ink-faint);
+    font-family:"Fraunces",serif; font-style:italic;
+    color:var(--ink-soft); font-size:16px;
+  }
+
+  /* ---------- fallacy cards ---------- */
+  .fal-legend{
+    display:flex; gap:14px; margin:10px 0 18px; font-size:13px; color:var(--ink-faint); flex-wrap:wrap;
+  }
+  .fal-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .fal-grid{display:flex; flex-direction:column; gap:10px;}
+  .fal-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent-red);
+    border-radius:0 10px 10px 0;
+    padding:14px 18px;
+  }
+  .fal-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .fal-num{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent-red); flex:none;}
+  .fal-head h4{font-size:16.5px; display:inline;}
+  .fal-en{font-family:"Source Sans 3",sans-serif; font-style:italic; font-weight:400; color:var(--ink-faint); font-size:13.5px;}
+  .fal-def{font-size:14.5px; margin:6px 0 6px; color:var(--ink-soft);}
+  .fal-ex{font-size:14px; margin:0;}
+  .fal-ex strong{color:var(--ink);}
+  .fal-tip{
+    font-size:13px; margin-top:6px; color:var(--accent-teal);
+    display:flex; gap:6px; align-items:flex-start;
+  }
+
+  .cheat{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 22px; box-shadow:var(--shadow);
+  }
+  .cheat h3{font-size:15px; margin-bottom:8px; color:var(--accent-gold); font-family:"IBM Plex Mono",monospace; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  .cheat ul{margin:0 0 18px; padding-left:18px; font-size:14.5px;}
+  .cheat li{margin-bottom:5px;}
+  .cheat-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 28px;}
+
+  footer{
+    max-width:1180px; margin:40px auto 0; padding-top:20px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--ink-faint); font-family:"IBM Plex Mono",monospace;
+  }
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;}
+    nav.toc{
+      position:sticky; top:0; z-index:5;
+      flex-direction:row; overflow-x:auto; gap:6px;
+      background:var(--paper);
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+      -webkit-overflow-scrolling:touch;
+    }
+    nav.toc a{white-space:nowrap; border:1px solid var(--line); border-radius:999px;}
+    .grid-3{grid-template-columns:1fr;}
+    .cheat-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="kicker">Facultad de Ciencias Económicas · UNNE — Apunte de repaso</div>
+  <h1>Escritura científica y proceso de investigación</h1>
+  <p class="lede">Apunte de repaso armado a partir de los materiales de la cátedra: transcripciones de Clase 1 (el paradigma económico) y Clase 3 (escritura clara + oratoria), la presentación de Clase 2 (estructura del artículo) y los Capítulos 5 y 6 de Bassham et al. sobre falacias, eje de las actividades de Clase 5.</p>
+  <div class="meta-row">
+    <span class="chip">Seminario: Escritura Científica</span>
+    <span class="chip">3.er año — Lic. en Economía</span>
+    <span class="chip">Unidades I · II · III</span>
+    <span class="chip">Silberberg &amp; Suen</span>
+    <span class="chip">Marin (2015)</span>
+    <span class="chip">Bassham Cap. 5 y 6</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <a href="#mapa"><span class="toc-num">00</span>Mapa de la materia</a>
+    <a href="#unidad1"><span class="toc-num">01</span>El paradigma económico</a>
+    <a href="#unidad2"><span class="toc-num">02</span>Estructura del artículo</a>
+    <a href="#claridad"><span class="toc-num">03</span>Escribir con claridad</a>
+    <a href="#relevancia"><span class="toc-num">04</span>Falacias de relevancia</a>
+    <a href="#evidencia"><span class="toc-num">05</span>Falacias de evidencia insuficiente</a>
+    <a href="#oratoria"><span class="toc-num">06</span>Comunicación oral</a>
+    <a href="#chuleta"><span class="toc-num">07</span>Chuleta final</a>
+  </nav>
+
+  <main>
+
+    <!-- 00 MAPA -->
+    <section id="mapa">
+      <div class="sec-head">
+        <span class="sec-num">00</span>
+        <div><h2>Mapa de la materia</h2><div class="sec-sub">Programa analítico — tres unidades</div></div>
+      </div>
+      <p>Objetivos de la cátedra: identificar los aspectos básicos del proceso de investigación y conocer las reglas de la escritura científica. La evaluación pondera internalización de contenidos teóricos, destreza en aplicarlos a casos concretos, discernimiento metodológico, interpretación de resultados y uso del lenguaje técnico.</p>
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-label">Unidad I</span>
+          <h3>El proceso de la investigación</h3>
+          <p>En qué consiste investigar y cómo elegir el tema. El rol de los modelos, la teoría y los datos en la investigación en Economía.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Unidad II</span>
+          <h3>Reglas de la escritura científica</h3>
+          <p>Principios de escritura clara y coherente. Estructura típica de un artículo de Economía. Géneros de escritura económica.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">Unidad III</span>
+          <h3>Producción del primer artículo</h3>
+          <p>Redacción de introducción, resumen y conclusión. Cómo presentar resultados. Cómo citar e incorporar resultados de otros.</p>
+        </div>
+      </div>
+      <div class="note"><strong>Bibliografía básica que se repite en las tres unidades:</strong> Bellemare (2020) <em>How to Write Applied Papers in Economics</em>; Cochrane (2005) <em>Writing Tips for Ph.D. Students</em>; Davis (2001) <em>Ph.D. Thesis Research: Where do I Start?</em>; Dudenhefer (2009) <em>A Guide to Writing in Economics</em>; Nikolov (2020) <em>Writing Tips for Economics Research Papers</em>; Thomson, <em>A Guide for the Young Economist</em>, Cap. 2.</div>
+      <div class="note" style="border-left-color:var(--accent-red); background:var(--accent-red-bg);"><strong>Temas del programa sin material todavía:</strong> según el programa oficial, la Unidad II incluye "géneros de escritura económica" (II.3) y la Unidad III incluye "cómo incorporar y citar resultados de otras investigaciones" (III.3) — ninguno de los apuntes/transcripciones disponibles los desarrolla en detalle. Si tenés diapositivas de eso, sumalas.</div>
+    </section>
+
+    <!-- 01 UNIDAD I -->
+    <section id="unidad1">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <div><h2>El paradigma económico</h2><div class="sec-sub">Unidad I — Clase 1 (base: Silberberg &amp; Suen, <em>The Structure of Economics</em>)</div></div>
+      </div>
+      <p class="lede">Esta es la parte más "filosófica" de la materia: qué significa explicar algo en Economía y por qué el paradigma marginalista se construye como se construye. Es contenido denso y muy propenso a preguntas de parcial.</p>
+
+      <div class="subsec">
+        <h3>¿Qué es una "explicación económica"?</h3>
+        <p><strong>Los datos no explican.</strong> Una lista de hechos (tasas de participación laboral, edades de matrimonio, índices bursátiles) son solo datos, no una explicación. <strong>Explicar es generalizar</strong>: una explicación requiere una proposición más general de la cual los hechos observados son casos especiales — igual que Newton explica el movimiento con leyes universales, la Economía busca un marco sistemático del comportamiento humano.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Los paradigmas científicos se reemplazan entre sí</h3>
+        <p>La Economía no es la excepción a la regla de que <strong>cada paradigma reemplaza al anterior cuando logra explicar lo que el anterior no podía</strong>:</p>
+        <table>
+          <tr><th>Paradigma</th><th>Centro</th><th>Aporte / límite</th></tr>
+          <tr><td>Ptolomeo</td><td>Tierra en el centro</td><td>Útil para navegación, pero muy complejo</td></tr>
+          <tr><td>Copérnico</td><td>Sol en el centro</td><td>Simplificó enormemente las ecuaciones</td></tr>
+          <tr><td>Newton</td><td>Mecánica clásica</td><td>Funciona para la mayoría de los problemas cotidianos</td></tr>
+          <tr><td>Einstein</td><td>Relatividad</td><td>Reemplaza a Newton para procesos fundamentales</td></tr>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>La paradoja agua-diamante y el giro marginalista</h3>
+        <p>La escuela clásica (Smith, Ricardo, Marx) basaba el valor en los <em>insumos de producción</em> y no podía explicar por qué el <strong>agua</strong> (esencial para la vida) es barata mientras que los <strong>diamantes</strong> (una frivolidad) son carísimos.</p>
+        <p>La <strong>revolución marginalista</strong> (desde 1870 — Jevons, Walras, Marshall, Pareto) resuelve el enigma: el valor depende tanto de los gustos del consumidor como de los costos de producción, y varía con las <strong>cantidades disponibles</strong>. El análisis marginal suplantó al paradigma clásico.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Definición de la Economía y postulados básicos</h3>
+        <p>La Economía es una <strong>ciencia empírica positiva</strong> (se ocupa de lo que <em>es</em>, no de lo que <em>debería ser</em>) y una <strong>ciencia social</strong> (estudia el comportamiento humano, a diferencia de las ciencias físicas donde los átomos no toman decisiones conscientes).</p>
+        <p>Dos postulados básicos: (1) <strong>Teoría de la elección</strong> — el comportamiento individual se caracteriza fundamentalmente por elecciones; (2) <strong>Escasez</strong> — los bienes son escasos porque la gente prefiere más a menos. Sin escasez, las ciencias sociales serían radicalmente distintas.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>La gran dicotomía: gustos vs. restricciones</h3>
+        <table>
+          <tr><th>Restricciones</th><th>Gustos</th></tr>
+          <tr><td>Precios, ingresos, leyes, derechos de propiedad, tecnología</td><td>Evaluaciones subjetivas de la conveniencia relativa de los bienes</td></tr>
+          <tr><td>Externas al individuo</td><td>Internas al individuo</td></tr>
+          <tr><td>Observables, medibles, registrables en bases de datos</td><td><strong>No existe un "utilómetro"</strong>: son inobservables, por eso deben ser <strong>postuladas</strong>, no medidas</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">Ejemplo: dos personas con el mismo ingreso, en el mismo supermercado, compran cestas distintas — una vive en casa chica y maneja auto grande, la otra al revés. Esa diferencia invisible son los gustos.</p>
+        <blockquote>"Si los gustos fueran observables, las afirmaciones sobre su naturaleza no serían necesarias." — Silberberg &amp; Suen</blockquote>
+        <p>Como no podemos mirar dentro de la cabeza de las personas, se asumen reglas lógicas sobre cómo funcionan esos gustos para construir modelos matemáticos. De ahí surgen los <strong>axiomas</strong>: transitividad, completitud, convexidad, preferencia por más sobre menos.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>El paradigma económico, en su forma final</h3>
+        <p><strong>Objeto de estudio:</strong> explicaciones refutables de cambios en la conducta humana a partir de cambios en las restricciones. <strong>Herramienta:</strong> postulados universales de conducta y tecnología, más el supuesto simplificador de que <strong>los gustos se mantienen constantes</strong> (<em>ceteris paribus</em>). El paradigma <em>no</em> dice que los gustos no importan: reconoce que se pueden obtener respuestas sobre cantidades marginales sin investigar preferencias individuales.</p>
+        <p><strong>¿Por qué asumir gustos estables?</strong> Si los gustos cambian, los cambios en las decisiones pueden atribuirse erróneamente a cambios en las restricciones; aceptar "cambiaron los gustos" como explicación es abandonar la búsqueda de un comportamiento sistemático y refutable.</p>
+        <p style="font-size:14px;color:var(--ink-faint)">Ejemplo clásico: el cambio a autos chicos en los 70 y el regreso de autos de alto rendimiento en los 90 <em>parece</em> "cambio de gustos", pero en realidad ambos eventos confirman la <strong>ley de la demanda</strong>: el precio relativo de la gasolina subió en los 70 y cayó en los 80-90.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Anatomía de una teoría científica: A + C → E</h3>
+        <p>Los hechos no hablan solos: sin un marco teórico es imposible separar lo relevante de lo irrelevante — toda selección de datos ya aplica, aunque sea implícitamente, relaciones conductuales teóricas.</p>
+        <p style="font-size:15px"><strong class="mono">A (Postulados) + C (Supuestos) → E (Eventos)</strong></p>
+        <p>Los <strong>postulados</strong> son inobservables y no tiene sentido debatir su realismo. Los <strong>supuestos</strong> y los <strong>eventos</strong> sí deben ser observables y realistas.</p>
+        <p><strong>Caso de la gasolina:</strong> hasta los 80, el precio monetario subía y el consumo también subía — ¿refuta esto la ley de la demanda? No: el error estaba en el <em>supuesto</em> (se usaron precios nominales en vez de precios relativos reales). Corregido eso, el precio real venía cayendo, confirmando la ley.</p>
+        <div class="note"><strong>Lección para el parcial:</strong> cuando los datos no confirman la teoría, la culpa rara vez es de los postulados (A). Casi siempre la investigación falla porque los supuestos (C) estuvieron mal planteados: medición incorrecta, inflación omitida, sustitutos ignorados.</div>
+      </div>
+
+      <div class="subsec">
+        <h3>Las teorías no se prueban: se confirman</h3>
+        <p><strong>Falacia de afirmar el consecuente:</strong> la lógica prohíbe concluir que los postulados son verdaderos solo porque los supuestos y los eventos resultaron verdaderos. Ejemplo: "si la Tierra es redonda, los barcos aparecen desde arriba hacia abajo" — observamos el evento, pero una "Tierra plana con luz curva" predice exactamente lo mismo. Ese experimento solo no prueba cuál teoría es correcta.</p>
+        <p>Conclusión: las teorías solo pueden ser <strong>confirmadas</strong> (consistentes con los hechos) o <strong>refutadas</strong>. Cuantas más veces se confirma una teoría, más firme la creencia en ella, pero nunca hay certeza absoluta.</p>
+        <table>
+          <tr><th>❌ Vocabulario incorrecto</th><th>✅ Vocabulario correcto</th></tr>
+          <tr><td>"Los datos <strong>demuestran</strong> que la inflación es monetaria."</td><td>"La evidencia empírica <strong>no refuta</strong> la hipótesis…"</td></tr>
+          <tr><td>"Los datos <strong>prueban</strong> que mi teoría es correcta."</td><td>"Los datos <strong>son consistentes con</strong> las predicciones del modelo…" / "Los resultados <strong>confirman</strong> la teoría de…"</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">La ciencia avanza no por acumulación de verdades absolutas, sino por la supervivencia de teorías que resistieron múltiples intentos de refutación empírica.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Tautología vs. teoría útil</h3>
+        <p><strong>Teoría inútil (tautología):</strong> "Las variaciones del tipo de cambio impactarán positiva o negativamente en las importaciones" u "lloverá o no lloverá mañana". Lógicamente verdadera pero <strong>empíricamente vacía</strong>: nunca puede fallar, por lo tanto nunca es refutable.</p>
+        <p><strong>Teoría útil:</strong> "Si sube el precio de la gasolina, el consumo caerá". Puede ser <strong>falsa</strong> — por eso es científica y refutable. Una teoría útil "arriesga el cuello".</p>
+      </div>
+
+      <div class="subsec">
+        <h3>El postulado de maximización</h3>
+        <p>Si los agentes actuaran de forma aleatoria o sin un objetivo optimizador, cualquier comportamiento de mercado sería posible — y si todo es posible, <strong>nada es refutable</strong>. La maximización clava "estacas en el suelo" para delimitar lo posible. Por eso el paradigma puede afirmar algo tan tajante como: manteniendo todo lo demás constante, <strong>un precio más bajo nunca inducirá un menor consumo</strong> (tan imposible como que el agua corra cuesta arriba).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Modelos vs. teorías</h3>
+        <table>
+          <tr><th>Modelo (sintaxis pura)</th><th>Teoría (semántica)</th></tr>
+          <tr><td>Sistema lógico y abstracto de ecuaciones</td><td>El modelo se convierte en teoría al agregar supuestos que lo conectan con objetos reales</td></tr>
+          <tr><td>No habla del mundo real</td><td>Habla del mundo real</td></tr>
+          <tr><td>Solo puede ser lógicamente válido o inválido</td><td>Puede ser verdadera o falsa empíricamente; se contrasta con datos reales</td></tr>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>Estática comparativa</h3>
+        <p>Es la simulación lógica (generalmente matemática) para comprobar teorías en Economía: compara dos posiciones de equilibrio, antes y después de un cambio en un parámetro.</p>
+        <p><strong>¿Por qué "estática"?</strong> No predice la velocidad del cambio en el tiempo, solo la <strong>dirección</strong> del cambio entre equilibrios. <strong>¿Por qué "comparativa"?</strong> Compara el equilibrio inicial (antes del shock) con el nuevo equilibrio (después del shock), manteniendo todo lo demás constante.</p>
+        <table>
+          <tr><th>Variables de decisión (x)</th><th>Parámetros (α)</th></tr>
+          <tr><td>Las elecciones del agente (ej. cantidad demandada)</td><td>Variables exógenas (ej. precios, ingresos, impuestos)</td></tr>
+          <tr><td><strong>Endógenas</strong> al modelo</td><td>Representan las condiciones de prueba; no las determina el tomador de decisiones</td></tr>
+        </table>
+        <p>La teoría postula que <span class="mono">x = f(α)</span>. En la práctica, lo que un paper económico pone a prueba no es el valor absoluto de x, sino el <strong>signo de la derivada dx/dα</strong>. La ley de la demanda afirma que dx/dα &lt; 0 cuando α es el precio — como podría ocurrir lo contrario, esa afirmación es una hipótesis potencialmente refutable.</p>
+        <div class="note"><strong>Motor de refutabilidad:</strong> la estática comparativa transforma la filosofía abstracta (axiomas, supuestos, maximización) en hipótesis concretas testeables con datos reales — el puente directo hacia el "Marco empírico" de la Unidad II (sección 02).</div>
+      </div>
+    </section>
+
+    <!-- 02 UNIDAD II -->
+    <section id="unidad2">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <div><h2>Estructura del artículo científico en Economía</h2><div class="sec-sub">Unidad II — Clase 2</div></div>
+      </div>
+
+      <div class="subsec">
+        <h3>Por qué publicar importa</h3>
+        <p>La importancia de publicar se mueve en tres planos anidados: individuos (autores, lectores) → organizaciones (editoriales, universidades, entes gubernamentales, sociedades científicas, empresas) → sociedad. Dos mecanismos sostienen la calidad de lo publicado:</p>
+        <table>
+          <tr><th>Revisión por pares (Peer Review)</th><th>Indexación</th></tr>
+          <tr><td>Valida el rigor científico · mejora la calidad · aporta credibilidad</td><td>Alcance mundial · medición del impacto · sello de calidad</td></tr>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>Dos plantillas de estructura</h3>
+        <p>La estructura "clásica" de un paper de Economía y la variante para artículos <em>aplicados</em> (empíricos), que agrega tres secciones intermedias:</p>
+        <table>
+          <tr><th>Estructura general</th><th>Estructura — artículo aplicado</th></tr>
+          <tr><td>1. Título</td><td>1. Título</td></tr>
+          <tr><td>2. Resumen (Abstract)</td><td>2. Resumen (Abstract)</td></tr>
+          <tr><td>3. Introducción</td><td>3. Introducción</td></tr>
+          <tr><td>4. …</td><td>4. Marco teórico</td></tr>
+          <tr><td></td><td>5. Datos y estadísticas descriptivas</td></tr>
+          <tr><td></td><td>6. Marco empírico</td></tr>
+          <tr><td></td><td>7. Resultados y discusión</td></tr>
+          <tr><td>5. Resumen y observaciones finales</td><td>8. Resumen y observaciones finales</td></tr>
+          <tr><td>6. Referencias</td><td>9. Referencias</td></tr>
+          <tr><td></td><td>10. Apéndice</td></tr>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>El orden en que se presenta ≠ el orden en que se escribe</h3>
+        <blockquote>"…la estructura en que presentamos nuestro trabajo en un artículo de investigación tiende a ser muy diferente de la estructura en que efectivamente hacemos el trabajo." — Bellemare (2022, p. 4)</blockquote>
+        <p>Esta es probablemente la idea más importante de la clase para el parcial: el orden de lectura no es el orden de redacción.</p>
+        <ul class="order-list">
+          <li><span class="pos">§1</span><span>Título</span><span class="write-order">6.° al escribir</span></li>
+          <li><span class="pos">§2</span><span>Resumen (Abstract)</span><span class="write-order">8.°</span></li>
+          <li><span class="pos">§3</span><span>Introducción</span><span class="write-order">7.°</span></li>
+          <li><span class="pos">§4</span><span>Marco teórico</span><span class="write-order">1.°</span></li>
+          <li><span class="pos">§5</span><span>Datos y estadísticas descriptivas</span><span class="write-order">2.°</span></li>
+          <li><span class="pos">§6</span><span>Marco empírico</span><span class="write-order">3.°</span></li>
+          <li><span class="pos">§7</span><span>Resultados y discusión</span><span class="write-order">4.°</span></li>
+          <li><span class="pos">§8</span><span>Resumen y observaciones finales</span><span class="write-order">5.°</span></li>
+        </ul>
+        <p style="font-size:14px;color:var(--ink-faint)">Es decir: se escribe primero el "corazón" empírico del paper (teoría → datos → método → resultados → conclusión) y recién al final el "empaque" de marketing del trabajo (introducción, resumen, título).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Sección por sección</h3>
+
+        <p><strong>Marco teórico.</strong> Los mejores artículos se centran en una sola pregunta o en los mecanismos detrás de ella. Resumen del paso a paso: (1) elegir una pregunta a responder, (2) buscar un marco teórico existente y adoptarlo o adaptarlo.</p>
+
+        <p><strong>Datos y estadísticas descriptivas.</strong> Debe detallar: origen de los datos, momento de recolección, metodología de muestreo, características de la muestra, tratamiento de los datos, estadísticas descriptivas. Su función principal es identificar posibles <strong>sesgos</strong>, en particular el <strong>sesgo de selección</strong>: ocurre cuando la muestra no es representativa de la población objetivo, por lo que las conclusiones reflejan a la muestra pero no se pueden generalizar. Ejemplos típicos: encuestas voluntarias (responden los más interesados/disponibles), estudios de salud que solo usan hospitales públicos (excluyen clínicas privadas), evaluaciones educativas que solo miden a quienes completaron el curso (ignoran a quienes desertaron).</p>
+
+        <p><strong>Marco empírico.</strong> Se divide en dos estrategias:</p>
+        <table>
+          <tr><th>Estimation Strategy</th><th>Identification Strategy</th></tr>
+          <tr><td>Qué se estima · cómo se estima · cómo se hace la inferencia estadística</td><td>Qué característica de los datos permite una afirmación causal (o, si no es posible, cómo nos acercamos a ella)</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">Idea clave para el parcial: <strong>correlación no implica causalidad</strong> — el marco empírico existe justamente para justificar el salto de "A y B se mueven juntos" a "A causa B".</p>
+
+        <p><strong>Resultados y discusión.</strong> Resultados + discusión (limitaciones del estudio, relación con resultados de otros trabajos similares, relevancia para la política económica).</p>
+
+        <p><strong>Resumen y observaciones finales.</strong> Resumen · limitaciones · implicaciones en el mundo real · implicaciones para investigaciones futuras.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Las tres herramientas de marketing del paper<span class="en">título · abstract · introducción</span></h3>
+        <p>Dos plantillas típicas para organizar la <strong>introducción</strong>:</p>
+        <table>
+          <tr><th>Sahm (2019)</th><th>Evans (2020)</th></tr>
+          <tr><td>1. Motivación<br>2. Pregunta de investigación<br>3. Contribución principal<br>4. Método<br>5. Hallazgos<br>6. Comprobaciones de robustez<br>7. Hoja de ruta</td>
+              <td>1. Motivaciones<br>2. Pregunta de investigación<br>3. Enfoque empírico<br>4. Resultados<br>5. Valor añadido<br>6. Robustez, relevancia para políticas, limitaciones<br>7. Hoja de ruta</td></tr>
+        </table>
+        <p><strong>Resumen (Abstract).</strong> Si el título y la introducción ya están bien resueltos, escribir el abstract debería ser relativamente fácil. Debe ser comprensible para cualquier persona con educación universitaria <em>que no sea especialista</em> en el tema — nada de jerga innecesaria.</p>
+      </div>
+    </section>
+
+    <!-- 03 CLARIDAD -->
+    <section id="claridad">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <div><h2>Escribir con claridad</h2><div class="sec-sub">Unidad II — Clase 3 (base: Marin, <em>Escribir textos científicos y académicos</em>, 2015)</div></div>
+      </div>
+
+      <div class="subsec">
+        <h3>¿Por qué "escribir" parece difícil?</h3>
+        <p><strong>El mito gramatical:</strong> se cree que la dificultad está en "no saber suficiente gramática" o en la ortografía. <strong>La verdadera dificultad</strong> está en formular con claridad y rigor lo que se quiere decir, y en construir párrafos y organizar textos (problemas de <strong>cohesión</strong> y <strong>progresión temática</strong>). Escribir es convertir la <strong>complejidad del pensamiento</strong> (que es una red) en <strong>lenguaje simple y claro</strong> (que es lineal) — exige organizar previamente lo que se va a comunicar.</p>
+        <p>Escribir con eficiencia y claridad implica cuatro capacidades simultáneas: <strong>ponderación</strong> (ordenar y planificar), <strong>síntesis</strong> (seleccionar e integrar lo relevante), <strong>creatividad</strong> (encontrar la expresión adecuada) y <strong>preocupación por el lector</strong> (¿estoy siendo claro?).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>¿Qué es "escribir bien"?</h3>
+        <p>En el ámbito académico-científico, escribir bien <strong>no</strong> reside en la complejidad de la sintaxis, la riqueza del léxico o recursos que sorprendan al lector. Reside en la <strong>claridad</strong> y la <strong>fluidez</strong>: progresión sin saltos de sentido, párrafos con cohesión conceptual pero concisos, oraciones directas (no largas y complejas), sintaxis y léxico rigurosos para evitar ambigüedades.</p>
+        <p>Antes de escribir hay que preparar: la representación mental de los lectores, las normas de la escritura académico-científica, el tipo de texto a desarrollar y los requisitos específicos de la publicación. ¿Por qué "hay que" escribir? Tres razones: <strong>epistémicas</strong> (la escritura potencia el conocimiento — "no hay una traducción de la mente a la escritura, sino una reelaboración cognitiva", Granger 2005), <strong>de la ciencia</strong> (rigor científico) e <strong>institucionales</strong> (universidades y revistas exigen un lenguaje que produzca "efecto de cientificidad": objetividad, claridad, precisión).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>El lenguaje académico-científico: 4 recursos</h3>
+        <p>Impersonalidad, terminología específica, densidad conceptual y lenguaje formal.</p>
+        <p><strong>Impersonalidad</strong> — ocultar al sujeto que escribe o investiga, para dar la impresión de que "habla la ciencia". Recursos: 3.ª persona gramatical; pronombre <strong>"se"</strong> antepuesto ("se pueden observar", "se ha comprobado"); voz pasiva con "ser" ("ha sido comprobado" en vez de "he comprobado"); <strong>nominalizaciones</strong> (mencionar acciones con sustantivos: "la escritura produce conocimiento" → "esta nueva <em>producción</em> de conocimiento…", oculta quién produce); adjetivos verbales/participios ("los ingresos <em>generados</em>…"); adjetivos no evaluativos; omisión del agente humano; "nosotros" como distanciamiento del "yo". <span style="color:var(--ink-faint); font-size:13.5px">Nota: las ciencias duras mantienen la 3.ª persona; en ciencias sociales la 1.ª persona gana terreno cuando se enfatiza el enfoque personal del investigador.</span></p>
+        <p><strong>Terminología específica</strong> — palabras propias de la disciplina, con significado unívoco: dan precisión y formalidad, evitan la ambigüedad del lenguaje común.</p>
+        <p><strong>Lenguaje formal</strong> — registro no cotidiano:</p>
+        <table>
+          <tr><th>Informal</th><th>Formal</th></tr>
+          <tr><td>amontonar</td><td>acumular</td></tr>
+          <tr><td>contestar</td><td>dar una respuesta</td></tr>
+          <tr><td>dar una fecha</td><td>fijar una fecha</td></tr>
+          <tr><td>es</td><td>consiste en / se trata de</td></tr>
+          <tr><td>hacer una pregunta</td><td>formular una pregunta</td></tr>
+          <tr><td>hay que</td><td>es necesario / es preciso</td></tr>
+        </table>
+        <div class="note"><strong>Fuentes de artículos de calidad</strong> (mencionadas en la clase): BID (publications.iadb.org) · CEPAL (cepal.org) · Banco Mundial (worldbank.org) · AEA/JEP (aeaweb.org/jep) · Econometrica (econometricsociety.org) · QJE/JPE (academic.oup.com/qje).</div>
+      </div>
+
+      <div class="subsec">
+        <h3>Construir los párrafos</h3>
+        <p>Un párrafo no es una suma de oraciones: es una <strong>unidad temática</strong> cuyas partes están relacionadas por su sentido. En un texto bien construido, se le puede asignar un "título mental" a cada párrafo.</p>
+        <p>La <strong>oración temática</strong> explicita el tema y permite anticipar el contenido:</p>
+        <table>
+          <tr><th>Deductivo</th><th>Inductivo</th></tr>
+          <tr><td>Oración temática = <strong>primera</strong> oración. Va de lo general a lo particular.</td><td>Oración temática = <strong>última</strong> oración. Va de lo particular a lo general.</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">Ejemplos de claridad citados de Dani Rodrik: "Los modelos sencillos de los economistas son esenciales para comprender la sociedad" (la simplicidad es una virtud) — y sobre las matemáticas: aportan claridad y coherencia, evitando debates infinitos sobre lo que "quisieron decir" autores que formularon modelos solo verbalmente (como Marx o Keynes).</p>
+        <p>Longitud: ni <strong>excesivamente largos</strong> (si abarca varios subtemas, hay que dividirlo) ni <strong>excesivamente cortos</strong> (los párrafos de una sola oración fragmentan el texto y dificultan la progresión).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Fluidez: la progresión del texto</h3>
+        <p>El <strong>estancamiento</strong> ocurre cuando el texto reformula los mismos conceptos sin avanzar. Cada párrafo debe iniciarse con información que sirva de "punto de partida": oración temática como encuadre, conocimiento difundido (se asume como saber compartido), generalización (parte de lo general para agregar lo nuevo), o definición de un concepto nuevo que luego se despliega.</p>
+        <table>
+          <tr><th>Conocimiento compartido</th><th>Generalización</th></tr>
+          <tr><td>"Como es sabido…", "Es común pensar que…", "Numerosos estudios ya han demostrado…", "Los especialistas de… coinciden en…"</td><td>"En los últimos años…", "Actualmente…", "En general…", "Está generalmente aceptado que…"</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">Ejemplo (Jean Tirole), inicio por generalización/reflexión: "Creemos lo que queremos creer y vemos lo que queremos ver".</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Cohesión: marcadores y conectores</h3>
+        <p>Las "bisagras" entre ideas guían la lectura:</p>
+        <table>
+          <tr><th>Función</th><th>Conectores</th></tr>
+          <tr><td>Enumeradores (ordenan)</td><td>en primer lugar, en segundo lugar</td></tr>
+          <tr><td>Aditivos (agregan)</td><td>además, también, asimismo</td></tr>
+          <tr><td>Causales</td><td>porque, a causa de, por esa razón</td></tr>
+          <tr><td>Consecuencia</td><td>en consecuencia, por lo tanto</td></tr>
+          <tr><td>Oposición</td><td>pero, sin embargo, no obstante</td></tr>
+          <tr><td>Reformulación</td><td>en realidad, de todos modos</td></tr>
+        </table>
+        <p style="font-size:14px;color:var(--ink-faint)">Más: condición (si, en caso de que) · justificación (ya que, puesto que, dado que) · conclusivos (en conclusión, para finalizar) · resumidores (en resumen, en síntesis) · cambio de tema (por otra parte, ahora bien).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Lo que hay que evitar</h3>
+        <p><strong>"El mismo / la misma"</strong> como referencia anafórica se considera vulgar en el ámbito académico. Incorrecto: "…atributos <strong>del mismo</strong> que son valorados…" → Correcto: "…atributos <strong>de este</strong>…", "…enfatiza <strong>sus</strong> atributos…".</p>
+        <p><strong>"Lo dicho / lo observado / lo mencionado"</strong> es un modo tosco de referirse a algo ya nombrado. Mejor: reemplazar por un pronombre preciso o una referencia nominal específica ("este último", "la noción de integridad").</p>
+      </div>
+    </section>
+
+    <!-- 04 FALACIAS DE RELEVANCIA -->
+    <section id="relevancia">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <div><h2>Falacias de relevancia</h2><div class="sec-sub">Bassham et al., Cap. 5 — base de la Actividad de Clase 5</div></div>
+      </div>
+      <p>Ocurren cuando las premisas son <strong>lógicamente irrelevantes</strong> respecto de la conclusión, aunque el argumento "parezca" bueno. Antes de las falacias, el capítulo define la relevancia: un enunciado puede ser <em>positivamente relevante</em> (da razones a favor), <em>negativamente relevante</em> (da razones en contra) o <em>lógicamente irrelevante</em> (no cuenta ni a favor ni en contra) respecto de otro.</p>
+      <div class="fal-legend">
+        <span><span class="dot" style="background:var(--accent-red)"></span>11 falacias del Capítulo 5</span>
+        <span><span class="dot" style="background:var(--accent-teal)"></span>Aclaración: cuándo NO es falacia</span>
+      </div>
+      <div class="fal-grid">
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.1</span><h4>Ataque personal <span class="fal-en">Ad Hominem</span></h4></div>
+          <p class="fal-def">Rechazar el argumento de alguien atacando a la persona en vez de atacar el argumento.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> descalificar el argumento de Hugh Hefner contra la censura diciendo que es "un millonario inmaduro" — sin refutar nada de lo que dijo.</p>
+          <p class="fal-tip">✓ No es falacia cuando el ataque a la persona es relevante al punto en discusión (p. ej., cuestionar la credibilidad de un testigo condenado por perjurio).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.2</span><h4>Ataque a la motivación <span class="fal-en">Attacking the Motive</span></h4></div>
+          <p class="fal-def">Criticar la motivación de quien argumenta en vez de examinar el valor del argumento.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "Un profesor titular defiende la titularidad — claro, le conviene, así que ignoremos su argumento."</p>
+          <p class="fal-tip">✓ No es falacia simplemente señalar el sesgo como motivo de cautela, sin por eso rechazar el argumento.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.3</span><h4>Mira quién habla <span class="fal-en">Tu Quoque</span></h4></div>
+          <p class="fal-def">Rechazar un argumento porque quien lo da no predica con el ejemplo.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "¿Vos me decís que deje de fumar? ¡Mirá quién habla, Dr. Fumador!"</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.4</span><h4>Dos errores no hacen un acierto <span class="fal-en">Two Wrongs Make a Right</span></h4></div>
+          <p class="fal-def">Justificar un acto incorrecto señalando que otro acto es igual o peor.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "No me siento culpable de copiar en el examen, la mitad de la clase copia."</p>
+          <p class="fal-tip">✓ No es falacia cuando la justificación realmente alcanza (p. ej., defensa propia). La diferencia con Tu Quoque: esta siempre intenta justificar un acto; Tu Quoque siempre acusa de hipocresía — pueden darse juntas o por separado.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.5</span><h4>Tácticas de miedo <span class="fal-en">Scare Tactics</span></h4></div>
+          <p class="fal-def">Amenazar con un daño irrelevante a la verdad de la conclusión, para forzar su aceptación.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> un lobista le dice a un político que "sabrá lo equivocado que estaba" en la próxima elección si no vota como él quiere.</p>
+          <p class="fal-tip">✓ No es falacia una amenaza cuyas premisas sí son relevantes (p. ej., el ultimátum razonado de Kennedy a Kruschev en la crisis de los misiles).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.6</span><h4>Apelación a la piedad <span class="fal-en">Appeal to Pity</span></h4></div>
+          <p class="fal-def">Buscar conmover con lástima en lugar de dar razones relevantes para la conclusión.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> pedirle al profesor un cambio de nota porque "fue un semestre muy difícil", sin relación con el desempeño académico real.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.7</span><h4>Argumento de la mayoría <span class="fal-en">Bandwagon Argument</span></h4></div>
+          <p class="fal-def">Apelar al deseo de pertenecer o ser aceptado, en vez de dar evidencia relevante.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "Todos los chicos populares fuman, así que vos también deberías."</p>
+          <p class="fal-tip">✓ No es falacia si la opinión popular sí es relevante como evidencia (p. ej., "todos los vecinos dicen que el agua es potable").</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.8</span><h4>Hombre de paja <span class="fal-en">Straw Man</span></h4></div>
+          <p class="fal-def">Distorsionar el argumento del oponente para que sea más fácil de atacar.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> un senador propone prohibir la pornografía violenta, y se lo acusa de querer "censura total de libros, revistas y películas".</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.9</span><h4>Cortina de humo <span class="fal-en">Red Herring</span></h4></div>
+          <p class="fal-def">Desviar la atención hacia un tema irrelevante y dar por resuelto el punto original.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> ante críticas por la política agrícola, un funcionario responde hablando de su propia infancia trabajando en el campo.</p>
+          <p class="fal-tip">Diferencia clave con Straw Man: Straw Man siempre distorsiona el argumento ajeno; Red Herring siempre cambia de tema — no requieren ir juntas.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.10</span><h4>Equívoco <span class="fal-en">Equivocation</span></h4></div>
+          <p class="fal-def">Usar una palabra clave con dos sentidos distintos dentro del mismo argumento, y apoyar la conclusión en ese cambio de sentido.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "Toda ley puede ser derogada por la autoridad competente. La ley de gravedad es una ley. Por lo tanto, la ley de gravedad puede ser derogada." (mezcla "ley jurídica" con "ley física").</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">5.11</span><h4>Petición de principio <span class="fal-en">Begging the Question</span></h4></div>
+          <p class="fal-def">Asumir como premisa lo mismo que se quiere probar como conclusión (razonamiento circular).</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "El bungee jumping es peligroso porque es inseguro" (decir "inseguro" es solo repetir "peligroso").</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 05 FALACIAS DE EVIDENCIA INSUFICIENTE -->
+    <section id="evidencia">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <div><h2>Falacias de evidencia insuficiente</h2><div class="sec-sub">Bassham et al., Cap. 6</div></div>
+      </div>
+      <p>A diferencia de las anteriores, acá las premisas <strong>sí son relevantes</strong> para la conclusión, pero no alcanzan como evidencia suficiente para sostenerla.</p>
+      <div class="fal-grid">
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.1</span><h4>Apelación inapropiada a la autoridad <span class="fal-en">Inappropriate Appeal to Authority</span></h4></div>
+          <p class="fal-def">Citar una fuente/autoridad que hay buenas razones para considerar poco confiable. Chequeos: ¿es realmente experta en el tema? ¿está sesgada? ¿sus observaciones son dudosas? ¿la fuente en general es poco fiable? ¿fue citada correctamente / fuera de contexto? ¿contradice el consenso de expertos? ¿el tema se puede zanjar por autoridad? ¿el reclamo es de por sí muy improbable?</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "mi peluquero me dijo que la teoría de la relatividad es puro invento" (el peluquero no es experto en el tema).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.2</span><h4>Apelación a la ignorancia <span class="fal-en">Appeal to Ignorance</span></h4></div>
+          <p class="fal-def">Concluir que algo es verdadero porque nadie probó que sea falso (o viceversa).</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "Nadie probó que no haya vida inteligente en otros planetas, así que debe haberla."</p>
+          <p class="fal-tip">✓ No es falacia cuando (a) hubo una búsqueda exhaustiva sin resultados ("revisamos todo el auto y no había joyas: probablemente no están ahí"), o (b) reglas especiales exigen cierta carga de la prueba (p. ej., presunción de inocencia).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.3</span><h4>Falsas alternativas <span class="fal-en">False Alternatives</span></h4></div>
+          <p class="fal-def">Plantear una elección de solo dos (o pocas) opciones cuando en realidad hay más.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "O apoyás un mercado libre puro, o apoyás un estado policial comunista" (ignora todo el espectro intermedio).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.4</span><h4>Pregunta capciosa <span class="fal-en">Loaded Question</span></h4></div>
+          <p class="fal-def">Hacer una pregunta que contiene un supuesto injusto o injustificado, de modo que cualquier respuesta directa fuerza una admisión.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "¿Dejaste de copiar en los exámenes?" — un sí o un no obligan a admitir que copiabas.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.5</span><h4>Causa cuestionable <span class="fal-en">Questionable Cause</span></h4></div>
+          <p class="fal-def">Afirmar sin evidencia suficiente que una cosa causa otra. Tres variantes:</p>
+          <p class="fal-ex">
+            <strong>Post hoc</strong> (post hoc ergo propter hoc): A ocurrió antes que B → A causó B. <em>"Tomé té de ginseng y al otro día se me fue el resfrío: el té cura resfríos."</em><br>
+            <strong>Mera correlación:</strong> A y B ocurren juntos → uno causa al otro. <em>"Correlación no implica causalidad"</em> — clave para el marco empírico (Unidad II).<br>
+            <strong>Causa simplificada:</strong> se asume una sola causa de B cuando hay varias. <em>"Bajó el delito: son las penas más duras"</em> (ignora otros factores posibles).
+          </p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.6</span><h4>Generalización apresurada <span class="fal-en">Hasty Generalization</span></h4></div>
+          <p class="fal-def">Generalizar a partir de una muestra sesgada o demasiado pequeña.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> encuestar solo a científicos universitarios para concluir qué cree "la mayoría de los estadounidenses" sobre Dios.</p>
+          <p class="fal-tip">Conecta directo con el <strong>sesgo de selección</strong> de la sección de Datos (02): mismo problema, distinto nombre según el contexto.</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.7</span><h4>Pendiente resbaladiza <span class="fal-en">Slippery Slope</span></h4></div>
+          <p class="fal-def">Afirmar sin evidencia suficiente que una acción inicial, aparentemente inofensiva, desencadenará paso a paso un desenlace catastrófico.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "Si prohibimos las amenazas terroristas en internet, después van a censurar todo lo que veamos, escuchemos o leamos."</p>
+          <p class="fal-tip">✓ No siempre es falacia: a veces el encadenamiento de pasos sí tiene evidencia sólida detrás (p. ej., la progresión típica de una adicción).</p>
+        </article>
+
+        <article class="fal-card">
+          <div class="fal-head"><span class="fal-num">6.8</span><h4>Falsa analogía <span class="fal-en">Weak Analogy</span></h4></div>
+          <p class="fal-def">Comparar dos cosas que no son realmente comparables en los aspectos relevantes.</p>
+          <p class="fal-ex"><strong>Ejemplo:</strong> "La lechuga es verde y hojosa y es rica. La hiedra venenosa también es verde y hojosa. Entonces la hiedra venenosa debe ser rica."</p>
+          <p class="fal-tip">Método de evaluación en 3 pasos: (1) listar semejanzas, (2) listar diferencias, (3) decidir si las semejanzas alcanzan para sostener la conclusión.</p>
+        </article>
+
+      </div>
+      <div class="note"><strong>Ojo:</strong> el texto del capítulo anuncia "nueve falacias", pero el material disponible confirma en detalle estas ocho. Si tu edición de Bassham incluye una novena (a veces aparece entre las págs. 154–163), repasala del PDF completo por las dudas.</div>
+    </section>
+
+    <!-- 06 ORATORIA -->
+    <section id="oratoria">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <div><h2>Comunicación oral</h2><div class="sec-sub">Clase de Oratoria: el arte de saber hablar (base: Briz, <em>Saber hablar</em>, 2008)</div></div>
+      </div>
+
+      <div class="subsec">
+        <h3>¿Por qué un/a economista necesita "saber hablar"?</h3>
+        <p>La Economía es una <strong>ciencia social y de persuasión</strong>. <strong>La maldición del conocimiento:</strong> el error común es hablarle a la sociedad como si estuviera rindiendo un examen final; el valor profesional está en <strong>traducir conceptos técnicos</strong> a un lenguaje comprensible. <strong>La defensa del modelo:</strong> un modelo econométrico perfecto no se aprueba solo con datos — el lenguaje oral es la herramienta para que el decisor (que a menudo no sabe de economía) "compre la idea". <strong>Gestión de crisis:</strong> comunicar restricciones, déficit o recortes cuidando la imagen propia y ajena, con control extraverbal, es lo que diferencia al <strong>técnico del líder</strong>.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>La competencia comunicativa: tres dimensiones</h3>
+        <p><strong>Conocimiento situacional</strong> (intención, interlocutores, contexto, tema, espacio, tiempo) + <strong>competencia lingüística</strong> (uso correcto de la lengua) + <strong>competencia pragmática</strong> (integrar todo lo anterior según el propósito y el grado de formalidad). La <strong>retórica</strong> —el arte de persuadir— no es solo para políticos: está en todo discurso con intención (un joven pidiendo dinero, un jefe con su empleado, un conferencista). Saber hablar <strong>no es un don</strong>, se aprende con entrenamiento y ensayo.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Norma, adecuación y claridad</h3>
+        <p><strong>Norma gramatical:</strong> RAE y uso histórico. La corrección oral es más flexible (permite reformulación inmediata); el error escrito queda registrado. La norma léxica cambia más rápido que la gramatical (ej. "influenciar", "chatear").</p>
+        <p><strong>Adecuación a la situación:</strong> errores por exceso (el pedante que usa lenguaje académico para hablar de fútbol) y por defecto (el estudiante que usa un registro muy coloquial con un profesor). Registros: coloquial (amigos), estándar (denominador común) y formal (obligatorio en lo académico/profesional).</p>
+        <p><strong>Adecuación al público:</strong> conocer edad, nivel sociocultural y expectativas; escuchar gestos y miradas para detectar desconexión. <strong>Adecuación al tiempo:</strong> "Lo bueno, si breve, dos veces bueno" — la improvisación descontrolada genera verborragia y hace perder la atención.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Preparar y organizar el discurso</h3>
+        <p>Cuatro pasos: definir el objetivo (¿qué nos trae aquí?), seleccionar contenidos según el público, incorporar ejemplos/anécdotas, y ganarse al público. Organización clásica en tres partes: <strong>inicio/introducción</strong> (fijar objetivos, buscar adhesión), <strong>nudo/desarrollo</strong> (análisis y argumentación) y <strong>desenlace/conclusión</strong> (síntesis breve, sin elementos nuevos, con carga afectiva). Se recomienda un <strong>guion o esquema</strong>, nunca un discurso memorizado (produce monotonía).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Lo extraverbal y la imagen</h3>
+        <p><strong>Kinésica</strong> (gestos y posturas — las manos como "batuta" del ritmo) · <strong>proxémica</strong> (distancia: ~45 cm en el mundo hispánico vs. ~90 cm en el anglosajón) · la <strong>mirada</strong> (aumenta la intersubjetividad). Al hablar se negocian significados, pero también <strong>imágenes</strong>: la cortesía busca el equilibrio entre proteger el "yo" y el "tú" — no imponerse, ser cooperativo, escuchar, evitar conflictos con mecanismos reparadores.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Comunicación intercultural (Hall y Hofstede)</h3>
+        <p>Lo cortés en una cultura puede no serlo en otra: el mundo hispánico busca acercamiento afectivo y valora el halago; en culturas anglosajonas el halago puede resultar descortés y se prioriza la privacidad. Entre Latinoamérica y España: el <strong>imperativo</strong> se evita en LatAm (suena a orden) pero es frecuente en España; el <strong>"por favor"</strong> es indispensable en LatAm y menos común en España; la distancia interpersonal es mayor en la interacción española.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Hablar es negociar fines</h3>
+        <p>Todo discurso tiene una intención transaccional o interpersonal. Cuatro estrategias para un mismo fin (pedir que alguien vaya a clase):</p>
+        <ol style="padding-left:20px; font-size:14.5px;">
+          <li><strong>"¡Ven a clase!"</strong> — abierta y directa (orden)</li>
+          <li><strong>"¿Puedes venir a clase?"</strong> — abierta e indirecta (cortesía mitigadora)</li>
+          <li><strong>"Antonio, ven a clase, te echamos de menos."</strong> — abierta con cortesía agradadora (valorizante)</li>
+          <li><strong>"Antonio, las clases ya han empezado."</strong> — estrategia encubierta (indirecta)</li>
+        </ol>
+        <p style="font-size:14px;color:var(--ink-faint)">Otras estrategias discursivas: dar fuerza argumentativa (objetivar el discurso), minimizar y atenuar (restar fuerza para lograr los fines), adaptar a la norma regional.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Síntesis: los 5 principios del buen discurso (Briz, 2008)</h3>
+        <ol style="padding-left:20px; font-size:14.5px;">
+          <li>Corrección gramatical</li>
+          <li>Adecuación a la situación, interlocutores y tiempo</li>
+          <li>Ideas claras</li>
+          <li>Establecimiento y mantenimiento de relaciones con el otro</li>
+          <li>Estrategia (saber hablar es un saber estratégico, no un don)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 07 CHULETA -->
+    <section id="chuleta">
+      <div class="sec-head">
+        <span class="sec-num">07</span>
+        <div><h2>Chuleta final</h2><div class="sec-sub">Lo esencial en un vistazo</div></div>
+      </div>
+      <div class="cheat">
+        <div class="cheat-grid">
+          <div>
+            <h3>Se escribe en este orden (Unidad II)</h3>
+            <ul>
+              <li>1.° Marco teórico</li>
+              <li>2.° Datos y estadísticas descriptivas</li>
+              <li>3.° Marco empírico</li>
+              <li>4.° Resultados y discusión</li>
+              <li>5.° Resumen y observaciones finales</li>
+              <li>6.° Título</li>
+              <li>7.° Introducción</li>
+              <li>8.° Resumen (Abstract)</li>
+            </ul>
+            <h3>Cap. 5 — relevancia (11)</h3>
+            <ul>
+              <li>Ataque personal · Ataque a la motivación · Mira quién habla</li>
+              <li>Dos errores no hacen un acierto · Tácticas de miedo</li>
+              <li>Apelación a la piedad · Argumento de la mayoría</li>
+              <li>Hombre de paja · Cortina de humo</li>
+              <li>Equívoco · Petición de principio</li>
+            </ul>
+            <h3>Cap. 6 — evidencia insuficiente (8)</h3>
+            <ul>
+              <li>Apelación inapropiada a la autoridad · Apelación a la ignorancia</li>
+              <li>Falsas alternativas · Pregunta capciosa</li>
+              <li>Causa cuestionable (post hoc / correlación / simplificada)</li>
+              <li>Generalización apresurada · Pendiente resbaladiza · Falsa analogía</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Unidad I — el paradigma (Clase 1)</h3>
+            <ul>
+              <li>Explicar = generalizar, no listar datos.</li>
+              <li>Objeto de estudio: explicaciones refutables de cambios de conducta ante cambios de <strong>restricciones</strong> (gustos constantes, ceteris paribus).</li>
+              <li>Gustos = internos/no observables (se postulan) · Restricciones = externas/observables.</li>
+              <li>A (postulados) + C (supuestos) → E (eventos). Si falla, sospechá primero de C.</li>
+              <li>Las teorías no se "prueban": se <strong>confirman</strong> o se <strong>refutan</strong>. Evitar "demuestra/prueba"; usar "confirma / es consistente con / no refuta".</li>
+              <li>Teoría útil = falsable (arriesga el cuello) ≠ tautología (siempre verdadera, vacía).</li>
+              <li>Estática comparativa: variables de decisión (x, endógenas) vs. parámetros (α, exógenos); se testea el <strong>signo de dx/dα</strong>.</li>
+            </ul>
+            <h3>Unidad II — claridad (Clase 3) y Oratoria</h3>
+            <ul>
+              <li>Escribir bien = <strong>claridad + fluidez</strong>, no vocabulario rebuscado.</li>
+              <li>4 recursos del lenguaje académico: impersonalidad, terminología específica, densidad conceptual, lenguaje formal.</li>
+              <li>Oración temática: <strong>deductivo</strong> (primera oración, general→particular) vs. <strong>inductivo</strong> (última oración, particular→general).</li>
+              <li>Evitar "el mismo/la misma" y "lo dicho/lo mencionado".</li>
+              <li>5 principios de Briz: corrección, adecuación, ideas claras, relación con el otro, estrategia.</li>
+              <li>Correlación ≠ causalidad — se repite en Unidad I (causa cuestionable), Unidad II (marco empírico) y datos (sesgo de selección).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Fuentes: Programa de la asignatura (UNNE) · Transcripción Clase 1 — Silberberg, E. &amp; Suen, W. (2001). <em>The Structure of Economics</em> (3.ª ed.), McGraw-Hill · Presentación Clase 2_AV · Transcripción Clase 3 — Marin, M. (2015). <em>Escribir textos científicos y académicos</em>, Fondo de Cultura Económica · Clase de Oratoria — Briz, A. (Coord.) (2008). <em>Saber hablar</em>, Instituto Cervantes · Bassham, G., Irwin, W., Nardone, H. &amp; Wallace, J. M. (2011). <em>Critical Thinking: A Student's Introduction</em> (4.ª ed.), Cap. 5 y 6, McGraw-Hill · Bellemare, M. F. (2022). <em>Doing Economics</em>, MIT Press.
+</footer>
+</body>
+</html>

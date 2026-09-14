@@ -44,3 +44,10 @@ services:
     rootDir: historia-economica
     buildCommand: ""
     staticPublishPath: .
+
+  - type: web
+    name: seminario-escritura-estudio
+    runtime: static
+    rootDir: seminario-escritura
+    buildCommand: ""
+    staticPublishPath: .

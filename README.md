@@ -14,6 +14,7 @@ desplegadas desde este mismo repositorio en Render.
 | [`historia-pensamiento-economico/`](historia-pensamiento-economico/) | Historia del Pensamiento Económico, 2º parcial (4to año) | `https://historia-pensamiento-economico-estudio.onrender.com` |
 | [`sociologia-economica/`](sociologia-economica/) | Sociología Económica, Unidades 3–6 (4to año) | `https://sociologia-economica-estudio.onrender.com` |
 | [`historia-economica/`](historia-economica/) | Historia Económica (3er año) | `https://historia-economica-estudio.onrender.com` |
+| [`seminario-escritura/`](seminario-escritura/) | Seminario: Escritura Científica (3er año) | `https://seminario-escritura-estudio.onrender.com` |
 
 El portal linkea a cada app publicada; las materias sin app propia aparecen
 como «Próximamente». Para conectar una materia nueva: crear su carpeta acá,

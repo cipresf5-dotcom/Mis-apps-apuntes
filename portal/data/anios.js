@@ -16,6 +16,7 @@ window.PORTAL.anios = [
       { nombre: "Marketing", estado: "pronto" },
       { nombre: "Matemática Financiera", estado: "pronto" },
       { nombre: "Microeconomía Avanzada", estado: "pronto" },
+      { nombre: "Seminario: Escritura Científica", estado: "app", url: "https://seminario-escritura-estudio.onrender.com", desc: "Paradigma económico, estructura del artículo, escritura clara y falacias" },
       { nombre: "Sistema Administrativo", estado: "pronto" }
     ]
   },

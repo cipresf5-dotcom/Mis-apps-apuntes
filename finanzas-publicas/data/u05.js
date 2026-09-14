@@ -27,6 +27,16 @@ window.CURSO.unidades.push({
   <li><strong>Teoría de la distribución de la carga pública (Laferrière y Waline):</strong> la obligación nace de la <em>solidaridad social</em>; todos deben sostener al Estado según su capacidad. Es la postura dominante (concuerda Villegas: si los ciudadanos crearon el Estado, es lógico que contribuyan a su sostenimiento).</li>
 </ul>
 
+<h4>Características del impuesto (Duverger)</h4>
+<p>Duverger define el impuesto como una prestación pecuniaria obtenida de los particulares <em>autoritariamente</em>, a título definitivo, sin contrapartida y para la cobertura de las cargas públicas. Sus caracteres: <strong>naturaleza pecuniaria</strong>, <strong>carácter forzoso</strong> (coactivo), <strong>directo</strong>, <strong>definitivo</strong>, <strong>inexistencia de contraprestación directa</strong> y <strong>finalidad de cobertura social</strong>.</p>
+
+<h4>Naturaleza jurídica del impuesto</h4>
+<ul>
+  <li><strong>Corriente privatista:</strong> heredada del Derecho Romano, ve el impuesto como una <em>carga real</em>, independiente de la persona del obligado.</li>
+  <li><strong>Corriente contractual:</strong> lo concibe como un <em>contrato bilateral</em> (el Estado presta servicios y los particulares aportan los medios para sostenerlos).</li>
+  <li><strong>Corriente publicista (dominante):</strong> el impuesto es una <em>obligación unilateral</em> impuesta coercitivamente por el Estado en ejercicio de su poder de imperio; como todo tributo, es una institución de <strong>derecho público</strong>.</li>
+</ul>
+
 <h3>El hecho imponible (estructura del impuesto)</h3>
 <div class="callout"><strong>Hecho imponible:</strong> el presupuesto de hecho, descripto por la ley, cuya realización genera el nacimiento de la <strong>obligación tributaria</strong>. Es el "corazón" del tributo.</div>
 <p>Tiene cuatro <strong>aspectos o elementos</strong>:</p>
@@ -138,6 +148,8 @@ window.CURSO.unidades.push({
   <li><strong>Difusión (o remoción):</strong> los efectos posteriores sobre el consumo, el ahorro y la producción de quien soportó el impuesto.</li>
 </ul>
 <p>La posibilidad de trasladar depende de las <strong>elasticidades</strong> de oferta y demanda, del tipo de mercado (más fácil en monopolio) y de la coyuntura.</p>
+<p><strong>Antes de la percusión</strong> puede darse el <em>efecto noticia (anuncio)</em>: al conocer que se creará el tributo, el contribuyente modifica su conducta para no encuadrar en el hecho imponible. Y <strong>después de la incidencia</strong>, si el incidido es una empresa que reorganiza su producción para compensar el gravamen, se habla de <em>remoción</em> del impuesto.</p>
+<p><strong>Otras formas de traslación:</strong> además de hacia adelante, hacia atrás y oblicua, puede ser <em>simple</em> (se cumple en una sola etapa) o de <em>varios grados</em> (un contribuyente de facto la traslada a otro, y así sucesivamente: fabricante → mayorista → minorista → consumidor), o estar establecida <em>por ley</em>.</p>
 <h4>Amortización y capitalización del impuesto</h4>
 <p>Efectos <em>peculiares</em> de los impuestos <strong>reales que gravan permanentemente la renta de capitales durablemente invertidos</strong>:</p>
 <ul>
@@ -162,6 +174,10 @@ window.CURSO.unidades.push({
 
 <h3>Teoría de la imposición óptima</h3>
 <p>Estudia cómo <strong>diseñar los impuestos para minimizar la distorsión y la ineficiencia</strong> (el exceso de carga) sin resignar la recaudación necesaria. Un <em>impuesto neutral</em> es el que no altera las decisiones económicas; como casi todos los impuestos son distorsivos (entre dos inversiones de igual riesgo y rentabilidad, el contribuyente elige la de menor carga), la imposición óptima busca el <em>menor sacrificio de eficiencia</em> compatible con los objetivos de equidad y suficiencia.</p>
+
+<h3>Principios económicos de la imposición: Adam Smith y Due</h3>
+<p><strong>Las cuatro máximas de Adam Smith:</strong> <em>justicia / capacidad</em> (cada uno según su capacidad contributiva), <em>certeza</em> (reglas claras: cuánto, cómo y cuándo pagar), <em>comodidad</em> (en el tiempo y modo más convenientes para el contribuyente) y <em>economicidad</em> (bajo costo de recaudación y cumplimiento). <strong>Due</strong> las sintetiza en tres criterios para diseñar la estructura impositiva: <em>neutralidad</em>, <em>equidad</em> y <em>economía</em>.</p>
+<p>La doctrina agrega, además: <strong>legalidad</strong>, <strong>igualdad</strong>, <strong>proporcionalidad</strong>, <strong>no confiscatoriedad</strong>, <strong>productividad</strong>, <em>evitar gravar actividades que recién se inician</em> y la <strong>discriminación entre rentas ganadas y no ganadas</strong> (gravar más las rentas del capital —"no ganadas"— que las del trabajo personal —"ganadas"—).</p>
 
 <h3>Principios económicos de la imposición (Neumark)</h3>
 <p>Un sistema tributario debe observar principios que, con frecuencia, entran en conflicto entre sí (equidad vs. eficiencia). Neumark agrupa, entre los de fines político-sociales:</p>
@@ -188,6 +204,18 @@ window.CURSO.unidades.push({
 </ul>
 <p>Sirve para comparar países y períodos y para evaluar el "espacio fiscal". Limitaciones: no capta la evasión, la calidad del gasto ni la distribución de la carga.</p>
 
+<h4>Medición y correcciones</h4>
+<p>El índice más simple es <strong>P = T / R</strong> (tributación total sobre la Renta Nacional); hoy la doctrina prefiere el <strong>PBI a precios de mercado</strong> como denominador. <strong>Griziotti</strong> propuso afinar la fórmula <em>restando</em> la utilidad que los gastos públicos devuelven a los contribuyentes (la presión es más soportable cuanto mayor es la ventaja obtenida de los servicios públicos).</p>
+<p>Al <strong>numerador (T)</strong> se le practican correcciones: se <em>suma</em> el <strong>impuesto ciego o inflacionario</strong> (la exacción que genera la emisión monetaria) y el excedente de los monopolios fiscales; y se <em>resta</em> la parte de tributos licuada por la inflación, los <strong>recursos originarios</strong> (precios, no cargas), las <strong>tasas y contribuciones</strong> equivalentes al servicio recibido, los <strong>aportes personales a la seguridad social</strong> (por su contrapartida futura) y los importes que <em>retornan</em> a la comunidad como bienes y servicios.</p>
+<p><strong>Presión fiscal</strong> (concepto más amplio): suma al numerador, además de los tributos, los <em>precios públicos</em> (y, en su versión más amplia, todos los recursos originarios y derivados). También se distingue la presión <strong>ordinaria</strong> (recursos ordinarios / renta) de la <strong>extraordinaria</strong> (recursos extraordinarios / patrimonio).</p>
+
+<h3>Impuesto medio y marginal</h3>
+<ul>
+  <li><strong>Impuesto medio (T<sub>me</sub>):</strong> cociente entre el impuesto total y la base (T/Q). Mide la <em>carga</em> tributaria promedio.</li>
+  <li><strong>Impuesto marginal (T<sub>mg</sub>):</strong> el incremento del impuesto por cada unidad adicional de base (ΔT/ΔQ). Mide el <em>impacto sobre los incentivos</em> (a ganar, ahorrar o invertir un peso más).</li>
+</ul>
+<p class="muted">En un impuesto <em>proporcional</em>, T<sub>me</sub> = T<sub>mg</sub>; en uno <em>progresivo</em>, T<sub>mg</sub> &gt; T<sub>me</sub> (el marginal "empuja" al medio hacia arriba).</p>
+
 <h3>Rezagos fiscales (lags)</h3>
 <p>El desfase temporal entre el hecho económico y el efecto fiscal. Importan en política tributaria y como factor de licuación de la recaudación con inflación:</p>
 <ul>
@@ -199,8 +227,20 @@ window.CURSO.unidades.push({
 <p class="muted">La magnitud del efecto depende de dos factores: la <strong>tasa de inflación</strong> observada entre el momento del hecho imponible y la fecha de pago (cuanto mayor, más se licúa lo recaudado) y la <strong>elasticidad</strong> del sistema tributario (el promedio ponderado de las elasticidades de cada tributo). Es más severo, entonces, en economías con tributos poco elásticos y rezagos largos.</p>
 
 <h3>Gasto tributario (tax expenditure)</h3>
-<div class="def">Es la <strong>recaudación que el Estado resigna</strong> por otorgar tratamientos preferenciales: exenciones, deducciones, alícuotas reducidas, diferimientos, regímenes de promoción.</div>
-<p>Se llama "gasto" porque equivale económicamente a un subsidio: en lugar de cobrar y luego gastar, el Estado <em>no cobra</em>. Su cuantificación (cada vez más exigida en los presupuestos) permite transparentar el costo fiscal de los beneficios y evaluar su eficacia.</p>
+<div class="def">Es la <strong>recaudación que el Estado resigna</strong> al otorgar un tratamiento que se aparta del régimen general (un <em>impuesto de referencia</em>) para beneficiar a ciertas actividades, zonas, contribuyentes o consumos. Equivale a una <strong>transferencia de recursos públicos</strong> hecha por vía tributaria en lugar de un gasto directo.</div>
+<p>Se llama "gasto" porque económicamente es un subsidio: en lugar de cobrar y luego gastar, el Estado <em>no cobra</em>. Su cuantificación (que supone que la conducta de los agentes no cambia) persigue tres <strong>objetivos</strong>: <em>transparencia fiscal</em>, medir el <em>rendimiento potencial</em> del sistema tributario y evaluar el <em>desempeño de la administración</em>.</p>
+<p><strong>Finalidades</strong> típicas: mejorar la progresividad, dar mayor eficiencia, estimular consumos "meritorios" e incentivar la inversión en ciertos sectores o regiones.</p>
+<h4>Formas del gasto tributario</h4>
+<p>Exenciones · alícuotas reducidas · deducciones · créditos · diferimientos · amortización acelerada · bonos cancelatorios · cláusulas de estabilidad fiscal. <span class="muted">En el IVA argentino son ejemplos las exenciones (salud, educación, libros, leche, intereses hipotecarios) y las alícuotas reducidas (alimentos frescos, pan, vivienda nueva, transporte público, compras con débito).</span></p>
+<h4>Desventajas frente al subsidio directo (Surrey, 1970)</h4>
+<ul>
+  <li>Son <strong>regresivos</strong> por naturaleza (en un impuesto a la renta progresivo, benefician a quien más paga; los más pobres quedan afuera).</li>
+  <li>Generan <strong>ganancias inesperadas</strong>: estimulan conductas que igual se habrían realizado (subsidio innecesario).</li>
+  <li>Son <strong>más difíciles de administrar y controlar</strong> (más excepciones → más fraude y errores).</li>
+  <li><strong>Distorsionan</strong> las decisiones de mercado (desvían recursos al sector favorecido).</li>
+  <li>Obligan a <strong>mantener altas las alícuotas</strong> (para recaudar lo mismo pese a lo que se resigna).</li>
+</ul>
+<div class="tp-nota">Datos oficiales: el gasto tributario estimado para <strong>2024</strong> fue de $8.234.343 millones ≈ <strong>2,34% del PBI</strong>; el IVA concentra el 55,73% y Ganancias el 0,57% del PBI. (Actualizar con la estimación del año que se estudie.)</div>
 `
     },
     {
@@ -229,6 +269,7 @@ window.CURSO.unidades.push({
 <p>Organismo encargado de aplicar, recaudar y fiscalizar los tributos. A nivel nacional: <strong>ARCA</strong> (ex AFIP), que comprende la Dirección General Impositiva (DGI) y la Dirección General de Aduanas (DGA). En las provincias, las Direcciones de Rentas / Agencias de Recaudación.</p>
 <p><strong>Funciones y facultades:</strong> recaudación, verificación y fiscalización, determinación de oficio, aplicación de sanciones, dictado de normas reglamentarias e interpretativas (rige la Ley 11.683). Sus facultades están limitadas por las garantías del contribuyente.</p>
 <p>Sus tres <strong>funciones</strong> operativas son: <em>recaudación</em> (difundir normas, evacuar consultas y percibir los pagos; actitud pasiva frente al obligado), <em>fiscalización</em> (controlar el cumplimiento de los deberes formales y materiales) y <em>cobranza</em> (reclamo activo del incumplimiento: boletas de deuda, embargos). Como órgano recaudador nacional, <strong>ARCA</strong> —creada como AFIP por el decreto 1156/96, fusionando la DGI y la Aduana e incorporando luego los recursos de la seguridad social— tiene además <strong>facultades de reglamentación</strong> (dictar normas generales obligatorias sobre inscripción, declaraciones juradas, retenciones, etc.) y de <strong>interpretación</strong> con carácter general obligatorio (sus interpretaciones se publican en el Boletín Oficial).</p>
+<p class="muted">Según el enfoque del <strong>CIAT</strong>, las funciones de la administración tributaria se agrupan en: <strong>control</strong> (detectar, corregir y sancionar los incumplimientos), <strong>servicio al cliente</strong> (facilitar y promover el cumplimiento voluntario minimizando su costo) y <strong>apoyo</strong> (soporte administrativo, informático y logístico).</p>
 
 <h3>Evasión y elusión</h3>
 <table>
@@ -382,6 +423,25 @@ window.CURSO.unidades.push({
   <details class="tp-toggle"><summary>Ver respuesta</summary>
   <p class="tp-resp"><strong>TP8 (error de salto):</strong> 70.000×15% = 10.500; 70.001×19% = 13.300. Un peso más de base hace saltar la alícuota y el impuesto aumenta $2.800 por ¡$1! → injusticia típica de la <strong>progresividad por clases (global)</strong>.</p>
   <p><strong>TP12:</strong> se trata de <strong>progresividad por clases</strong>; el salto entre clases genera el "error de salto" (problema de equidad en el margen). Tme = Σ(alícuota × % de base); Tmg = alícuota del último tramo. Los TP10-11 se completan con el método de "importe fijo + % sobre el excedente" (técnica escalonada del impuesto a las Ganancias).</p>
+  </details>
+</div>
+
+<div class="tp">
+  <h4>TP — Incidencia en equilibrio parcial (caso numérico)</h4>
+  <p class="tp-consigna">Un bien se vende a $10 (precio neto que desean recibir los productores) en un mercado de costos marginales decrecientes. Se aplica un impuesto fijo de $1 por unidad. ¿Cómo se reparte la carga entre comprador y productor?</p>
+  <details class="tp-toggle"><summary>Ver resolución</summary>
+  <p class="tp-resp">Al aplicarse el impuesto, la oferta se desplaza hacia arriba: para seguir percibiendo $10 netos, el precio bruto debería ser $11. A ese precio los compradores demandan menos (p. ej., 18 unidades). La menor demanda lleva a los productores a <em>aceptar un precio menor</em> (p. ej., $9,50), por lo que el precio de venta bruto queda en <strong>$10,50</strong> (9,50 + 1 de impuesto).</p>
+  <p><strong>Reparto de la carga del $1:</strong> el precio subió solo $0,50 (de $10 a $10,50) → el <strong>comprador</strong> soporta $0,50 y el <strong>productor</strong> los otros $0,50 (recibe $9,50 en lugar de $10). El impuesto se repartió entre ambos porque ni la oferta ni la demanda son perfectamente inelásticas.</p>
+  <p class="muted">Si la demanda fuera más inelástica, el precio habría subido casi $1 (carga sobre el comprador); si la oferta fuera más inelástica, casi todo el peso quedaría en el productor. El triángulo entre las curvas mide el <em>exceso de carga</em> (peso muerto).</p>
+  </details>
+</div>
+
+<div class="tp">
+  <h4>TP — Impuesto total, medio y marginal (caso numérico)</h4>
+  <p class="tp-consigna">Un impuesto se calcula como T(Q) = Q² sobre la base Q. Determinar el impuesto total, medio (T/Q) y marginal (ΔT/ΔQ) para Q = 6, e interpretar.</p>
+  <details class="tp-toggle"><summary>Ver resolución</summary>
+  <p class="tp-resp"><strong>En Q = 6:</strong> impuesto total T = 6² = <strong>36</strong>; impuesto medio T<sub>me</sub> = 36 / 6 = <strong>6</strong>; impuesto marginal T<sub>mg</sub> = dT/dQ = 2Q = 2·6 = <strong>12</strong>.</p>
+  <p><strong>Interpretación:</strong> cada unidad de base paga en promedio $6, pero la <em>última</em> unidad agregada genera $12 de impuesto. Como T<sub>mg</sub> (12) &gt; T<sub>me</sub> (6), el impuesto es <strong>progresivo</strong> (el marginal crece más rápido que la base y arrastra al medio hacia arriba).</p>
   </details>
 </div>
 `

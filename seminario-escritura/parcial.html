@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Parcial Antes del Parcial</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --paper:#EEF1F3; --surface:#FFFFFF; --surface-2:#E3E8EC;
+    --ink:#16213D; --ink-soft:#4A5670; --ink-faint:#7C8699;
+    --accent-gold:#93690F; --accent-gold-bg:#F3E7CE;
+    --accent-red:#A63D2C; --accent-red-bg:#F5E1DC;
+    --accent-teal:#256B54; --accent-teal-bg:#DCEEE6;
+    --line: rgba(22,33,61,0.14);
+    --shadow: 0 1px 2px rgba(22,33,61,0.06), 0 10px 28px rgba(22,33,61,0.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0D1424; --surface:#151E35; --surface-2:#1D2A46;
+      --ink:#E9ECF5; --ink-soft:#B6C0D8; --ink-faint:#8492B0;
+      --accent-gold:#DCAB55; --accent-gold-bg:#3A2E15;
+      --accent-red:#E38670; --accent-red-bg:#3B201A;
+      --accent-teal:#63C2A2; --accent-teal-bg:#112E26;
+      --line: rgba(233,236,245,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 28px rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0D1424; --surface:#151E35; --surface-2:#1D2A46;
+    --ink:#E9ECF5; --ink-soft:#B6C0D8; --ink-faint:#8492B0;
+    --accent-gold:#DCAB55; --accent-gold-bg:#3A2E15;
+    --accent-red:#E38670; --accent-red-bg:#3B201A;
+    --accent-teal:#63C2A2; --accent-teal-bg:#112E26;
+    --line: rgba(233,236,245,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 28px rgba(0,0,0,0.4);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif; font-size:16px; line-height:1.58; padding:0 20px 80px;}
+  h1,h2,h3{font-family:"Fraunces", Georgia, serif; text-wrap:balance; font-weight:600; margin:0; color:var(--ink);}
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+  .wrap{max-width:760px; margin:0 auto;}
+
+  .masthead{padding:40px 0 22px; border-bottom:2px solid var(--ink); position:relative;}
+  .kicker{font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px;}
+  h1.title{font-size:clamp(28px,4.6vw,42px); line-height:1.06; max-width:17ch;}
+  .lede{color:var(--ink-soft); font-size:16px; max-width:66ch; margin-top:12px;}
+  .instr{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .chip{font-family:"IBM Plex Mono", monospace; font-size:12px; padding:5px 10px; border:1px solid var(--line); border-radius:999px; color:var(--ink-soft); background:var(--surface);}
+
+  .scoreboard{
+    position:sticky; top:0; z-index:10; margin:0 -20px 30px; padding:12px 20px;
+    background:var(--paper); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    backdrop-filter:blur(6px);
+  }
+  .scoreboard .label{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-faint);}
+  .scoreboard .score{font-family:"Fraunces",serif; font-weight:600; font-size:20px;}
+  .scoreboard .score .max{color:var(--ink-faint); font-weight:400; font-size:15px;}
+  .reset-btn{font-family:"IBM Plex Mono",monospace; font-size:11.5px; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); border-radius:999px; padding:6px 12px; cursor:pointer;}
+  .reset-btn:hover{border-color:var(--accent-gold); color:var(--ink);}
+
+  section{margin:44px 0;}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px; padding-bottom:12px; border-bottom:1px solid var(--line);}
+  .sec-num{font-family:"IBM Plex Mono", monospace; font-size:13px; color:var(--surface); background:var(--ink); padding:4px 9px; border-radius:6px; flex:none;}
+  section h2{font-size:clamp(19px,2.6vw,24px);}
+  .sec-sub{color:var(--ink-faint); font-size:13px; margin-top:2px;}
+  .sec-points{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--accent-gold); margin-left:auto; white-space:nowrap;}
+
+  .q{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:14px 0; box-shadow:var(--shadow);}
+  .q-text{font-size:15px; margin:0 0 12px; max-width:66ch;}
+  .q-text strong{font-family:"IBM Plex Mono",monospace; color:var(--ink-faint); font-weight:600; margin-right:4px;}
+  .q-case{font-size:14px; margin:0 0 12px; padding:10px 12px; background:var(--surface-2); border-radius:8px; font-style:italic; color:var(--ink-soft);}
+
+  .options{display:flex; flex-direction:column; gap:8px;}
+  .opt{
+    text-align:left; font-family:"Source Sans 3",sans-serif; font-size:14px; color:var(--ink);
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px;
+    cursor:pointer; transition:border-color .12s, background .12s;
+  }
+  .opt:hover{border-color:var(--accent-gold);}
+  .opt.correct{border-color:var(--accent-teal); background:var(--accent-teal-bg); color:var(--accent-teal); font-weight:600;}
+  .opt.wrong{border-color:var(--accent-red); background:var(--accent-red-bg); color:var(--accent-red);}
+  .opt[disabled]{cursor:default;}
+  .opt[disabled]:hover{border-color:inherit;}
+
+  .vf-options{display:flex; gap:10px;}
+  .vf-options .opt{flex:1; text-align:center; font-weight:600;}
+
+  .q-explain{font-size:13.5px; color:var(--ink-soft); margin:12px 0 0; padding-top:10px; border-top:1px dashed var(--line); display:none;}
+  .q-explain.show{display:block;}
+  .q-explain strong{color:var(--ink);}
+
+  .reveal-btn{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; border:1px solid var(--accent-gold); color:var(--accent-gold);
+    background:transparent; border-radius:999px; padding:7px 14px; cursor:pointer; margin-top:6px;
+  }
+  .reveal-btn:hover{background:var(--accent-gold-bg);}
+  textarea.own-answer{
+    width:100%; min-height:70px; font-family:"Source Sans 3",sans-serif; font-size:14px; color:var(--ink);
+    background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:10px 12px; resize:vertical;
+    margin-bottom:10px;
+  }
+  .model-answer{font-size:14px; color:var(--ink-soft); margin-top:10px; padding:12px; background:var(--accent-gold-bg); border-radius:8px; border-left:3px solid var(--accent-gold); display:none;}
+  .model-answer.show{display:block;}
+  .model-answer strong{color:var(--accent-gold);}
+
+  footer{max-width:760px; margin:50px auto 0; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--ink-faint); font-family:"IBM Plex Mono",monospace;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <div class="kicker">Seminario: Escritura Científica · UNNE — Simulacro autocorrectivo</div>
+  <h1 class="title">El parcial antes del parcial</h1>
+  <p class="lede">24 ítems sobre las cinco unidades del apunte: el paradigma económico, la estructura del artículo, escritura clara, falacias y oratoria. Los de opción múltiple y verdadero/falso se corrigen solos al hacer clic; los de desarrollo tienen una respuesta modelo para comparar la tuya.</p>
+  <div class="instr">
+    <span class="chip">~45-50 min sugeridos</span>
+    <span class="chip">Libro cerrado</span>
+    <span class="chip">24 ítems · 4 secciones</span>
+  </div>
+  <p style="margin-top:14px;"><a href="index.html" style="font-family:'IBM Plex Mono',monospace; font-size:13px;">← Volver al apunte completo</a></p>
+</header>
+
+<div class="scoreboard">
+  <span class="label">Puntaje (opción múltiple + V/F)</span>
+  <span class="score"><span id="scoreVal">0</span><span class="max">/14</span></span>
+  <button class="reset-btn" id="resetBtn">Reiniciar intento</button>
+</div>
+
+<!-- ============ SECCION I: OPCION MULTIPLE ============ -->
+<section id="s1">
+  <div class="sec-head">
+    <span class="sec-num">I</span>
+    <div><h2>Opción múltiple</h2><div class="sec-sub">Unidad I y II — una sola respuesta correcta</div></div>
+    <span class="sec-points">8 puntos</span>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>1.</strong> Según el paradigma marginalista, ¿por qué se postulan los gustos en lugar de medirlos?</p>
+    <div class="options">
+      <button class="opt" data-correct="true">A) Porque no existe un instrumento para observar directamente las preferencias internas de un individuo</button>
+      <button class="opt">B) Porque los gustos son menos importantes que las restricciones para explicar la conducta</button>
+      <button class="opt">C) Porque medir los gustos violaría el supuesto de maximización de utilidad</button>
+      <button class="opt">D) Porque los economistas prefieren trabajar solo con variables observables por tradición metodológica</button>
+    </div>
+    <p class="q-explain">No hay "utilómetro": los gustos son inobservables, así que se asumen constantes (ceteris paribus) para poder construir explicaciones sistemáticas.</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>2.</strong> En la estructura A + C → E, ¿qué ocurre cuando una predicción no se cumple?</p>
+    <div class="options">
+      <button class="opt">A) Se concluye que los postulados (A) eran incorrectos y deben reformularse</button>
+      <button class="opt" data-correct="true">B) Se revisa primero si los supuestos (C) estaban bien planteados</button>
+      <button class="opt">C) Se descarta la teoría por completo y se busca un nuevo paradigma</button>
+      <button class="opt">D) Se ignora el resultado porque los eventos (E) rara vez son confiables</button>
+    </div>
+    <p class="q-explain">Los postulados no se discuten. Casi siempre el fallo está en un supuesto mal planteado (medición incorrecta, inflación omitida, sustitutos ignorados).</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>3.</strong> ¿Cuál de estas afirmaciones usa el vocabulario correcto de la escritura científica?</p>
+    <div class="options">
+      <button class="opt">A) "Los datos demuestran que la política monetaria explica la inflación"</button>
+      <button class="opt">B) "Los datos prueban de manera concluyente nuestra hipótesis"</button>
+      <button class="opt" data-correct="true">C) "Los datos son consistentes con las predicciones del modelo"</button>
+      <button class="opt">D) "Los datos confirman sin lugar a dudas la teoría planteada"</button>
+    </div>
+    <p class="q-explain">Las teorías no se "prueban" ni se "demuestran": solo se confirman (son consistentes con los hechos) o se refutan.</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>4.</strong> ¿Cuál es el verdadero orden en que se escribe (no se lee) un artículo aplicado de Economía?</p>
+    <div class="options">
+      <button class="opt">A) Introducción, marco teórico, datos, resultados, título</button>
+      <button class="opt" data-correct="true">B) Marco teórico, datos, marco empírico, resultados, conclusión, título, introducción, abstract</button>
+      <button class="opt">C) Título, abstract, introducción, marco teórico, datos, resultados</button>
+      <button class="opt">D) Datos, título, marco teórico, introducción, resultados, abstract</button>
+    </div>
+    <p class="q-explain">Se escribe primero el núcleo empírico y al final el "empaque" de marketing (título, introducción, abstract) — el orden inverso al de lectura.</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>5.</strong> ¿Qué agrega específicamente la "estrategia de identificación" que no aporta por sí sola una correlación?</p>
+    <div class="options">
+      <button class="opt">A) Una medida más precisa del tamaño de la muestra utilizada</button>
+      <button class="opt" data-correct="true">B) Una justificación de por qué puede interpretarse la relación como causal</button>
+      <button class="opt">C) Una lista más completa de las variables de control incluidas</button>
+      <button class="opt">D) Una comparación con los resultados de estudios internacionales previos</button>
+    </div>
+    <p class="q-explain">Detectar una correlación (ej. por MCO) no alcanza; la estrategia de identificación es lo que justifica el salto de "se mueven juntos" a "uno causa al otro".</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>6.</strong> ¿Cuál de estos es un ejemplo de sesgo de selección?</p>
+    <div class="options">
+      <button class="opt">A) Medir el efecto de una política comparando el mismo grupo antes y después</button>
+      <button class="opt" data-correct="true">B) Encuestar únicamente a quienes completaron un curso para evaluar su efectividad</button>
+      <button class="opt">C) Usar una muestra aleatoria extraída de toda la población objetivo</button>
+      <button class="opt">D) Reportar el tamaño de la muestra junto con el margen de error</button>
+    </div>
+    <p class="q-explain">Ignora a quienes desertaron (que suelen tener características distintas) — la muestra deja de representar a la población objetivo.</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>7.</strong> Un párrafo que ubica la oración temática al final y termina generalizando a partir del detalle es:</p>
+    <div class="options">
+      <button class="opt">A) Deductivo</button>
+      <button class="opt" data-correct="true">B) Inductivo</button>
+      <button class="opt">C) Circular</button>
+      <button class="opt">D) Nominalizado</button>
+    </div>
+    <p class="q-explain">Deductivo = oración temática primero (general → particular). Inductivo = oración temática última (particular → general).</p>
+  </div>
+
+  <div class="q" data-kind="mc">
+    <p class="q-text"><strong>8.</strong> ¿Cuál de estos recursos NO corresponde a la impersonalidad académica?</p>
+    <div class="options">
+      <button class="opt">A) El uso del pronombre "se" antepuesto al verbo</button>
+      <button class="opt">B) La voz pasiva con el verbo "ser"</button>
+      <button class="opt">C) Las nominalizaciones que ocultan al agente</button>
+      <button class="opt" data-correct="true">D) El uso de anécdotas personales en primera persona del singular</button>
+    </div>
+    <p class="q-explain">La impersonalidad busca ocultar al sujeto que escribe; la anécdota personal en primera persona hace justo lo contrario.</p>
+  </div>
+</section>
+
+<!-- ============ SECCION II: V/F ============ -->
+<section id="s2">
+  <div class="sec-head">
+    <span class="sec-num">II</span>
+    <div><h2>Verdadero o falso</h2><div class="sec-sub">Justificá siempre, aunque la consigna no lo pida explícitamente</div></div>
+    <span class="sec-points">6 puntos</span>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>9.</strong> "Una teoría científica se prueba de manera definitiva cuando los datos coinciden con sus predicciones."</p>
+    <div class="options vf-options">
+      <button class="opt">Verdadero</button>
+      <button class="opt" data-correct="true">Falso</button>
+    </div>
+    <p class="q-explain">Solo se <em>confirma</em>. Afirmar que queda "probada" es la falacia de afirmar el consecuente: otra teoría distinta podría predecir exactamente lo mismo.</p>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>10.</strong> "El abstract de un paper aplicado se escribe recién después de tener resuelta la introducción."</p>
+    <div class="options vf-options">
+      <button class="opt" data-correct="true">Verdadero</button>
+      <button class="opt">Falso</button>
+    </div>
+    <p class="q-explain">Bellemare lo señala explícitamente: una vez resuelta la introducción, el abstract es básicamente su resumen — por eso se escribe último.</p>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>11.</strong> "Una correlación estadística alta ya constituye evidencia suficiente de causalidad."</p>
+    <div class="options vf-options">
+      <button class="opt">Verdadero</button>
+      <button class="opt" data-correct="true">Falso</button>
+    </div>
+    <p class="q-explain">Correlación no implica causalidad — hace falta además una estrategia de identificación (marco empírico, Unidad II).</p>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>12.</strong> "Todo ataque a la persona dentro de un argumento constituye la falacia de ataque personal (ad hominem)."</p>
+    <div class="options vf-options">
+      <button class="opt">Verdadero</button>
+      <button class="opt" data-correct="true">Falso</button>
+    </div>
+    <p class="q-explain">Solo es falacia cuando el ataque reemplaza la evaluación del argumento. Cuestionar la credibilidad de un testigo condenado por perjurio, por ejemplo, sí es relevante.</p>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>13.</strong> "En el mundo hispánico, la distancia interpersonal al hablar es mayor que en las culturas anglosajonas."</p>
+    <div class="options vf-options">
+      <button class="opt">Verdadero</button>
+      <button class="opt" data-correct="true">Falso</button>
+    </div>
+    <p class="q-explain">Es al revés: ~45 cm en el mundo hispánico (mayor cercanía) frente a ~90 cm en el anglosajón (mayor privacidad).</p>
+  </div>
+
+  <div class="q" data-kind="vf">
+    <p class="q-text"><strong>14.</strong> "La falacia de causa cuestionable y la de generalización apresurada son, en esencia, el mismo error con distinto nombre."</p>
+    <div class="options vf-options">
+      <button class="opt">Verdadero</button>
+      <button class="opt" data-correct="true">Falso</button>
+    </div>
+    <p class="q-explain">Son errores distintos aunque estén en el mismo capítulo: una es sobre atribuir causalidad sin justificación; la otra, sobre generalizar desde una muestra sesgada o chica.</p>
+  </div>
+</section>
+
+<!-- ============ SECCION III: DESARROLLO ============ -->
+<section id="s3">
+  <div class="sec-head">
+    <span class="sec-num">III</span>
+    <div><h2>Desarrollo corto</h2><div class="sec-sub">Escribí tu respuesta y compará con el modelo — no se autocorrige</div></div>
+    <span class="sec-points">no puntúa</span>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-text"><strong>15.</strong> Explique por qué, según el paradigma marginalista, es un error interpretar cualquier cambio inesperado en el comportamiento de los consumidores como un "cambio de gustos".</p>
+    <textarea class="own-answer" placeholder="Escribí acá tu respuesta antes de ver el modelo..."></textarea>
+    <button class="reveal-btn" data-target="m15">Ver respuesta modelo</button>
+    <p class="model-answer" id="m15"><strong>Modelo:</strong> los gustos se postulan constantes (ceteris paribus) precisamente para que las explicaciones sean sistemáticas y refutables. Si se acepta "cambiaron los gustos" como comodín cada vez que algo no encaja, cualquier resultado queda explicado y la teoría deja de arriesgar nada — se vuelve una tautología. Casi siempre lo que realmente cambió es una restricción observable (ej. el precio relativo de un bien), no una preferencia inobservable.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-text"><strong>16.</strong> ¿Por qué Bellemare sostiene que "la estructura en que se presenta un artículo es distinta de la estructura en que se lo escribe"? Dé un ejemplo con dos secciones concretas.</p>
+    <textarea class="own-answer" placeholder="Escribí acá tu respuesta antes de ver el modelo..."></textarea>
+    <button class="reveal-btn" data-target="m16">Ver respuesta modelo</button>
+    <p class="model-answer" id="m16"><strong>Modelo:</strong> porque el lector necesita primero el contexto y la conclusión (título, introducción, abstract) para orientarse, mientras que el autor necesita primero resolver el contenido empírico (marco teórico, datos, método, resultados) antes de poder resumirlo. Ejemplo: el marco teórico es la 4.ª sección que se lee pero la 1.ª que se escribe; el título es la 1.ª que se lee pero la 6.ª que se escribe.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-text"><strong>17.</strong> Reescriba en registro académico formal: "El estudio dice que hay que subir los impuestos porque si no la cosa se complica."</p>
+    <textarea class="own-answer" placeholder="Escribí acá tu respuesta antes de ver el modelo..."></textarea>
+    <button class="reveal-btn" data-target="m17">Ver respuesta modelo</button>
+    <p class="model-answer" id="m17"><strong>Modelo (posible):</strong> "El estudio sostiene que resulta necesario incrementar la carga impositiva, dado que de no hacerlo se agravaría la situación fiscal." — Se reemplaza "dice" por "sostiene", "hay que" por "resulta necesario", y "la cosa se complica" por una formulación precisa y no coloquial.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-text"><strong>18.</strong> Explique la diferencia entre una falacia de relevancia y una falacia de evidencia insuficiente, con un ejemplo propio de cada una (distinto de los vistos en clase).</p>
+    <textarea class="own-answer" placeholder="Escribí acá tu respuesta antes de ver el modelo..."></textarea>
+    <button class="reveal-btn" data-target="m18">Ver respuesta modelo</button>
+    <p class="model-answer" id="m18"><strong>Modelo:</strong> en la falacia de relevancia, la premisa ni siquiera cuenta a favor o en contra de la conclusión (ej.: "no hay que escuchar la propuesta de reforma jubilatoria de ese economista, porque es de un partido que no me gusta" — ataque a la motivación). En la de evidencia insuficiente, la premisa sí es relevante pero no alcanza para sostener la conclusión (ej.: "encuesté a diez amigos y ninguno cree que la inflación vaya a bajar, así que la inflación no va a bajar" — generalización apresurada).</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-text"><strong>19.</strong> ¿Qué rol cumple la revisión por pares en la calidad de una publicación científica, y por qué la cátedra la vincula con la frase "publicar o perecer"?</p>
+    <textarea class="own-answer" placeholder="Escribí acá tu respuesta antes de ver el modelo..."></textarea>
+    <button class="reveal-btn" data-target="m19">Ver respuesta modelo</button>
+    <p class="model-answer" id="m19"><strong>Modelo:</strong> la revisión por pares hace que especialistas evalúen originalidad, rigor y metodología antes de que un artículo se publique, lo que valida el rigor científico y mejora la calidad final. La cátedra la vincula con "publicar o perecer" porque el sistema de dedicaciones/categorizaciones universitario exige publicar con arbitraje para sostener la carrera académica — una presión que, mal supervisada, puede derivar en publicaciones poco rigurosas.</p>
+  </div>
+</section>
+
+<!-- ============ SECCION IV: APLICACION ============ -->
+<section id="s4">
+  <div class="sec-head">
+    <span class="sec-num">IV</span>
+    <div><h2>Aplicación: identificar la falacia</h2><div class="sec-sub">Casos nuevos, no vistos en el apunte</div></div>
+    <span class="sec-points">no puntúa</span>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-case">"El Dr. Suárez, economista con 20 años de trayectoria, sostiene que no hay burbuja inmobiliaria. Pero no sorprende que diga eso: su empresa desarrolla proyectos inmobiliarios y se beneficia directamente de esa narrativa. Por lo tanto, hay que descartar su argumento."</p>
+    <p class="q-text"><strong>20.</strong> ¿Qué falacia se comete al descartar el argumento sin más?</p>
+    <textarea class="own-answer" placeholder="Escribí tu respuesta..."></textarea>
+    <button class="reveal-btn" data-target="m20">Ver respuesta</button>
+    <p class="model-answer" id="m20"><strong>Respuesta:</strong> Ataque a la motivación (Cap. 5) — señalar el interés económico del Dr. Suárez es razonable como motivo de cautela, pero rechazar su argumento solo por eso, sin examinarlo, es la falacia. Tiene un interés, sí; eso no prueba que esté equivocado.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-case">"Si el gobierno regula un poco el precio de los alquileres, mañana va a estar fijando el precio de la comida, la ropa y los combustibles, hasta que terminemos en una economía totalmente planificada."</p>
+    <p class="q-text"><strong>21.</strong> ¿Qué falacia se comete?</p>
+    <textarea class="own-answer" placeholder="Escribí tu respuesta..."></textarea>
+    <button class="reveal-btn" data-target="m21">Ver respuesta</button>
+    <p class="model-answer" id="m21"><strong>Respuesta:</strong> Pendiente resbaladiza (Cap. 6) — encadena una acción puntual e inofensiva con un desenlace catastrófico, sin evidencia de que cada paso intermedio realmente vaya a ocurrir.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-case">"Nadie ha podido demostrar que el etiquetado frontal de alimentos reduzca la obesidad. Por lo tanto, debemos concluir que no sirve para nada."</p>
+    <p class="q-text"><strong>22.</strong> ¿Qué falacia se comete?</p>
+    <textarea class="own-answer" placeholder="Escribí tu respuesta..."></textarea>
+    <button class="reveal-btn" data-target="m22">Ver respuesta</button>
+    <p class="model-answer" id="m22"><strong>Respuesta:</strong> Apelación a la ignorancia (Cap. 6) — trata la falta de evidencia concluyente en un sentido como si fuera evidencia a favor del sentido contrario. Ausencia de prueba no es prueba de ausencia.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-case">"Mi profesor de Historia Económica me comentó, extraoficialmente, que el nuevo plan de estabilización va a fracasar en seis meses. Así que va a fracasar."</p>
+    <p class="q-text"><strong>23.</strong> ¿Qué falacia se comete?</p>
+    <textarea class="own-answer" placeholder="Escribí tu respuesta..."></textarea>
+    <button class="reveal-btn" data-target="m23">Ver respuesta</button>
+    <p class="model-answer" id="m23"><strong>Respuesta:</strong> Apelación inapropiada a la autoridad (Cap. 6) — un profesor de Historia Económica no es necesariamente experto en diseño de planes de estabilización, y la opinión se dio "extraoficialmente", sin respaldo público que pueda evaluarse.</p>
+  </div>
+
+  <div class="q" data-kind="dev">
+    <p class="q-case">"En los últimos dos meses subieron las tasas de interés y también subieron los depósitos a plazo fijo. Por lo tanto, subir las tasas de interés hizo que la gente ahorrara más."</p>
+    <p class="q-text"><strong>24.</strong> Según lo visto en el marco empírico (Unidad II), ¿qué le falta exactamente a este argumento para sostener la conclusión causal?</p>
+    <textarea class="own-answer" placeholder="Escribí tu respuesta..."></textarea>
+    <button class="reveal-btn" data-target="m24">Ver respuesta</button>
+    <p class="model-answer" id="m24"><strong>Respuesta:</strong> le falta una <strong>estrategia de identificación</strong> — algo que descarte explicaciones alternativas (por ejemplo, que ambas variables respondan a una tercera causa común, como una suba generalizada de tasas por parte del Banco Central) antes de poder afirmar que una causó a la otra. La correlación por sí sola no alcanza.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  Simulacro autogenerado a partir del apunte de la materia — no reemplaza el parcial real ni fue provisto por la cátedra. Reiniciá el intento las veces que quieras.
+</footer>
+
+<script>
+(function(){
+  var scoreEl = document.getElementById('scoreVal');
+  var score = 0;
+  var MAX = 14;
+
+  function lockOptions(container){
+    container.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; });
+  }
+
+  document.querySelectorAll('.q[data-kind="mc"] .options, .q[data-kind="vf"] .options').forEach(function(optsDiv){
+    optsDiv.addEventListener('click', function(e){
+      var btn = e.target.closest('.opt');
+      if(!btn || optsDiv.dataset.locked === 'true') return;
+      optsDiv.dataset.locked = 'true';
+
+      var correctBtn = optsDiv.querySelector('[data-correct="true"]');
+      var chosenCorrect = btn.getAttribute('data-correct') === 'true';
+
+      btn.classList.add(chosenCorrect ? 'correct' : 'wrong');
+      if(!chosenCorrect && correctBtn) correctBtn.classList.add('correct');
+
+      lockOptions(optsDiv);
+
+      var card = optsDiv.closest('.q');
+      var explain = card.querySelector('.q-explain');
+      if(explain) explain.classList.add('show');
+
+      if(chosenCorrect){
+        score++;
+        scoreEl.textContent = score;
+      }
+    });
+  });
+
+  document.querySelectorAll('.reveal-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = document.getElementById(btn.getAttribute('data-target'));
+      if(target){
+        target.classList.toggle('show');
+        btn.textContent = target.classList.contains('show') ? 'Ocultar respuesta' : 'Ver respuesta modelo';
+      }
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    document.querySelectorAll('.options[data-locked]').forEach(function(o){ o.removeAttribute('data-locked'); });
+    document.querySelectorAll('.opt').forEach(function(b){ b.disabled = false; b.classList.remove('correct','wrong'); });
+    document.querySelectorAll('.q-explain').forEach(function(p){ p.classList.remove('show'); });
+    document.querySelectorAll('.model-answer').forEach(function(p){ p.classList.remove('show'); });
+    document.querySelectorAll('.reveal-btn').forEach(function(b){ b.textContent = 'Ver respuesta modelo'; });
+    document.querySelectorAll('.own-answer').forEach(function(t){ t.value=''; });
+    score = 0;
+    scoreEl.textContent = 0;
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>

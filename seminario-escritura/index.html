@@ -328,7 +328,8 @@
     <a href="#relevancia"><span class="toc-num">04</span>Falacias de relevancia</a>
     <a href="#evidencia"><span class="toc-num">05</span>Falacias de evidencia insuficiente</a>
     <a href="#oratoria"><span class="toc-num">06</span>Comunicación oral</a>
-    <a href="#chuleta"><span class="toc-num">07</span>Chuleta final</a>
+    <a href="#herramientas"><span class="toc-num">07</span>Herramientas (Clase 4)</a>
+    <a href="#chuleta"><span class="toc-num">08</span>Chuleta final</a>
   </nav>
 
   <main>
@@ -874,10 +875,46 @@
       </div>
     </section>
 
-    <!-- 07 CHULETA -->
-    <section id="chuleta">
+    <!-- 07 HERRAMIENTAS -->
+    <section id="herramientas">
       <div class="sec-head">
         <span class="sec-num">07</span>
+        <div><h2>Herramientas: Python + Claude</h2><div class="sec-sub">Clase 4 — taller práctico (no son videos de teoría, son diapositivas de instalación y casos de uso)</div></div>
+      </div>
+      <p class="lede">A diferencia de las Clases 1-3, Clase 4 no da contenido teórico para memorizar: es un taller para instalar y usar Python (Spyder) junto con Claude como asistente para tareas de investigación. Útil sobre todo para la Unidad III (presentar resultados, manejar bibliografía) — pero conviene confirmar con la cátedra si esto entra en el parcial teórico o es solo práctico.</p>
+
+      <div class="subsec">
+        <h3>Instalación: Miniconda → Spyder → Claude Cowork</h3>
+        <ol style="padding-left:20px; font-size:14.5px;">
+          <li>Descargar e instalar <strong>Miniconda</strong> desde anaconda.com/download (el instalador, al final de la página).</li>
+          <li>Abrir <strong>Anaconda Prompt</strong> (sugerencia: anclarlo a la barra de tareas).</li>
+          <li>Copiar el comando <span class="mono">conda install spyder -y</span> con clic derecho (sin pegar todavía) y ejecutarlo en Anaconda Prompt para instalar <strong>Spyder</strong> (el IDE de Python).</li>
+          <li>Instalar <strong>Claude Cowork</strong> (claude.com/product/cowork) — el modo "agente" de Claude que puede escribir y correr scripts directamente en Spyder, no solo chatear.</li>
+        </ol>
+      </div>
+
+      <div class="subsec">
+        <h3>Para qué se usa Claude + Spyder en investigación</h3>
+        <p>La idea central: en vez de organizar archivos de investigación a mano, se le pide a Claude que genere un script de Python para que Spyder lo ejecute. Casos vistos:</p>
+        <table>
+          <tr><th>Tarea</th><th>Qué hace el script</th></tr>
+          <tr><td>Descarga y organización</td><td>Clasificar automáticamente archivos descargados en carpetas por materia, año o tipo; filtrar descargas por tamaño, formato o palabras clave</td></tr>
+          <tr><td>Procesamiento por lotes</td><td>Comprimir en ZIP, convertir formatos (PNG↔JPG), fusionar o separar PDFs, hacer OCR sobre PDFs escaneados para que queden buscables</td></tr>
+          <tr><td>Inventario y catalogación</td><td>Generar un índice/catálogo (CSV, Excel o Markdown) con nombre, tamaño, fecha, cantidad de páginas y URL de origen de cada archivo</td></tr>
+          <tr><td>Limpieza y mantenimiento</td><td>Detectar duplicados, archivos corruptos o vacíos; renombrar masivamente con patrones (fechas, numeración, prefijos); corregir nombres con caracteres problemáticos</td></tr>
+          <tr><td>Extracción de contenido</td><td>Extraer texto, tablas o imágenes de un conjunto de PDFs y consolidarlas (ej. todas las tablas en una sola planilla)</td></tr>
+          <tr><td>Monitoreo recurrente</td><td>Revisar periódicamente una web y descargar automáticamente los archivos nuevos (útil para boletines, resoluciones, actas)</td></tr>
+          <tr><td>Comparación y versionado</td><td>Comparar versiones de un documento que se actualiza (ej. un programa de estudio o una normativa) y detectar qué cambió</td></tr>
+        </table>
+      </div>
+
+      <div class="note"><strong>Better Data Visualizations:</strong> también forma parte del material de Clase 4 un documento de referencia extenso sobre cómo construir buenos gráficos — se conecta directamente con la sección "Resultados y discusión" de la Unidad II (sección 02): cómo presentar los hallazgos de una investigación de forma clara.</div>
+    </section>
+
+    <!-- 08 CHULETA -->
+    <section id="chuleta">
+      <div class="sec-head">
+        <span class="sec-num">08</span>
         <div><h2>Chuleta final</h2><div class="sec-sub">Lo esencial en un vistazo</div></div>
       </div>
       <div class="cheat">
@@ -939,7 +976,7 @@
 </div>
 
 <footer>
-  Fuentes: Programa de la asignatura (UNNE) · Transcripción Clase 1 — Silberberg, E. &amp; Suen, W. (2001). <em>The Structure of Economics</em> (3.ª ed.), McGraw-Hill · Presentación Clase 2_AV + transcripción del video de la clase · Transcripción Clase 3 — Marin, M. (2015). <em>Escribir textos científicos y académicos</em>, Fondo de Cultura Económica · Clase de Oratoria — Briz, A. (Coord.) (2008). <em>Saber hablar</em>, Instituto Cervantes · Bassham, G., Irwin, W., Nardone, H. &amp; Wallace, J. M. (2011). <em>Critical Thinking: A Student's Introduction</em> (4.ª ed.), Cap. 5 y 6, McGraw-Hill · Bellemare, M. F. (2022). <em>Doing Economics</em>, MIT Press.
+  Fuentes: Programa de la asignatura (UNNE) · Transcripción Clase 1 — Silberberg, E. &amp; Suen, W. (2001). <em>The Structure of Economics</em> (3.ª ed.), McGraw-Hill · Presentación Clase 2_AV + transcripción del video de la clase · Transcripción Clase 3 — Marin, M. (2015). <em>Escribir textos científicos y académicos</em>, Fondo de Cultura Económica · Clase de Oratoria — Briz, A. (Coord.) (2008). <em>Saber hablar</em>, Instituto Cervantes · Bassham, G., Irwin, W., Nardone, H. &amp; Wallace, J. M. (2011). <em>Critical Thinking: A Student's Introduction</em> (4.ª ed.), Cap. 5 y 6, McGraw-Hill · Bellemare, M. F. (2022). <em>Doing Economics</em>, MIT Press. · Clase 4 — diapositivas "Python en Spyder" y "Más con Claude + Spyder".
 </footer>
 </body>
 </html>

@@ -287,9 +287,55 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
     <tr><td><strong>Integración total</strong> (transparencia)</td><td>La sociedad es un conducto; todo se grava en cabeza del socio con crédito por el impuesto societario.</td><td>Elimina la doble imposición.</td></tr>
     <tr><td><strong>Integración parcial</strong></td><td>Deducción del dividendo, impuesto a ganancias retenidas, imputación o cédula.</td><td>Atenúa la doble imposición.</td></tr>
   </table>
-  <p><strong>Créditos por dividendos pagados (ACINDAR, neto $1.000.000, distribuye $600.000):</strong> Base sociedad = 400.000; Base accionista = 600.000.</p>
-  <p><strong>Retención (Minetti, $1.000.000; soc. 30%, accionista 25%):</strong> Impuesto sociedad = 300.000; Impuesto accionista = 250.000; pago a cuenta 300.000 → <strong>obligación neta del accionista = −50.000</strong> (saldo a favor).</p>
-  <p><strong>Créditos por dividendos percibidos (tope menor alícuota):</strong> dividendos netos 700.000; impuesto accionista 175.000; crédito 175.000 → <strong>impuesto accionista = 0</strong>.</p>
+  <p class="tp-resp"><strong>Sistema 1 — Créditos por dividendos pagados (ACINDAR).</strong> Regla: la sociedad tributa <em>solo por lo que NO distribuye</em>; el accionista declara los dividendos recibidos. Datos: resultado neto $1.000.000, distribuye $600.000 (un solo accionista).</p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Monto $</th></tr>
+    <tr><td>Beneficio neto societario</td><td class="n">1.000.000</td></tr>
+    <tr><td>(−) Dividendos distribuidos</td><td class="n">600.000</td></tr>
+    <tr><td><strong>Base imponible Sociedad</strong> (utilidad retenida)</td><td class="n res">400.000</td></tr>
+    <tr><td>Dividendos recibidos por el accionista</td><td class="n">600.000</td></tr>
+    <tr><td><strong>Base imponible Accionista</strong></td><td class="n res">600.000</td></tr>
+  </table>
+  <div class="calc"><strong>Explicación inciso a inciso:</strong> la sociedad separa lo distribuido ($600.000) de su base → tributa sobre <code>1.000.000 − 600.000 = 400.000</code>. Esos $600.000 "pasan" al accionista, que los declara como base propia. Así <em>no</em> hay doble imposición: cada peso se grava una sola vez (o en la sociedad, o en el socio).</div>
+
+  <p class="tp-resp"><strong>Sistema 2 — Retención (Minetti).</strong> Regla: la sociedad tributa por <em>toda</em> la renta (distribuya o no) y ese impuesto es <strong>pago a cuenta</strong> del accionista. Datos: beneficio $1.000.000, distribuye todo; alícuota sociedad 30%, accionista 25%.</p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Monto $</th><th class="n">Alíc.</th></tr>
+    <tr><td>Base imponible Sociedad</td><td class="n">1.000.000</td><td class="n">—</td></tr>
+    <tr><td>Impuesto Sociedad</td><td class="n">300.000</td><td class="n">30%</td></tr>
+    <tr><td>Dividendos brutos / Base accionista</td><td class="n">1.000.000</td><td class="n">—</td></tr>
+    <tr><td>Impuesto Accionista</td><td class="n">250.000</td><td class="n">25%</td></tr>
+    <tr><td>(−) Pago a cuenta (impuesto de la sociedad)</td><td class="n">300.000</td><td class="n">30%</td></tr>
+    <tr class="total"><td>Obligación neta del Accionista</td><td class="n res">(50.000)</td><td class="n"></td></tr>
+  </table>
+  <div class="calc"><strong>Cálculos:</strong>
+    <ol>
+      <li>Impuesto Sociedad = <code>1.000.000 × 30% = 300.000</code>.</li>
+      <li>El accionista toma como base el dividendo <em>bruto</em> (antes del impuesto societario) = 1.000.000.</li>
+      <li>Impuesto Accionista = <code>1.000.000 × 25% = 250.000</code>.</li>
+      <li>Computa como pago a cuenta el impuesto de la sociedad (300.000): <code>250.000 − 300.000 = (50.000)</code> → <strong>saldo a favor</strong> del accionista, porque su alícuota (25%) es menor que la societaria (30%).</li>
+    </ol>
+  </div>
+
+  <p class="tp-resp"><strong>Sistema 3 — Créditos por dividendos percibidos (Minetti, misma empresa).</strong> Regla: la sociedad tributa por <em>toda</em> la renta; el accionista declara los dividendos <strong>netos</strong> y computa un crédito con <strong>tope</strong> = la <em>menor</em> de las dos alícuotas (opción a).</p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Monto $</th><th class="n">Alíc.</th></tr>
+    <tr><td>Base imponible Sociedad</td><td class="n">1.000.000</td><td class="n">—</td></tr>
+    <tr><td>Impuesto Sociedad</td><td class="n">300.000</td><td class="n">30%</td></tr>
+    <tr><td>Dividendos netos / Base accionista</td><td class="n">700.000</td><td class="n">—</td></tr>
+    <tr><td>Impuesto Accionista</td><td class="n">175.000</td><td class="n">25%</td></tr>
+    <tr><td>(−) Crédito (menor alícuota, 25%)</td><td class="n">175.000</td><td class="n">25%</td></tr>
+    <tr class="total"><td>Impuesto a ingresar por el Accionista</td><td class="n res">0</td><td class="n"></td></tr>
+  </table>
+  <div class="calc"><strong>Cálculos:</strong>
+    <ol>
+      <li>Impuesto Sociedad = <code>1.000.000 × 30% = 300.000</code>.</li>
+      <li>Dividendos <em>netos</em> = <code>1.000.000 − 300.000 = 700.000</code> (a diferencia del Sistema 2, acá el accionista declara el neto).</li>
+      <li>Impuesto Accionista = <code>700.000 × 25% = 175.000</code>.</li>
+      <li>Crédito por doble imposición, con tope de la <em>menor</em> alícuota (25%) sobre los dividendos: <code>700.000 × 25% = 175.000</code>.</li>
+      <li>Impuesto a ingresar = <code>175.000 − 175.000 = 0</code> → la doble imposición queda totalmente neutralizada.</li>
+    </ol>
+  </div>
   </details>
 </div>
 
@@ -297,9 +343,79 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <h4>TP Nº 5 — Irregularidad del rédito (casos resueltos)</h4>
   <p class="tp-consigna">Comparar dos contribuyentes con igual ingreso total bianual pero distinto reparto entre años, con escala progresiva y deducciones (MNI y cónyuge).</p>
   <details class="tp-toggle"><summary>Ver resolución</summary>
-  <p class="tp-resp"><strong>Caso 1 — Magdalena (100.000 + 100.000) vs. Peter (10.000 + 190.000):</strong> ambos suman $200.000 en dos años. Magdalena paga 2.200 + 2.200 = <strong>$4.400</strong> (tasa ≈ 2,2%). Peter: el año de $10.000 no tributa (no supera MNI + cónyuge) y el de $190.000 paga $16.750 → <strong>$16.750</strong> (tasa ≈ 8,37%).</p>
-  <p><strong>Caso 2 — Marcelo (220.000 + 220.000, casado 4 hijos) vs. Lionel (20.000 + 420.000, soltero):</strong> ambos suman $440.000. Marcelo: 5.850 + 5.850 = <strong>$11.700</strong> (≈ 2,65%). Lionel: <strong>$154.000</strong> (≈ 30%).</p>
-  <p><strong>Conclusión:</strong> con igual ingreso total, quien lo concentra en un año tributa <em>mucho más</em> por la progresividad → es la <strong>inequidad de las rentas irregulares</strong>, que se corrige con promediación.</p>
+
+  <p class="tp-resp"><strong>CASO 1 — Magdalena vs. Peter.</strong> Ambos ganan $200.000 en dos años; deducciones: MNI $52.000 y cónyuge $25.000 (casados sin hijos). Escala progresiva aplicable:</p>
+  <table class="num">
+    <tr><th>Base imponible ($)</th><th class="n">Importe fijo</th><th class="n">% s/ excedente</th></tr>
+    <tr><td>0 a 15.000</td><td class="n">—</td><td class="n">10%</td></tr>
+    <tr><td>15.001 a 30.000</td><td class="n">1.000</td><td class="n">15%</td></tr>
+    <tr><td>30.001 a 60.000</td><td class="n">1.500</td><td class="n">20%</td></tr>
+    <tr><td>60.001 a 120.000</td><td class="n">3.500</td><td class="n">25%</td></tr>
+    <tr><td>120.001 a 300.000</td><td class="n">8.500</td><td class="n">30%</td></tr>
+    <tr><td>Más de 300.000</td><td class="n">15.000</td><td class="n">35%</td></tr>
+  </table>
+  <p><strong>Paso 1 — Ganancia sujeta a impuesto</strong> (ingreso − MNI − cónyuge):</p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Magd. 2021</th><th class="n">Magd. 2022</th><th class="n">Peter 2021</th><th class="n">Peter 2022</th></tr>
+    <tr><td>Ingresos</td><td class="n">100.000</td><td class="n">100.000</td><td class="n">10.000</td><td class="n">190.000</td></tr>
+    <tr><td>(−) MNI</td><td class="n">52.000</td><td class="n">52.000</td><td class="n">52.000</td><td class="n">52.000</td></tr>
+    <tr><td>(−) Cónyuge</td><td class="n">25.000</td><td class="n">25.000</td><td class="n">25.000</td><td class="n">25.000</td></tr>
+    <tr class="total"><td>Ganancia sujeta</td><td class="n res">23.000</td><td class="n res">23.000</td><td class="n res">(67.000)*</td><td class="n res">113.000</td></tr>
+  </table>
+  <p class="muted">* Negativa: como la ganancia no supera MNI + cónyuge, en ese período <strong>no se tributa</strong> (las rentas del trabajo no generan quebranto trasladable).</p>
+  <div class="calc"><strong>Paso 2 — Impuesto por año</strong> (se ubica la base en la escala):
+    <ol>
+      <li><strong>Magdalena</strong>, base 23.000 → tramo 15.001–30.000: <code>1.000 + (23.000 − 15.000) × 15% = 1.000 + 1.200 = 2.200</code> cada año.</li>
+      <li><strong>Peter 2021</strong>, base negativa → <code>impuesto = 0</code>.</li>
+      <li><strong>Peter 2022</strong>, base 113.000 → tramo 60.001–120.000: <code>3.500 + (113.000 − 60.000) × 25% = 3.500 + 13.250 = 16.750</code>.</li>
+    </ol>
+  </div>
+  <p><strong>Paso 3 — Comparación bianual:</strong></p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Magdalena</th><th class="n">Peter</th></tr>
+    <tr><td>Impuesto año 1</td><td class="n">2.200</td><td class="n">—</td></tr>
+    <tr><td>Impuesto año 2</td><td class="n">2.200</td><td class="n">16.750</td></tr>
+    <tr><td>Ingreso total (año 1 + 2)</td><td class="n">200.000</td><td class="n">200.000</td></tr>
+    <tr class="total"><td>Impuesto total</td><td class="n res">4.400</td><td class="n res">16.750</td></tr>
+    <tr><td>Tasa efectiva promedio</td><td class="n">2,20%</td><td class="n">8,37%</td></tr>
+  </table>
+  <p class="muted">Tasa = impuesto total ÷ ingreso total: Magdalena <code>4.400 ÷ 200.000 = 2,2%</code>; Peter <code>16.750 ÷ 200.000 = 8,37%</code>.</p>
+
+  <p class="tp-resp"><strong>CASO 2 — Marcelo (casado, 4 hijos) vs. Lionel (soltero).</strong> Ambos ganan $440.000 en dos años. Deducciones: MNI $52.000, cónyuge $25.000, hijos $20.000 c/u. Escala:</p>
+  <table class="num">
+    <tr><th>Base imponible ($)</th><th class="n">Importe fijo</th><th class="n">% s/ excedente</th></tr>
+    <tr><td>0 a 10.000</td><td class="n">—</td><td class="n">10%</td></tr>
+    <tr><td>10.001 a 30.000</td><td class="n">1.000</td><td class="n">15%</td></tr>
+    <tr><td>30.001 a 50.000</td><td class="n">1.800</td><td class="n">20%</td></tr>
+    <tr><td>50.001 a 70.000</td><td class="n">2.600</td><td class="n">25%</td></tr>
+    <tr><td>70.001 a 100.000</td><td class="n">5.000</td><td class="n">30%</td></tr>
+    <tr><td>Más de 100.000</td><td class="n">20.000</td><td class="n">50%</td></tr>
+  </table>
+  <p><strong>Paso 1 — Ganancia sujeta a impuesto:</strong></p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Marc. 2021</th><th class="n">Marc. 2022</th><th class="n">Lionel 2021</th><th class="n">Lionel 2022</th></tr>
+    <tr><td>Ingresos</td><td class="n">220.000</td><td class="n">220.000</td><td class="n">20.000</td><td class="n">420.000</td></tr>
+    <tr><td>(−) MNI</td><td class="n">52.000</td><td class="n">52.000</td><td class="n">52.000</td><td class="n">52.000</td></tr>
+    <tr><td>(−) Cónyuge</td><td class="n">25.000</td><td class="n">25.000</td><td class="n">—</td><td class="n">—</td></tr>
+    <tr><td>(−) 4 hijos (20.000 c/u)</td><td class="n">80.000</td><td class="n">80.000</td><td class="n">—</td><td class="n">—</td></tr>
+    <tr class="total"><td>Ganancia sujeta</td><td class="n res">63.000</td><td class="n res">63.000</td><td class="n res">(32.000)</td><td class="n res">368.000</td></tr>
+  </table>
+  <div class="calc"><strong>Paso 2 — Impuesto por año:</strong>
+    <ol>
+      <li><strong>Marcelo</strong>, base 63.000 → tramo 50.001–70.000: <code>2.600 + (63.000 − 50.000) × 25% = 2.600 + 3.250 = 5.850</code> cada año.</li>
+      <li><strong>Lionel 2021</strong>, base negativa → <code>impuesto = 0</code>.</li>
+      <li><strong>Lionel 2022</strong>, base 368.000 → tramo "más de 100.000": <code>20.000 + (368.000 − 100.000) × 50% = 20.000 + 134.000 = 154.000</code>.</li>
+    </ol>
+  </div>
+  <p><strong>Paso 3 — Comparación:</strong></p>
+  <table class="num">
+    <tr><th>Concepto</th><th class="n">Marcelo</th><th class="n">Lionel</th></tr>
+    <tr><td>Impuesto año 1 + año 2</td><td class="n">5.850 + 5.850</td><td class="n">0 + 154.000</td></tr>
+    <tr><td>Ingreso total</td><td class="n">440.000</td><td class="n">440.000</td></tr>
+    <tr class="total"><td>Impuesto total</td><td class="n res">11.700</td><td class="n res">154.000</td></tr>
+    <tr><td>Tasa efectiva promedio</td><td class="n">2,65%</td><td class="n">35,00%</td></tr>
+  </table>
+  <p class="tp-resp"><strong>Conclusión:</strong> con <em>idéntico</em> ingreso total, quien lo concentra en un solo año (Peter, Lionel) tributa muchísimo más por efecto de la <strong>progresividad + anualidad</strong>. Esa es la <strong>inequidad de las rentas irregulares</strong>, que se corrige con <em>promediación</em> (income averaging) o alícuotas reducidas sobre la porción irregular.</p>
   </details>
 </div>
 
@@ -307,9 +423,26 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <h4>TP Nº 4 y 7 — Criterio de Renta Mundial (caso resuelto)</h4>
   <p class="tp-consigna">Concepto de renta mundial y su recepción en la ley. Liquidar Ganancias 2022 con rentas de Argentina y del exterior, computando el impuesto pagado afuera como pago a cuenta.</p>
   <details class="tp-toggle"><summary>Ver resolución</summary>
-  <p class="tp-resp"><strong>Renta mundial:</strong> los <em>residentes</em> tributan por rentas de fuente argentina y extranjera; los <em>no residentes</em> solo por fuente argentina. Atenuante: cómputo como <strong>pago a cuenta</strong> del impuesto análogo abonado en el exterior (tax credit).</p>
-  <p><strong>Caso (Sucesión Josefina Domínguez, residente):</strong> rentas Argentina 35.000 + Uruguay 45.000 + Paraguay 20.000 = 100.000. Impuesto sobre la renta argentina (35.000) = 2.500 + (5.000×15%) = <strong>3.250</strong>. Impuesto sobre el total (100.000) = 7.000 + (40.000×17%) = <strong>10.800</strong>. Crédito por impuesto extranjero a la renta (tope) = 10.800 − 3.250 = <strong>$7.550</strong> computable como pago a cuenta (el impuesto al consumo pagado afuera <em>no</em> se computa).</p>
-  <p>Si fuera <strong>no residente</strong>: solo tributa por los $35.000 argentinos → 2.500 + (5.000×15%) = <strong>$3.250</strong>.</p>
+  <p class="tp-resp"><strong>Renta mundial:</strong> los <em>residentes</em> tributan por rentas de fuente argentina y extranjera; los <em>no residentes</em> solo por fuente argentina. Atenuante (art. 1 LIG): se computa como <strong>pago a cuenta</strong> el impuesto análogo abonado en el exterior (<em>tax credit</em>), con un <strong>tope</strong> = el incremento del impuesto local que provoca incluir las rentas extranjeras.</p>
+  <p><strong>Datos (Sucesión Josefina Domínguez, residente, período 2022):</strong> rentas Argentina $35.000 + Uruguay $45.000 + Paraguay $20.000 = <strong>$100.000</strong>. Impuestos pagados afuera: a la renta $10.000; a las ventas/consumo $7.000. Escala:</p>
+  <table class="num">
+    <tr><th>Más de $</th><th class="n">Hasta $</th><th class="n">Suma fija</th><th class="n">+ %</th><th class="n">s/ excedente de</th></tr>
+    <tr><td>0</td><td class="n">10.000</td><td class="n">0</td><td class="n">10%</td><td class="n">0</td></tr>
+    <tr><td>10.000</td><td class="n">30.000</td><td class="n">100</td><td class="n">12%</td><td class="n">10.000</td></tr>
+    <tr><td>30.000</td><td class="n">60.000</td><td class="n">2.500</td><td class="n">15%</td><td class="n">30.000</td></tr>
+    <tr><td>60.000</td><td class="n">en adelante</td><td class="n">7.000</td><td class="n">17%</td><td class="n">60.000</td></tr>
+  </table>
+  <div class="calc"><strong>Resolución paso a paso:</strong>
+    <ol>
+      <li><strong>Impuesto sobre la renta argentina</strong> (base 35.000, tramo 30.000–60.000): <code>2.500 + (35.000 − 30.000) × 15% = 2.500 + 750 = 3.250</code>.</li>
+      <li><strong>Impuesto sobre la renta mundial</strong> (base 100.000, tramo "más de 60.000"): <code>7.000 + (100.000 − 60.000) × 17% = 7.000 + 6.800 = 13.800</code>.</li>
+      <li><strong>Tope del crédito</strong> (incremento por las rentas del exterior): <code>13.800 − 3.250 = 10.550</code>.</li>
+      <li><strong>Crédito computable:</strong> el impuesto a la renta pagado afuera ($10.000) es <em>menor</em> que el tope ($10.550) → se computa <code>10.000</code>. El impuesto al consumo ($7.000) <strong>no</strong> se computa (no es análogo al de la renta).</li>
+      <li><strong>Impuesto a ingresar en Argentina:</strong> <code>13.800 − 10.000 = 3.800</code>.</li>
+    </ol>
+  </div>
+  <p class="tp-nota"><strong>Sobre la planilla de la cátedra:</strong> arrastra un desliz aritmético: escribe <code>10.800</code> donde corresponde <code>13.800</code> (porque 40.000 × 17% = 6.800, no 3.800), y toma como crédito el "incremento" (10.800 − 3.250 = 7.550) sin compararlo con el impuesto efectivamente pagado en el exterior. El <em>método</em> es el correcto; solo cuidá los números.</p>
+  <p class="tp-resp"><strong>Variante — sujeto NO residente:</strong> solo tributa por la renta de fuente argentina ($35.000): <code>2.500 + (5.000 × 15%) = 3.250</code>. No computa impuestos del exterior ni tributa por las rentas de Uruguay/Paraguay.</p>
   </details>
 </div>
 `

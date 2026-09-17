@@ -23,9 +23,13 @@ window.CURSO.unidades.push({
   <tr><th>Teoría</th><th>Qué grava</th></tr>
   <tr><td><strong>Renta-producto (de la fuente)</strong></td><td>Solo la riqueza <em>nueva, periódica</em> y que proviene de una <strong>fuente permanente</strong> habilitada para producirla (el trabajo, el capital o su combinación). Excluye las ganancias eventuales. Criterio clásico para personas humanas.</td></tr>
   <tr><td><strong>Renta-incremento patrimonial (Haig-Simons)</strong></td><td>Todo <em>incremento neto del patrimonio</em> en el período más el consumo, cualquiera sea su origen y aunque no sea periódico (incluye ganancias de capital, herencias, premios). Criterio más amplio; aplicado a sociedades.</td></tr>
-  <tr><td><strong>Teoría del consumo</strong></td><td>Grava la renta efectivamente <em>consumida</em> (base del "impuesto al gasto").</td></tr>
+  <tr><td><strong>Teoría de Irving Fisher (del consumo)</strong></td><td>La renta es el <em>flujo de servicios</em> que los bienes proporcionan a su poseedor en el período. Grava la renta efectivamente <em>consumida</em> (incluye el goce de bienes propios: casa-habitación, vehículo) y <strong>excluye lo ahorrado</strong> (base del "impuesto al gasto").</td></tr>
+  <tr><td><strong>Teoría legalista</strong></td><td>Es renta lo que las <em>normas tributarias</em> definan como tal, sin atarse a un concepto económico previo.</td></tr>
 </table>
 <p>La ley argentina adopta un criterio <strong>mixto</strong>: renta-producto para personas humanas y renta-incremento patrimonial (teoría del balance) para las empresas.</p>
+<p class="muted"><strong>Renta, rédito e ingreso:</strong> "renta" designa el ingreso neto global de una persona; "rédito" el producto neto de una fuente determinada, de modo que <em>«impuesto a los réditos» es sinónimo de «impuesto a la renta»</em>. No existe un concepto de renta que obligue al Estado a ceñirse a él al crear el impuesto: solo hay un <strong>concepto normativo</strong>, que refleja lo que en cada caso se considera revelador de la capacidad contributiva (lo que se quiere gravar).</p>
+
+<div class="callout"><strong>Criterio de Fisher vs. impuesto al gasto.</strong> Ambos gravan solo lo consumido y por eso <em>favorecen el ahorro y la formación de capital</em>. La diferencia: el impuesto al gasto no solo estimula el ahorro sino que además <strong>desalienta el desahorro</strong> (gravar el gasto total penaliza consumir capital previamente acumulado). Es la línea de J. S. Mill y Fisher (exención del ahorro).</div>
 
 <h3>Ventajas</h3>
 <ul>
@@ -41,7 +45,9 @@ window.CURSO.unidades.push({
   <li>Puede <strong>desincentivar</strong> el trabajo, el ahorro y la inversión (efectos económicos — ver 6.5).</li>
   <li>En contextos inflacionarios, grava <strong>ganancias nominales</strong> ("ficticias") si no hay ajuste por inflación.</li>
   <li>Riesgo de doble imposición (renta societaria y dividendos).</li>
+  <li>Alto <strong>costo de recaudación</strong> y aliciente al <strong>éxodo de capitales</strong> (y traba a incorporar capitales ocultos o del exterior).</li>
 </ul>
+<p class="muted">Villegas matiza la crítica de que el impuesto "desalienta producir más": (a) habría que ver si el gravamen que lo <em>sustituiría</em> está a salvo del mismo defecto; y (b) no es un defecto <strong>intrínseco</strong> del impuesto, sino de un mal diseño de política fiscal que abusa de la <strong>progresividad</strong> de las alícuotas.</p>
 `
     },
     {
@@ -62,9 +68,11 @@ window.CURSO.unidades.push({
 
 <h3>Sistema global, sintético o unitario</h3>
 <div class="def">Suma <strong>todas las rentas</strong> del contribuyente, cualquiera sea su origen, en una <em>única base</em>, y aplica sobre ella una escala <strong>progresiva</strong>.</div>
+<p class="muted">Nace con el <strong>impuesto prusiano de 1891</strong>, en contraste con el sistema cedular. Por su carácter unitario debería comprender <em>todas</em> las rentas de la persona física, cualquiera sea su fuente.</p>
 <ul>
   <li><strong>Ventajas:</strong> es <strong>personal</strong> (admite deducciones por situación familiar) y permite progresividad real y compensación de quebrantos. Mejor equidad.</li>
   <li><strong>Desventajas:</strong> más complejo; no discrimina por origen de la renta.</li>
+  <li><strong>¿Cómo discrimina el origen sin ser cedular?</strong> Reduciendo el monto gravado de la renta cuando proviene del <em>trabajo personal</em> (un porcentaje o suma fija), o complementándose con un <strong>impuesto ordinario al patrimonio neto</strong> personal (que recae sobre las rentas "no ganadas" del capital).</li>
 </ul>
 
 <h3>Sistema mixto</h3>
@@ -167,7 +175,15 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <li>Mitigantes: la <strong>deducción de amortizaciones</strong> e intereses, los regímenes de <strong>amortización acelerada</strong>, créditos de inversión y la deducibilidad de quebrantos atenúan el efecto.</li>
   <li>El <strong>sesgo deuda vs. capital propio:</strong> como los intereses son deducibles y los dividendos no, el impuesto induce a financiarse con <em>deuda</em>.</li>
 </ul>
-<p class="muted">En suma: el impuesto a la renta es equitativo pero presenta una <strong>tensión equidad–eficiencia</strong>, ya que puede afectar los incentivos a trabajar, ahorrar e invertir.</p>
+
+<h3>Efectos macroeconómicos (oferta y demanda de factores, producción, distribución)</h3>
+<ul>
+  <li><strong>Cambio en la oferta de factores:</strong> reduce el ingreso de los propietarios de los factores (trabajo y capital), pudiendo alterar cuánto trabajo y capital ofrecen al mercado.</li>
+  <li><strong>Cambio en la demanda de factores:</strong> al transferir poder de compra al Estado, se reduce el producto del sector privado (se venden menos bienes) y, con ello, la demanda privada de factores.</li>
+  <li><strong>Nivel de producción / ingreso nacional:</strong> es una carga ineludible —el Estado participa de los resultados— que puede reducir el nivel de ingreso nacional.</li>
+  <li><strong>Redistribución del ingreso:</strong> combinado con el <em>gasto</em> que financia, produce una redistribución del ingreso <em>después</em> del impuesto; factor clave que afecta la formación de capital, la inversión, el empleo y la asignación de recursos.</li>
+</ul>
+<p class="muted">En suma: el impuesto a la renta es equitativo pero presenta una <strong>tensión equidad–eficiencia</strong>, ya que puede afectar los incentivos a trabajar, ahorrar e invertir, y por esa vía la oferta y demanda de factores, la producción y la distribución.</p>
 `
     },
     {
@@ -177,10 +193,13 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
 <h3>Características de la imposición societaria</h3>
 <p>Grava la ganancia de las <strong>sociedades de capital</strong> (personas jurídicas). Rasgos:</p>
 <ul>
-  <li>Es <strong>real</strong> y <strong>proporcional</strong> (alícuota generalmente fija o escalonada por tramos de ganancia), no personal.</li>
+  <li>Es <strong>real</strong> y <strong>proporcional</strong> (alícuota generalmente fija o escalonada por tramos), no personal.</li>
+  <li>Es <strong>de ejercicio</strong> (se liquida por el resultado del ejercicio comercial anual).</li>
+  <li>Es <strong>indirecta</strong> en cuanto a su posibilidad de <strong>traslación</strong> (según la estructura del mercado puede trasladarse a precios, salarios o consumidores).</li>
   <li>Determina la renta por la <strong>teoría del balance</strong> (renta-incremento patrimonial): grava todo incremento patrimonial del ente.</li>
   <li>La sociedad es tratada como <strong>sujeto autónomo</strong> de imposición.</li>
 </ul>
+<p class="muted">Jarach la concebía como una imposición <em>por naturaleza transitoria</em>: hasta que las utilidades se distribuyan, el impuesto a la sociedad funciona como un <strong>«pago a cuenta» del impuesto personal del accionista</strong>.</p>
 
 <h3>El problema de la doble imposición económica</h3>
 <div class="callout">La renta de la sociedad se grava <strong>dos veces</strong>: una en cabeza de la <em>sociedad</em> (al obtener la ganancia) y otra en cabeza del <em>socio/accionista</em> (al distribuirse el dividendo). Esto puede sobrecargar la renta societaria frente a otras formas de organización.</div>
@@ -215,6 +234,10 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <li>Influye en las decisiones de <strong>localización</strong> de las empresas (competencia tributaria entre países) y en el endeudamiento vs. capital propio.</li>
   <li>El criterio de renta mundial busca <strong>neutralidad</strong> en la exportación de capitales y equidad entre residentes.</li>
 </ul>
+
+<h3>La imposición a la renta presunta</h3>
+<div class="def"><b>Renta presunta:</b> cálculo <em>aproximado</em> de los ingresos de un sujeto, obtenido normalmente aplicando un porcentaje sobre el valor de un <strong>activo</strong> que se sabe que posee (p. ej., un porcentaje del valor de los inmuebles rurales o del activo de la empresa).</div>
+<p>Opera como técnica <strong>antievasión</strong> y de simplificación: fija un piso de renta imputada con independencia del resultado real declarado. Su crítica es que puede gravar rentas <em>inexistentes</em> en ejercicios con pérdidas, tensionando el principio de capacidad contributiva.</p>
 `
     }
   ],
@@ -240,7 +263,7 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
     <tr><td>Global o unitario</td><td>Suma todas las rentas de la persona y aplica una escala progresiva.</td><td>Equitativo y progresivo / no discrimina el origen.</td></tr>
     <tr><td><strong>Mixto</strong> (argentino)</td><td>Categorías (cédulas) + base global con deducciones y escala progresiva.</td><td>Combina lo mejor de ambos.</td></tr>
   </table>
-  <p class="muted"><strong>Ventajas</strong> del impuesto a la renta: productivo, equitativo, progresivo y estabilizador (automático). <strong>Desventajas:</strong> desalienta ahorro/inversión, se complica con la inflación (ganancias ficticias — de allí el ajuste por inflación) y puede generar doble imposición. <strong>Distinción de términos:</strong> <em>rédito/renta</em> (economía), <em>beneficio</em> y <em>utilidad</em> (contable), <em>ganancia</em> (la ley argentina).</p>
+  <p class="muted"><strong>Ventajas</strong> del impuesto a la renta: productivo, equitativo, progresivo y estabilizador (automático). <strong>Desventajas:</strong> desalienta ahorro/inversión, se complica con la inflación (ganancias ficticias — de allí el ajuste por inflación) y puede generar doble imposición. <strong>Distinción de términos:</strong> <em>rédito</em> = renta obtenida de una inversión (intereses, dividendos) o producto neto de una fuente; <em>beneficio</em> = capital que resta a la empresa tras deducir sus gastos (sinónimo de ganancia); <em>utilidad</em> = resultado (ganancia o pérdida) del negocio tras restar a los ingresos todos los costos y gastos; <em>ganancia</em> = el término que emplea la ley argentina. Para personas humanas, la ley exige a la ganancia <strong>periodicidad, permanencia y habilitación de la fuente</strong>.</p>
   </details>
 </div>
 
@@ -256,6 +279,7 @@ El resultado neto es <strong>ambiguo</strong> y depende de cada persona; empíri
   <h4>TP Nº 3 y 6 — Renta societaria y doble imposición (casos resueltos)</h4>
   <p class="tp-consigna">Naturaleza y críticas de la imposición societaria. Métodos para evitar la doble imposición (clásico, integración total, parcial). Resolver los sistemas de créditos por dividendos pagados, retención y créditos por dividendos percibidos.</p>
   <details class="tp-toggle"><summary>Ver resolución</summary>
+  <p class="tp-resp"><strong>Críticas a la imposición societaria (López Toussaint):</strong> (a) reduce la capacidad de <em>ahorro</em> y la tasa de retorno de las inversiones, por lo que algunas no se realizan; en modelos muy progresivos induce a sustituir trabajo por ocio; (b) la <em>competencia tributaria</em> global lleva a bajar la imposición a las rentas del capital y empresarias y a mantener alta la de las rentas del trabajo, erosionando la progresividad como paradigma de equidad; (c) problemas de medición cuando la ganancia comercial (base del dividendo) difiere de la ganancia impositiva, y limitaciones del <em>"impuesto de igualación"</em> argentino (grava a alícuota proporcional igual a la marginal máxima, sin equidad vertical).</p>
   <p class="tp-resp"><strong>Cuadro — Sistemas para tratar la doble imposición de dividendos:</strong></p>
   <table>
     <tr><th>Sistema</th><th>Mecánica</th><th>Efecto</th></tr>

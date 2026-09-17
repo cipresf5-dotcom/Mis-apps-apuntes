@@ -4,4 +4,4 @@ window.CURSO = window.CURSO || { unidades: [] };
 
 /* Fecha y hora de la última actualización publicada.
    El script sync-finanzas-publicas.ps1 reescribe esta línea en cada deploy. */
-window.CURSO.actualizado = "14/09/2026 18:47";
+window.CURSO.actualizado = "17/09/2026 09:19";

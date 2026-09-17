@@ -37,6 +37,9 @@ window.CURSO.unidades.push({
   <li><strong>Corriente publicista (dominante):</strong> el impuesto es una <em>obligación unilateral</em> impuesta coercitivamente por el Estado en ejercicio de su poder de imperio; como todo tributo, es una institución de <strong>derecho público</strong>.</li>
 </ul>
 
+<h4>Valor social de los impuestos</h4>
+<p>Los impuestos sirven para <strong>financiar la provisión de bienes públicos</strong> (salud, educación, seguridad, justicia), <strong>corregir las distorsiones</strong> que generan las fallas del mercado, llevar adelante políticas de <strong>redistribución del ingreso</strong> y <strong>estabilizar los ciclos económicos</strong>. Son, junto con el gasto público y la regulación, uno de los tres instrumentos con que el Estado influye en la economía.</p>
+
 <h3>El hecho imponible (estructura del impuesto)</h3>
 <div class="callout"><strong>Hecho imponible:</strong> el presupuesto de hecho, descripto por la ley, cuya realización genera el nacimiento de la <strong>obligación tributaria</strong>. Es el "corazón" del tributo.</div>
 <p>Tiene cuatro <strong>aspectos o elementos</strong>:</p>
@@ -161,12 +164,25 @@ window.CURSO.unidades.push({
 <div class="callout"><strong>Exceso de carga:</strong> es la pérdida de bienestar que provoca un impuesto <em>por encima</em> de la recaudación que obtiene el Estado. Surge porque el impuesto <strong>distorsiona las decisiones</strong> (efecto sustitución) y reduce el volumen de transacciones por debajo del óptimo.</div>
 <p>Cuanto más <strong>elásticas</strong> son la oferta y la demanda, <strong>mayor</strong> el exceso de carga (más reacciona la cantidad). Un impuesto de <em>suma fija</em> (lump-sum) no genera exceso de carga porque no altera decisiones marginales (pero es inequitativo). Vincula con el principio de <strong>neutralidad/eficiencia</strong> (Unidad III).</p>
 
-<h3>Equilibrio parcial: incidencia de un impuesto al consumo</h3>
-<p>En el análisis de equilibrio parcial (un solo mercado), un impuesto unitario desplaza la curva de oferta hacia arriba. El reparto de la carga entre comprador y vendedor depende de las elasticidades:</p>
+<h3>Equilibrio parcial: incidencia de los impuestos</h3>
+<p>El enfoque de <strong>equilibrio parcial</strong> analiza la incidencia de un impuesto sobre <em>un mercado aislado</em>. Es simple, pero da una visión incompleta (ignora los efectos sobre los demás mercados). El impuesto reduce el <strong>excedente del consumidor</strong> (compra menos y a mayor precio) y el <strong>excedente del productor</strong> (vende menos y recibe menos); la parte de esa pérdida que <em>no</em> se convierte en recaudación es la <strong>carga excedente</strong> (peso muerto).</p>
+<h4>Reparto de la carga según la elasticidad</h4>
+<p>La carga recae sobre la parte <strong>menos elástica</strong> del mercado:</p>
 <ul>
-  <li>Si la <strong>demanda es más inelástica</strong> que la oferta → la carga recae más sobre el <strong>consumidor</strong>.</li>
+  <li>Si la <strong>demanda es más inelástica</strong> que la oferta → recae más sobre el <strong>consumidor</strong> (el precio sube casi todo el impuesto).</li>
   <li>Si la <strong>oferta es más inelástica</strong> → recae más sobre el <strong>productor</strong>.</li>
+  <li>Da lo mismo que la ley ponga el impuesto sobre el comprador o el vendedor: la incidencia <em>económica</em> final depende solo de las elasticidades.</li>
 </ul>
+<p><strong>Casos extremos (mercado competitivo):</strong> demanda <em>perfectamente inelástica</em> u oferta <em>perfectamente elástica</em> → la carga recae toda en el <strong>consumidor</strong>; demanda <em>perfectamente elástica</em> → recae toda en el <strong>productor</strong>. Si ambas curvas fueran perfectamente inelásticas <em>no</em> habría carga excedente (el tributo no altera las conductas).</p>
+<h4>Incidencia en otros mercados</h4>
+<ul>
+  <li><strong>Impuestos al trabajo:</strong> la brecha entre el <em>salario bruto</em> (lo paga el empleador) y el <em>neto</em> (lo recibe el trabajador) es el impuesto. Como la oferta de trabajo suele ser inelástica, la carga tiende a recaer sobre el <strong>trabajador</strong> (baja el neto y el bruto casi no cambia). Distinto de las <em>contribuciones sociales</em>, que sí tienen contraprestación futura.</li>
+  <li><strong>Renta empresaria con capital móvil:</strong> en una economía abierta la oferta de capital es casi perfectamente elástica → la carga recae sobre el <em>demandante</em> de capital y puede trasladarse a los <strong>trabajadores</strong> (menores salarios).</li>
+  <li><strong>Monopolio:</strong> el impuesto desplaza hacia abajo el ingreso medio y marginal; sube el precio, cae la cantidad y el Estado <em>absorbe parte del beneficio</em> monopólico, pero encarece aún más el bien (mayor pérdida de eficiencia).</li>
+  <li><strong>Impuesto a las superutilidades:</strong> grava el beneficio extraordinario del monopolista; en teoría <em>no distorsiona</em> las decisiones y lo soporta el productor.</li>
+  <li><strong>Oligopolio:</strong> no hay una teoría única de precios; según la postura, las empresas son reacias a subir precios (temor a perder mercado) o trasladan el gravamen si la elasticidad lo permite.</li>
+</ul>
+<p class="muted">Un dato de eficiencia: cuanto <strong>más inelástica</strong> es la demanda del bien, <em>menor</em> es la carga excedente y <em>mayor</em> la recaudación — de ahí que los impuestos específicos recaigan sobre bienes de demanda rígida (cigarrillos, combustibles, bebidas alcohólicas).</p>
 
 <h3>La Curva de Laffer</h3>
 <div class="def">Relaciona la <strong>alícuota</strong> del impuesto con la <strong>recaudación</strong>. Tiene forma de "U invertida": con alícuota 0% la recaudación es 0; con alícuota 100% también es 0 (nadie produce/declara). Existe un punto intermedio de <strong>recaudación máxima</strong>.</div>
@@ -442,6 +458,15 @@ window.CURSO.unidades.push({
   <details class="tp-toggle"><summary>Ver resolución</summary>
   <p class="tp-resp"><strong>En Q = 6:</strong> impuesto total T = 6² = <strong>36</strong>; impuesto medio T<sub>me</sub> = 36 / 6 = <strong>6</strong>; impuesto marginal T<sub>mg</sub> = dT/dQ = 2Q = 2·6 = <strong>12</strong>.</p>
   <p><strong>Interpretación:</strong> cada unidad de base paga en promedio $6, pero la <em>última</em> unidad agregada genera $12 de impuesto. Como T<sub>mg</sub> (12) &gt; T<sub>me</sub> (6), el impuesto es <strong>progresivo</strong> (el marginal crece más rápido que la base y arrastra al medio hacia arriba).</p>
+  </details>
+</div>
+
+<div class="tp">
+  <h4>TP — Incidencia y reparto de la carga (conceptual)</h4>
+  <p class="tp-consigna">¿Sobre quién recae la carga de un impuesto al consumo según las elasticidades? Analizar los casos extremos y el caso del monopolio.</p>
+  <details class="tp-toggle"><summary>Ver respuesta</summary>
+  <p class="tp-resp">La carga recae sobre la parte <strong>menos elástica</strong> del mercado, sin importar si la ley pone el impuesto sobre el comprador o el vendedor (la incidencia económica depende solo de las elasticidades). <strong>Casos extremos:</strong> demanda perfectamente <em>inelástica</em> u oferta perfectamente <em>elástica</em> → toda la carga en el <strong>consumidor</strong>; demanda perfectamente <em>elástica</em> → toda en el <strong>productor</strong>. Si ambas curvas fueran perfectamente inelásticas no habría <em>carga excedente</em> (no cambian las conductas).</p>
+  <p><strong>Monopolio:</strong> el impuesto desplaza el ingreso medio y marginal hacia abajo; sube el precio, baja la cantidad y el Estado absorbe parte de la superutilidad, aunque encarece el bien y agrava la pérdida de eficiencia. Un <strong>impuesto a las superutilidades</strong>, en cambio, no distorsiona y lo soporta el productor.</p>
   </details>
 </div>
 `

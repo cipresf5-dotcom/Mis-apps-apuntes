@@ -15,8 +15,10 @@ window.CURSO.unidades.push({
       titulo: "Poder Tributario. Concepto. Caracteres. Originario y Derivado",
       contenido: `
 <h3>Concepto</h3>
-<div class="def"><b>Poder tributario (potestad tributaria):</b> es la facultad que tiene el Estado de <strong>crear, modificar o suprimir tributos</strong> y de exigirlos coactivamente a las personas sometidas a su competencia tributaria, en virtud de su <strong>poder de imperio</strong>.</div>
-<p>Es una manifestación de la soberanía del Estado en el plano financiero. Se ejerce a través del <strong>Poder Legislativo</strong> (principio de legalidad: solo la ley crea tributos).</p>
+<div class="def"><b>Poder tributario (potestad tributaria o poder de imposición):</b> es la facultad que tiene el Estado de <strong>crear, modificar o suprimir tributos</strong> unilateralmente y de exigir su pago a las personas sometidas a su competencia espacial, en virtud de su <strong>poder de imperio</strong>. Comprende también el poder de <strong>establecer beneficios tributarios</strong> y de <strong>tipificar ilícitos tributarios</strong> y regular sus sanciones.</div>
+<p>Se ejerce <em>únicamente</em> a través del <strong>Poder Legislativo</strong> (principio de legalidad: solo la ley crea tributos). Es de naturaleza <strong>política</strong>.</p>
+<div class="callout"><strong>Su fundamento es el poder de imperio, no la soberanía.</strong> La <em>soberanía</em> es un poder único e indivisible que el Estado invoca en el plano <strong>internacional</strong>; hacia dentro de su territorio le basta con ejercer su <strong>poder de imperio</strong>. Por eso la doctrina restringe el poder tributario al <em>poder de gravar</em>.</div>
+<div class="def"><b>Poder tributario ≠ competencia tributaria.</b> El <strong>poder tributario</strong> es la facultad de <em>crear</em> el tributo (dictar la norma); la <strong>competencia tributaria</strong> es la facultad de <em>percibir</em> el crédito tributario ya nacido (administrar y recaudar). Un ente puede tener competencia sin poder tributario (p. ej., un organismo recaudador).</div>
 
 <h3>Caracteres</h3>
 <ul>
@@ -38,7 +40,7 @@ window.CURSO.unidades.push({
 <h3>Fundamento constitucional y alcance por nivel</h3>
 <p>El poder fiscal surge de los <strong>arts. 4, 9, 10, 11 y 12</strong> (derechos, garantías y libre circulación), <strong>75 incs. 1, 2 y 10</strong> (atribuciones del Congreso) y <strong>121 y 126</strong> (poderes provinciales) de la CN.</p>
 <ul>
-  <li><strong>Nación y Provincias:</strong> tienen poder <em>originario</em> — las provincias por ser <strong>preexistentes</strong> (conservan el poder no delegado, art. 121) y la Nación porque su poder nace de la propia CN.</li>
+  <li><strong>Nación y Provincias:</strong> tienen poder <em>originario</em> — las provincias por ser <strong>preexistentes</strong> (conservan el poder no delegado, art. 121; su poder tributario es <em>amplio</em>) y la Nación porque su poder nace de la propia CN. <span class="muted">Precisión: las provincias <strong>no delegaron ni renunciaron</strong> a la Nación el <em>poder de gravar</em>, sino solo la <em>facultad de administrar y recaudar</em> ciertos tributos (vía coparticipación).</span></li>
   <li><strong>Municipios (postura de la cátedra):</strong> carecen de poder originario; solo tienen un <em>poder derivado</em>, el que la provincia les <strong>asigne</strong>. Su potestad deriva de las leyes que las provincias dicten en cumplimiento de los arts. 5 y 123 CN (autonomía atenuada/reglada — ver 4.6).</li>
 </ul>
 
@@ -65,13 +67,24 @@ window.CURSO.unidades.push({
   <li><strong>La Constitución</strong> (fuente primaria; fija el poder tributario y sus límites).</li>
   <li><strong>La ley</strong> (fuente por excelencia en materia tributaria — principio de legalidad).</li>
   <li><strong>Tratados internacionales</strong> (con jerarquía constitucional o supralegal; relevantes en doble imposición).</li>
-  <li><strong>Decretos reglamentarios</strong> y resoluciones (no pueden crear tributos).</li>
-  <li>La <strong>jurisprudencia</strong> y la <strong>doctrina</strong> (fuentes mediatas).</li>
-  <li>Los <strong>convenios intrafederales</strong> (coparticipación, Convenio Multilateral).</li>
+  <li><strong>Decretos con fuerza de ley / DNU:</strong> los decretos de necesidad y urgencia <strong>no</strong> pueden regular materia <em>tributaria</em> (art. 99 inc. 3), pero <em>sí</em> pueden regular otra materia <strong>financiera</strong>.</li>
+  <li><strong>Reglamentos:</strong> disposiciones del Ejecutivo que reglan la ejecución de las leyes (no pueden crear tributos). La facultad puede delegarse en órganos especializados (p. ej., ARCA/ex-AFIP dicta normas generales obligatorias). Ej.: decreto 1344/07, reglamentario de la Ley 24.156.</li>
+  <li><strong>Tratados internacionales</strong> (fuente directa; relevantes los de doble imposición).</li>
+  <li><strong>Convenciones institucionales internas</strong> (coordinación interjurisdiccional): la <em>coparticipación federal</em> (Nación–Provincias, evita superposiciones) y el <em>Convenio Multilateral</em> (Provincias–CABA, evita que Ingresos Brutos grave más de una vez la misma base).</li>
+  <li>La <strong>jurisprudencia</strong>, la <strong>doctrina</strong>, los usos y costumbres y los principios generales del derecho (fuentes mediatas; su uso puede chocar con el principio de legalidad).</li>
 </ul>
 
 <h3>Interpretación de la norma tributaria</h3>
-<p>Se admiten todos los métodos generales (literal, lógico, histórico, sistemático). Reglas propias:</p>
+<p>Interpretar es establecer el <em>alcance</em> de la norma en cuanto a la creación, extinción o exención de la obligación tributaria. No se parte de un criterio restrictivo ni amplio: se busca la <strong>voluntad del legislador</strong>. Métodos:</p>
+<ul>
+  <li><strong>Literal:</strong> se atiene al alcance estricto de las palabras, sin ampliar ni restringir. No puede usarse en forma exclusiva en materia tributaria (el legislador no siempre es especialista).</li>
+  <li><strong>Lógico:</strong> procura el <em>espíritu</em> de la ley (qué quiso decir el legislador); puede llevar a una interpretación extensiva o restrictiva. Es el adoptado por la CSJN.</li>
+  <li><strong>Histórico:</strong> busca la intención del legislador según las circunstancias de la sanción. Criticado porque, atado al pensamiento remoto del legislador, paralizaría la evolución de la materia.</li>
+  <li><strong>Evolutivo:</strong> ante cambios del contexto, indaga qué solución habría dado el legislador frente a la cuestión actual.</li>
+  <li><strong>Funcional:</strong> analiza la norma a la luz de los aspectos del fenómeno financiero (para conocer la capacidad contributiva afectada). Criticado por erigir un principio económico general en pauta de interpretación.</li>
+  <li><strong>De la significación económica:</strong> atiende al fin de la norma y a su significación económica (= buscar la voluntad del legislador); <em>no</em> implica interpretar "económicamente" la ley. Es el criterio propio del derecho tributario.</li>
+</ul>
+<p><strong>Reglas propias del derecho tributario:</strong></p>
 <ul>
   <li><strong>Principio de la realidad económica</strong> (arts. 1 y 2, Ley 11.683): para determinar la verdadera naturaleza del hecho imponible se atiende a los <em>actos y situaciones efectivamente realizados</em>, prescindiendo de las formas jurídicas inadecuadas elegidas por las partes. Es la herramienta contra la <em>elusión</em>.</li>
   <li><strong>In dubio: no hay reglas absolutas.</strong> Se rechaza tanto el <em>in dubio pro fisco</em> como el <em>in dubio contra fisco</em> automáticos; debe buscarse el sentido de la ley.</li>
@@ -105,6 +118,7 @@ window.CURSO.unidades.push({
       contenido: `
 <h3>Concepto</h3>
 <div class="def"><b>Derecho tributario:</b> rama del derecho financiero que regula específicamente la creación, recaudación y aspectos del <strong>tributo</strong> y las relaciones jurídicas entre el Estado y los contribuyentes.</div>
+<p class="muted">Terminología: <strong>"derecho fiscal"</strong> tiene un objeto más amplio (abarca todos los ingresos del fisco, no solo los tributos); el término <strong>"derecho impositivo"</strong> es impropio (la palabra "impositivo" no figura en el idioma castellano con ese sentido).</p>
 
 <h3>Divisiones</h3>
 <ul>
@@ -180,13 +194,24 @@ window.CURSO.unidades.push({
 
 <h3>Legalidad (o reserva de ley)</h3>
 <div class="def"><b>"Nullum tributum sine lege":</b> no hay tributo sin ley previa que lo establezca. Solo el <strong>Congreso/Legislatura</strong> puede crear tributos y definir todos sus elementos esenciales (hecho imponible, sujetos, base, alícuota, exenciones).</div>
-<p>Base: arts. 4, 17, 52 y 75 incs. 1 y 2 CN. Consecuencias: prohibición de delegar, de crear tributos por decreto (los DNU están <strong>vedados</strong> en materia tributaria — art. 99 inc. 3), y de la analogía.</p>
+<p>Base: arts. 4, 17, 52 y 75 incs. 1 y 2 CN. Consecuencias: prohibición de delegar, de crear tributos por decreto (los DNU están <strong>vedados</strong> en materia tributaria — art. 99 inc. 3), y de la analogía. La obligación tributaria de los contribuyentes de derecho es <strong>inderogable por acuerdo de partes</strong>.</p>
+<ul>
+  <li><strong>"Video Club Dreams"</strong> (CSJN): el Ejecutivo, por decretos de emergencia, extendió un impuesto existente a la exhibición de videogramas; la Corte lo declaró inválido: los tributos solo se crean por ley. Y aunque después el Congreso dictara una ley convalidándolo, esta <em>no</em> tendría efecto retroactivo.</li>
+  <li><strong>"Nobleza Piccardo"</strong>: la tabacalera pidió la inconstitucionalidad de una ley (aprobada en Diputados, modificada en Senado y promulgada sin volver a Diputados); la Corte la rechazó porque la empresa <em>no</em> demostró la lesión patrimonial, requisito para pedir la inconstitucionalidad.</li>
+  <li><strong>"Famyl S.A."</strong>: el Ejecutivo vetó parcialmente un texto del Congreso que gravaba la medicina prepaga al 10,5%, con el efecto de encuadrarla indirectamente en el 21%; se cuestionó por vulnerar la legalidad (promulgación parcial que altera el sentido de lo sancionado).</li>
+</ul>
 
 <h3>Igualdad</h3>
 <p>(Art. 16 CN) "La igualdad es la base del impuesto." No es igualdad aritmética sino <strong>igualdad de tratamiento en igualdad de condiciones (capacidad contributiva)</strong>. Permite <strong>categorías razonables</strong> de contribuyentes y, por tanto, la progresividad. Equidad horizontal y vertical.</p>
 
 <h3>Generalidad</h3>
-<p>El tributo debe abarcar a <strong>todos</strong> los que tienen capacidad contributiva; las <strong>exenciones y beneficios</strong> son excepciones que deben fundarse en razones de equidad o de promoción económica/social, no en privilegios.</p>
+<p>El tributo debe abarcar a <strong>todos</strong> los que tienen capacidad contributiva; las <strong>exenciones y beneficios</strong> son excepciones que deben fundarse en razones económicas, sociales o políticas, nunca en privilegios personales o de clase. El límite de la generalidad está dado, precisamente, por esas exenciones legítimas.</p>
+<table>
+  <tr><th>¿Quién contribuye?</th><th>¿Quién se beneficia?</th><th>Validez</th></tr>
+  <tr><td>Toda la sociedad (generalidad)</td><td>Un sector o grupo (parcialidad)</td><td><strong>Válido</strong></td></tr>
+  <tr><td>Un sector o grupo (parcialidad)</td><td>Toda la sociedad (generalidad)</td><td><strong>Válido</strong></td></tr>
+  <tr><td>Un sector o grupo (parcialidad)</td><td>Un sector o grupo (parcialidad)</td><td><strong>Inválido</strong></td></tr>
+</table>
 
 <h3>Proporcionalidad</h3>
 <p>(Arts. 4 y 75 inc. 2) Las contribuciones deben ser <strong>proporcionales a la capacidad contributiva</strong>. No impide la progresividad (la proporción se mide respecto de la riqueza, no de una alícuota única).</p>
@@ -197,13 +222,21 @@ window.CURSO.unidades.push({
 <h3>No confiscatoriedad</h3>
 <div class="callout">Deriva de la <strong>garantía de propiedad</strong> (art. 17). Un tributo es <strong>confiscatorio</strong> cuando absorbe una <em>parte sustancial</em> de la renta o del capital. La Corte fijó pautas (históricamente, el <strong>33%</strong> como tope referencial para ciertos tributos <em>directos</em> sobre la renta o el patrimonio; caso del Impuesto Inmobiliario que absorbe el 33% de la renta calculada según el rendimiento normal y medio de una correcta explotación — <em>Fallos 196:122</em>). Protege contra la destrucción de la fuente de riqueza.</div>
 
+<h3>Capacidad contributiva</h3>
+<p>Es la <strong>aptitud económica</strong> para soportar la carga de un tributo; no puede gravarse donde no existe (p. ej., si el contribuyente no tiene bienes para sus gastos vitales, o si el hecho imponible no revela riqueza). De él se desprende que a <em>igual capacidad contributiva</em> debe darse <em>igual tratamiento</em>.</p>
+<ul>
+  <li><strong>"Marta Navarro Viola"</strong> (irretroactividad / capacidad contributiva): una ley de 1982 creó un impuesto de emergencia sobre activos financieros al 31/12/1981; Navarro Viola había <em>donado</em> esas acciones antes de la sanción de la ley. La CSJN le dio la razón: la capacidad contributiva debe ser <strong>real, efectiva y actual</strong> (no puede gravarse una riqueza que ya no se posee).</li>
+  <li><strong>"López, Luis c/ Prov. de Santiago del Estero"</strong>: se cuestionó un recargo del inmobiliario a quienes no hicieran ciertas inversiones. La Corte admitió que las categorías de contribuyentes pueden fijarse por motivos <em>distintos</em> de la capacidad contributiva (aquí, alícuotas más altas por bienes inexplotados), sin obstáculo constitucional.</li>
+</ul>
+
 <h3>Otras garantías</h3>
 <ul>
-  <li><strong>Razonabilidad</strong> (art. 28): los medios deben ser proporcionados a los fines.</li>
+  <li><strong>Razonabilidad</strong> (art. 28): los principios, garantías y derechos no pueden ser alterados por las leyes que reglamentan su ejercicio; los medios deben ser proporcionados a los fines.</li>
   <li><strong>No retroactividad</strong> (derivada del derecho de propiedad — ver 4.2).</li>
   <li><strong>Tutela jurisdiccional</strong> y debido proceso (arts. 18 y 116).</li>
   <li><strong>Libre circulación territorial</strong> (arts. 9 a 12): prohibición de aduanas interiores.</li>
 </ul>
+<p class="muted">La <strong>doble o múltiple imposición</strong> (concurrencia de poderes fiscales de distinto o igual nivel sobre una misma manifestación de capacidad contributiva) <em>no es, en principio, inconstitucional</em>; se corrige por coordinación (coparticipación, Convenio Multilateral). En materia <strong>penal</strong> tributaria sí rige la retroactividad de la ley más benigna.</p>
 `
     },
     {
@@ -243,6 +276,11 @@ window.CURSO.unidades.push({
   <li><strong>Constitución de la Provincia del Chaco:</strong> Sección Séptima, arts. 187 a 206.</li>
   <li><strong>Ley Orgánica Municipal del Chaco N.º 4233:</strong> arts. 2, 3, 7, 10 y 21 a 24.</li>
   <li><strong>Carta Orgánica de la Ciudad de Resistencia:</strong> Título IV, Capítulo II, arts. 194 y 195.</li>
+</ul>
+<h4>Constitución del Chaco — facultades y recursos municipales</h4>
+<ul>
+  <li><strong>Art. 196 — Facultades impositivas:</strong> los municipios ejercen la administración y disposición de sus rentas y bienes propios, y las <em>facultades de imposición</em> sobre personas, bienes o actividades sometidas a su jurisdicción, con arreglo a la <strong>reglamentación</strong> que fije la ley o la carta orgánica en cuanto a las bases impositivas y a la <em>incompatibilidad</em> de gravámenes municipales con los provinciales o nacionales.</li>
+  <li><strong>Art. 197 — Recursos municipales:</strong> el impuesto inmobiliario sobre bienes raíces del municipio y al mayor valor de la tierra libre de mejoras; las <em>tasas y tarifas</em> por servicios efectivamente prestados; la participación y coparticipación impositiva federal; empréstitos, créditos, donaciones, legados y subsidios; impuestos de abasto; de extracción de arena, resaca y cascajo; el derecho de piso, uso y explotación del espacio aéreo y subsuelo; impuestos de mercados y ferias francas; la <em>ecotasa</em> ambiental; alumbrado, barrido y limpieza; patentes de vehículos; derechos de sellos, oficina e inspección de pesas y medidas; impuesto de delineación (nuevos edificios o refacciones); licencias para venta de bienes y servicios; la parte de impuestos recaudados en su jurisdicción; y las multas y el producido de la locación de bienes municipales.</li>
 </ul>
 `
     }

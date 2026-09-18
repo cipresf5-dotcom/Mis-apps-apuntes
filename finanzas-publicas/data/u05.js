@@ -106,13 +106,27 @@ window.CURSO.unidades.push({
   <li><strong>Sin afectación:</strong> ingresan a rentas generales (la regla, por el principio de unidad de caja).</li>
 </ul>
 
-<h3>Según la alícuota: fijos, graduales, proporcionales, progresivos y regresivos</h3>
+<h3>Progresivos, regresivos y proporcionales: dos criterios</h3>
+<div class="callout">Cuidado: "progresivo / regresivo / proporcional" se usa con <strong>dos sentidos distintos</strong>:
 <ul>
-  <li><strong>Fijos:</strong> suma invariable por cada hecho, sin relación con la base.</li>
-  <li><strong>Graduales:</strong> varían por categorías o escalones (p. ej., el Monotributo).</li>
-  <li><strong>Proporcionales:</strong> alícuota <em>constante</em> cualquiera sea la base (IVA 21%).</li>
+  <li><strong>Según el efecto redistributivo</strong> (relación entre lo pagado y el <em>ingreso</em> del contribuyente): es <em>progresivo</em> si esa relación <strong>aumenta</strong> al aumentar el ingreso; <em>regresivo</em> si <strong>disminuye</strong>; <em>proporcional</em> si <strong>permanece constante</strong>. Por este criterio el IVA es <strong>regresivo</strong> (los de menores ingresos gastan —y por ende tributan— una mayor proporción de su renta).</li>
+  <li><strong>Según la alícuota (quantum):</strong> mira cómo se comporta la <em>tasa aplicada a la base</em>, no al ingreso. Por este criterio el IVA es <strong>proporcional</strong> (21% constante).</li>
+</ul>
+Por eso un mismo impuesto (IVA) es <em>proporcional</em> en su alícuota y <em>regresivo</em> en sus efectos.</div>
+
+<h3>Según la alícuota (quantum): fijos, graduales, proporcionales, progresivos y regresivos</h3>
+<ul>
+  <li><strong>Fijos:</strong> suma invariable por cada hecho, sin relación con la base (viola la igualdad; p. ej., patente fija por ejercer un comercio o profesión).</li>
+  <li><strong>Graduales:</strong> monto fijo por categoría, que varía de una categoría a otra según la base (p. ej., el Monotributo).</li>
+  <li><strong>Proporcionales:</strong> alícuota <em>constante</em> cualquiera sea la base (IVA 21%). La existencia de alícuotas diferenciales no le quita el carácter proporcional.</li>
   <li><strong>Progresivos:</strong> la alícuota <em>aumenta</em> al crecer la base (Ganancias de personas humanas). Técnicas: progresión por clases/categorías y por <em>escalones</em> (la más usada, evita saltos).</li>
-  <li><strong>Regresivos:</strong> la alícuota <em>disminuye</em> al crecer la base. <span class="muted">Importante: un impuesto puede ser proporcional en su alícuota pero <em>regresivo en sus efectos</em> respecto del ingreso, como el IVA, porque los sectores de menores ingresos consumen una proporción mayor de su renta.</span></li>
+  <li><strong>Regresivos:</strong> la alícuota <em>disminuye</em> al crecer la base.</li>
+</ul>
+
+<h3>Ad-valorem y específicos (según la forma de imposición)</h3>
+<ul>
+  <li><strong>Ad-valorem:</strong> la base es el <em>valor</em> del bien o servicio y se aplica una alícuota porcentual (IVA, Internos, Ganancias de sociedades, impuesto a las ventas).</li>
+  <li><strong>Específicos:</strong> se fijan como un <em>importe fijo por unidad de medida</em> física (litros, kilos, unidades), con independencia del valor (p. ej., ciertos impuestos internos a los combustibles o al tabaco por unidad). <span class="muted">Desventaja: se desactualizan con la inflación (el importe fijo pierde peso real).</span></li>
 </ul>
 
 <h3>Técnicas de progresividad</h3>
@@ -142,13 +156,20 @@ window.CURSO.unidades.push({
   <li><strong>Percusión:</strong> el impacto inicial sobre el <em>contribuyente de iure</em> (el designado por la ley) al momento del pago.</li>
   <li><strong>Traslación:</strong> el proceso por el cual el contribuyente de iure transfiere la carga a otro vía precios.
     <ul>
-      <li><em>Hacia adelante</em> (protraslación): al comprador (subiendo el precio).</li>
-      <li><em>Hacia atrás</em> (retrotraslación): al proveedor (bajando lo que paga).</li>
-      <li><em>Oblicua:</em> a precios de otros bienes.</li>
+      <li><em>Hacia adelante</em> (protraslación): al comprador, subiendo el precio del bien (típico cuando la demanda es inelástica).</li>
+      <li><em>Hacia atrás</em> (retrotraslación): al proveedor de factores, restringiendo su demanda y bajando el precio que les paga.</li>
+      <li><em>Oblicua o lateral hacia adelante:</em> a los consumidores de <strong>otros bienes</strong> (secundarios respecto de la actividad principal), subiéndoles el precio.</li>
+      <li><em>Oblicua o lateral hacia atrás:</em> a los oferentes de <strong>factores secundarios</strong>, reduciéndoles la demanda.</li>
     </ul>
   </li>
-  <li><strong>Incidencia:</strong> la carga recae <em>definitivamente</em> sobre el <strong>contribuyente de facto</strong> (quien no puede trasladarla).</li>
-  <li><strong>Difusión (o remoción):</strong> los efectos posteriores sobre el consumo, el ahorro y la producción de quien soportó el impuesto.</li>
+  <li><strong>Incidencia:</strong> la carga recae <em>definitivamente</em> sobre el <strong>contribuyente de facto</strong> (incidido). Puede ser <em>por vía directa</em> (el contribuyente de iure no traslada y soporta él mismo el impuesto) o <em>por vía indirecta</em> (un sujeto que ya sufrió la traslación no logra volver a trasladarla y queda con la carga).</li>
+  <li><strong>Difusión:</strong> los efectos se <em>irradian</em> por todo el mercado (demanda, oferta y precios) más allá del sujeto incidido.</li>
+  <li><strong>Modificación del comportamiento del incidido:</strong> al ver reducido su ingreso, el sujeto ajusta consumo y/o ahorro según sus <strong>propensiones marginales</strong>; también puede enajenar parte de su patrimonio para pagar el gravamen o aumentar su oferta de trabajo para recomponer el ingreso.
+    <ul>
+      <li><em>Bajos recursos</em> (alta propensión marginal a consumir): reducen sobre todo el <strong>consumo</strong> → cae la demanda global → las empresas recortan costos (despidos o menor demanda de factores).</li>
+      <li><em>Altos recursos</em> (alta propensión a ahorrar): reducen sobre todo el <strong>ahorro</strong>.</li>
+    </ul>
+  </li>
 </ul>
 <p>La posibilidad de trasladar depende de las <strong>elasticidades</strong> de oferta y demanda, del tipo de mercado (más fácil en monopolio) y de la coyuntura.</p>
 <p><strong>Antes de la percusión</strong> puede darse el <em>efecto noticia (anuncio)</em>: al conocer que se creará el tributo, el contribuyente modifica su conducta para no encuadrar en el hecho imponible. Y <strong>después de la incidencia</strong>, si el incidido es una empresa que reorganiza su producción para compensar el gravamen, se habla de <em>remoción</em> del impuesto.</p>
@@ -174,6 +195,14 @@ window.CURSO.unidades.push({
   <li>Da lo mismo que la ley ponga el impuesto sobre el comprador o el vendedor: la incidencia <em>económica</em> final depende solo de las elasticidades.</li>
 </ul>
 <p><strong>Casos extremos (mercado competitivo):</strong> demanda <em>perfectamente inelástica</em> u oferta <em>perfectamente elástica</em> → la carga recae toda en el <strong>consumidor</strong>; demanda <em>perfectamente elástica</em> → recae toda en el <strong>productor</strong>. Si ambas curvas fueran perfectamente inelásticas <em>no</em> habría carga excedente (el tributo no altera las conductas).</p>
+<h4>Impuestos a las ventas: unitarios y ad-valorem</h4>
+<ul>
+  <li><strong>Unitarios:</strong> se fija un <em>importe determinado por unidad</em>. La curva de oferta se desplaza hacia la izquierda (arriba) en la <em>cuantía fija</em> del tributo. Desventaja: se desactualizan con la inflación.</li>
+  <li><strong>Ad-valorem:</strong> se aplica una <em>alícuota sobre el precio</em>. La oferta se desplaza en la <em>misma proporción</em> del impuesto (la brecha crece con el precio).</li>
+</ul>
+<p class="muted">En ambos casos cae la cantidad de equilibrio, sube el precio que paga el consumidor y baja el que recibe el productor; en el nuevo equilibrio el precio de compra y el de venta <em>ya no coinciden</em> (difieren en el impuesto).</p>
+<h4>Impuestos generales al consumo</h4>
+<p>Son <strong>relativamente neutrales</strong> porque gravan todos los bienes a igual tasa (no distorsionan la elección entre bienes), pero <em>no gravan el ahorro</em>, con lo que introducen un incentivo a <strong>consumir menos y ahorrar más</strong>. Serían menos distorsivos si además se gravara el ahorro (vía impuesto a la renta), aunque entonces aparecería el incentivo a <em>trabajar menos</em>: para eliminar toda distorsión habría que gravar también el <em>ocio</em> (imposible en la práctica). Son <strong>regresivos</strong> por naturaleza, sobre todo porque no alcanzan el ahorro.</p>
 <h4>Incidencia en otros mercados</h4>
 <ul>
   <li><strong>Impuestos al trabajo:</strong> la brecha entre el <em>salario bruto</em> (lo paga el empleador) y el <em>neto</em> (lo recibe el trabajador) es el impuesto. Como la oferta de trabajo suele ser inelástica, la carga tiende a recaer sobre el <strong>trabajador</strong> (baja el neto y el bruto casi no cambia). Distinto de las <em>contribuciones sociales</em>, que sí tienen contraprestación futura.</li>
@@ -193,7 +222,11 @@ window.CURSO.unidades.push({
 
 <h3>Principios económicos de la imposición: Adam Smith y Due</h3>
 <p><strong>Las cuatro máximas de Adam Smith:</strong> <em>justicia / capacidad</em> (cada uno según su capacidad contributiva), <em>certeza</em> (reglas claras: cuánto, cómo y cuándo pagar), <em>comodidad</em> (en el tiempo y modo más convenientes para el contribuyente) y <em>economicidad</em> (bajo costo de recaudación y cumplimiento). <strong>Due</strong> las sintetiza en tres criterios para diseñar la estructura impositiva: <em>neutralidad</em>, <em>equidad</em> y <em>economía</em>.</p>
-<p>La doctrina agrega, además: <strong>legalidad</strong>, <strong>igualdad</strong>, <strong>proporcionalidad</strong>, <strong>no confiscatoriedad</strong>, <strong>productividad</strong>, <em>evitar gravar actividades que recién se inician</em> y la <strong>discriminación entre rentas ganadas y no ganadas</strong> (gravar más las rentas del capital —"no ganadas"— que las del trabajo personal —"ganadas"—).</p>
+<p>La doctrina agrega, además: <strong>legalidad</strong>, <strong>igualdad</strong>, <strong>proporcionalidad</strong>, <strong>no confiscatoriedad</strong>, <strong>productividad</strong> (elegir impuestos que no desalienten la actividad productiva privada), <strong>comodidad en el pago</strong> (recaudar en el tiempo y forma más convenientes para el contribuyente: p. ej. el inmobiliario rural en época de comercialización de la cosecha), <em>evitar gravar actividades que recién se inician</em> (buscar como fuente a las empresas ya consolidadas) y la <strong>discriminación entre rentas ganadas y no ganadas</strong>.</p>
+<ul>
+  <li><strong>Principio de economía y sus vicios:</strong> el impuesto debe imponer al contribuyente la <em>menor carga posible por encima</em> de lo que ingresa al fisco. Lo vician: la complejidad de las liquidaciones, la exigencia de contabilidad fiscal, la necesidad de asesoramiento profesional y, sobre todo, la <strong>carga excedente</strong>. <span class="muted">Tensión <em>economía vs. equidad</em>: un impuesto que <em>no</em> crea carga excedente (lump-sum) está, sin embargo, lejos de satisfacer la equidad.</span></li>
+  <li><strong>Discriminación entre rentas ganadas y no ganadas:</strong> gravar más atenuadamente las rentas del <em>trabajo personal</em> ("ganadas") que las del <em>capital</em> ("no ganadas"). Motivos: (a) es justo que la renta lograda con esfuerzo no se grave igual que la obtenida sin sacrificio; (b) quien solo vive de su trabajo tiene <em>menor capacidad de ahorro</em>, mientras que el poseedor de capital puede ahorrar la renta y sostenerse con su trabajo.</li>
+</ul>
 
 <h3>Principios económicos de la imposición (Neumark)</h3>
 <p>Un sistema tributario debe observar principios que, con frecuencia, entran en conflicto entre sí (equidad vs. eficiencia). Neumark agrupa, entre los de fines político-sociales:</p>
@@ -286,6 +319,8 @@ window.CURSO.unidades.push({
 <p><strong>Funciones y facultades:</strong> recaudación, verificación y fiscalización, determinación de oficio, aplicación de sanciones, dictado de normas reglamentarias e interpretativas (rige la Ley 11.683). Sus facultades están limitadas por las garantías del contribuyente.</p>
 <p>Sus tres <strong>funciones</strong> operativas son: <em>recaudación</em> (difundir normas, evacuar consultas y percibir los pagos; actitud pasiva frente al obligado), <em>fiscalización</em> (controlar el cumplimiento de los deberes formales y materiales) y <em>cobranza</em> (reclamo activo del incumplimiento: boletas de deuda, embargos). Como órgano recaudador nacional, <strong>ARCA</strong> —creada como AFIP por el decreto 1156/96, fusionando la DGI y la Aduana e incorporando luego los recursos de la seguridad social— tiene además <strong>facultades de reglamentación</strong> (dictar normas generales obligatorias sobre inscripción, declaraciones juradas, retenciones, etc.) y de <strong>interpretación</strong> con carácter general obligatorio (sus interpretaciones se publican en el Boletín Oficial).</p>
 <p class="muted">Según el enfoque del <strong>CIAT</strong>, las funciones de la administración tributaria se agrupan en: <strong>control</strong> (detectar, corregir y sancionar los incumplimientos), <strong>servicio al cliente</strong> (facilitar y promover el cumplimiento voluntario minimizando su costo) y <strong>apoyo</strong> (soporte administrativo, informático y logístico).</p>
+<p>Sus <strong>objetivos</strong> son: aplicar eficazmente el sistema tributario para recaudar y gestionar los tributos, lograr la confianza pública en su actuación, promover y facilitar el cumplimiento espontáneo (reduciendo evasión y fraude) y minimizar el costo de la recaudación. La <strong>estructura orgánica</strong> puede ordenarse según distintos criterios: <em>geográfico</em> (por área territorial), <em>funcional</em> (por funciones: recaudación, fiscalización, cobranza), <em>por impuestos</em> o <em>por tipo de contribuyente</em> (p. ej., grandes contribuyentes).</p>
+<p class="muted">Una administración eficiente no es la que más recauda, sino la que <strong>minimiza la brecha</strong> entre recaudación potencial y recaudación real, respetando los procedimientos y garantías que las leyes establecen.</p>
 
 <h3>Evasión y elusión</h3>
 <table>
@@ -302,6 +337,12 @@ window.CURSO.unidades.push({
   <li><strong>Traslación de la base a fiscos de menor alícuota:</strong> entre jurisdicciones locales (p. ej. patentar automotores donde la patente es más baja) o entre países, vía "precios de transferencia" hacia filiales en paraísos fiscales.</li>
   <li><strong>Morosidad en el pago:</strong> por motivos reales (dificultades financieras) o especulativos (con alta inflación puede resultar más barato "endeudarse con el fisco" que con el sistema financiero).</li>
 </ul>
+<h4>Efectos de la evasión</h4>
+<ul>
+  <li>Si la evasión estuviera <strong>uniformemente distribuida</strong> entre todos los contribuyentes, el único efecto sería la <em>pérdida de recaudación</em> real respecto de la potencial; una salida sería subir la alícuota o crear nuevos tributos para compensar el margen evadido.</li>
+  <li>Si los contribuyentes evaden en <strong>grados distintos</strong> (lo habitual), además de la pérdida de recaudación se genera <strong>inequidad</strong> (los cumplidores cargan con el peso de los evasores) e <strong>ineficiencia</strong> económica. Aquí subir la alícuota <em>agrava</em> la brecha entre cumplidores y evasores; una salida es regularizar la situación de los incumplidores con un tratamiento más benigno (moratorias/blanqueos).</li>
+</ul>
+<p class="muted">Por eso es clave <strong>cuantificar</strong> la evasión por tributo y por tipo de contribuyente: orienta las tareas de fiscalización. La evasión es un <strong>delito</strong>.</p>
 <p class="muted">Distinta de todas ellas es la <strong>exención</strong>: la propia ley libera —de forma perfectamente legal y a veces deliberada, para estimular sectores o conductas— a ciertos sujetos (exenciones <em>subjetivas</em>) u operaciones (exenciones <em>objetivas</em>); su costo fiscal se cuantifica como gasto tributario (ver 5.4).</p>
 `
     }

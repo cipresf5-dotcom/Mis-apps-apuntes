@@ -143,6 +143,10 @@
       cont.appendChild(renderRepaso(u));
     }
 
+    // Simulacro de la unidad (data/sim_unidades.js)
+    const su = CURSO.simUnidad && CURSO.simUnidad[u.id];
+    if (su) cont.appendChild(buildRepasoBlock(su, "Simulacro de la Unidad " + u.numero, "📝"));
+
     // Navegación
     const idx = CURSO.unidades.findIndex(x => x.id === id);
     const prev = CURSO.unidades[idx - 1], next = CURSO.unidades[idx + 1];

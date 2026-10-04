@@ -59,6 +59,37 @@ window.CURSO.unidades.push({
   <tr><td><strong>Administración</strong></td><td>Es un complemento de control del impuesto a la renta (los bienes declarados deben ser coherentes con las rentas declaradas). Funciona mejor en el nivel jurisdiccional más alto y exige coordinación entre administraciones tributarias.</td></tr>
 </table>
 <p class="muted">Crítica general: puede ser <strong>confiscatorio</strong> si obliga a desprenderse del bien para pagar, y la <strong>valuación</strong> es difícil.</p>
+<h3>Aportes de la presentación del Prof. Aquino</h3>
+<div class="def"><strong>Patrimonio:</strong> conjunto de bienes, derechos y obligaciones de una persona a una fecha determinada. Es el valor del acervo de una persona en un momento dado, y una manifestación de riqueza gravada por el sistema tributario.</div>
+<p>La capacidad contributiva se manifiesta de <strong>tres formas</strong>:</p>
+<ul>
+  <li><strong>Renta:</strong> hay una relación entre las rentas del período y el nivel de vida.</li>
+  <li><strong>Consumo:</strong> mayor gasto presupone mayor nivel de vida; su imposición es regresiva.</li>
+  <li><strong>Patrimonio:</strong> es fuente productora de renta. No está en igual condición quien sólo tiene ingresos para vivir que quien, con iguales ingresos, posee un patrimonio considerable.</li>
+</ul>
+<p>El impuesto al patrimonio es <strong>directo, progresivo</strong> (alícuotas marginales crecientes) y de <strong>naturaleza personal</strong>. Grava el patrimonio neto de las personas físicas y el capital de las personas jurídicas.</p>
+<p><strong>Naturaleza y elementos:</strong> los supuestos de hecho se relacionan con manifestaciones de riqueza (principio de capacidad contributiva). Elementos: hechos objetivos definidos por la ley; sujetos pasivos por deuda propia (<em>contribuyentes</em>) o ajena (<em>responsables</em>); delimitación en el espacio (territorialidad, nacionalidad, domicilio); base imponible; tiempo (impuestos periódicos u ocasionales).</p>
+<ul>
+  <li><strong>Hecho imponible:</strong> la posesión por personas físicas de un patrimonio neto total a la fecha que fija la ley (en el impuesto al capital, el patrimonio de la empresa).</li>
+  <li><strong>Sujeto pasivo:</strong> personas físicas o sucesiones indivisas, domiciliadas en el país o en el exterior, por el patrimonio que posean al 31/12.</li>
+  <li><strong>Base imponible:</strong> el patrimonio neto.</li>
+</ul>
+<p><strong>Jarach:</strong> es un tributo personal que aporta progresividad al sistema aunque tenga alícuota proporcional; debería aplicarse sobre el patrimonio neto total, sin excluir bienes en el exterior. La equivalencia posible entre el impuesto al patrimonio y el impuesto a la renta <strong>no permite concluir que uno pueda sustituir al otro</strong>.</p>
+<p><strong>Fernández y D'Agostino</strong>: el impuesto al patrimonio es un complemento útil del impuesto a la renta por tres razones:</p>
+<ol>
+  <li>Al no afectar el capital humano, cumple el mismo fin que una desgravación a las rentas del trabajo.</li>
+  <li>Alcanza la <strong>renta imputada</strong> de las propiedades (valor locativo), que la renta no capta.</li>
+  <li>Alcanza las <strong>ganancias de capital</strong> no gravadas por el impuesto personal a la renta.</li>
+</ol>
+<p><strong>Principios constitucionales aplicables:</strong> legalidad (arts. 52 y 75), igualdad (art. 16), equidad y no confiscatoriedad (arts. 4 y 17), proporcionalidad (arts. 4 y 75).</p>
+<h3>Fundamentos según Aquino</h3>
+<ul>
+  <li><strong>Equidad:</strong> el <strong>Informe Meade</strong> propone sustituir el impuesto a la renta por un impuesto personal al gasto (para promover el ahorro y la inversión), combinado con un impuesto al patrimonio neto personal. Distingue el enriquecimiento hereditario del que surge del ahorro del esfuerzo personal, y propone combinar un impuesto a las herencias y donaciones con un impuesto a la tenencia. Conclusión: combinar los impuestos a la renta y al patrimonio acentúa la progresividad global y los fines redistributivos.</li>
+  <li><strong>Eficiencia económica:</strong> induce a aprovechar mejor los bienes para «remover» la carga; desalienta la tenencia ociosa. <em>Ejemplos locales:</em> el Código Tributario del <strong>Chaco</strong> establece un <strong>impuesto inmobiliario adicional progresivo</strong> sobre el conjunto de inmuebles rurales de un contribuyente que exceda la cantidad fijada por la ley, que aumenta si el propietario reside fuera del país o si los inmuebles están inexplotados o mal explotados (exención: bosques privados). <strong>Resistencia</strong> aplica un impuesto sobre los <strong>baldíos</strong>.</li>
+  <li><strong>Bienestar económico:</strong> el bienestar depende tanto del ingreso como del patrimonio. A igualdad de ingresos, quien posee bienes está en mejor condición: ahí nace la justificación del tributo.</li>
+  <li><strong>Control paralelo</strong> de otros impuestos (renta, ganancias de capital, herencias). Patrimonio y renta conviene controlarlos a nivel nacional.</li>
+</ul>
+<p><strong>Modalidades frente al impuesto a la renta:</strong> (1) como parte del impuesto a la renta, en una misma ley; (2) totalmente independiente; (3) separado pero como complemento de la renta (lo más común).</p>
 `
     },
     {
@@ -156,7 +187,25 @@ window.CURSO.unidades.push({
   <li><strong>Localización:</strong> alícuotas altas inducen a <strong>deslocalizar</strong> o subdeclarar bienes, sobre todo los financieros, que son muy móviles.</li>
 </ul>
 
-<div class="callout"><strong>Bienes Personales en Argentina (Ley 23.966, Título VI):</strong> período 2023: mínimo no imponible general de <strong>$100.000.000</strong> y de <strong>$350.000.000</strong> para el inmueble destinado a casa-habitación; alícuotas del <strong>0,50% al 1,50%</strong>, y del 0,25% al 1% con beneficio para contribuyentes cumplidores. Para 2024-2026 la presentación indica alícuotas de 1,25% a 1,50% (régimen especial de ingreso, REIBP, Ley 27.743). <em>Verificar los valores vigentes en la tabla oficial de ARCA.</em></div>
+<div class="callout"><strong>Bienes Personales (Ley 23.966, Título VI; Decreto 197/96) — período 2025</strong>, según la presentación del Prof. Aquino:
+<ul>
+  <li><strong>Hecho generador:</strong> los bienes existentes al 31 de diciembre de cada año, situados en el país y en el exterior.</li>
+  <li><strong>Sujetos:</strong> personas humanas domiciliadas en el país y sucesiones indivisas radicadas en él, por los bienes del país y del exterior; las domiciliadas en el exterior, sólo por los bienes del país. Las sucesiones indivisas tributan mientras el 31/12 caiga entre el fallecimiento y la declaratoria de herederos. Se consideran domiciliados en el país los diplomáticos y funcionarios argentinos en el exterior.</li>
+  <li><strong>Mínimo no imponible 2025:</strong> $384.728.044,57. La <strong>casa-habitación</strong> no está alcanzada si su valuación es igual o inferior a $1.346.548.155,99.</li>
+  <li><strong>Escala general 2025</strong> (sobre lo que excede el mínimo): hasta $52.664.283,73: 0,50%; de ahí hasta $114.105.948,16: $263.321,42 + 0,75%; más: $724.133,89 + 1,00%.</li>
+  <li><strong>Contribuyentes cumplidores</strong> (reducción de alícuota): 0% · 0,25% · 0,50% en los mismos tramos.</li>
+  <li><strong>REIBP</strong> (Régimen Especial de Ingreso, Ley 27.743 de 2024): adelanta cinco años del impuesto (2023-2027) con alícuota del <strong>0,45%</strong> sobre los bienes al 31/12/2023 (0,50% para bienes regularizados en el blanqueo). Quienes adhieren quedan liberados del impuesto y de cualquier otro impuesto patrimonial nacional que se cree por 2023-2027.</li>
+  <li><strong>Reducción prevista de alícuotas:</strong> 2025: 0,5%, 0,75% y 1%; 2026: 0,5% y 0,75%; 2027: sólo 0,5%.</li>
+  <li><strong>Exenciones relevantes</strong> (art. 21): bienes de diplomáticos extranjeros (con reciprocidad), cuotas sociales de cooperativas, bienes inmateriales (marcas, patentes, llaves), bienes amparados por la Ley 19.640 (Tierra del Fuego), títulos públicos nacionales, provinciales y municipales, y depósitos en entidades financieras.</li>
+</ul></div>
+<h3>Más precisiones de la presentación del Prof. Aquino</h3>
+<p><strong>Due:</strong> el impuesto al patrimonio neto pesa sobre los individuos, no sobre las sociedades, con base en activo − pasivo. <strong>Núñez Miñana:</strong> tributo personal cuya base es activo − pasivo, progresivo mediante un mínimo no imponible y alícuotas marginales ascendentes; más concentrado que el impuesto a las ganancias.</p>
+<p><strong>Equivalencia entre patrimonio y renta:</strong> el patrimonio neto puede verse como base presuntiva de la renta. Si un inmueble rinde 10% anual sobre su valor, un impuesto del <strong>1% sobre el valor</strong> equivale a un <strong>10% sobre la renta neta</strong>.</p>
+<p><strong>Impuesto al patrimonio bruto:</strong> desnaturaliza el tributo al no permitir deducciones; es inequitativo con quien no puede autofinanciarse y recurre a capital ajeno; su efecto inmediato es reducir la demanda de fondos ajenos. Se fija un mínimo exento para no perjudicar a los pequeños contribuyentes. En Argentina, Bienes Personales grava todos los bienes y sólo permite deducir las deudas que gravan la casa-habitación.</p>
+<p><strong>Reseña del impuesto al patrimonio neto:</strong> grava un stock; directo; personal; periódico (anual); integral (toda la riqueza, neta de deudas). La unidad contribuyente suele ser la familia; pocas exenciones; exenciones para patrimonios pequeños; administración nacional; recaudación baja (1% a 2% del total tributario). Aun con alícuota proporcional, el mínimo no imponible le da una <strong>progresividad imperfecta</strong>, y es progresivo respecto de la renta porque el patrimonio se concentra en los tramos altos. Sirve para evitar la evasión en renta y sucesiones.</p>
+<p><strong>Atribución de bienes en la sociedad conyugal:</strong> al marido, sus bienes propios y los gananciales salvo los atribuibles a la esposa; a la esposa, sus bienes propios, los gananciales adquiridos con el producto de su profesión, oficio, empleo, comercio o industria, los adjudicados judicialmente en caso de separación de bienes y los gananciales cuya administración se le confirió judicialmente. <span class="muted">(Esquema tradicional de la ley; puede generar inequidades al juntar patrimonios.)</span></p>
+<p><strong>Doble imposición:</strong> con el criterio de residencia se gravan todos los bienes; con el de territorialidad, los bienes en el país de los no residentes. Argentina atenúa la doble imposición otorgando un <strong>crédito</strong> por el impuesto patrimonial similar pagado en el exterior.</p>
+<p><strong>Efectos económicos (Aquino):</strong> por su carácter general y personal, el impuesto al patrimonio neto <strong>normalmente no se traslada</strong> (salvo mercados imperfectos, como los créditos hipotecarios). Favorece el consumo y desalienta el ahorro, porque grava la renta ahorrada. Puede desalentar la inversión: se aconseja eximir a las empresas en sus primeros años. Puede incentivar el reemplazo de inversiones seguras, líquidas y de bajo rendimiento por otras de menor liquidez.</p>
 `
     },
     {
@@ -215,6 +264,24 @@ window.CURSO.unidades.push({
   <li><strong>Consumo y ahorro:</strong> si se traslada hacia adelante, reduce el consumo y el ahorro de los particulares al restarles poder de compra. En épocas de auge puede usarse para <strong>enfriar la economía</strong> y acumular fondos para uso anticíclico.</li>
   <li><strong>Formación de capital:</strong> si no discrimina según la forma societaria, no altera la elección de la forma de inversión. Con alícuotas bajas y un contexto favorable, no es un obstáculo frente al riesgo empresario.</li>
 </ul>
+<h3>Evolución en Argentina (presentación del Prof. Aquino)</h3>
+<ul>
+  <li><strong>1976:</strong> se crea el impuesto al patrimonio neto, con dos títulos: uno para empresas y sociedades (activo menos pasivo al cierre) y otro para personas físicas y sucesiones indivisas.</li>
+  <li><strong>1990 (Ley 23.760):</strong> se derogan los impuestos al patrimonio neto y a los capitales; se los reemplaza por el <strong>impuesto a los activos</strong> y se crea el impuesto sobre los <strong>Bienes Personales</strong> no incorporados al proceso económico, que en realidad grava el patrimonio <strong>bruto</strong>. Argentina abandona así la tendencia mundial de gravar activo menos pasivo.</li>
+  <li><strong>1998 (Ley 25.063):</strong> se crea el <strong>impuesto a la ganancia mínima presunta</strong> sobre el total de los activos de la empresa.</li>
+</ul>
+<p><strong>Impuesto al capital de las empresas:</strong> hecho imponible: la posesión del capital resultante de los balances anuales; sujetos: los que superen un capital imponible mínimo. Estructura: impuesto anual con moderada alícuota proporcional sobre el patrimonio neto (activo, salvo exenciones, menos deudas con terceros), normalmente a costo histórico; en hiperinflación, algunas legislaciones disponen revaluar. Es real, directo, proporcional y anual. Razones de su existencia: sustituto de los impuestos sucesorios; sustituto de los impuestos a las transferencias onerosas; impuesto transitorio, adelanto o sustituto del impuesto personal al patrimonio (si es adelanto, es pago a cuenta del impuesto personal; si es sustituto, exime a los socios).</p>
+<p><strong>Efectos (Aquino):</strong> como gasto anual, se traslada por los precios; desalienta la inversión en depresión; grava a las empresas que se inician y a las marginales; tiene eficacia regresiva. No sirve para estabilizar: favorece a las empresas viejas con bienes desactualizados y desvía el ahorro hacia inmuebles o préstamos no gravados.</p>
+<h3>Impuesto a la Ganancia Mínima Presunta (Ley 25.063, Título V; Decreto 1533/98)</h3>
+<ul>
+  <li><strong>Hecho imponible:</strong> los activos al cierre de cada ejercicio.</li>
+  <li><strong>Ámbito espacial:</strong> bienes en el país y bienes situados con carácter permanente en el exterior.</li>
+  <li><strong>Sujetos:</strong> sociedades, asociaciones civiles y fundaciones domiciliadas en el país; empresas unipersonales; empresas del Estado y sociedades de economía mixta; personas físicas y sucesiones indivisas titulares de inmuebles rurales; fideicomisos y fondos comunes de inversión; establecimientos estables de sujetos del exterior.</li>
+  <li><strong>Exenciones:</strong> acciones y participaciones en otras entidades sujetas al impuesto; bienes en Tierra del Fuego (Ley 19.640); régimen de inversión minera (Ley 24.196); entidades exentas de Ganancias; monotributistas; ciertos fideicomisos energéticos.</li>
+  <li><strong>Base imponible:</strong> valor total de los activos al cierre. No se computan los dividendos ni las utilidades de participaciones; tampoco, en el ejercicio de compra y el siguiente, los bienes muebles amortizables (salvo automóviles) y las inversiones en construcción. Los bienes improductivos siempre se computan.</li>
+  <li><strong>Mínimo exento:</strong> activos de hasta $200.000 (aumenta si hay activos en el exterior). Si se supera, se grava la totalidad.</li>
+  <li><strong>Alícuota:</strong> proporcional del <strong>1%</strong>; computable a cuenta de Ganancias. Período: el ejercicio comercial.</li>
+</ul>
 `
     },
     {
@@ -249,6 +316,24 @@ window.CURSO.unidades.push({
   <li>Puede tener un componente extrafiscal: gravar más los vehículos suntuarios o más contaminantes.</li>
 </ul>
 <p class="muted">Inmobiliario y automotor son impuestos patrimoniales <em>parciales</em>: no miden el patrimonio total sino la tenencia de un tipo de bien.</p>
+<h3>Aportes de la presentación del Prof. Aquino</h3>
+<p><strong>Impuesto inmobiliario:</strong> es el más antiguo de los impuestos directos (la tierra fue la principal fuente de riqueza y ofrecía una base estable). Grava componentes del patrimonio, no el patrimonio neto global. Es <strong>real</strong> (no considera las condiciones personales del dueño), aunque la obligación de pagar es siempre de las personas, no de los inmuebles. Existe una tendencia a la progresividad y a la subjetividad: algunas legislaciones acumulan los inmuebles de una misma persona con alícuotas progresivas (quien tiene un terreno de $600 podría pagar más que quien tiene tres de $200). Lo aplican las provincias y los municipios.</p>
+<ul>
+  <li><strong>Hecho imponible:</strong> ser propietario o poseedor a título de dueño de un inmueble.</li>
+  <li><strong>Base:</strong> la valuación fiscal, determinada por tasadores oficiales, por avalúo o por el catastro.</li>
+  <li><strong>Naturaleza:</strong> directo, real, de alícuotas proporcionales, no trasladable.</li>
+</ul>
+<p><strong>El catastro</strong> da estabilidad a las valuaciones y homogeneidad de criterios (equidad horizontal entre inmuebles iguales), pero presenta inequidades: (1) se aplica sólo a cierto tipo de propiedad y no a todo el patrimonio; (2) es <strong>regresivo</strong>, porque buena parte recae sobre el gasto en vivienda; (3) carga a personas de bajos ingresos monetarios que poseen un inmueble; (4) la administración deficiente deja contribuyentes sin pagar.</p>
+<p><strong>Inmobiliario urbano:</strong> reduce la renta de la tierra urbana en la medida en que grava el terreno libre de mejoras. Fundamentos: la propiedad inmueble es un indicador aceptable de capacidad contributiva y el impuesto aplica el principio del beneficio (alumbrado, barrido, servicios sanitarios); en ambos casos se aplica una alícuota sobre el valor del bien. En Argentina es un impuesto de tipo local.</p>
+<p><strong>Valuación de inmuebles:</strong> a valor de mercado o venal (el precio al que se vendería en un plazo razonable con publicidad); el costo de ingreso al patrimonio no tiene sentido. Distorsiones: cambios rápidos de valor por crecimiento de la zona (un shopping, un centro comercial). La <strong>tierra libre de mejoras</strong> se aproxima a su valor venal por precios de transferencias privadas y remates; las <strong>mejoras</strong> son más difíciles de valuar y se valúan mejor por el costo menos la depreciación.</p>
+<p><strong>Formas de imposición (Aquino):</strong></p>
+<ol>
+  <li><strong>Sobre el producto bruto del suelo:</strong> un porcentaje fijo sobre la producción, sin descontar los gastos.</li>
+  <li><strong>Sobre el valor venal de la tierra</strong> (el que siguen las provincias y municipios argentinos): valuación del suelo y las construcciones, directa o por capitalización de la renta real o presunta, con alícuota generalmente proporcional.</li>
+  <li><strong>Sobre la renta neta o efectiva:</strong> renta bruta menos cargas y gastos de explotación; en Argentina la renta se grava en el impuesto a las ganancias.</li>
+  <li><strong>Sobre la renta normal potencial</strong> (derogado en Argentina): para inmuebles rurales; es la renta presunta y promedio cíclica que debe producir una explotación según suelo, clima y dimensión, con capital, trabajo y técnica normales. Premia al productor eficiente y castiga la tierra ociosa.</li>
+</ol>
+<p><strong>Impuesto automotor (Aquino):</strong> lo presenta como una <em>tasa municipal</em> vinculada a una actividad del municipio (en la doctrina se lo considera habitualmente un impuesto real; tener en cuenta ambas posturas). Hecho imponible: aspecto <strong>material</strong> (automotores, acoplados y similares), <strong>personal</strong> (titulares de dominio ante el RNPA y usufructuarios de vehículos cedidos por el Estado), <strong>temporal</strong> (anual, proporcional al tiempo de radicación en días corridos) y <strong>espacial</strong> (ámbito municipal). Características: fácil de recaudar, <strong>regresivo</strong> (exige más sacrificio a los de menores ingresos), distorsivo y no neutral.</p>
 `
     },
     {
@@ -288,6 +373,19 @@ window.CURSO.unidades.push({
   <li>En las personas, alcanza por igual a grandes y pequeños patrimonios: <strong>no cumple una función distributiva</strong> ni de equidad.</li>
   <li>Es distorsivo, puede generar <strong>doble imposición</strong> interjurisdiccional, y el impuesto al cheque desalienta la bancarización y actúa «en cascada».</li>
 </ul>
+<h3>Aportes de la presentación del Prof. Aquino</h3>
+<p><strong>Jarach:</strong> son impuestos que gravan las operaciones de transferencia de bienes (principalmente inmuebles y fondos de comercio, pero también muebles, títulos, ganado), los aportes y aumentos de capital al constituir sociedades, y documentos como letras de cambio, pagarés y hasta cheques.</p>
+<p><strong>Fundamentos:</strong> el beneficio de la protección jurídica que brinda el Estado; captar rentas que de otro modo quedarían sin gravar; la conveniencia de cobrar cuando hay liquidez (<em>expediency</em>); son manifestación de capacidad contributiva de los adquirentes o beneficiarios.</p>
+<p><strong>Impuesto de sellos — hecho imponible:</strong> la relación económica representada por el negocio jurídico gravado. <strong>Condiciones de gravabilidad:</strong> (1) actos jurídicos citados taxativamente por la ley; (2) otorgados dentro del ámbito espacial que ella delimita; (3) formalizados en instrumentos públicos o privados. La existencia material del instrumento da virtualidad tributaria al acto, <strong>con abstracción de su validez, eficacia jurídica o posterior cumplimiento</strong>.</p>
+<h3>Impuesto a las transacciones financieras (débitos y créditos bancarios)</h3>
+<ul>
+  <li>Su fundamento fueron las necesidades de caja. Se llamó primero impuesto al cheque, luego a los débitos y créditos bancarios y finalmente a las transacciones financieras. Se estableció el 29/12/1989 como impuesto a los débitos bancarios.</li>
+  <li>Es <strong>indirecto</strong>: grava la riqueza presunta por la mera circulación financiera; por eso debería ser concurrente con las provincias y coparticipado.</li>
+  <li><strong>Alícuota máxima:</strong> 6 por mil sobre los débitos y 6 por mil sobre los créditos (1,2% si se cobra y se paga).</li>
+  <li><strong>Desventajas:</strong> eludible pagando en efectivo; plurifásico y acumulativo (depende de la cantidad de intervinientes y del medio de pago); desalienta la bancarización; alta carga excedente. <strong>Ventajas:</strong> fácil de aplicar, recaudación inmediata, pocos responsables (los bancos).</li>
+  <li>Parte puede computarse a cuenta de Ganancias (la presentación indica 34% de lo pagado por acreditaciones; 100% para pymes según el régimen).</li>
+</ul>
+<p class="calc">Ejemplo (Aquino): depósito de $35.000 × 0,6% = $210; cheque emitido por $14.000 × 0,6% = $84. Total pagado: $294. A cuenta de Ganancias: 34% de $210 = $71,40.</p>
 `
     },
     {
@@ -328,6 +426,12 @@ window.CURSO.unidades.push({
 <h3>Situación en Argentina</h3>
 <p>No existe a nivel nacional: el impuesto a la transmisión gratuita de bienes fue <strong>derogado en 1976</strong>. Es una facultad provincial. Según el material de cátedra, hoy sólo lo aplica la <strong>Provincia de Buenos Aires</strong>: el Impuesto a la Transmisión Gratuita de Bienes (Ley 14.044, desde 2010), con mínimo no imponible y alícuotas progresivas según el monto y el grado de parentesco.</p>
 <p class="muted">Es un caso paradigmático de la tensión entre <strong>equidad</strong> (a favor) y <strong>eficiencia y viabilidad política</strong> (en contra).</p>
+<h3>Aportes de la presentación del Prof. Aquino</h3>
+<p><strong>Naturaleza:</strong> por su origen, se lo ubica entre los impuestos a la transferencia de bienes, justificado por la protección que el Estado presta a los bienes del causante. <strong>Jarach critica esa ubicación:</strong> la estructura del gravamen muestra que no se grava el acto de transmisión sino su <strong>consecuencia</strong>, el incremento patrimonial de herederos, legatarios y donatarios. Causas: fallecimiento (<em>mortis causa</em>) o transmisión entre vivos.</p>
+<p><strong>Impuesto al acervo sucesorio total:</strong> impuesto real; prescinde de la cuota de cada sucesor; capta la capacidad contributiva de los beneficiarios sólo en forma imperfecta; está a cargo de los beneficiarios por imperio de la ley; donde se aplica suele tener escala progresiva. Se complementa con un impuesto a las donaciones.</p>
+<p><strong>Impuesto a las hijuelas:</strong> grava el enriquecimiento de cada heredero, legatario y donatario; progresivo, con escalas más moderadas, en función directa del monto e indirecta del parentesco; personal (puede considerar la riqueza del beneficiario). <em>Hijuela:</em> documento que indica lo que corresponde a cada heredero en la partición.</p>
+<p><strong>Efectos económicos (Aquino):</strong> no se traslada por los precios: lo pagan efectivamente los beneficiarios. Puede estimular el ahorro (para dejar más capital neto después del impuesto), o lo contrario (consumir la riqueza antes que dejarla al Estado), o no alterar las conductas de quienes ignoran el impuesto. En general, no tendría efectos sustanciales sobre la creación futura de ahorro.</p>
+<p class="muted">Nota: la presentación indica que el impuesto sucesorio nacional «fue derogado por Alfonsín»; la bibliografía de la cátedra (Romero) y la doctrina ubican la derogación del impuesto a la transmisión gratuita de bienes en 1976. Consultar con la cátedra qué fecha esperan en el examen.</p>
 `
     }
   ],
@@ -381,6 +485,7 @@ window.CURSO.unidades.push({
   <p><strong>4) Momentos de vinculación:</strong> criterios <strong>personales</strong> (residencia, domicilio, nacionalidad), que gravan el patrimonio mundial, y criterios <strong>económicos o territoriales</strong> (situación del bien), que gravan los bienes del país de los no residentes mediante un <strong>responsable sustituto</strong>. El momento temporal es la tenencia a una fecha fija (en Argentina, el 31/12).</p>
   <p><strong>5) Efectos económicos:</strong> negativo sobre el ahorro (reduce su rentabilidad neta); positivo sobre la inversión productiva (castiga los bienes ociosos); sobre el consumo, depende de la tasa de interés; efectos renta y sustitución en la oferta de factores; reduce la concentración de la riqueza; puede inducir fuga o deslocalización de capitales.</p>
   <p><strong>6) Legislación vigente:</strong> <strong>Bienes Personales</strong> (Ley 23.966) grava, en general, el patrimonio <strong>bruto</strong> de las personas humanas, sin deducir pasivos salvo las deudas por la casa-habitación. Los impuestos parciales (inmobiliario, automotor) gravan bienes sin considerar deudas. Un impuesto sobre el patrimonio <strong>neto</strong> existió con el Impuesto sobre los Capitales de las empresas y con el Impuesto al Patrimonio Neto (1970s); hoy no hay uno vigente en sentido estricto.</p>
+  <p><strong>Datos de Bienes Personales 2025 (presentación del Prof. Aquino):</strong> mínimo no imponible $384.728.044,57; casa-habitación no alcanzada hasta $1.346.548.155,99; escala 0,50% · 0,75% · 1,00% (cumplidores: 0% · 0,25% · 0,50%); REIBP al 0,45% por cinco años; alícuotas previstas 2026: 0,5% y 0,75%; 2027: 0,5%. Sólo se deducen las deudas que gravan la casa-habitación.</p>
   <p><strong>7) Limitaciones:</strong> (1) ocultación y detección de bienes (activos líquidos, bienes en el exterior, suntuarios); (2) valuación a valor de mercado e inflación; (3) problemas de liquidez del contribuyente; (4) imposibilidad de usarlo en forma anticíclica; (5) efectos adversos sobre el ahorro y fuga de capitales; (6) doble imposición con la renta y entre jurisdicciones; (7) bajo rendimiento recaudatorio.</p>
   </details>
 </div>
@@ -392,6 +497,7 @@ window.CURSO.unidades.push({
   <p class="tp-resp"><strong>1) Concepto:</strong> grava el capital de las empresas, sea el <strong>bruto</strong> (activo total: ex Impuesto sobre los Activos, IGMP) o el <strong>neto</strong> (activo − pasivo: ex Impuesto sobre los Capitales). Puede complementar al impuesto general al patrimonio o ser una imposición autónoma sobre las empresas.</p>
   <p><strong>2) Naturaleza:</strong> impuesto <strong>real</strong>, en principio <strong>directo</strong>; si se traslada a los precios, se vuelve <strong>indirecto y regresivo</strong>. Jarach lo justifica como sustituto del impuesto sucesorio (las empresas no mueren), como sustituto del impuesto a las transferencias onerosas y como adelanto o sustituto del impuesto personal al patrimonio de los socios.</p>
   <p><strong>3) Características:</strong> generalmente <strong>proporcional</strong> (en Argentina se aplicaron recientemente alícuotas progresivas); administración <strong>sencilla</strong> porque se basa en los balances; valuación contable (bienes de uso a costo menos amortizaciones, bienes de cambio a costo o plaza); suele funcionar como impuesto mínimo de renta presunta, computable contra Ganancias.</p>
+  <p><strong>Evolución en Argentina (Aquino):</strong> impuesto al patrimonio neto de 1976 (con títulos para empresas y para personas); en 1990 la Ley 23.760 deroga los impuestos al patrimonio neto y a los capitales y crea el impuesto a los activos y el de Bienes Personales (patrimonio bruto); en 1998 la Ley 25.063 crea la ganancia mínima presunta (1% de los activos, a cuenta de Ganancias), luego derogada.</p>
   <p><strong>4) Efectos económicos:</strong></p>
   <ul>
     <li><strong>Traslación:</strong> depende de la estructura del mercado.</li>
@@ -416,7 +522,9 @@ window.CURSO.unidades.push({
     <tr><td>Sobre el <strong>valor de la tierra libre de mejoras</strong></td><td>Sólo el valor del suelo</td><td>No desalienta construir o invertir; grava la valorización no ganada (Henry George)</td></tr>
   </table>
   <p>Según la alícuota: <strong>proporcional</strong> (respeta la equidad horizontal) o <strong>progresiva</strong> según la valuación o la superficie (más redistributiva, pero incentiva subdividir los inmuebles); con o sin <strong>mínimo no imponible</strong>; con <strong>recargos</strong> a baldíos o latifundios improductivos.</p>
+  <p><strong>Formas de imposición según la presentación del Prof. Aquino:</strong> (1) sobre el <strong>producto bruto del suelo</strong> (porcentaje fijo sobre la producción, sin descontar gastos); (2) sobre el <strong>valor venal</strong> de la tierra y sus construcciones, directo o por capitalización de la renta (el sistema de las provincias y municipios argentinos, con alícuota generalmente proporcional); (3) sobre la <strong>renta neta</strong> o efectiva (renta bruta menos gastos; en Argentina se grava en Ganancias); (4) sobre la <strong>renta normal potencial</strong> (rural; renta presunta y promedio cíclica según suelo, clima y dimensión con factores normales; derogado en Argentina).</p>
   <p><strong>3) Impuesto al parque automotor:</strong> directo, real y periódico (anual, en cuotas); el hecho imponible es la <strong>radicación</strong> del vehículo en la jurisdicción; el sujeto es el titular registral; la base es la valuación según tablas por marca, modelo y año (o el peso o la cilindrada en vehículos de carga); alícuota proporcional o por categorías, decreciente con la antigüedad; competencia provincial, en Chaco y Corrientes transferida a los municipios. Se funda en la capacidad contributiva y en el beneficio (uso de la vía pública); puede tener fines extrafiscales (gravar más los vehículos de lujo o contaminantes).</p>
+  <p><strong>Aspectos del hecho imponible según Aquino</strong> (que lo trata como tasa municipal): <em>material</em> (automotores, acoplados y similares), <em>personal</em> (titulares de dominio ante el RNPA y usufructuarios de vehículos cedidos por el Estado), <em>temporal</em> (anual, proporcional al tiempo de radicación en días corridos), <em>espacial</em> (ámbito municipal). Características: fácil de recaudar, regresivo, distorsivo y no neutral.</p>
   </details>
 </div>
 
@@ -439,6 +547,7 @@ window.CURSO.unidades.push({
   <p class="tp-resp"><strong>Caso 1. 1) Hecho imponible:</strong> todo <strong>aumento de riqueza a título gratuito</strong>: herencias, legados, donaciones, anticipos de herencia y otras transmisiones gratuitas. Características: es un hecho de <strong>enriquecimiento sin contraprestación</strong>; en el sistema de hijuelas se grava a <strong>cada beneficiario</strong> por lo que recibe (personal y progresivo); se vincula con la jurisdicción por el domicilio del beneficiario o por la situación de los bienes (Buenos Aires, Ley 14.044); tiene un mínimo no imponible y alícuotas que aumentan con el monto y con la lejanía del parentesco.</p>
   <p><strong>2) Nacimiento de la obligación:</strong> en las transmisiones <strong>por causa de muerte</strong>, con el <strong>fallecimiento del causante</strong> (apertura de la sucesión); en las <strong>donaciones</strong> y otros actos entre vivos, al <strong>perfeccionarse el acto</strong> (aceptación de la donación, otorgamiento de la escritura o del instrumento).</p>
   <p><strong>3) Fundamentos:</strong> el beneficiario recibe riqueza sin esfuerzo (renta no ganada); la acumulación se logró gracias a la protección estatal (beneficio); grava la capacidad contributiva póstuma del causante, que pudo no haber tributado en vida (exenciones, evasión); limita las grandes acumulaciones y la perpetuación de desigualdades entre generaciones (igualdad de oportunidades); se separa de la renta porque es un ingreso irregular. <strong>Provincias:</strong> según el material de cátedra, hoy sólo la <strong>Provincia de Buenos Aires</strong>. Existió a nivel nacional y en las provincias hasta su derogación en 1976.</p>
+  <p><strong>Efectos según Aquino:</strong> el impuesto sucesorio no se traslada por los precios (lo pagan efectivamente los beneficiarios). Puede estimular el ahorro para dejar más capital neto, incentivar a consumir la riqueza antes que dejarla al Estado, o no alterar las conductas de quienes lo ignoran; en general no tendría efectos sustanciales sobre el ahorro futuro. Jarach: no se grava el acto de transmisión, sino su consecuencia (el incremento patrimonial del beneficiario).</p>
   <p><strong>Caso 2:</strong></p>
   <ol>
     <li><strong>(b)</strong>. La doctrina que propone considerar la edad sostiene que debe gravarse más fuertemente cuanto <strong>menor es la edad del heredero</strong>, porque gozará de los bienes durante más tiempo. <em>Es la opción más fundada; confirmar con la cátedra.</em></li>

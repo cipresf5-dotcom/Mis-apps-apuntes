@@ -222,10 +222,20 @@
         <button class="parcial-tab active" data-tab="modelos">📄 Modelos de parcial</button>
         <button class="parcial-tab" data-tab="mc">🔘 Multiple choice</button>
         <button class="parcial-tab" data-tab="tema">🗂 Por tema</button>
+        ${p.simulacros ? `<button class="parcial-tab" data-tab="sim">📝 Simulacros</button>` : ""}
       </div>
       <div id="pv-modelos" class="parcial-view">${buildModelos(p)}</div>
       <div id="pv-mc" class="parcial-view" style="display:none">${buildMC(p)}</div>
-      <div id="pv-tema" class="parcial-view" style="display:none">${buildTema(p)}</div>`;
+      <div id="pv-tema" class="parcial-view" style="display:none">${buildTema(p)}</div>
+      <div id="pv-sim" class="parcial-view" style="display:none"></div>`;
+
+    // Simulacros interactivos (mismo formato que el repaso de unidad)
+    if (p.simulacros) {
+      const sim = $("#pv-sim");
+      sim.appendChild(el("p", { className: "muted",
+        innerHTML: "Simulacros con el formato del parcial de la cátedra: 10 Verdadero/Falso, 10 para completar y 10 de análisis. V/F y Completar suman puntaje; en Análisis podés ver la respuesta modelo. Tocá cada simulacro para abrirlo." }));
+      p.simulacros.forEach(s => sim.appendChild(buildRepasoBlock(s, s.titulo, "📝")));
+    }
 
     // Cambio de pestañas
     view.querySelectorAll(".parcial-tab").forEach(btn => {
@@ -233,7 +243,7 @@
         view.querySelectorAll(".parcial-tab").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         const t = btn.getAttribute("data-tab");
-        ["modelos", "mc", "tema"].forEach(k => {
+        ["modelos", "mc", "tema", "sim"].forEach(k => {
           const el2 = $("#pv-" + k);
           if (el2) el2.style.display = (k === t) ? "block" : "none";
         });
@@ -470,7 +480,12 @@
   }
 
   function renderRepaso(u) {
-    const r = u.repaso || {};
+    return buildRepasoBlock(u.repaso || {}, "Repaso interactivo", "✎");
+  }
+
+  // Bloque interactivo genérico (V/F, Completar, Análisis): lo usan el repaso
+  // de cada unidad y los simulacros de parcial.
+  function buildRepasoBlock(r, titulo, badge) {
     const vf = r.vf || [], fill = r.fill || [], analisis = r.analisis || [];
     const total = vf.length + fill.length;
 
@@ -520,8 +535,8 @@
     const wrap = el("div", { className: "tema repaso-block" });
     wrap.innerHTML = `
       <div class="tema-head">
-        <div class="tp-badge">✎</div>
-        <div class="tema-title">Repaso interactivo</div>
+        <div class="tp-badge">${badge}</div>
+        <div class="tema-title">${titulo}</div>
         <div class="tema-chevron">▶</div>
       </div>
       <div class="tema-body">${body}</div>`;

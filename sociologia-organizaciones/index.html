@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sociología de las Organizaciones</title>
+<style>
+:root{--bg:#f7f6f2;--panel:#fff;--ink:#1d1d1b;--muted:#6b6a65;--line:#e3e1da;--accent:#2f5d8a;--accent-soft:#e6eef6;--ok:#2e7d4f;--bad:#b23b3b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151618;--panel:#1d1f22;--ink:#ebeae6;--muted:#9a9993;--line:#2e3034;--accent:#7fb0e0;--accent-soft:#1f2c3a;--ok:#6cc08f;--bad:#e07a7a}}
+:root[data-theme="dark"]{--bg:#151618;--panel:#1d1f22;--ink:#ebeae6;--muted:#9a9993;--line:#2e3034;--accent:#7fb0e0;--accent-soft:#1f2c3a;--ok:#6cc08f;--bad:#e07a7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+header h1{font-size:17px;margin:0;flex:1;min-width:180px}
+nav.tabs{display:flex;gap:4px}
+nav.tabs button,.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;font-size:14px}
+nav.tabs button.on,.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+#menuBtn{display:none}
+.layout{display:grid;grid-template-columns:260px 1fr;max-width:1200px;margin:0 auto}
+aside{position:sticky;top:57px;height:calc(100vh - 57px);overflow:auto;padding:16px;border-right:1px solid var(--line)}
+aside input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit;margin-bottom:12px}
+aside a{display:flex;justify-content:space-between;gap:6px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:14px}
+aside a:hover{background:var(--accent-soft)}
+aside a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+aside a .dot{color:var(--ok)}
+main{padding:24px 32px 80px;min-width:0}
+.view{display:none}.view.on{display:block}
+article h2{font-size:26px;margin:0 0 12px;line-height:1.25}
+article h3{font-size:19px;margin:28px 0 8px;color:var(--accent)}
+article table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+article th{background:var(--accent-soft)}
+article li{margin:3px 0}
+mark{background:#ffe48a;color:#000;border-radius:2px}
+.done-row{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;max-width:640px;margin:0 auto}
+.flash{min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;user-select:none}
+.flash .term{font-size:26px;font-weight:700}
+.flash .def{font-size:18px;margin-top:14px}
+.flash small{color:var(--muted);margin-top:16px}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,var(--panel))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 15%,var(--panel))}
+.muted{color:var(--muted);font-size:14px}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:8px 0 16px}
+.progress div{height:100%;background:var(--accent)}
+select{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit}
+@media (max-width:820px){
+ .layout{grid-template-columns:1fr}
+ #menuBtn{display:inline-block}
+ aside{display:none;position:fixed;inset:57px 0 0 0;background:var(--bg);z-index:4;border:0}
+ aside.open{display:block}
+ main{padding:16px 16px 80px}
+}
+@media print{header,aside,.done-row{display:none}.layout{display:block}.view{display:none}#vLeer{display:block}}
+</style>
+</head>
+<body>
+<header>
+ <button class="btn" id="menuBtn">☰</button>
+ <h1>Sociología de las Organizaciones</h1>
+ <nav class="tabs">
+  <button data-v="vLeer" class="on">Leer</button>
+  <button data-v="vFlash">Tarjetas</button>
+  <button data-v="vQuiz">Quiz</button>
+ </nav>
+ <button class="btn" id="themeBtn" title="Cambiar tema">◐</button>
+</header>
+<div class="layout">
+ <aside id="side"><input id="q" placeholder="Buscar en el apunte…"><div id="toc"></div><p class="muted" id="prog"></p></aside>
+ <main>
+  <section class="view on" id="vLeer"><article id="art"></article><div class="done-row"><button class="btn" id="prev">← Anterior</button><button class="btn primary" id="mark">Marcar como estudiada</button><button class="btn" id="next">Siguiente →</button></div></section>
+  <section class="view" id="vFlash"><div class="card"><div class="row" style="margin:0 0 12px"><select id="fUnit"></select><button class="btn" id="fShuffle">Mezclar</button></div><div class="progress"><div id="fBar"></div></div><div class="flash" id="flash"><div class="term" id="fTerm"></div><div class="def" id="fDef" hidden></div><small>Tocá la tarjeta para ver la respuesta</small></div><div class="row"><button class="btn" id="fPrev">←</button><span class="muted" id="fCount"></span><button class="btn" id="fNext">→</button></div></div></section>
+  <section class="view" id="vQuiz"><div class="card" id="quiz"></div></section>
+ </main>
+</div>
+<script type="text/plain" id="md">
+# Apunte completo – Sociología de las Organizaciones
+
+Oct 6, 2026 · @Fran
+
+## Introducción y mapa de la materia
+
+La materia estudia la **parte "humana" (informal) de la administración**: cómo individuos, grupos y la organización se influyen mutuamente, para poder hacer un **diagnóstico organizacional** y proponer mejoras. Programa 2026 (Res. 2025-665-CD, FCE-UNNE), Prof. Titular Dra. Mariana Valdés.
+
+El cursado se organiza como un proyecto: cada equipo analiza una organización real en cuatro ejes de análisis.
+
+| Eje | Qué se analiza | Unidades |
+| --- | --- | --- |
+| Macro | La organización en general, su sistema de comportamiento y su entorno | I, II, III |
+| Meso | Ambiente interno: grupos, equipos, comunicación, conflicto, liderazgo | IV, V |
+| Micro | El individuo: puesto, condiciones de trabajo, riesgos psicosociales, motivación | VI, VII |
+| Transversal | Una problemática interna: diagnóstico técnico y propuestas de mejora | VIII (cambio, aprendizaje, decisiones) |
+
+**Unidades del programa**
+
+1. Organización y contexto social
+2. Cultura y clima organizacional
+3. Ética y Responsabilidad Social Empresaria (RSE)
+4. Comunicación, conflicto y negociación
+5. Liderazgo y equipos de trabajo (incluye poder)
+6. El individuo en las organizaciones
+7. La motivación laboral
+8. Procesos organizacionales: cambio, aprendizaje/conocimiento y toma de decisiones
+
+**Bibliografía básica:** Chiavenato (2022), Franklin Fincowsky y Krieger (2010), Gibson, Ivancevich y Donnelly (2011), Newstrom (2014), Robbins (2023), Valdés (Coord., 2025) libro de cátedra. Complementaria destacada: Senge, Nonaka y Takeuchi, Gilli, Schlemenson.
+
+## Unidad I – Organización y contexto social
+
+Idea central: la organización es un **sistema abierto y social**, y para diagnosticarla hay que mirar tanto lo formal como lo informal, en tres niveles (individuo, grupo, organización) y en relación con su entorno.
+
+### 1. Sociología de las Organizaciones (S.O.)
+
+- **Sociología** (Zorrilla, 1992): ciencia que estudia los grupos humanos y procura describir, explicar o predecir su comportamiento en función de sus estructuras y tradiciones históricas.
+- **Organización** (Mateu, 1984): sistema social complejo e interdependiente cuya dinámica depende de las aptitudes, valores, actitudes, necesidades y experiencias de sus miembros y de procesos sociales internos y externos.
+- **S.O.** (Krieger, 2001): rama de la sociología que interactúa con la psicología social, la economía y la ciencia política para analizar el fenómeno organizacional y responder a los nuevos interrogantes de la realidad organizacional.
+- **Comportamiento Organizacional (C.O.)** (Chiavenato): campo interdisciplinario que estudia a las personas y grupos en las organizaciones, la influencia que ejercen en ellas y la que la organización ejerce sobre ellos. Robbins: estudia el efecto de individuos, grupos y estructuras en el comportamiento para mejorar la efectividad.
+- S.O. y C.O. son **interdisciplinarias** y se enfocan en la parte humana: comunicación, conflicto, liderazgo, poder, política, ética.
+
+### 2. Aspectos sociológicos en el diagnóstico organizacional
+
+**Diagnóstico organizacional** (Krieger, 2001): proceso por el cual, con métodos y técnicas de investigación, se analizan y evalúan las organizaciones con fines de investigación o intervención. *Toda intervención debe ser precedida de un diagnóstico.*
+
+- Surge por: un cambio planificado (crecimiento), un problema puntual o la búsqueda de un mejor clima.
+- Pasos: hipótesis iniciales → marco teórico → variables y dimensiones → métodos y técnicas (observación, cuestionarios, entrevistas a informantes clave, encuestas) → relevamiento, análisis y clasificación.
+
+| Organización formal | Organización informal (foco de la materia) |
+| --- | --- |
+| Sistemas organizacionales, objetivos e indicadores de metas | Relaciones individuales y grupales |
+| Visión, misión, valores, fines | Acciones comunicativas |
+| Estructura orgánica | Gestión del conocimiento e incorporación de tecnologías |
+| Procesos y procedimientos administrativos | Cultura organizacional |
+| Manuales de funciones y procedimientos | Poder y liderazgo, conflictos |
+| Contexto / ambiente interno | Factibilidad de los cambios; relación organización–contexto |
+
+Ejemplo (comunicación): desde lo formal se miran los canales e informes establecidos; desde lo informal, quiénes comunican, en qué contexto, qué barreras y percepciones hay. Ambas miradas juntas forman el diagnóstico.
+
+**Competencias directivas** (Puga Villareal y Martínez Cerna, 2008): orientación al conocimiento, liderazgo, habilidades comunicativas, valores éticos y trabajo en equipo.
+
+### 3. Variables del C.O. (Newstrom): fuerzas que interactúan
+
+- **Personas:** sistema social interno (individuos y grupos). Las organizaciones existen para servir a las personas.
+- **Estructura:** relaciones oficiales, líneas de autoridad y poder.
+- **Tecnología:** recursos con que se trabaja; influye en la tarea.
+- **Medio (entorno):** influye en la organización y es influido por ella.
+
+### 4. Niveles del C.O. (Chiavenato y Krieger)
+
+| Nivel | Perspectiva | Aspectos a analizar |
+| --- | --- | --- |
+| Individual | Micro | Personalidad, historia personal, estudios, competencias, valores y actitudes, percepción, motivación, aprendizaje |
+| Grupal | Intermedia | Estructura y dinámica grupal e intergrupal, socialización (cooperación–competencia) |
+| Organizacional | Macro | Cultura, diseño de la organización, procesos de trabajo |
+
+### 5. El sistema organizacional y su entorno (Franklin Fincowsky y Krieger)
+
+**Entorno:** todos los elementos externos (económicos, políticos, sociales, tecnológicos, legales) que afectan el comportamiento y desempeño de la organización.
+
+| Perspectiva | Factores |
+| --- | --- |
+| Entorno externo (general) | Socioculturales, políticos, legales, ambientales, económicos, tecnológicos |
+| Entorno de tarea | Proveedores, clientes, socios estratégicos, competidores, mano de obra, reguladores |
+| Entorno interno | Gobierno corporativo y administración |
+
+Conclusión de la unidad: el desafío del administrador es alinear los intereses personales y los institucionales para reducir la "tensión" propia de la vida organizacional.
+
+## Unidad II – Cultura y clima organizacional
+
+Idea central: la **cultura** es lo profundo y compartido (supuestos, valores, significados) que orienta la conducta; el **clima** es cómo los miembros *perciben* el ambiente de trabajo. El clima es más superficial, cambiante y medible; la cultura es más estable y difícil de cambiar.
+
+|  | Cultura organizacional | Clima organizacional |
+| --- | --- | --- |
+| Qué es | Sistema de supuestos, valores y significados compartidos | Percepción de los atributos del ambiente laboral |
+| Profundidad | Profunda, en gran parte implícita | Superficial, manifiesta |
+| Estabilidad | Relativamente estable; cambia lento | Dinámico; se mejora con acciones correctivas |
+| Relación | La contiene y la condiciona | Para Chiavenato es una característica de la cultura |
+| Cómo se estudia | Niveles, rasgos, tipologías (cuali + cuanti) | Encuestas de percepción (Likert, Litwin y Stringer) |
+
+### 1. Origen e identidad
+
+- Nace con la **Escuela de Relaciones Humanas** (Elton Mayo, Kurt Lewin), que descubre la **organización informal**: cohesión, estatus, colaboración, clima, motivación, liderazgo.
+- **Institucionalización** (Robbins; Selznick): la organización adquiere "valor y vida propios" con el tiempo, más allá del organigrama.
+- **Identidad** (Etkin y Schvarstein): rasgos *invariantes* que la distinguen; si cambian, surge otra organización (ej.: de empresa a cooperativa).
+- Precursores de los años 70–80: Ouchi, Pascale y Athos, Peters y Waterman, Deal y Kennedy.
+
+### 2. Definiciones de cultura
+
+- **Schein:** conjunto de *presunciones básicas* inventadas, descubiertas o desarrolladas por un grupo al aprender a enfrentar sus problemas de **adaptación externa e integración interna**, que se enseñan a los nuevos como el modo correcto de percibir, pensar y sentir.
+- **Robbins y Judge:** sistema de significados compartidos que distingue a una organización de otras.
+- **Davis y Newstrom:** suposiciones, creencias, valores y normas compartidos; crea el ambiente humano del trabajo.
+- **Gibson, Ivancevich y Donnelly:** percepción de los empleados que crea un patrón de creencias, valores y expectativas.
+- **Visión crítica (poder):** Fleury y Fischer — la cultura comunica y genera consenso, pero también *oculta e instrumentaliza relaciones de dominación*. Freitas — poderoso *mecanismo de control* que homogeneiza y anula la reflexión. Etkin — la cultura es "lo que subyace" y opera en lo implícito.
+- **Valdés (2022):** lo que identifica y singulariza a la organización, regula el "deber ser" con fuerte contenido axiológico; ante el cambio genera resistencias.
+- O'Reilly, Chatman y Caldwell: a mayor **congruencia valores personales–cultura**, mayor desempeño, permanencia y compromiso.
+
+### 3. Subculturas
+
+- "Miniculturas" definidas por departamentos o separación geográfica (Robbins). Comparten los valores centrales y agregan otros.
+- **Horizontales** (ocupaciones, lugares de trabajo) y **verticales** (grupos de empleados, profesiones, orígenes) (Góngora, Nóbile y Reija).
+- Krieger: más que culturas uniformes, hay un **mosaico** de valores en competencia.
+- Se vuelven problemáticas (Deal y Kennedy, en Salazar) cuando: crecen hacia adentro, chocan públicamente, se vuelven exclusivas o ponen sus valores por encima de los compartidos.
+
+### 4. Modalidades de la cultura
+
+| Clasificación | Tipos |
+| --- | --- |
+| Fuerza | **Fuerte** (valores centrales firmes y muy compartidos: cohesión, lealtad, control) vs **débil** (pocos significados compartidos) |
+| Andrade | **Fuerte-funcional** (percepción realista de la crisis, acciones concertadas) vs **débil-disfuncional** (repite recetas pasadas, alto riesgo de error) |
+| Etkin y Schvarstein | **Concentrada / fragmentada**; **tendiente al cierre / a la apertura**; **autónoma / refleja** (imita modelos externos) |
+
+### 5. Funciones (O'Reilly y Chatman)
+
+1. Define **fronteras** (nosotros / ellos).
+2. Da **sentido de identidad**.
+3. Genera **compromiso** (selección, señales, recompensas alineadas).
+4. **Estabiliza** y cohesiona.
+5. Funciona como **mecanismo de control** social.
+6. (Ritter) Responde preguntas existenciales: ¿quiénes somos?, ¿qué nos une?
+
+### 6. Elementos de la cultura (Franklin y Krieger; Arbaiza Fermini)
+
+- **Valores:** núcleo duro; creencias profundas sobre lo que está bien o mal. Comunes: esenciales, finales, instrumentales, operativos.
+- **Ritos y ceremonias:** iniciación, promociones, fiestas, despedidas, sanciones; mantienen unido al grupo.
+- **Historias y mitos:** narrativas transmitidas que se exageran con el tiempo; guían en la adversidad.
+- **Tabúes:** lo prohibido (ej.: pasar información a la competencia).
+- **Héroes:** **natos** (cambiaron el rumbo, ej. el fundador) y **creados** (premiados: "vendedor del año"). Fijan patrones de desempeño.
+- **Normas:** obligatorias y periféricas. Según las acepte o rechace la persona:
+
+| Normas obligatorias | Normas periféricas | Resultado |
+| --- | --- | --- |
+| Acepta | Acepta | Conformismo: encaja totalmente |
+| Rechaza | Acepta | Rebeldía oculta |
+| Rechaza | Rechaza | Rebelión abierta (pérdida de la afiliación) |
+| Acepta | Rechaza | **Individualismo creativo** (el ideal) |
+
+### 7. Diagnóstico de la cultura y cambio cultural
+
+Se combinan métodos cualitativos y cuantitativos: caracterizar rasgos, tipificarlos y observar niveles.
+
+**Niveles de Schein:**
+
+1. **Artefactos / manifestaciones:** lenguaje, historias, mitos, rituales, ceremonias (visibles).
+2. **Valores:** base para juzgar situaciones; reflejan metas e ideales.
+3. **Presunciones básicas** (invisibles, la base): relación con el entorno; naturaleza de la verdad y la realidad; del ser humano; de la actividad humana; de las relaciones humanas.
+
+**Robbins – 10 características:** identidad de los miembros, énfasis en el grupo, enfoque hacia las personas, integración de unidades, control, tolerancia al riesgo, criterios de recompensa, tolerancia al conflicto, perfil hacia fines o medios, enfoque de sistema abierto.
+
+**Hofstede** (la cultura nacional permea la organizacional): distancia al poder, individualismo–colectivismo, evitación de la incertidumbre, masculinidad–feminidad, orientación de largo/corto plazo, indulgencia–restricción.
+
+**Tipologías:**
+
+| Autor | Tipos |
+| --- | --- |
+| Cameron y Quinn (Competing Values Framework, 6 factores) | **Clan** (familia, líderes mentores), **Adhocrática** (dinámica, innovadora), **Jerárquica** (formal, procedimientos), **Mercado** (competitiva, resultados) |
+| Felcman y Blutman (sector público) | **Paternalista**, **Apática**, **Anómica**, **Exigente**, **Integrativa** (la ideal: alta orientación a personas y a resultados) |
+| Harrison | Orientada al poder, a la función (rol), a la tarea, a la persona |
+| Sonnenfeld | Club, Académica, Equipo de béisbol, Fortaleza |
+| Denison | Involucramiento, Consistencia, Adaptabilidad, Misión |
+
+### 8. Clima organizacional
+
+**Definiciones:** Likert — "estructura psicológica" de la organización, cualidad duradera del ambiente interno. Góngora — percepción de atributos que influyen en comportamiento, rendimiento y satisfacción. Chiavenato — suma de características ambientales percibidas; se realimenta con la motivación (favorable si satisface necesidades, desfavorable si frustra). Concepto introducido por Gellerman (1960); influido por la escuela de la Gestalt y la funcionalista.
+
+- Elementos comunes: **percepción**, **factores organizacionales**, **comportamiento organizacional**.
+- Olaz: el clima es a la vez **variable dependiente** (de comunicación, liderazgo, motivación) e **independiente** (afecta desempeño y productividad).
+- **Enfoques de estudio:** objetivo (atributos físicos), subjetivo (percepción individual) e **integral** (medida perceptiva de atributos organizacionales: el más usado).
+- **Dimensiones (Franklin y Krieger):** expectativas personales y contrato psicológico; remuneraciones e incentivos; carrera y competencias; perspectivas grupales; autoridad y liderazgo (autoritaria, paternalista, participativa); los líderes; el puesto-tarea (burocrática vs adhocrática); resolución de conflictos.
+
+**Los 4 sistemas de Likert** (variables: proceso decisorio, comunicaciones, relaciones interpersonales, recompensas y castigos):
+
+| Sistema | Tipo de clima |
+| --- | --- |
+| 1. Autoritario explotador | Cerrado, desconfianza, decisiones en la cúpula, castigos |
+| 2. Autoritario paternalista (benevolente) | Cerrado, confianza condescendiente, recompensas y algunos castigos |
+| 3. Consultivo | Abierto, confianza, consulta a subordinados |
+| 4. Participativo (en grupo) | Abierto, plena confianza, decisiones compartidas: el más eficaz |
+
+**Instrumentos de diagnóstico:** cuestionario de **Litwin y Stringer** (50 preguntas, basado en McClelland: estructura, responsabilidad, recompensa, riesgo, calidez, apoyo, normas, conflicto, identidad) y cuestionario de **Likert** (perfil organizacional).
+
+## Unidad III – Ética y Responsabilidad Social Empresaria (RSE)
+
+Idea central: la ética orienta las decisiones con valores; la RSE es la forma en que la organización responde *voluntariamente* por sus impactos económicos, sociales y ambientales ante todos sus grupos de interés. Fuente: Moglia, Valdés y Marenco (libro de cátedra 2025).
+
+### 1. Ética y moral (Cortina y Martínez Navarro)
+
+| Moral | Ética |
+| --- | --- |
+| Conjunto de principios, normas y valores que cada generación transmite a la siguiente | Disciplina filosófica: reflexión de *segundo orden* sobre la moral |
+| Indica acciones concretas | Justifica racionalmente; orienta indirectamente |
+| Pregunta: **¿qué debemos hacer?** | Pregunta: **¿por qué debemos?** |
+
+- *Ethos* (griego): primero "morada", luego **carácter**, modo de ser que se forja (Cortina: el carácter se cultiva; la educación es clave; no hay personas amorales).
+- La ética **abarata costos**: genera confianza y aligera las relaciones.
+- Kliksberg: el poder privado (grandes empresas) afecta nuestras vidas; se le exige transparencia y ausencia de corrupción.
+
+### 2. Ética del administrador público y privado
+
+- En esencia **no difieren**: ambas se basan en valores (justicia, equidad, honestidad, responsabilidad, respeto). Cambia el ámbito de aplicación.
+- **Valor** (Frondizi): cualidad estructural que surge de la reacción de un sujeto ante propiedades de un objeto, en una situación concreta.
+- Al decidir deben primar coherencia, legitimidad, lealtad y equidad, y evaluar a quién afecta la decisión, no solo el efecto económico.
+- **Privada:** los valores pasan del individuo a la empresa y a la sociedad (Debeljuh). Puede o no tener código escrito.
+- **Pública:** proteger los recursos de los ciudadanos. **Ley 25.188 de Ética en la Función Pública**: deberes (honestidad, probidad, rectitud, buena fe, austeridad republicana; interés público sobre el particular; transparencia; no recibir beneficios indebidos; cuidar los bienes del Estado), declaraciones juradas, incompatibilidades y sanciones.
+
+### 3. Código de Ética Unificado de Ciencias Económicas (FACPCE, Res. 204/2000)
+
+- **Ética profesional:** arte de ejercer la profesión adecuando el trabajo a la dignidad humana, personal y social.
+- Estructura: Preámbulo, Prólogo, Título I (ámbito y sujetos), II (normas generales), III (normas especiales: principios técnicos, clientela, relaciones interprofesionales, solidaridad, publicidad, secreto profesional, honorarios), IV (incompatibilidades e independencia), V (sanciones).
+- El profesional responde ante: la sociedad, su universidad, los Consejos Profesionales, sus colegas, otros profesionales y el cliente (la relación más directa).
+- **Valores:** justicia (veracidad y fidelidad a la palabra dada), fortaleza, humildad y **prudencia** (optimizar el pasado, diagnosticar el presente, prevenir el futuro).
+- **Cualidades:** credibilidad, profesionalidad, confianza, calidad de servicio, confidencialidad, objetividad, integridad, idoneidad, solidaridad, responsabilidad, dignidad profesional.
+- La libertad es personal e indelegable; **la responsabilidad es su reverso**. La corrupción degrada a la persona, destruye la sana competencia y perjudica a los competentes.
+
+### 4. Responsabilidad social
+
+- **Responsabilidad** (Heler): capacidad de responder *por qué* se actúa y de hacerse cargo de las consecuencias.
+- La dimensión social de la responsabilidad es ética, por lo tanto **voluntaria y no vinculante** (ISO 26000).
+- Cortina: ámbitos del ethos — micro (familia, empresa), meso (política nacional), macro (humanidad).
+- **RSE:** concepto amplio con aristas económicas, sociales y ambientales; parte de la estrategia (Hupperts). IARSE: "modelo de gestión que contempla los impactos económicos, ambientales y sociales". Debeljuh: empresa responsable = negocio rentable que asume sus efectos en la sociedad, voluntariamente.
+- **Stakeholders** (Freeman, 1984): personas, grupos u organizaciones con interés en la organización, que la impactan o son impactados por ella. Volpentesta: el desafío es no privilegiar un interés sobre otro.
+
+| Grupos de interés (Paladino) | Quiénes |
+| --- | --- |
+| Primarios | Accionistas, empleados, clientes, proveedores (dependen de la actividad continua) |
+| Secundarios | Comunidad, gobierno (influyen y son influidos, pero no operan en ella) |
+
+| Ámbitos de responsabilidad (Melé) | Contenido |
+| --- | --- |
+| Primaria | La actividad específica y las personas implicadas |
+| Secundaria | El impacto sobre otros grupos que interactúan con ella |
+| Terciaria | Contribuir al bien común: "buena ciudadana" |
+
+### 5. RSE y comportamiento organizacional
+
+- La RSE aumenta motivación, compromiso, cohesión y colaboración **si está alineada** con los objetivos (Hinojosa Paz y López Ocharán: impacto mediano en el C.O.).
+- Las prácticas de RSE pueden nacer de la cultura y se expresan en los trabajadores (Ramos et al., 2018).
+- Requiere liderazgo comprometido, estilo participativo, buen clima, mirada de largo plazo y que la RSE forme parte de la identidad y la cultura.
+
+### 6. Diagnóstico de la RSE: guías y estándares
+
+| Área | Instrumentos |
+| --- | --- |
+| Generales | Pacto Mundial ONU (10 principios), Directrices OCDE, **GRI** (memorias de sostenibilidad), AA1000, Principios Caux, normas CFI–Banco Mundial, ODM/ODS |
+| Derechos humanos y laborales | Declaración Universal DD.HH., Declaración Tripartita OIT, **SA8000** |
+| Salud y seguridad | OHSAS 18001 |
+| Medio ambiente | **ISO 14001**, Principios CERES |
+| Corrupción | Convención OCDE antisoborno, Principios de Transparency International |
+| Autodiagnóstico regional | Indicadores PLARSE, **IARSE/ETHOS** |
+
+### 7. Indicadores IARSE/ETHOS (7 dimensiones, 40 indicadores)
+
+1. **Valores, transparencia y gobierno corporativo:** compromisos éticos, arraigo en la cultura, gobierno corporativo, relación con la competencia, diálogo con stakeholders, balance social.
+2. **Público interno:** diálogo y participación (sindicatos, gestión participativa), respeto al individuo (diversidad, equidad de género, no discriminación, tercerizados), trabajo decente (remuneración, salud y seguridad, desarrollo, despidos, jubilación).
+3. **Medio ambiente:** compromiso con generaciones futuras, educación ambiental, gestión de impactos y ciclo de vida, insumos y residuos.
+4. **Proveedores:** criterios de selección, rechazo del trabajo infantil y forzado, desarrollo de proveedores locales.
+5. **Consumidores y clientes:** comunicación comercial, excelencia en la atención, daños potenciales de productos.
+6. **Comunidad:** impacto en el entorno, relación con organizaciones locales, acción social y voluntariado.
+7. **Gobierno y sociedad:** contribuciones políticas, ciudadanía, anticorrupción, liderazgo social.
+
+Conclusión: la RSE **invita, no obliga**; los indicadores son referencias, no reglas prescriptivas.
+
+## Unidad IV – Comunicación, conflicto y negociación
+
+Idea central: ninguna organización existe sin comunicación; cuando falla, es la principal fuente de conflicto, y a la vez es la herramienta para resolverlo (mediación y negociación). Nota de cátedra de Valdés y Chávez. Eje meso.
+
+### 1. Concepto de comunicación
+
+- Etimología: *communicatio*, "hacer común". No es solo transmitir: es **compartir significado**.
+- **Chiavenato:** proceso por el cual dos o más personas intercambian, comprenden y comparten información, generalmente para influir en el comportamiento.
+- **Newstrom:** transferencia de información y **entendimiento**. "La comunicación es lo que el receptor entiende, no lo que el emisor dice."
+- Claves: **transferencia y comprensión del significado**. Puede ser **verbal** (oral: la más rápida, con feedback inmediato; escrita: más planificada y verificable) o **no verbal** (postura, gestos, tono: la más antigua).
+- Elementos del proceso: fuente/emisor → codificación → canal/mensaje → decodificación → receptor → retroalimentación; el **ruido** distorsiona en cualquier etapa.
+
+**Modelos del proceso de comunicación (Mata):**
+
+| Modelo | Idea central |
+| --- | --- |
+| Conductista | Lineal, estímulo → respuesta; importa el medio |
+| Matemático-informacional | Sistema cerrado; emisor → canal → receptor |
+| Funcionalista | Agrega contexto, funciones del lenguaje y grupos de pertenencia |
+| Producción de sentido | El sentido se construye en la interacción; el código no es neutro |
+| **Sistémico** (enfoque de la materia) | Sistema abierto y complejo; Watzlawick y la Escuela de Palo Alto |
+
+### 2. Axiomas de la comunicación humana (Watzlawick, Escuela de Palo Alto)
+
+La pragmática estudia los efectos de la comunicación sobre la conducta (además de sintáctica y semántica).
+
+1. **Es imposible no comunicarse:** toda conducta (incluso el silencio) tiene valor de mensaje.
+2. **Toda comunicación tiene un aspecto de contenido y uno relacional:** qué se dice (referencial) y cómo debe entenderse, que define la relación (conativo).
+3. **La relación depende de la puntuación de las secuencias:** cada parte organiza la secuencia de intercambios de modo distinto ("yo reacciono a lo que vos hacés").
+4. **Comunicación digital y analógica:** digital = palabras; analógica = lo no verbal (gestos, tono, ritmo, contexto).
+5. **Intercambios simétricos o complementarios:** basados en la igualdad (simétricos) o en la diferencia que encaja (complementarios: superior/inferior).
+
+### 3. Percepción y barreras
+
+- La percepción funciona como **filtro** (cognición, personalidad, valores, motivos). Distorsiones: razonamiento defensivo, **disonancia cognitiva**, **percepción selectiva**.
+- Barreras según quién las crea (Donnelly): del emisor, del receptor, de ambos.
+
+| Barrera | Ejemplos |
+| --- | --- |
+| Personales (psicológicas) | Emociones, valores, malos hábitos de escucha, distancia psicológica |
+| Físicas | Ruido, distancia (proxémica), paredes, fallas técnicas |
+| Semánticas | Idioma, jerga técnica, gestos con distinto significado |
+
+**Comunicación eficiente vs eficaz (Chiavenato):** eficiente = el emisor transmite bien, canal adecuado y sin ruido, mensaje claro. Eficaz = el receptor **comprende**, da feedback, el significado se vuelve común y lo acepta.
+
+### 4. Comunicación organizacional e institucional
+
+- **Institucional:** con los públicos **externos** (marketing, relaciones públicas).
+- **Organizacional (interna):** todos los actos comunicativos **dentro** de la organización. Krieger: la organización "se produce, reproduce y transforma" mediante las prácticas de comunicación de sus miembros. Brandolini: "en una empresa todo comunica"; la comunicación interna genera confianza, pertenencia y reproduce la cultura.
+- **Funciones** (Scott y Mitchell): control, motivación, expresión emocional, información.
+
+| Flujo formal | Dirección | Contenido típico |
+| --- | --- | --- |
+| Descendente | De la dirección a los subordinados | Objetivos, instrucciones, procedimientos, feedback |
+| Ascendente | De abajo hacia arriba | Problemas, sugerencias, informes; depende mucho de la cultura y suele descuidarse |
+| Horizontal | Entre pares (o diagonal) | Coordinación; más sincera, rápida en crisis |
+
+**Canales informales:** espontáneos (pasillo, café), rápidos, pero fuente de rumores. Si predominan los formales la organización se **burocratiza**; si predominan los informales y el rumor, se **anarquiza**.
+
+### 5. Diagnóstico e intervención en la comunicación interna
+
+- **Variables (Franklin y Krieger):** diseño organizacional (en red vs clásico), canales formales e informales, eficacia (qué, cuándo y cómo se informa; utilidad para decidir), sistemas de información (intranet, tableros de comando).
+- **Proceso cíclico de Brandolini:** pre-diagnóstico → diagnóstico → planificación → ejecución → seguimiento.
+- *Pre-diagnóstico:* origen, misión y visión, estructura, cantidad y perfil del personal, responsable y canales de comunicación interna, acciones previas, encuestas de clima, conflictos sindicales.
+- *Diagnóstico:* necesidades insatisfechas del público interno, fortalezas y debilidades, con herramientas cualitativas y cuantitativas (entrevistas, encuestas, focus groups, auditoría de canales).
+
+### 6. Conflicto
+
+| Autor | Definición |
+| --- | --- |
+| Entelman | Relación social en la que los objetivos de los miembros son incompatibles (o percibidos así) |
+| Chiavenato | Interferencia deliberada, activa o pasiva, para bloquear los objetivos de la otra parte |
+| Robbins | Proceso que se inicia cuando una parte percibe que la otra afecta algo que considera importante |
+
+- **Causas:** fallas de comunicación, choque de intereses o valores, amenazas al estatus, cambios, diferencias de metas y percepciones. Requiere **percepción** de las partes.
+- **Dimensiones (Entelman):** dinámica, escalada/desescalada, intensidad, y conducta en tres planos: intelectual (acuerdo/desacuerdo), volitivo (acciones), afectivo (hostilidad/amistad).
+- **Tipos:** intrapersonal, interpersonal, intergrupal. **Conflicto organizacional:** choque entre objetivos de la organización y de los individuos (Camísón).
+
+**Visiones del conflicto:**
+
+| Robbins | Krieger | Postura |
+| --- | --- | --- |
+| Tradicional | Tradicional | Es negativo; hay que evitarlo |
+| Relaciones humanas | Funcionalista | Es natural; se acepta y se maneja constructivamente |
+| Interactiva | Interaccionista | Un nivel mínimo es positivo: evita la apatía y estimula la innovación |
+| — | Clasista | Lucha de poder entre dominantes y dominados |
+
+**Análisis del conflicto:**
+
+- Por **actores** (Entelman): individuales (interpersonales) o colectivos (intergrupales, negociaciones colectivas).
+- Por **proceso** (Robbins, 5 etapas): 1) oposición potencial (fuentes); 2) cognición y personalización (conflicto *percibido* y *sentido*); 3) intenciones; 4) comportamiento (se hace visible); 5) resultados (funcionales o disfuncionales).
+- Por **gravedad** (Chiavenato): **percibido** (latente) → **experimentado** (velado) → **manifiesto** (abierto).
+
+### 7. Resolución del conflicto
+
+| Forma (Davis y Newstrom) | Resultado | Descripción |
+| --- | --- | --- |
+| Evitar | Perder-perder | Las partes se distancian; nada se resuelve |
+| Avenimiento (acomodación) | Perder-ganar | Una parte cede sus intereses |
+| Fuerza | Ganar-perder | Una parte impone su poder |
+| Acuerdo mutuo (compromiso) | Ganar-ganar parcial | Ambas ceden algo |
+| Confrontación (colaboración) | Ganar-ganar | Enfrentan el problema para una solución que satisfaga a ambas |
+
+- Intenciones de Robbins: colaborar, competir, evitar, acomodarse, comprometerse.
+- **Mediación** (Folberg y Taylor): un tercero **neutral** ayuda a aislar los problemas y buscar opciones; las **partes deciden**. El mediador no aconseja (a diferencia del conciliador). Otras: **arbitraje** (el tercero impone una solución), **conciliación**, **consulta**.
+
+### 8. Negociación
+
+- **Daft:** proceso de intercambio que permite a dos partes llegar a una resolución. **Chiavenato:** las partes intercambian activos y acuerdan una tasa de intercambio. **Neale y Bazerman:** toma de decisiones entre partes interdependientes con preferencias distintas.
+- **Etapas (Chiavenato):** 1) preparación y planeación; 2) definición de reglas básicas; 3) aclaración y justificación; 4) intercambio y solución de problemas (concesiones); 5) conclusión y aplicación.
+- **Fases (Alcover de la Hera):** I) definición y límites (encuadre: qué es negociable); II) dinámica negociadora (posición inicial → maduración → búsqueda cooperativa); III) resolución (acuerdo, breve e intensa).
+
+| Estrategia | Integrativa | Distributiva |
+| --- | --- | --- |
+| Resultado buscado | Ganar-ganar; expandir beneficios | Ganar-perder; suma cero |
+| Formas | Acuerdo mutuo, confrontación | Fuerza, avenimiento, evitación |
+| Intenciones | Colaboración, compromiso | Competencia, acomodación, evasión |
+| Relación | Largo plazo | Corto plazo, confrontación |
+
+## Unidad V – Liderazgo y equipos de trabajo
+
+Idea central: el grupo es más que la suma de sus miembros; el equipo es un grupo con metas claras y roles diferenciados. El líder influye por **poder personal**; la autoridad es **poder legítimo** por la posición. Nota de cátedra de Chávez y Moglia (2025). Eje meso.
+
+### 1. Grupos
+
+- **Grupo:** dos o más personas interdependientes que interactúan para lograr objetivos; el rendimiento de cada uno es influido por los demás (Chiavenato, Robbins, Gibson).
+- Importan porque la organización formal e informal se basan en grupos; pueden ayudar o impedir los objetivos; brindan un **entorno afectivo** que transmite valores y cultura (Krieger).
+
+| Formales (creados por la organización) | Informales (espontáneos) |
+| --- | --- |
+| De mando (organigrama) | Primarios (camaradería, lealtad) |
+| De tarea | De interés |
+| Temporales (comisiones) | De amistad |
+| — | Coaliciones (alianzas estratégicas) |
+
+**Etapas de desarrollo (Chiavenato):**
+
+1. **Formación:** incertidumbre; se define propósito, estructura y liderazgo.
+2. **Tormenta:** conflictos por la individualidad y por quién lidera.
+3. **Normalización:** cohesión y normas compartidas.
+4. **Desempeño:** madurez; energía puesta en la tarea.
+5. **Interrupción:** cierre de grupos temporales.
+
+**Grupo vs equipo:** en el grupo el desempeño es la suma de lo que hace cada uno; en el equipo se suman los resultados individuales **más el producto colectivo** (Krieger).
+
+### 2. Estructura de los equipos (Chiavenato)
+
+- **Rol:** conducta esperada según la posición. Incluye identidad, **percepción** (cómo la persona cree que debe actuar), **expectativa** (cómo los otros creen que debe actuar) y **conflicto de rol** (expectativas incompatibles).
+- **Liderazgo:** función integradora.
+- **Normas:** pautas compartidas que regulan la conducta con mínimo control externo.
+- **Estatus:** posición social atribuida (edad, antigüedad, conocimiento).
+- **Tamaño:** grupos chicos hacen mejor las tareas; grandes resuelven mejor problemas. **Holgazanería social:** esforzarse menos en grupo (sinergia negativa).
+- **Composición:** la diversidad aumenta el potencial y el conflicto (creativo si se gestiona).
+- **Cohesión:** atracción mutua y deseo de permanecer; asociada a la productividad.
+
+**Equipos interdisciplinarios:** integran competencias diversas; mejoran decisiones, creatividad e innovación (Robbins), el aprendizaje organizacional (Franklin y Krieger) y la motivación intrínseca (Newstrom). Desafíos: lenguajes y marcos distintos, conflictos, luchas de poder, "desacuerdos improductivos" y culturas rígidas que silencian la diversidad.
+
+### 3. Liderazgo
+
+- **Definiciones:** poder personal para influir por medio de las relaciones (Chiavenato); aptitud de influir en un grupo hacia metas (Robbins); uso de la influencia para motivar (Gibson); proceso de influir y apoyar a otros para que trabajen con entusiasmo (Newstrom).
+- **Administrar vs liderar:** administrar = planificar, organizar, controlar (poder jerárquico). Liderar = visión, rumbo, inspiración (competencias personales). Todo gerente debería ser líder, pero no todo líder es gerente.
+- **Estilo:** patrón de acciones del líder *según lo perciben los empleados* (Newstrom).
+
+| Teoría | Autores | Estilos / idea clave | Límite |
+| --- | --- | --- | --- |
+| Rasgos | Stogdill, Allport, Ghiselli | El líder "nace": inteligencia, confianza, energía | Ignora contexto y habilidades |
+| Comportamiento | Lewin; Likert; Blake y Mouton; U. de Michigan y Ohio | **Autocrático, democrático, liberal** (laissez-faire); centrado en la tarea o en las personas | Ignora la situación |
+| Situacional / contingencia | Tannenbaum y Schmidt; **Hersey y Blanchard**; Fiedler; House | Directivo, participativo, delegativo, de apoyo; depende de la madurez de los seguidores y la situación | Difícil de aplicar |
+| Inspiracional | Burns; Bass y Avolio; House | **Transformacional** (inspira, cambia la cultura), **transaccional** (recompensas y reglas), carismático | Dependencia del líder |
+| Intercambio líder-miembro (LMX) | Dansereau, Graen y Haga | Relaciones individuales líder–subordinado | Favoritismo |
+| Nuevos enfoques | Goleman y Boyatzis; Luthans | **Líder resonante**: coercitivo, orientativo, afiliativo, democrático, ejemplar, formativo | Subjetivo, costoso de formar |
+
+### 4. Poder
+
+- **Robbins:** capacidad de A para influir en B para que actúe según los deseos de A. **Krieger (Weber):** probabilidad de imponer la propia voluntad a pesar de la resistencia. **Chiavenato:** potencial de influir.
+- El poder puede existir **sin usarse**. Es una **función de dependencia**: crece si el recurso que A controla es importante, escaso e insustituible para B.
+
+| Bases del poder | Tipo | Se basa en |
+| --- | --- | --- |
+| Coercitivo | Formal | El miedo, las sanciones |
+| De recompensa | Formal | Otorgar beneficios |
+| Legítimo | Formal | La posición jerárquica (autoridad) |
+| Experto | Personal | Conocimiento, experiencia |
+| Referente | Personal | Admiración, carisma, deseo de parecerse |
+
+**Poder, autoridad y liderazgo (Chiavenato):**
+
+- **Poder:** capacidad de influir aun contra la resistencia, sin importar la posición.
+- **Autoridad:** poder **legítimo**, formal y socialmente aceptado por la posición. Fuentes de legitimación: **tradición, carisma, marco jurídico**.
+- **Liderazgo:** poder **personal** a través de las relaciones. Ej.: el gerente tiene autoridad, pero no siempre es líder.
+
+**Relaciones de poder (Krieger):** los actores buscan controlar **zonas de incertidumbre**; el poder es una relación de intercambio y negociación. **Constelaciones de poder:** influencias externas (proveedores, clientes, sindicatos, Estado, competidores) e internas (accionistas, CEO, gerentes, técnicos).
+
+### 5. Diagnóstico e intervención
+
+- **Equipos:** mirar resultados, estructura y procesos psicosociales (pertenencia, tensiones, liderazgos legítimos o resistidos). Robbins agrupa la eficacia en: contexto/recursos, composición, diseño del trabajo y procesos.
+- **Variables que sugiere la cátedra:** definición y cumplimiento de roles, cohesión, normas grupales, jerarquía y estatus, cooperación vs competencia.
+- **Liderazgo:** analizar líder, seguidores y situación (Franklin y Krieger; marco de Gibson). Combinar cuestionarios con entrevistas y observación. Herramientas: test de Blake y Mouton, Fiedler, Hersey y Blanchard, MLQ-5X de Bass y Avolio, estilos de Goleman.
+
+## Unidad VI – El individuo en las organizaciones
+
+Idea central: en el nivel **micro**, el comportamiento depende tanto de las características personales del trabajador como de su entorno de trabajo. Lewin lo resume así: **B = f (I, E)**, el comportamiento es función del individuo y del ambiente. Nota de cátedra de Valdés (2026).
+
+### 1. Características personales del sujeto laboral
+
+**Personalidad**
+
+- **Allport:** organización dinámica, dentro del individuo, de los sistemas psicofísicos que determinan sus ajustes únicos al entorno. **Chiavenato:** tendencia a comportarse de determinada manera en distintas situaciones.
+- **Determinantes:** herencia (temperamento, energía, ritmos biológicos) + ambiente (familia, educación, trabajo). Hoy se acepta la **interacción** de ambos.
+- **Myers-Briggs (MBTI):** preferencias para percibir, procesar, decidir y vincularse (extroversión/introversión, sensorial/intuitivo, racional/emocional, juicio/percepción).
+
+| Cinco Grandes (Robbins) | Alto | Bajo |
+| --- | --- | --- |
+| Extroversión | Sociable, asertivo | Reservado, callado |
+| Adaptabilidad (amabilidad) | Cooperativo, cálido, confiable | Frío, antagonista |
+| Meticulosidad (responsabilidad) | Organizado, persistente | Desorganizado, inconstante |
+| Estabilidad emocional | Calmo ante la tensión | Nervioso, ansioso, inseguro |
+| Apertura a la experiencia | Creativo, curioso | Prefiere lo conocido |
+
+Otros rasgos: **autoestima**, **maquiavelismo** (el fin justifica los medios), **narcisismo**, **automonitoreo** (ajustarse a la situación), **personalidad tipo A** (logro, impaciencia, competitividad).
+
+**Actitudes**
+
+- Evaluaciones favorables o desfavorables hacia objetos, personas o eventos (Robbins). Gibson: sentimiento o disposición mental aprendida que influye en la respuesta.
+- **Componentes:** cognitivo (creencias), afectivo (emociones), comportamental (intención de actuar).
+- **Disonancia cognitiva** (Festinger): tensión por incoherencia entre lo que se piensa y lo que se hace; la persona busca reducirla.
+
+**Aptitudes**
+
+- Predisposición innata, potencial para aprender habilidades (Chiavenato). **Cognitivas** (comprensión verbal, habilidad cuantitativa, razonamiento) y **físicas** (fuerza, resistencia, movimiento).
+- **Aptitud laboral psicofísica:** capacidad para cumplir las exigencias del puesto sin riesgo para sí o terceros. No busca al "mejor", sino si reúne los requisitos mínimos.
+
+**Competencias laborales**
+
+- Integran **saber** (conocimientos), **saber hacer** (aplicarlos) y **saber ser** (actitudes y valores).
+- Alles: características de las personas relacionadas con una actuación exitosa en el puesto. Quintero Teller: capacidad integral para desempeñarse eficazmente y resolver problemas con autonomía.
+- **Clasificación (Quintero Teller):** individuales (responsabilidad, puntualidad), metodológicas (conocimientos), técnicas (aplicación práctica), sociales (integración en grupos).
+- **Spencer y Spencer:** de desempeño y operativas; de ayuda y servicio; de influencia; directivas; cognitivas; de eficacia personal.
+
+| Concepto | Qué es | Pregunta que responde |
+| --- | --- | --- |
+| Personalidad | Rasgos estables | ¿Cómo es la persona? |
+| Actitud | Evaluación positiva o negativa | ¿Qué siente y piensa del trabajo? |
+| Aptitud | Potencial innato | ¿Qué puede llegar a hacer? |
+| Competencia | Saber + saber hacer + saber ser en acción | ¿Qué hace efectivamente bien en el puesto? |
+
+### 2. Factores del contexto laboral
+
+- **Contrato psicológico:** acuerdo **no escrito** de expectativas mutuas (Robbins; Gibson). La organización espera compromiso, lealtad, cumplimiento; el trabajador espera trato justo, buenas condiciones, comunicación, reconocimiento. Se **renegocia** con el tiempo (Franklin y Krieger). Su **violación** genera desconfianza, silencio, retiro, baja del desempeño, ausentismo y renuncia.
+- **Condiciones de trabajo:** circunstancias materiales, técnicas y ambientales. **Organización del trabajo:** distribución de tareas, tiempos, ritmos, control, autonomía.
+- **CyMAT (Neffa):** visión integral, objetiva y subjetiva:
+  - Medio ambiente: infraestructura, iluminación, ruido, temperatura, higiene y seguridad, agentes físicos, químicos y biológicos.
+  - Organizacionales y de gestión: diseño del trabajo, carga, autonomía, contratación y estabilidad, supervisión, formación.
+  - Psicosociales: ritmo e intensidad, demandas emocionales y cognitivas, conflicto y ambigüedad de rol, desbalance esfuerzo-recompensa, conciliación vida-trabajo.
+  - Percepción del trabajador: satisfacción, clima, impacto en la salud.
+- **Riesgos Psicosociales en el Trabajo (RPST, Neffa 2015):** aspectos del trabajo y su organización que generan tensión, desgaste o sufrimiento cuando **las exigencias superan la capacidad de respuesta**. No dependen solo del individuo sino de cómo se organiza el trabajo. Factores: sobrecarga, exigencias emocionales, falta de autonomía, ambigüedad de rol, conflictos, inseguridad laboral, desbalance esfuerzo-recompensa.
+- **Modalidades híbridas:** presencial + remoto con TIC. Ventajas: flexibilidad, satisfacción, equilibrio vida-trabajo, menos traslados, productividad. Desafíos: comunicación interna, cohesión de equipos, pertenencia, políticas claras, integración tecnológica.
+
+### 3. Diagnóstico del nivel micro
+
+Describir (registrar) → analizar (ordenar con categorías teóricas) → **diagnosticar** (relacionar variables, identificar factores problemáticos o facilitadores). Evitar dos errores: quedarse en la descripción y mezclar niveles sin criterio.
+
+| Variable (Matriz de Análisis 2026) | Dimensiones |
+| --- | --- |
+| Personalidad y estilos de trabajo | Rasgos relevantes para el desempeño y los vínculos |
+| Competencias laborales | Recursos para responder a las exigencias del puesto |
+| Motivación | Intereses, expectativas, satisfacción, frustración, compromiso |
+| Percepción | De los valores organizacionales y del contrato psicológico |
+
+## Unidad VII – La motivación laboral
+
+Idea central: la motivación es un proceso cíclico que nace de una **necesidad** y orienta, energiza y sostiene la conducta hacia una meta. No hay receta única: hay que diagnosticar las necesidades de cada persona y combinar incentivos monetarios y no monetarios. Nota de cátedra de Valdés.
+
+### 1. Concepto
+
+- **Robbins:** proceso que involucra la **intensidad, dirección y persistencia** del esfuerzo hacia un objetivo.
+- **Newstrom:** fuerzas internas y externas que hacen que un empleado elija un curso de acción.
+- **Luthans:** proceso que comienza con una deficiencia fisiológica o psicológica que activa un comportamiento hacia un incentivo.
+- **Gibson:** fuerzas que actúan sobre el individuo o parten de él para iniciar y orientar su conducta.
+- Características: multivariable, **situacional**, **temporal** y **específica** (se está motivado para ciertas metas, no para todas).
+- **Intrínseca** (Deci y Ryan): inclinación innata a ejercitar las propias capacidades y dominar desafíos. **Extrínseca** (Reeve): las causas de la conducta están fuera de la persona.
+
+| Perspectiva | Énfasis | Tipo | Necesidades |
+| --- | --- | --- | --- |
+| Conductista | Las recompensas dirigen la conducta | Extrínseca (incentivos) | De orden inferior (fisiológicas, seguridad) |
+| Humanista | Capacidad de crecer, libertad de elección | Intrínseca | De orden superior (sociales, estima, autorrealización) |
+| Cognitiva | Lo que la persona piensa que puede ocurrir | Intrínseca | Psicológicas |
+
+### 2. Ciclo motivacional (Franklin y Krieger; Newstrom; Robbins)
+
+1. **Equilibrio** interno.
+2. Surge una **necesidad** (estímulo).
+3. **Tensión**, insatisfacción y desequilibrio.
+4. **Comportamiento** o acción orientada a la meta.
+5. Resultado:
+   - **Satisfacción:** se descarga la tensión y se vuelve al equilibrio.
+   - **Compensación:** otra necesidad satisfecha calma la primera (ej.: un aumento en vez de un ascenso).
+   - **Frustración:** pese al esfuerzo, la necesidad no se satisface. Síntomas: **regresión, agresión, resignación, ausentismo**. El administrador debe responder con escucha y empatía.
+
+### 3. Teorías de la motivación
+
+**Teorías de contenido** (qué motiva: necesidades internas) y **de proceso** (cómo se motiva). Robbins las divide en primeras teorías (años 50) y contemporáneas. Son complementarias, no excluyentes.
+
+| Teoría | Tipo | Idea central |
+| --- | --- | --- |
+| **Jerarquía de necesidades** (Maslow) | Contenido | Pirámide: fisiológicas → seguridad → sociales → estima → autorrealización. Una necesidad satisfecha deja de motivar y se pasa a la siguiente |
+| **Dos factores** (Herzberg) | Contenido | **Higiénicos** (salario, condiciones, supervisión, políticas): si faltan generan insatisfacción, pero no motivan. **Motivadores** (logro, reconocimiento, responsabilidad, el trabajo mismo, crecimiento): generan satisfacción |
+| **ERC** (Alderfer) | Contenido | Existencia, Relación, Crecimiento. Pueden actuar a la vez; si se frustra una superior se regresa a una inferior |
+| **Necesidades adquiridas** (McClelland) | Contenido | Necesidad de **logro**, de **poder** y de **afiliación**, aprendidas socialmente |
+| **X e Y** (McGregor) | Primeras teorías | **X:** el trabajador evita el trabajo y necesita control. **Y:** busca responsabilidad y se autodirige |
+| **Expectativas** (Vroom; Porter y Lawler) | Proceso | Motivación = expectativa (el esfuerzo da desempeño) × instrumentalidad (el desempeño da recompensa) × valencia (cuánto se valora la recompensa) |
+| **Equidad** (Adams) | Proceso | Se compara la relación aportes/resultados propia con la de otros; la inequidad percibida desmotiva |
+| **Establecimiento de metas** (Locke) | Proceso | Metas específicas, difíciles pero alcanzables y con retroalimentación mejoran el desempeño |
+| Evaluación cognitiva | Contemporánea | Las recompensas externas pueden reducir la motivación intrínseca |
+| Eficacia personal (Bandura) | Contemporánea | La creencia en la propia capacidad aumenta el esfuerzo |
+| Reforzamiento (Skinner) | Contemporánea | La conducta reforzada tiende a repetirse |
+| Características del trabajo (Hackman y Oldham) | Contemporánea | Variedad, identidad y significado de la tarea, autonomía y retroalimentación motivan |
+
+### 4. Formas de motivar: sistemas de compensación e incentivos
+
+- **Compensación:** pagos y recompensas, monetarios y no monetarios, como contraprestación del trabajo (Sánchez Henríquez y Calderón). Chiavenato: salario directo + salario indirecto.
+- **Criterios:** estructura salarial equitativa, base salarial coherente con los incentivos, competitividad con el sector; analizar el impacto y designar un responsable del sistema (Werther y Davis).
+- **Etapas de diseño:** diagnóstico de necesidades → planificación y diseño → revisión y comunicación → implementación → evaluación → retroalimentación.
+- **Sistema tradicional** (solo dinero): por producción, por tiempo, por antigüedad, por necesidades.
+- **Sistema no tradicional** (Chiavenato): visibilidad, nuevos desafíos, dedicar tiempo a las personas, compartir información, feedback, convertir a los empleados en socios, delegar facultades, celebrar éxitos, horario flexible, empleabilidad.
+
+| Tendencia (Madero Gómez) | De | A |
+| --- | --- | --- |
+| Base | Antigüedad | Contribución y competencias |
+| Contenido | Simple, extrínseco, único para todos | Portafolio múltiple, intrínseco y flexible |
+| Momento | Periódico (fin de año) | Instantáneo |
+| Vínculo con la estrategia | Independiente | Coordinado con misión, visión y metas |
+
+**Atracción y retención del talento:** un buen sistema retiene a los de mejor desempeño (Gibson). Retener importa porque (Gonzales Miranda): quien se va se lleva su conocimiento; la rotación genera inestabilidad, desconfianza y mal clima; y descontextualiza la ejecución de la estrategia.
+
+Conclusión: el administrador no debe ser un actor **pasivo y reactivo** que solo compensa con dinero ante huelgas o ausentismo; debe conocer qué necesidades operan en cada momento.
+
+## Unidad VIII – Procesos organizacionales: cambio, aprendizaje y decisiones
+
+Idea central: cambiar, aprender y decidir son procesos **transversales** (atraviesan los niveles macro, meso y micro) e interdependientes: el modo en que la organización cambia, aprende y decide expresa una misma **capacidad adaptativa**. Notas de cátedra de Marenco (2025) y del punto 4 (2026).
+
+### 1. El cambio organizacional
+
+- Contexto: paso del modelo **fordista** a la producción flexible, TIC, economía digital y **economía del conocimiento**; el principal recurso pasa a ser el **capital intelectual** (Drucker: el "trabajador del conocimiento").
+- **Definiciones:** Robbins — el cambio es una realidad organizacional permanente. Chiavenato — pasar de un estado a otro; transformación, ruptura. Krieger — implica **desaprender para aprender**. Newstrom — toda alteración del ambiente laboral; puede ser planeado o no, rápido o lento, interno o externo.
+- **Fuerzas del cambio (Krieger):** externas (economía, competidores, tecnología, política y leyes, cambios sociales y demográficos) e internas (decisiones de la dirección, sugerencias del personal, cambios de dueños).
+- **Agente de cambio** (Gibson): mira la organización desde otra perspectiva, diagnostica y propone. El éxito depende de su relación con quienes deciden.
+
+| Agente de cambio | Ventajas | Desventajas |
+| --- | --- | --- |
+| Interno | Conoce en detalle la organización | No toma distancia de intereses y cultura; reacio a iniciar |
+| Externo (consultor) | Visión más objetiva; más dispuesto a iniciar | Conoce menos la organización; responde a quien lo contrató |
+| Mixto | Combina ambos | — |
+
+**Tipos de cambio (Gibson):**
+
+- **Estructural:** modificar tareas y relaciones de autoridad (simplificación, enriquecimiento del trabajo, departamentalización).
+- **Conductual:** cambiar motivación, habilidades y conocimientos (capacitación, liderazgo, comunicación, equipos).
+- **Tecnológico:** nuevas formas de transformar recursos (robótica, automatización, conectividad).
+
+**Modelo de cambio de Gibson (7 etapas):** 1) fuerzas del cambio → 2) análisis del desempeño → 3) diagnóstico del problema (y designación del agente) → 4) selección de la intervención (estructural, conductual o tecnológica) → 5) análisis de condiciones limitantes (liderazgo, organización formal, cultura) → 6) implementación (momento y alcance) → 7) evaluación y retroalimentación.
+
+Lewin propone el esquema clásico de **descongelamiento → cambio (movimiento) → recongelamiento**.
+
+### 2. Resistencia al cambio
+
+Las personas resisten por temor a lo desconocido y por no entender la razón del cambio (Franklin y Krieger). Para el individuo cuenta su percepción: "certeza, no verdad".
+
+| Factor (Newstrom) | Origen | Ejemplos |
+| --- | --- | --- |
+| Lógico (racional) | Costos reales de adaptarse | Tiempo, esfuerzo para reaprender, costo económico, dudas técnicas |
+| Psicológico (emocional) | Emociones y actitudes | Temor a lo desconocido, baja tolerancia, desconfianza, necesidad de seguridad, deseo de statu quo |
+| Sociológico (grupal) | Intereses, normas y valores del grupo | Coaliciones políticas, valores opuestos, preservar amistades |
+
+**Umbral de sensibilidad al cambio (Chiavenato):** cada persona lo percibe distinto, desde cambios imperceptibles hasta cambios intensos que generan ansiedad.
+
+### 3. Desarrollo Organizacional (DO)
+
+- **Chiavenato (Porras y Robertson):** acciones de **cambio planeado** basadas en valores humanísticos y democráticos, para mejorar la eficacia de la organización y el bienestar de las personas. Hace hincapié en el **cambio cultural**.
+- **Newstrom:** aplicación sistemática de las ciencias de la conducta a nivel grupal, intergrupal y organizacional para el cambio planeado.
+- **Supuestos:** individuales (las personas quieren crecer), grupales (los grupos son decisivos), organizacionales (el exceso de control perjudica; alinear metas individuales y organizacionales).
+- Requisitos: compromiso de la gerencia, tiempo (más de un año), costo y un equipo idóneo; debe hacerse **completo**, no por partes.
+- **Proceso:** 1) diagnóstico → 2) recolección de datos → 3) retroalimentación de datos → 4) planificación de la acción → 5) intervención → 6) evaluación y seguimiento.
+
+### 4. Aprendizaje y conocimiento organizacional
+
+- **Datos → información → conocimiento:** el conocimiento está **en las personas**, no en los documentos. Alavi y Leidner: creencia personal justificada que aumenta la capacidad de actuar eficientemente.
+
+| Conocimiento explícito | Conocimiento tácito |
+| --- | --- |
+| Expresable en palabras y números | Interior, personal, difícil de formalizar (Polanyi) |
+| Fácil de transmitir: manuales, fórmulas, procedimientos | Surge de la experiencia; difícil de transmitir |
+| Se codifica en reglas y procesos | Fuente principal de innovación y competitividad |
+
+- **Desafío:** convertir el conocimiento tácito en explícito. Nonaka y Takeuchi describen esa espiral con 4 conversiones: **socialización** (tácito→tácito), **exteriorización** (tácito→explícito), **combinación** (explícito→explícito), **interiorización** (explícito→tácito).
+- **Aprendizaje organizacional** (Chiavenato): capacidad de generar ideas nuevas y diseminarlas por toda la organización. Va **más allá de la suma** de aprendizajes individuales (Bolívar); requiere equipos cohesionados. Condiciones: intención de la dirección, operacionalización en todos los niveles, autotransformación e impacto en todos los implicados.
+- **Diferencia:** el **conocimiento** es el contenido (el saber); el **aprendizaje** es el proceso que lo genera, comparte e incorpora.
+- **Gestión del conocimiento:** proceso sistemático de búsqueda, selección, organización y difusión de información para que los miembros trabajen eficazmente; "transformar la experiencia en conocimiento y el conocimiento en experiencia" (Alles). Grosso: filosofía de trabajo con tres pilares, **conducción, motivación y aprendizaje**. Nonaka: la empresa creadora de conocimiento gira sobre la innovación continua.
+- **Organización inteligente** (Chiavenato; Senge): capaz de crear, adquirir y transmitir conocimiento y modificar su conducta para adaptarse. Senge propone cinco disciplinas: dominio personal, modelos mentales, visión compartida, aprendizaje en equipo y **pensamiento sistémico** (la quinta).
+- **Herramientas (Weyrauch y otros):** internas (manuales, intranet, newsletter, comunidades de práctica, storytelling, entrevistas de salida, directorio de especialistas) y externas (foros, talleres, ferias de conocimiento).
+- **Capital intelectual (Brooking):** Empresa = activos materiales + capital intelectual. Este incluye activos de mercado (marcas, clientes), de propiedad intelectual (patentes, know-how), centrados en el individuo (pericia, creatividad, liderazgo) y de infraestructura (tecnologías, procesos).
+
+### 5. Diagnóstico del DO y la gestión del conocimiento
+
+Elementos a analizar: **compromiso de la alta dirección**, **tipo de agente de cambio**, capacidad de los empleados para enfrentar el proceso (necesidad de capacitación), **estructura** (si permite equipos e intercambio) y **cultura y clima laboral** (si facilitan o frenan el cambio y el aprendizaje).
+
+### 6. Toma de decisiones organizacionales
+
+- **Simon:** la organización es un **sistema de decisiones**; todas las personas, no solo los directivos, deciden.
+- **Definición:** proceso de identificar y resolver problemas (Chiavenato). Robbins: reacción a un problema, es decir, una discrepancia entre el estado actual y el deseado. Gibson: las decisiones son medios, no fines.
+- **Elementos (Chiavenato):** decisor, objetivos, preferencias, estrategia, situación y resultado. El decisor actúa sobre su *representación* de la realidad.
+
+| Decisiones programadas | Decisiones no programadas |
+| --- | --- |
+| Repetitivas, estructuradas, con procedimientos | Esporádicas, nuevas, complejas, sin procedimiento |
+| Criterios claros, relativa certeza | Criterios difusos, incertidumbre; requieren creatividad e intuición |
+| Ej.: selección de personal, precios, pedidos | Ej.: planeación estratégica, crisis, reorganización |
+
+**Proceso (Gibson):** 1) establecer metas y medir resultados → 2) identificar el problema (cuidado con la percepción selectiva, definirlo como solución o confundir síntomas con causas) → 3) desarrollar alternativas → 4) evaluarlas en condiciones de certidumbre, riesgo (la más común) o incertidumbre → 5) elegir → 6) implementar → 7) controlar y evaluar. Robbins propone un **modelo racional** de 6 pasos, pero aclara que en la práctica casi no se sigue.
+
+**Racionalidad limitada (Herbert Simon, Nobel 1978):** la información es incompleta, la capacidad cognitiva es finita y el tiempo es escaso. Por eso el decisor no **optimiza**: busca una solución **satisfactoria** ("satisfactor"). Consecuencias: decisiones no óptimas, resistencia a cambios beneficiosos, conocimiento disponible que no se usa. Solución: mejor información, participación y criterios explícitos.
+
+**Percepción y factores humanos:** la existencia misma del problema depende de cómo se percibe (una caída del 5% en ventas puede alarmar a un director y parecer normal a otro). Factores de la percepción (Robbins): en el **receptor** (actitudes, motivos, expectativas), en el **objeto** (novedad, tamaño, proximidad) y en la **situación** (momento, ambiente). Otros factores (Gibson): ética y valores, personalidad, propensión al riesgo, disonancia cognitiva y **escalamiento del compromiso** (persistir en un curso de acción que no funciona).
+
+### 7. El eje transversal en la Matriz de Análisis 2026
+
+| Proceso | Indicadores | Preguntas diagnósticas |
+| --- | --- | --- |
+| Cambio (Lewin) | Comunicación formal del cambio, resistencias explícitas, rol del agente | ¿Qué cambios hubo? ¿Planificados? ¿Qué tipo de resistencia? ¿Hay compromiso de la dirección? |
+| Aprendizaje (Argyris) | Reflexión sobre errores, espacios de transferencia | ¿Se captura y transfiere conocimiento? ¿Predomina el aprendizaje individual no sistematizado? |
+| Toma de decisiones (Simon) | Grado de centralización, participación en decisiones no programadas | ¿Cómo se decide lo estratégico? ¿Hay sesgos o escalamiento? ¿Se evalúan los resultados? |
+
+Combinaciones frecuentes en los casos: cambios frecuentes **sin aprendizaje** (falta gestión del conocimiento); mucho **conocimiento tácito que no llega a las decisiones** (decide solo la jerarquía); **resistencia** explicada por sesgos perceptuales y escalamiento del compromiso.
+
+## Cuadros de integración
+
+El mismo concepto aparece en varias unidades; estos cuadros sirven para relacionar temas en el examen y en el trabajo de campo.
+
+**Matriz de análisis: qué se diagnostica en cada eje**
+
+| Eje | Unidades | Variables principales | Autores clave |
+| --- | --- | --- | --- |
+| Macro | I, II, III | Entorno, cultura, clima, ética y RSE | Krieger, Newstrom, Schein, Robbins, Hofstede, Likert, Cortina, Freeman |
+| Meso | IV, V | Comunicación, conflicto, negociación, equipos, liderazgo, poder | Watzlawick, Brandolini, Entelman, Chiavenato, Hersey y Blanchard, Goleman |
+| Micro | VI, VII | Personalidad, competencias, contrato psicológico, CyMAT, motivación, percepción | Allport, Neffa, Maslow, Herzberg, Vroom, Adams |
+| Transversal | VIII | Cambio, aprendizaje, toma de decisiones | Lewin, Gibson, Nonaka, Senge, Simon |
+
+**Conceptos que se repiten entre unidades**
+
+| Concepto | Dónde aparece | Cómo se conecta |
+| --- | --- | --- |
+| Percepción | II (clima), IV (comunicación), VI (diagnóstico micro), VIII (decisiones) | El clima es percepción; filtra la comunicación; define si hay un problema |
+| Contrato psicológico | II (clima), V (roles), VI (contexto laboral) | Expectativas mutuas no escritas; su violación daña el clima y el compromiso |
+| Disonancia cognitiva | IV, VI, VIII | Tensión entre creencias y conducta; distorsiona la comunicación y frena el aprendizaje |
+| Poder | II (visión crítica de la cultura), IV (visión clasista del conflicto), V (bases del poder) | La cultura y el conflicto también expresan relaciones de dominación |
+| Liderazgo | II (los líderes encarnan los valores), III (RSE), V, VIII (DO) | El líder transmite la cultura y sostiene el cambio |
+| Valores | II (núcleo de la cultura), III (ética), VIII (decisiones) | Guían el "deber ser" y la elección entre alternativas |
+| Resistencia | II (cambio cultural), VIII (cambio) | Lógica, psicológica y sociológica |
+
+**Cultura y clima en el tiempo y la profundidad**
+
+| Nivel de profundidad | Ejemplos | Unidad |
+| --- | --- | --- |
+| Visible | Artefactos, ritos, héroes, clima percibido | II |
+| Intermedio | Valores, normas, códigos de ética | II, III |
+| Profundo | Presunciones básicas, identidad | II |
+
+## Glosario
+
+| Término | Definición breve | Unidad |
+| --- | --- | --- |
+| Agente de cambio | Persona interna, externa o mixta que diagnostica e impulsa el cambio | VIII |
+| Aptitud | Potencial innato para aprender habilidades | VI |
+| Actitud | Evaluación favorable o desfavorable (cognitiva, afectiva, conductual) | VI |
+| Autoridad | Poder legítimo derivado de la posición | V |
+| Clima organizacional | Percepción compartida de los atributos del ambiente de trabajo | II |
+| Comportamiento organizacional | Estudio de individuos, grupos y estructuras y su efecto en la organización | I |
+| Competencia laboral | Saber, saber hacer y saber ser movilizados en el puesto | VI |
+| Conflicto | Relación social con objetivos incompatibles o percibidos como tales | IV |
+| Contrato psicológico | Acuerdo implícito de expectativas mutuas trabajador–organización | II, VI |
+| Cultura organizacional | Presunciones, valores y significados compartidos que orientan la conducta | II |
+| CyMAT | Condiciones y Medio Ambiente de Trabajo (Neffa), objetivas y subjetivas | VI |
+| Desarrollo organizacional | Cambio planeado basado en las ciencias de la conducta y el cambio cultural | VIII |
+| Diagnóstico organizacional | Análisis con métodos de investigación que precede a toda intervención | I |
+| Disonancia cognitiva | Tensión entre lo que se piensa y lo que se hace | VI |
+| Escalamiento del compromiso | Persistir en un curso de acción que no funciona | VIII |
+| Ética | Reflexión filosófica sobre la moral: ¿por qué debemos? | III |
+| Frustración | Necesidad insatisfecha pese al esfuerzo; genera regresión, agresión, resignación | VII |
+| Gestión del conocimiento | Captar, crear, difundir y aplicar conocimiento en la organización | VIII |
+| Holgazanería social | Esforzarse menos al trabajar en grupo | V |
+| Liderazgo | Poder personal para influir en otros hacia metas | V |
+| Mediación | Un tercero neutral facilita el acuerdo; las partes deciden | IV |
+| Moral | Normas y valores transmitidos entre generaciones: ¿qué debemos hacer? | III |
+| Motivación | Intensidad, dirección y persistencia del esfuerzo hacia una meta | VII |
+| Negociación | Proceso en el que partes interdependientes intercambian para llegar a un acuerdo | IV |
+| Organización inteligente | La que crea, adquiere y transmite conocimiento y se adapta | VIII |
+| Poder | Capacidad de influir en otro aun contra su resistencia | V |
+| Racionalidad limitada | Se decide con información, capacidad y tiempo limitados; se busca lo satisfactorio | VIII |
+| RPST | Riesgos psicosociales: exigencias que superan la capacidad de respuesta | VI |
+| RSE | Gestión voluntaria de los impactos económicos, sociales y ambientales | III |
+| Stakeholders | Grupos de interés que afectan o son afectados por la organización | III |
+| Subcultura | Minicultura de un área o sede dentro de la cultura dominante | II |
+
+## Preguntas de repaso
+
+Incluye las preguntas de discusión de las notas de cátedra y otras de integración.
+
+**Unidad I**
+
+- [ ] ¿En qué se diferencian la S.O. y el C.O., y qué tienen en común?
+- [ ] ¿Qué aspectos analiza la organización formal y cuáles la informal? Dé un ejemplo con la comunicación.
+- [ ] Explique los tres niveles del C.O. y las variables de cada uno.
+- [ ] Diferencie entorno externo, de tarea e interno.
+
+**Unidad II**
+
+- [ ] Diferencie cultura y clima organizacional.
+- [ ] Explique los tres niveles de Schein.
+- [ ] ¿Cuándo una subcultura se vuelve problemática?
+- [ ] Compare los tipos de Cameron y Quinn con los de Felcman y Blutman.
+- [ ] Describa los cuatro sistemas de Likert.
+
+**Unidad III**
+
+- [ ] ¿Para qué existe la ética? ¿En qué se diferencia de la moral?
+- [ ] ¿Difiere la ética del administrador público y del privado?
+- [ ] ¿Qué interpelación propone la RSE a los miembros de la organización?
+- [ ] Nombre las 7 dimensiones de los indicadores IARSE/ETHOS.
+
+**Unidad IV**
+
+- [ ] Explique y ejemplifique los cinco axiomas de Watzlawick en un contexto laboral.
+- [ ] Diferencie comunicación eficiente y eficaz.
+- [ ] Compare las visiones tradicional, de relaciones humanas e interaccionista del conflicto.
+- [ ] Diferencie negociación distributiva e integrativa, y mediación de arbitraje.
+
+**Unidad V**
+
+- [ ] ¿Cuáles son las teorías del liderazgo? ¿En qué se asemejan y diferencian?
+- [ ] Defina la percepción del rol y relaciónela con otros conceptos.
+- [ ] Explique el concepto de poder y su diferencia con autoridad y liderazgo.
+- [ ] Describa las etapas de desarrollo de un grupo.
+
+**Unidad VI**
+
+- [ ] Diferencie personalidad, actitud, aptitud y competencia.
+- [ ] ¿Qué es el contrato psicológico y qué pasa cuando se viola?
+- [ ] ¿Qué dimensiones integra el enfoque CyMAT de Neffa?
+- [ ] ¿Qué ventajas y desafíos plantea el trabajo híbrido?
+
+**Unidad VII**
+
+- [ ] Explique el ciclo motivacional y sus tres resultados posibles.
+- [ ] Diferencie teorías de contenido y de proceso, con dos ejemplos de cada una.
+- [ ] ¿Por qué los factores higiénicos de Herzberg no motivan?
+- [ ] Compare el sistema tradicional y el no tradicional de incentivos.
+
+**Unidad VIII**
+
+- [ ] ¿Qué diferencia hay entre aprendizaje organizacional y conocimiento?
+- [ ] Diferencie conocimiento tácito y explícito. ¿Cómo convertiría uno en otro?
+- [ ] ¿Qué es una organización inteligente? Dé un ejemplo.
+- [ ] Explique los tipos de resistencia al cambio y cómo gestionarlos.
+- [ ] ¿Qué es la racionalidad limitada y qué consecuencias tiene?
+
+**Integración**
+
+- [ ] ¿Cómo influye la percepción en el clima, la comunicación y las decisiones?
+- [ ] ¿Cómo se relacionan cultura, liderazgo y cambio organizacional?
+- [ ] Elija una organización y diagnostique un problema en los cuatro ejes.
+</script>
+<script>
+const store={get(k,d){try{const v=localStorage.getItem('so_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('so_'+k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/\[(.+?)\]\((https?:[^)]+)\)/g,'<a href="$2" target="_blank">$1</a>');
+const cells=l=>l.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+function render(md){
+ const L=md.split('\n');let h='',i=0;
+ while(i<L.length){let l=L[i];
+  if(/^#{2,4} /.test(l)){const n=l.match(/^#+/)[0].length;h+=`<h${n}>${inline(l.slice(n+1))}</h${n}>`;i++;continue}
+  if(l.trim().startsWith('|')){const rows=[];while(i<L.length&&L[i].trim().startsWith('|'))rows.push(L[i++]);
+   const head=cells(rows[0]);h+='<table><thead><tr>'+head.map(c=>`<th>${inline(c)}</th>`).join('')+'</tr></thead><tbody>';
+   rows.slice(2).forEach(r=>h+='<tr>'+cells(r).map(c=>`<td>${inline(c)}</td>`).join('')+'</tr>');h+='</tbody></table>';continue}
+  if(/^\s*([-*]|\d+\.) /.test(l)){const ord=/^\s*\d+\./.test(l);h+=ord?'<ol>':'<ul>';
+   while(i<L.length&&/^\s*([-*]|\d+\.) /.test(L[i])){let t=L[i].replace(/^\s*([-*]|\d+\.) /,'');const sub=/^\s{2,}/.test(L[i]);
+    t=t.replace(/^\[[ x]\] /,'☐ ');h+=`<li${sub?' style="margin-left:22px"':''}>${inline(t)}</li>`;i++}
+   h+=ord?'</ol>':'</ul>';continue}
+  if(l.trim()){h+=`<p>${inline(l)}</p>`}i++}
+ return h}
+const raw=document.getElementById('md').textContent.replace(/\\([\[\]|*_.-])/g,'$1');
+const secs=raw.split(/\n(?=## )/).filter(s=>s.startsWith('## ')).map(s=>({title:s.split('\n')[0].slice(3).trim(),md:s}));
+let cur=store.get('cur',0),done=store.get('done',{});
+const toc=document.getElementById('toc'),art=document.getElementById('art');
+function drawToc(filter){toc.innerHTML='';secs.forEach((s,k)=>{if(filter&&!s.md.toLowerCase().includes(filter))return;
+ const a=document.createElement('a');a.href='#';a.className=k===cur?'on':'';a.innerHTML=`<span>${esc(s.title.replace(/ – .*/,''))}<br><span class="muted">${esc(s.title.split(' – ')[1]||'')}</span></span>${done[k]?'<span class="dot">✓</span>':''}`;
+ a.onclick=e=>{e.preventDefault();show(k);document.getElementById('side').classList.remove('open')};toc.appendChild(a)});
+ const n=Object.keys(done).length;document.getElementById('prog').textContent=`Estudiadas: ${n} de ${secs.length}`}
+function show(k){cur=Math.max(0,Math.min(secs.length-1,k));store.set('cur',cur);let html=render(secs[cur].md);
+ const f=document.getElementById('q').value.trim();if(f.length>2){const re=new RegExp('('+f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');html=html.replace(/>([^<]+)</g,(m,t)=>'>'+t.replace(re,'<mark>$1</mark>')+'<')}
+ art.innerHTML=html;document.getElementById('mark').textContent=done[cur]?'✓ Estudiada':'Marcar como estudiada';drawToc(f.toLowerCase());scrollTo(0,0)}
+document.getElementById('prev').onclick=()=>show(cur-1);document.getElementById('next').onclick=()=>show(cur+1);
+document.getElementById('mark').onclick=()=>{done[cur]?delete done[cur]:done[cur]=1;store.set('done',done);show(cur)};
+document.getElementById('q').oninput=e=>{const f=e.target.value.trim().toLowerCase();drawToc(f.length>2?f:'');if(f.length>2){const k=secs.findIndex(s=>s.md.toLowerCase().includes(f));if(k>=0)show(k)}else show(cur)};
+document.getElementById('menuBtn').onclick=()=>document.getElementById('side').classList.toggle('open');
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===b.dataset.v))});
+document.getElementById('themeBtn').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark';store.set('theme',r.dataset.theme)};
+{const t=store.get('theme',null);if(t)document.documentElement.dataset.theme=t}
+show(cur);
+
+/* Tarjetas: del glosario */
+const roman={I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8};
+const gl=(secs.find(s=>s.title.startsWith('Glosario'))||{md:''}).md.split('\n').filter(l=>l.startsWith('|')).slice(2).map(r=>{const c=cells(r);return{t:c[0],d:c[1],u:c[2]}});
+const fU=document.getElementById('fUnit');fU.innerHTML='<option value="">Todas las unidades</option>'+Object.keys(roman).map(r=>`<option>${r}</option>`).join('');
+let deck=[],fi=0;
+function buildDeck(){const u=fU.value;deck=gl.filter(c=>!u||c.u.split(/,\s*/).includes(u));fi=0;drawCard()}
+function drawCard(){const c=deck[fi];document.getElementById('fTerm').textContent=c?c.t:'Sin tarjetas';document.getElementById('fDef').textContent=c?c.d+'  (Unidad '+c.u+')':'';document.getElementById('fDef').hidden=true;
+ document.getElementById('fCount').textContent=deck.length?`${fi+1} / ${deck.length}`:'';document.getElementById('fBar').style.width=deck.length?((fi+1)/deck.length*100)+'%':'0'}
+document.getElementById('flash').onclick=()=>{const d=document.getElementById('fDef');d.hidden=!d.hidden};
+document.getElementById('fNext').onclick=()=>{fi=(fi+1)%deck.length;drawCard()};document.getElementById('fPrev').onclick=()=>{fi=(fi-1+deck.length)%deck.length;drawCard()};
+document.getElementById('fShuffle').onclick=()=>{deck.sort(()=>Math.random()-.5);fi=0;drawCard()};fU.onchange=buildDeck;buildDeck();
+document.addEventListener('keydown',e=>{if(!document.getElementById('vFlash').classList.contains('on'))return;if(e.key==='ArrowRight')document.getElementById('fNext').click();if(e.key==='ArrowLeft')document.getElementById('fPrev').click();if(e.key===' '){e.preventDefault();document.getElementById('flash').click()}});
+
+/* Quiz */
+const Q=[
+[1,'Según Krieger, toda intervención organizacional debe ser precedida por…',['Un diagnóstico organizacional','Un cambio de estructura','Una encuesta de clima','Un plan de RSE'],0],
+[1,'¿Qué nivel del C.O. corresponde a la perspectiva macro?',['Individual','Grupal','Organizacional','Interpersonal'],2],
+[1,'Proveedores, clientes y competidores forman parte del entorno…',['Externo general','De tarea','Interno','Cultural'],1],
+[2,'Para Schein, la base invisible y más fuerte de la cultura son…',['Los artefactos','Los valores declarados','Las presunciones básicas','Los ritos'],2],
+[2,'Una persona que acepta las normas obligatorias y rechaza las periféricas muestra…',['Rebelión abierta','Conformismo','Rebeldía oculta','Individualismo creativo'],3],
+[2,'En el modelo de Cameron y Quinn, la cultura "como una familia extendida" es la…',['Adhocrática','Clan','Jerárquica','De mercado'],1],
+[2,'Según Likert, el sistema de clima más eficaz es el…',['Autoritario explotador','Autoritario paternalista','Consultivo','Participativo en grupo'],3],
+[2,'El enfoque más usado para estudiar el clima es el…',['Objetivo','Subjetivo','Integral','Conductista'],2],
+[3,'La pregunta central de la ética (no de la moral) es…',['¿Qué debemos hacer?','¿Por qué debemos?','¿Qué es legal?','¿Qué conviene?'],1],
+[3,'La ley argentina de Ética en la Función Pública es la…',['20.488','25.188','26.000','24.240'],1],
+[3,'Según la ISO 26000, la responsabilidad social es…',['Obligatoria y vinculante','Voluntaria y no vinculante','Solo ambiental','Solo para multinacionales'],1],
+[3,'Comunidad y gobierno son, según Paladino, stakeholders…',['Primarios','Secundarios','Terciarios','Internos'],1],
+[4,'"Es imposible no comunicarse" es un axioma de…',['Robbins','Brandolini','Watzlawick','Entelman'],2],
+[4,'El uso de jerga técnica que el receptor no entiende es una barrera…',['Física','Personal','Semántica','Estructural'],2],
+[4,'La visión del conflicto que promueve un nivel mínimo para evitar la apatía es la…',['Tradicional','Interaccionista','Clasista','De relaciones humanas'],1],
+[4,'En la mediación…',['El tercero impone la solución','Las partes deciden con ayuda de un tercero neutral','El mediador aconseja a una parte','No hay tercero'],1],
+[4,'La negociación de suma cero es la…',['Integrativa','Distributiva','Colaborativa','Mediada'],1],
+[5,'La etapa de grupo marcada por conflictos y disputa por el liderazgo es…',['Formación','Tormenta','Normalización','Desempeño'],1],
+[5,'El poder basado en la admiración y el carisma es el…',['Legítimo','Coercitivo','Experto','Referente'],3],
+[5,'Hersey y Blanchard pertenecen al enfoque de liderazgo…',['De rasgos','Conductual','Situacional','Resonante'],2],
+[5,'La autoridad es…',['Poder personal','Poder legítimo por la posición','Influencia informal','Lo mismo que liderazgo'],1],
+[6,'La fórmula de Lewin B = f(I, E) indica que la conducta depende de…',['Ingresos y empleo','Individuo y entorno','Interés y esfuerzo','Información y estructura'],1],
+[6,'El acuerdo no escrito de expectativas mutuas se llama…',['Convenio colectivo','Contrato psicológico','Código de ética','Clima'],1],
+[6,'El enfoque CyMAT fue desarrollado por…',['Neffa','Schein','Herzberg','Simon'],0],
+[6,'La predisposición innata para aprender habilidades es la…',['Actitud','Competencia','Aptitud','Personalidad'],2],
+[7,'Para Herzberg, el salario y las condiciones de trabajo son factores…',['Motivadores','Higiénicos','De crecimiento','De logro'],1],
+[7,'La teoría que compara aportes y resultados propios con los de otros es la de…',['Vroom','Adams','Locke','Maslow'],1],
+[7,'Regresión, agresión y resignación son síntomas de…',['Satisfacción','Compensación','Frustración','Equilibrio'],2],
+[7,'Las teorías de Vroom y Locke son teorías de…',['Contenido','Proceso','Rasgos','Necesidades'],1],
+[8,'"Desaprender para luego aprender" describe al cambio según…',['Krieger','Robbins','Gibson','Drucker'],0],
+[8,'El conocimiento difícil de formalizar y transmitir es el…',['Explícito','Tácito','Codificado','Documental'],1],
+[8,'Según Simon, por la racionalidad limitada el decisor busca una solución…',['Óptima','Satisfactoria','Aleatoria','Programada'],1],
+[8,'Persistir en un curso de acción que no funciona se llama…',['Disonancia cognitiva','Escalamiento del compromiso','Percepción selectiva','Holgazanería social'],1],
+[8,'La resistencia por temor a lo desconocido es de tipo…',['Lógico','Psicológico','Sociológico','Tecnológico'],1]];
+const qz=document.getElementById('quiz');let qs=[],qi=0,score=0;
+function startQuiz(u){qs=Q.filter(q=>!u||q[0]==u).sort(()=>Math.random()-.5).slice(0,10);qi=0;score=0;drawQ()}
+function drawQ(){if(qi>=qs.length){const best=store.get('best',0);if(score>best)store.set('best',score);
+ qz.innerHTML=`<h2>Resultado: ${score} / ${qs.length}</h2><p class="muted">Mejor puntaje: ${Math.max(best,score)}</p><div class="row"><button class="btn primary" id="again">Otra ronda</button></div>`;document.getElementById('again').onclick=()=>qStart();return}
+ const q=qs[qi];qz.innerHTML=`<div class="row" style="justify-content:space-between;margin:0"><span class="muted">Unidad ${Object.keys(roman)[q[0]-1]} · Pregunta ${qi+1} de ${qs.length}</span><span class="muted">Aciertos: ${score}</span></div><div class="progress"><div style="width:${qi/qs.length*100}%"></div></div><h3 style="margin:8px 0 12px">${esc(q[1])}</h3>`+q[2].map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')+'<div class="row"><button class="btn primary" id="nx" hidden>Siguiente →</button></div>';
+ qz.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(qz.dataset.lock==='1')return;qz.dataset.lock='1';const k=+b.dataset.k;if(k===q[3])score++;else b.classList.add('bad');qz.querySelectorAll('.opt')[q[3]].classList.add('ok');document.getElementById('nx').hidden=false});
+ qz.dataset.lock='0';document.getElementById('nx').onclick=()=>{qi++;drawQ()}}
+function qStart(){qz.innerHTML=`<h2>Quiz de repaso</h2><p class="muted">10 preguntas al azar. Elegí una unidad o practicá con todas.</p><div class="row"><select id="qU"><option value="">Todas las unidades</option>${Object.keys(roman).map((r,k)=>`<option value="${k+1}">Unidad ${r}</option>`).join('')}</select><button class="btn primary" id="go">Empezar</button></div>`;document.getElementById('go').onclick=()=>startQuiz(document.getElementById('qU').value)}
+qStart();
+</script>
+</body>
+</html>

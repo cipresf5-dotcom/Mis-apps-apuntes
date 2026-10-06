@@ -36,5 +36,13 @@ window.PORTAL.anios = [
       { nombre: "Sociología Económica", estado: "app", url: "https://sociologia-economica-estudio.onrender.com", desc: "App de estudio, Unidades 3 a 6" },
       { nombre: "Toma de Decisiones", estado: "pronto" }
     ]
+  },
+  {
+    id: "5to",
+    numero: "5º",
+    titulo: "Quinto año",
+    materias: [
+      { nombre: "Sociología de las Organizaciones", estado: "app", url: "https://sociologia-organizaciones-estudio.onrender.com", desc: "Apunte completo de las 8 unidades, tarjetas y quiz" }
+    ]
   }
 ];

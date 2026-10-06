@@ -51,3 +51,10 @@ services:
     rootDir: seminario-escritura
     buildCommand: ""
     staticPublishPath: .
+
+  - type: web
+    name: sociologia-organizaciones-estudio
+    runtime: static
+    rootDir: sociologia-organizaciones
+    buildCommand: ""
+    staticPublishPath: .

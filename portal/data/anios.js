@@ -42,7 +42,7 @@ window.PORTAL.anios = [
     numero: "5º",
     titulo: "Quinto año",
     materias: [
-      { nombre: "Sociología de las Organizaciones", estado: "app", url: "https://sociologia-organizaciones-estudio.onrender.com", desc: "Apunte completo de las 8 unidades, tarjetas y quiz" }
+      { nombre: "Sociología de las Organizaciones", estado: "app", url: "https://sociologia-organizaciones-estudio.onrender.com", desc: "Resumen y texto completo de las 8 unidades, tarjetas y quiz" }
     ]
   }
 ];

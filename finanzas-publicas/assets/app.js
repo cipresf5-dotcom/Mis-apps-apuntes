@@ -145,7 +145,11 @@
 
     // Simulacro de la unidad (data/sim_unidades.js)
     const su = CURSO.simUnidad && CURSO.simUnidad[u.id];
-    if (su) cont.appendChild(buildRepasoBlock(su, "Simulacro de la Unidad " + u.numero, "📝"));
+    const suMas = (CURSO.simUnidadMas && CURSO.simUnidadMas[u.id]) || [];
+    if (su) cont.appendChild(buildRepasoBlock(su,
+      (suMas.length ? "Simulacro 1 de la Unidad " : "Simulacro de la Unidad ") + u.numero, "📝"));
+    suMas.forEach((s, i) => cont.appendChild(
+      buildRepasoBlock(s, "Simulacro " + (i + (su ? 2 : 1)) + " de la Unidad " + u.numero, "📝")));
 
     // Navegación
     const idx = CURSO.unidades.findIndex(x => x.id === id);

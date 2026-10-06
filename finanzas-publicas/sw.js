@@ -2,7 +2,7 @@
    Estrategia NETWORK-FIRST: siempre intenta traer la versión más nueva de la red
    y actualiza la caché; si no hay conexión, sirve lo cacheado. Así online siempre
    se ve el contenido actualizado. */
-const CACHE = "fp-cache-v9";
+const CACHE = "fp-cache-v10";
 const ASSETS = [
   "./", "./index.html",
   "./assets/styles.css", "./assets/app.js",
@@ -10,7 +10,7 @@ const ASSETS = [
   "./data/curso.js",
   "./data/u01.js","./data/u02.js","./data/u03.js","./data/u04.js",
   "./data/u05.js","./data/u06.js","./data/u07.js","./data/u08.js",
-  "./data/u09.js","./data/u10.js","./data/u11.js","./data/sim_unidades.js","./data/sim_unidades2.js",
+  "./data/u09.js","./data/u10.js","./data/u11.js","./data/sim_unidades.js","./data/sim_unidades2.js","./data/sim_unidades_mas.js","./data/sim_unidades_mas2.js",
   "./data/parciales.js","./data/simulacros_p1.js","./data/simulacros.js","./data/simulacros2.js","./data/simulacros3.js","./data/constitucion.js","./data/leyes.js"
 ];
 

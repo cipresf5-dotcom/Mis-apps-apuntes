@@ -1104,32 +1104,144 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <tr><td>Duración</td><td><b>Temporarias</b> (n finito) / <b>perpetuas</b> (infinitos términos).</td></tr>
 <tr><td>Monto de los términos</td><td><b>Constantes</b> / <b>variables</b> (en progresión aritmética, geométrica o sin ley).</td></tr>
 <tr><td>Ubicación del término en el período</td><td><b>Vencidas</b> (al final de cada período) / <b>adelantadas</b> (al inicio).</td></tr>
-<tr><td>Momento de valuación</td><td><b>Inmediatas</b> (MV = MI) / <b>diferidas</b> (MV anterior al MI: hay un período de espera k) / <b>anticipadas</b> (MV posterior al MI, h períodos; el caso extremo h = n es el valor final).</td></tr>
+<tr><td>Momento de valuación</td><td><b>Inmediatas</b> (MV = MI) / <b>diferidas</b> (MV anterior al MI: hay un período de espera m) / <b>anticipadas</b> (MV posterior al MI, m períodos; el caso extremo m = n es el valor final).</td></tr>
 <tr><td>Régimen</td><td>A interés <b>compuesto</b> / a interés <b>simple</b> (Unidad 5).</td></tr>
 <tr><td>Relación pago–capitalización</td><td><b>Periódicas</b> (coinciden) / <b>subperiódicas</b> (varias capitalizaciones por período de pago) / <b>fraccionadas</b> (varios pagos por período de capitalización) / <b>continuas</b>.</td></tr>
 </table></div>
 <figure>
-<svg viewBox="0 0 760 300" role="img" aria-label="Rentas vencidas, adelantadas, diferidas y anticipadas en la recta del tiempo">
-<text x="20" y="40" class="rot">vencida</text>
-<line class="eje" x1="140" y1="40" x2="620" y2="40"/>
-<g class="rot"><text x="140" y="60" text-anchor="middle">0</text><text x="260" y="60" text-anchor="middle">1</text><text x="380" y="60" text-anchor="middle">2</text><text x="500" y="60" text-anchor="middle">…</text><text x="620" y="60" text-anchor="middle">n</text></g>
-<circle class="p1" cx="260" cy="40" r="6"/><circle class="p1" cx="380" cy="40" r="6"/><circle class="p1" cx="500" cy="40" r="6"/><circle class="p1" cx="620" cy="40" r="6"/>
-<text x="20" y="110" class="rot">adelantada</text>
-<line class="eje" x1="140" y1="110" x2="620" y2="110"/>
-<g class="rot"><text x="140" y="130" text-anchor="middle">0</text><text x="260" y="130" text-anchor="middle">1</text><text x="380" y="130" text-anchor="middle">2</text><text x="500" y="130" text-anchor="middle">n−1</text><text x="620" y="130" text-anchor="middle">n</text></g>
-<circle class="p2" cx="140" cy="110" r="6"/><circle class="p2" cx="260" cy="110" r="6"/><circle class="p2" cx="380" cy="110" r="6"/><circle class="p2" cx="500" cy="110" r="6"/>
-<text x="20" y="185" class="rot">MV de la diferida</text><text x="20" y="200" class="rot">y de la anticipada</text>
-<line class="eje" x1="60" y1="190" x2="720" y2="190"/>
-<polygon class="p3" points="60,178 54,166 66,166"/><text x="60" y="160" text-anchor="middle" class="rot">diferida (k antes)</text>
-<polygon class="p4" points="140,178 134,166 146,166"/><text x="140" y="160" text-anchor="middle" class="rot">inmediata</text>
-<polygon class="p3" points="440,178 434,166 446,166"/><text x="440" y="160" text-anchor="middle" class="rot">anticipada (h después)</text>
-<polygon class="p4" points="620,178 614,166 626,166"/><text x="620" y="160" text-anchor="middle" class="rot">valor final</text>
-<line class="eje" x1="140" y1="182" x2="140" y2="198"/><line class="eje" x1="620" y1="182" x2="620" y2="198"/>
-<text x="140" y="215" text-anchor="middle" class="rot">MI</text><text x="620" y="215" text-anchor="middle" class="rot">MF</text>
-<text x="380" y="260" text-anchor="middle" class="rot">Los puntos son los términos c. Los triángulos marcan dónde se puede valuar la renta.</text>
+<svg viewBox="0 0 760 188" role="img" aria-label="Renta inmediata vencida">
+<text x="14" y="16" style="font-weight:700">a) Inmediata vencida</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="610" cy="100" r="5"/><text x="610" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="160" y1="42" x2="160" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="160" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan></tspan><tspan font-style="italic">V</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
 </svg>
-<figcaption><b>Figura 4.1. Clasificación de las rentas en la recta del tiempo.</b> Arriba: en la vencida los n términos están en 1, 2, …, n; en la adelantada, en 0, 1, …, n−1. Abajo: según dónde se ubique el momento de valuación respecto del momento inicial (MI), la renta es diferida, inmediata o anticipada.</figcaption>
+<svg viewBox="0 0 760 188" role="img" aria-label="Renta inmediata adelantada">
+<text x="14" y="16" style="font-weight:700">b) Inmediata adelantada</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="160" cy="100" r="5"/><text x="160" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="160" y1="42" x2="160" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="160" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan></tspan><tspan font-style="italic">V'</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
+</svg>
+<svg viewBox="0 0 760 188" role="img" aria-label="Renta diferida vencida">
+<text x="14" y="16" style="font-weight:700">c) Diferida vencida</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="610" cy="100" r="5"/><text x="610" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="70" y1="42" x2="70" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="70" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan>m/</tspan><tspan font-style="italic">V</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
+<path d="M70,70 v-6 H160 v6" style="stroke:var(--err);fill:none;stroke-width:1.5"/><text x="115" y="62" text-anchor="middle" style="fill:var(--err);font-weight:700">m</text>
+</svg>
+<svg viewBox="0 0 760 188" role="img" aria-label="Renta diferida adelantada">
+<text x="14" y="16" style="font-weight:700">d) Diferida adelantada</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="160" cy="100" r="5"/><text x="160" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="70" y1="42" x2="70" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="70" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan>m/</tspan><tspan font-style="italic">V'</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
+<path d="M70,70 v-6 H160 v6" style="stroke:var(--err);fill:none;stroke-width:1.5"/><text x="115" y="62" text-anchor="middle" style="fill:var(--err);font-weight:700">m</text>
+</svg>
+<svg viewBox="0 0 760 188" role="img" aria-label="Renta anticipada vencida">
+<text x="14" y="16" style="font-weight:700">e) Anticipada vencida</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="610" cy="100" r="5"/><text x="610" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="340" y1="42" x2="340" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="340" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan>/m</tspan><tspan font-style="italic">V</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
+<path d="M160,70 v-6 H340 v6" style="stroke:var(--err);fill:none;stroke-width:1.5"/><text x="250" y="62" text-anchor="middle" style="fill:var(--err);font-weight:700">m</text>
+</svg>
+<svg viewBox="0 0 760 188" role="img" aria-label="Valor final de la renta">
+<text x="14" y="16" style="font-weight:700">f) Valor final (anticipada con m = n)</text>
+<line class="eje" x1="40" y1="100" x2="700" y2="100"/>
+<text x="430" y="105" text-anchor="middle" style="font-weight:700">//</text>
+<line class="eje" x1="160" y1="93" x2="160" y2="107"/><text x="160" y="124" text-anchor="middle" class="rot">0</text>
+<line class="eje" x1="250" y1="93" x2="250" y2="107"/><text x="250" y="124" text-anchor="middle" class="rot">1</text>
+<line class="eje" x1="340" y1="93" x2="340" y2="107"/><text x="340" y="124" text-anchor="middle" class="rot">2</text>
+<line class="eje" x1="520" y1="93" x2="520" y2="107"/><text x="520" y="124" text-anchor="middle" class="rot">n−1</text>
+<line class="eje" x1="610" y1="93" x2="610" y2="107"/><text x="610" y="124" text-anchor="middle" class="rot">n</text>
+<circle class="p1" cx="250" cy="100" r="5"/><text x="250" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="340" cy="100" r="5"/><text x="340" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="520" cy="100" r="5"/><text x="520" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<circle class="p1" cx="610" cy="100" r="5"/><text x="610" y="86" text-anchor="middle" style="fill:var(--acento);font-weight:700">C</text>
+<text x="160" y="142" text-anchor="middle" style="font-weight:700">MI</text><text x="610" y="142" text-anchor="middle" style="font-weight:700">MF</text>
+<line x1="610" y1="42" x2="610" y2="78" style="stroke:var(--ej);stroke-width:2;marker-end:url(#fl);color:var(--ej)"/>
+<text x="610" y="34" text-anchor="middle" style="fill:var(--ej);font-weight:700">MV · <tspan>/n</tspan><tspan font-style="italic">V = S</tspan><tspan font-size="11" dy="4">(n;i)</tspan></text>
+<path d="M160,156 v6 H610 v-6" class="eje"/><text x="385" y="176" text-anchor="middle" class="rot">n cuotas (plazo de la renta)</text>
+<path d="M160,70 v-6 H610 v6" style="stroke:var(--err);fill:none;stroke-width:1.5"/><text x="385" y="62" text-anchor="middle" style="fill:var(--err);font-weight:700">m</text>
+</svg>
+<figcaption><b>Figura 4.1. Rectas de tiempo de las rentas con la nomenclatura de la cátedra (Cra. Rott).</b> Eje horizontal: tiempo medido en períodos de la renta (0, 1, 2, …, n). <b>MI</b>: momento inicial (comienzo del primer período). <b>MF</b>: momento final (fin del último período). <b>MV</b>: momento de valuación, donde se calcula el valor de la renta. <b>C</b>: cuotas o términos. <b>n</b>: cantidad de cuotas. <b>m</b>: períodos entre MI y MV; a la izquierda de MI la renta es <b>diferida</b> (m/V), a la derecha es <b>anticipada</b> (/mV). La comilla (V') indica renta <b>adelantada</b> (cuotas al inicio de cada período). Con m = n el momento de valuación coincide con el final: /nV(n;i) = S(n;i).</figcaption>
 </figure>
+<div class="caja expl"><div class="tit">Nomenclatura de la cátedra (Cra. Rott) para las rectas de tiempo</div>
+<div class="tabla"><table><tr><th>Símbolo</th><th>Significado</th></tr>
+<tr><td><b>MI</b></td><td>Momento inicial: instante en que comienza el primer período de la renta (siempre existe).</td></tr>
+<tr><td><b>MF</b></td><td>Momento final: instante en que termina el último período (puede no existir: rentas perpetuas).</td></tr>
+<tr><td><b>MV</b></td><td>Momento de valuación: instante en que se calcula el valor de la renta (siempre existe).</td></tr>
+<tr><td><b>C</b></td><td>Cuota o término de la renta. (En las fórmulas de este apunte también se escribe c.)</td></tr>
+<tr><td><b>n</b></td><td>Cantidad de cuotas; duración de la renta medida en períodos.</td></tr>
+<tr><td><b>m</b></td><td>Períodos que median entre MI y MV. Si MV está antes de MI la renta es diferida; si está después, anticipada.</td></tr>
+<tr><td><b>V(n;i)</b> · <b>V'(n;i)</b></td><td>Valor de la renta inmediata vencida · adelantada (la comilla indica adelantada).</td></tr>
+<tr><td><b>m/V(n;i)</b></td><td>Valor de la renta diferida m períodos (la m va antes de la barra).</td></tr>
+<tr><td><b>/mV(n;i)</b></td><td>Valor de la renta anticipada m períodos (la m va después de la barra).</td></tr>
+<tr><td><b>S(n;i)</b></td><td>Valor final: caso particular de la anticipada con m = n, /nV(n;i) = S(n;i).</td></tr></table></div>
+<p><b>Valores de m</b> (tabla del apunte de la cátedra): exponente de v = (1+i)<sup>−1</sup> por el que se multiplica V(n;i) para obtener cada valor.</p>
+<div class="tabla"><table><tr><th>Valor buscado</th><th>Vencidas</th><th>Adelantadas</th></tr>
+<tr><td>Inmediatas</td><td>0</td><td>−1</td></tr>
+<tr><td>Diferidas</td><td>m</td><td>m − 1</td></tr>
+<tr><td>Anticipadas</td><td>−m</td><td>−m − 1</td></tr>
+<tr><td>Valor final</td><td>−n</td><td>−n − 1</td></tr></table></div>
+<p>Ejemplos: V'(n;i) = V(n;i)·v<sup>−1</sup> = V(n;i)(1+i); m/V'(n;i) = V(n;i)·v<sup>m−1</sup> (la adelantada se actualiza un período menos); /mV(n;i) = V(n;i)·v<sup>−m</sup> = V(n;i)(1+i)<sup>m</sup>; S(n;i) = V(n;i)·v<sup>−n</sup>.</p></div>
 <h4>Planteo de las ecuaciones de valor</h4>
 <p>El <b>valor actual</b> de una renta es la suma de los valores actuales de todos sus términos al momento de valuación; el <b>valor final</b>, la suma de los montos de todos los términos al momento final. Para una renta vencida, inmediata, de n términos c a la tasa i:</p>
 <div class="f"><div class="ec"><i>V</i> = <i>c·v</i> + <i>c·v</i><sup>2</sup> + … + <i>c·v</i><sup>n</sup> &nbsp;&nbsp;&nbsp; <i>S</i> = <i>c</i>(1+<i>i</i>)<sup>n−1</sup> + <i>c</i>(1+<i>i</i>)<sup>n−2</sup> + … + <i>c</i></div>
@@ -1157,7 +1269,7 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <tr><td>Precio de contado de una venta en cuotas</td><td>Inmediata</td></tr>
 <tr><td>Valor de las cuotas al momento de la cotización (antes de la venta)</td><td>Diferida</td></tr>
 <tr><td>Pago único que reemplaza las cuotas a mitad de plazo</td><td>Anticipada</td></tr>
-<tr><td>Lo ahorrado al final de un plan</td><td>Valor final (anticipada con h = n)</td></tr></table></div>
+<tr><td>Lo ahorrado al final de un plan</td><td>Valor final (anticipada con m = n)</td></tr></table></div>
 <!--INS p4-1 add_r4.html-->
 <h4>Valor de una renta en un momento cualquiera: el método general</h4>
 <p>Para cualquier renta (constante o no) y cualquier fecha de valuación t<sub>0</sub>, el valor es Σ c<sub>t</sub>(1+i)<sup>t<sub>0</sub>−t</sup>: los términos anteriores a t<sub>0</sub> se capitalizan y los posteriores se descuentan. Las fórmulas de 4.2 son atajos para el caso de términos iguales y equidistantes. Cuando los términos no siguen ninguna ley (como en el ej. 65 de la guía: retiros de $300.000, $200.000, $250.000 y $450.000), se aplica directamente la suma.</p>
@@ -1187,8 +1299,8 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <p>Cada término está un período antes que en la vencida: hay que capitalizarlo un período más (valor final) o descontarlo un período menos (valor actual). En ambos casos se multiplica por (1+i):</p>
 <div class="f"><div class="ec"><i>V</i>' = <i>c</i> · <i>a</i><sub>n¬i</sub> · (1 + <i>i</i>) = <i>c</i>(1 + <i>a</i><sub>n−1¬i</sub>) &nbsp;&nbsp;&nbsp; <i>S</i>' = <i>c</i> · <i>s</i><sub>n¬i</sub> · (1 + <i>i</i>) = <i>c</i>(<i>s</i><sub>n+1¬i</sub> − 1)</div><div class="dev"><span class="devt">Deducción paso a paso</span><ol class="pasos"><li><p>En la adelantada el término t está en t − 1 (un período antes). En el valor actual se descuenta un período menos:</p><div class="deq">V' = c (1 + v + … + v<sup>n−1</sup>) = (1 + i) · c (v + v<sup>2</sup> + … + v<sup>n</sup>) = c · a<sub>n¬i</sub> (1 + i)</div></li><li><p>Separando el primer término (que está en 0):</p><div class="deq">V' = c + c (v + … + v<sup>n−1</sup>) = c (1 + a<sub>n−1¬i</sub>)</div></li><li><p>En el valor final cada término capitaliza un período más:</p><div class="deq">S' = c [(1 + i) + … + (1 + i)<sup>n</sup>] = c · s<sub>n¬i</sub> (1 + i)</div></li><li><p>Agregando y quitando el término c del momento n:</p><div class="deq">S' = c [1 + (1 + i) + … + (1 + i)<sup>n</sup>] − c = c (s<sub>n+1¬i</sub> − 1)</div></li></ol></div></div>
 <h4>Rentas diferidas y anticipadas</h4>
-<div class="f"><div class="ec">Diferida k períodos: <sub>k/</sub><i>V</i> = <i>c</i> · <i>a</i><sub>n¬i</sub> · (1+<i>i</i>)<sup>−k</sup> = <i>c</i>(<i>a</i><sub>n+k¬i</sub> − <i>a</i><sub>k¬i</sub>) &nbsp;&nbsp;&nbsp; Anticipada h períodos: <sub>h/</sub><i>V</i> = <i>c</i> · <i>a</i><sub>n¬i</sub> · (1+<i>i</i>)<sup>h</sup></div>
-<div class="vars">En la diferida, k es el número de períodos entre el momento de valuación y el momento inicial (con renta vencida, el primer pago está en k+1). Si la misma renta se trata como adelantada, el diferimiento es k+1.</div><div class="dev"><span class="devt">Deducción paso a paso</span><ol class="pasos"><li><p><b>Diferida:</b> la renta vale c·a<sub>n¬i</sub> en su momento inicial, que está k períodos después del momento de valuación; se actualiza k períodos:</p><div class="deq"><sub>k/</sub>V = c · a<sub>n¬i</sub> · (1 + i)<sup>−k</sup></div></li><li><p>Otra forma: renta de n + k términos menos los k primeros (que no existen):</p><div class="deq"><sub>k/</sub>V = c (v<sup>k+1</sup> + … + v<sup>k+n</sup>) = c (a<sub>n+k¬i</sub> − a<sub>k¬i</sub>)</div></li><li><p><b>Anticipada:</b> el momento de valuación está h períodos después del inicial; se capitaliza h períodos:</p><div class="deq"><sub>h/</sub>V = c · a<sub>n¬i</sub> · (1 + i)<sup>h</sup></div></li></ol></div></div>
+<div class="f"><div class="ec">Diferida m períodos: <sub>m/</sub><i>V</i> = <i>c</i> · <i>a</i><sub>n¬i</sub> · (1+<i>i</i>)<sup>−m</sup> = <i>c</i>(<i>a</i><sub>n+m¬i</sub> − <i>a</i><sub>m¬i</sub>) &nbsp;&nbsp;&nbsp; Anticipada m períodos: <sub>/m</sub><i>V</i> = <i>c</i> · <i>a</i><sub>n¬i</sub> · (1+<i>i</i>)<sup>m</sup></div>
+<div class="vars">En la diferida, m es el número de períodos entre el momento de valuación y el momento inicial (con renta vencida, el primer pago está en m+1). Si la misma renta se trata como adelantada, el diferimiento es m+1.</div><div class="dev"><span class="devt">Deducción paso a paso</span><ol class="pasos"><li><p><b>Diferida:</b> la renta vale c·a<sub>n¬i</sub> en su momento inicial, que está m períodos después del momento de valuación; se actualiza m períodos:</p><div class="deq"><sub>m/</sub>V = c · a<sub>n¬i</sub> · (1 + i)<sup>−m</sup></div></li><li><p>Otra forma: renta de n + m términos menos los m primeros (que no existen):</p><div class="deq"><sub>m/</sub>V = c (v<sup>m+1</sup> + … + v<sup>m+n</sup>) = c (a<sub>n+m¬i</sub> − a<sub>m¬i</sub>)</div></li><li><p><b>Anticipada:</b> el momento de valuación está m períodos después del inicial; se capitaliza m períodos:</p><div class="deq"><sub>/m</sub>V = c · a<sub>n¬i</sub> · (1 + i)<sup>m</sup></div></li></ol></div></div>
 <div class="caja ej"><div class="tit">Ejemplo 4.2.a · Las seis variantes con los mismos datos</div>
 <p>12 cuotas mensuales de $100.000 al 5% efectivo mensual. a<sub>12;5%</sub> = 8,863252; s<sub>12;5%</sub> = 15,917127.</p>
 <div class="tabla"><table><tr><th>Renta</th><th>Fórmula</th><th class="n">Valor</th></tr>
@@ -1228,7 +1340,7 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <li>Aplicar la fórmula de n sin verificar que c &gt; V·i.</li></ul></div>
 <h4>Profundización y ejemplos integradores</h4><!--INS p4-2-->
 <h4>Rentas con datos "corridos": cómo detectar diferimientos y anticipaciones</h4>
-<p>La mayoría de los errores en rentas vienen de ubicar mal los términos. Una regla práctica: <b>marcar en la recta el momento de valuación y el primer término</b>. Si el primer término está k+1 períodos después del momento de valuación, es una vencida diferida k (o adelantada diferida k+1). Si el momento de valuación está después del inicio, es anticipada.</p>
+<p>La mayoría de los errores en rentas vienen de ubicar mal los términos. Una regla práctica: <b>marcar en la recta el momento de valuación y el primer término</b>. Si el primer término está k+1 períodos después del momento de valuación, es una vencida diferida m (o adelantada diferida m+1). Si el momento de valuación está después del inicio, es anticipada.</p>
 <div class="caja ej"><div class="tit">Ejemplo integrador · Retiros después de un ahorro (guía, ej. 123)</div>
 <p class="paso">Se depositan $10.000 al final de cada mes durante un año al 5% mensual: S = 10.000·s<sub>12;5%</sub> = $ 159.171,27.</p>
 <p class="paso">Seis retiros mensuales empezando 30 días después: renta vencida inmediata respecto del final del ahorro: c = S/a<sub>6;5%</sub> = <b>$ 31.359,52</b>.</p>
@@ -1300,19 +1412,19 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <tr><th>Relación</th><th>Fórmula</th><th>Por qué</th></tr>
 <tr><td>Adelantada / vencida (VA y VF)</td><td>X' = X · (1+i)</td><td>Cada término está un período antes.</td></tr>
 <tr><td>Valor final / valor actual</td><td>S = V(1+i)<sup>n</sup>; s<sub>n¬i</sub> = a<sub>n¬i</sub>(1+i)<sup>n</sup></td><td>Misma renta valuada n períodos después.</td></tr>
-<tr><td>Diferida / inmediata</td><td><sub>k/</sub>V = V·v<sup>k</sup></td><td>Se valúa k períodos antes.</td></tr>
-<tr><td>Anticipada / inmediata</td><td><sub>h/</sub>V = V(1+i)<sup>h</sup></td><td>Se valúa h períodos después; con h = n es el valor final.</td></tr>
-<tr><td>Diferida adelantada / vencida</td><td><sub>k/</sub>V' = <sub>k−1/</sub>V</td><td>Una adelantada diferida k equivale a una vencida diferida k−1.</td></tr>
+<tr><td>Diferida / inmediata</td><td><sub>m/</sub>V = V·v<sup>m</sup></td><td>Se valúa m períodos antes.</td></tr>
+<tr><td>Anticipada / inmediata</td><td><sub>/m</sub>V = V(1+i)<sup>m</sup></td><td>Se valúa m períodos después; con m = n es el valor final.</td></tr>
+<tr><td>Diferida adelantada / vencida</td><td><sub>m/</sub>V' = <sub>m−1/</sub>V</td><td>Una adelantada diferida m equivale a una vencida diferida m−1.</td></tr>
 <tr><td>Recuperación / fondo</td><td>1/a<sub>n¬i</sub> = 1/s<sub>n¬i</sub> + i</td><td>Cuota de préstamo = interés + aporte a un fondo (francés vs. americano, 7.1).</td></tr>
 <tr><td>Adelantada como vencida</td><td>a'<sub>n¬i</sub> = 1 + a<sub>n−1¬i</sub>; s'<sub>n¬i</sub> = s<sub>n+1¬i</sub> − 1</td><td>Separar el primer término (o agregar uno).</td></tr>
 </table></div>
 <figure>
 <svg viewBox="0 0 760 260" role="img" aria-label="Mapa de relaciones entre valores de una renta">
-<rect class="bx" x="40" y="100" width="150" height="50" rx="6"/><text x="115" y="130" text-anchor="middle">diferida (k/V)</text>
-<rect class="bx" x="300" y="100" width="150" height="50" rx="6"/><text x="375" y="130" text-anchor="middle">inmediata (V)</text>
-<rect class="bx" x="560" y="100" width="160" height="50" rx="6"/><text x="640" y="130" text-anchor="middle">final (S = n/V)</text>
+<rect class="bx" x="40" y="100" width="150" height="50" rx="6"/><text x="115" y="130" text-anchor="middle">diferida (m/V)</text>
+<rect class="bx" x="300" y="100" width="150" height="50" rx="6"/><text x="375" y="130" text-anchor="middle">inmediata (V, MV = MI)</text>
+<rect class="bx" x="560" y="100" width="160" height="50" rx="6"/><text x="640" y="130" text-anchor="middle">final (S = /nV)</text>
 <rect class="bx2" x="300" y="200" width="150" height="45" rx="6"/><text x="375" y="227" text-anchor="middle">adelantada (V')</text>
-<line class="flecha" x1="300" y1="115" x2="192" y2="115"/><text x="245" y="105" text-anchor="middle" class="rot">× v^k</text>
+<line class="flecha" x1="300" y1="115" x2="192" y2="115"/><text x="245" y="105" text-anchor="middle" class="rot">× vᵐ</text>
 <line class="flecha" x1="452" y1="115" x2="558" y2="115"/><text x="505" y="105" text-anchor="middle" class="rot">× (1+i)^n</text>
 <line class="flecha" x1="375" y1="152" x2="375" y2="198"/><text x="385" y="180" class="rot">× (1+i)</text>
 <text x="375" y="40" text-anchor="middle" class="rot">Cualquier valor de la renta se obtiene de otro multiplicando por (1+i) elevado a la distancia entre momentos</text>
@@ -1331,8 +1443,8 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <h4>Cuadro resumen de fórmulas de rentas constantes</h4>
 <div class="tabla"><table><tr><th></th><th>Vencida</th><th>Adelantada</th></tr>
 <tr><td>Valor actual inmediato</td><td>c·a<sub>n¬i</sub></td><td>c·a<sub>n¬i</sub>(1+i)</td></tr>
-<tr><td>Valor actual diferido k</td><td>c·a<sub>n¬i</sub>·v<sup>k</sup></td><td>c·a<sub>n¬i</sub>(1+i)·v<sup>k</sup></td></tr>
-<tr><td>Valor anticipado h</td><td>c·a<sub>n¬i</sub>(1+i)<sup>h</sup></td><td>c·a<sub>n¬i</sub>(1+i)<sup>h+1</sup></td></tr>
+<tr><td>Valor actual diferido m</td><td>c·a<sub>n¬i</sub>·v<sup>m</sup></td><td>c·a<sub>n¬i</sub>(1+i)·v<sup>m</sup></td></tr>
+<tr><td>Valor anticipado m</td><td>c·a<sub>n¬i</sub>(1+i)<sup>m</sup></td><td>c·a<sub>n¬i</sub>(1+i)<sup>m+1</sup></td></tr>
 <tr><td>Valor final</td><td>c·s<sub>n¬i</sub></td><td>c·s<sub>n¬i</sub>(1+i)</td></tr>
 <tr><td>Cuota (desde V)</td><td>V/a<sub>n¬i</sub></td><td>V/[a<sub>n¬i</sub>(1+i)]</td></tr>
 <tr><td>n (desde V)</td><td>log c − log(c − V·i) / log(1+i)</td><td>log[c(1+i)] − log[c(1+i) − V·i] / log(1+i)</td></tr>
@@ -1365,7 +1477,7 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <div class="f"><div class="ec"><i>R</i> = <i>c · m</i> [1 + <span class="fr"><span><i>i</i><sub>m</sub>(<i>m</i> − 1)</span><span>2</span></span>] &nbsp;&nbsp;&nbsp; <i>S</i> = <i>R</i> · <i>s</i><sub>n¬i</sub> &nbsp;&nbsp;&nbsp; <i>V</i> = <i>R</i> · <i>a</i><sub>n¬i</sub></div>
 <div class="vars">c: depósito subperiódico · m: depósitos por período · i<sub>m</sub>: tasa simple del subperíodo (proporcional) · i: tasa compuesta del período · n: número de períodos. Adelantados: (m+1) en lugar de (m−1).</div><div class="dev"><span class="devt">Deducción paso a paso</span><ol class="pasos"><li><p>Dentro de cada período de capitalización hay m depósitos c a interés simple (tasa i<sub>m</sub>); su valor al final del período es la fórmula 47 con m términos:</p><div class="deq">R = c · m [1 + <span class="fr"><span>i<sub>m</sub> (m − 1)</span><span>2</span></span>]</div></li><li><p>Ese término equivalente R se repite al final de cada uno de los n períodos, y entre períodos capitaliza a interés compuesto:</p><div class="deq">S = R · s<sub>n¬i</sub> V = R · a<sub>n¬i</sub></div></li></ol></div></div>
 <figure>
-<svg viewBox="0 0 760 220" role="img" aria-label="Renta combinada: depósitos mensuales y capitalización semestral">
+<svg viewBox="0 0 760 232" role="img" aria-label="Renta combinada: depósitos mensuales y capitalización semestral">
 <line class="eje" x1="60" y1="120" x2="720" y2="120"/>
 <line class="eje" x1="60" y1="105" x2="60" y2="135"/><line class="eje" x1="380" y1="100" x2="380" y2="140"/><line class="eje" x1="700" y1="100" x2="700" y2="140"/>
 <g class="p1"><circle cx="113" cy="120" r="5"/><circle cx="167" cy="120" r="5"/><circle cx="220" cy="120" r="5"/><circle cx="273" cy="120" r="5"/><circle cx="327" cy="120" r="5"/><circle cx="380" cy="120" r="5"/>
@@ -1374,6 +1486,7 @@ svg .rot{font-size:12px;fill:var(--suave)}
 <text x="380" y="165" text-anchor="middle" style="fill:var(--ej)">R</text><text x="700" y="165" text-anchor="middle" style="fill:var(--ej)">R</text>
 <text x="380" y="200" text-anchor="middle" class="rot">capitalización semestral: los R forman una renta compuesta</text>
 <text x="60" y="155" text-anchor="middle" class="rot">0</text>
+<text x="60" y="178" text-anchor="middle" style="font-weight:700">MI</text><text x="700" y="178" text-anchor="middle" style="font-weight:700">MF = MV · S(n;i)</text>
 </svg>
 <figcaption><b>Figura 5.1. Renta combinada.</b> Dentro de cada semestre los depósitos mensuales ganan interés simple y se resumen en un término equivalente R al final del semestre; los R se capitalizan entre semestres a interés compuesto.</figcaption>
 </figure>

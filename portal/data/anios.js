@@ -14,7 +14,7 @@ window.PORTAL.anios = [
       { nombre: "Inferencia Estadística", estado: "pronto" },
       { nombre: "Inferencia Estadística (LE)", estado: "app", url: "https://inferencia-estadistica-estudio.onrender.com", desc: "Teoría del 1º parcial con fórmulas y banco de preguntas" },
       { nombre: "Marketing", estado: "pronto" },
-      { nombre: "Matemática Financiera", estado: "pronto" },
+      { nombre: "Matemática Financiera", estado: "app", url: "https://matematica-financiera-estudio.onrender.com", desc: "Apunte completo del programa, guía de TP resuelta, parciales y finales" },
       { nombre: "Microeconomía Avanzada", estado: "pronto" },
       { nombre: "Seminario: Escritura Científica", estado: "app", url: "https://seminario-escritura-estudio.onrender.com", desc: "Paradigma económico, estructura del artículo, escritura clara y falacias" },
       { nombre: "Sistema Administrativo", estado: "pronto" }

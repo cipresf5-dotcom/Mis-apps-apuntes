@@ -16,6 +16,7 @@ desplegadas desde este mismo repositorio en Render.
 | [`historia-economica/`](historia-economica/) | Historia Económica (3er año) | `https://historia-economica-estudio.onrender.com` |
 | [`sociologia-organizaciones/`](sociologia-organizaciones/) | Sociología de las Organizaciones, apunte completo (5to año) | `https://sociologia-organizaciones-estudio.onrender.com` |
 | [`seminario-escritura/`](seminario-escritura/) | Seminario: Escritura Científica (3er año) | `https://seminario-escritura-estudio.onrender.com` |
+| [`matematica-financiera/`](matematica-financiera/) | Matemática Financiera: apunte completo, guía resuelta, parciales y finales (3er año) | `https://matematica-financiera-estudio.onrender.com` |
 
 El portal linkea a cada app publicada; las materias sin app propia aparecen
 como «Próximamente». Para conectar una materia nueva: crear su carpeta acá,

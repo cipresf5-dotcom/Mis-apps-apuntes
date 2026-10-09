@@ -58,3 +58,10 @@ services:
     rootDir: sociologia-organizaciones
     buildCommand: ""
     staticPublishPath: .
+
+  - type: web
+    name: matematica-financiera-estudio
+    runtime: static
+    rootDir: matematica-financiera
+    buildCommand: ""
+    staticPublishPath: .

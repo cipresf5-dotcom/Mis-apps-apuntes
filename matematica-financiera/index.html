@@ -99,23 +99,31 @@ th{color:var(--muted);font-weight:500}
 .exam[open]>summary{margin-bottom:8px}
 .src{font-size:13px;color:var(--muted)}
 .xq{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.apunte-frame{display:block;width:100%;height:calc(100vh - 120px);min-height:520px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+section#teoria{margin-inline:-8px}
 @media (max-width:760px){.split{grid-template-columns:1fr}.side{position:static;flex-direction:row;overflow-x:auto}.side button{white-space:nowrap}.row{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 <header><div class="hwrap">
-<h1>Mesa de Matemática Financiera <small>UNNE · Teoría, Guía de TP resuelta, parciales y finales · <a href="apunte.html" style="color:var(--accent);font-weight:600">Apunte completo →</a></small></h1>
+<h1>Mesa de Matemática Financiera <small>UNNE · Teoría, Guía de TP resuelta, parciales y finales · <a href="apunte.html" target="_blank" style="color:var(--accent);font-weight:600">Abrir apunte en pantalla completa ↗</a></small></h1>
 <nav role="tablist" id="tabs">
   <button data-t="teoria" aria-selected="true">Teoría</button>
 
   <button data-t="guia">Guía de TP</button>
   <button data-t="examenes">Parciales y finales</button>
   <button data-t="practica">Práctica generada</button>
+  <button data-t="resumen">Resumen</button>
 </nav></div></header>
 
 <main>
-<!-- TEORÍA -->
+<!-- TEORÍA: apunte completo -->
 <section id="teoria">
+  <iframe src="apunte.html" title="Apunte completo de Matemática Financiera" class="apunte-frame"></iframe>
+</section>
+
+<!-- RESUMEN -->
+<section id="resumen" hidden>
   <div class="split">
     <div class="side" id="unitNav"></div>
     <div class="theory" id="unitBody"></div>
